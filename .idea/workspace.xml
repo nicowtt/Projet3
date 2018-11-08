@@ -2,13 +2,83 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4d8816a4-8056-496c-98e8-917fb9d6ff19" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Logger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/log4j_apache_log4j_extras_1_2_17.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Log4j.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__log4j_log4j_1_2_12.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_8_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_api_2_11_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_core_2_11_1.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projet3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Projet3.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apache-log4j-2.11.1-bin/LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apache-log4j-2.11.1-bin/NOTICE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apache-log4j-2.11.1-bin/RELEASE-NOTES.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apache-log4j-2.11.1-bin/log4j-1.2-api-2.11.1-javadoc.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apache-log4j-2.11.1-bin/log4j-1.2-api-2.11.1-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apache-log4j-2.11.1-bin/log4j-1.2-api-2.11.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apache-log4j-2.11.1-bin/log4j-api-2.11.1-javadoc.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apache-log4j-2.11.1-bin/log4j-api-2.11.1-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apache-log4j-2.11.1-bin/log4j-api-2.11.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apache-log4j-2.11.1-bin/log4j-appserver-2.11.1-javadoc.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apache-log4j-2.11.1-bin/log4j-appserver-2.11.1-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apache-log4j-2.11.1-bin/log4j-appserver-2.11.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apache-log4j-2.11.1-bin/log4j-cassandra-2.11.1-javadoc.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apache-log4j-2.11.1-bin/log4j-cassandra-2.11.1-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apache-log4j-2.11.1-bin/log4j-cassandra-2.11.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apache-log4j-2.11.1-bin/log4j-core-2.11.1-javadoc.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apache-log4j-2.11.1-bin/log4j-core-2.11.1-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apache-log4j-2.11.1-bin/log4j-core-2.11.1-tests.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apache-log4j-2.11.1-bin/log4j-core-2.11.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apache-log4j-2.11.1-bin/log4j-couchdb-2.11.1-javadoc.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apache-log4j-2.11.1-bin/log4j-couchdb-2.11.1-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apache-log4j-2.11.1-bin/log4j-couchdb-2.11.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apache-log4j-2.11.1-bin/log4j-flume-ng-2.11.1-javadoc.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apache-log4j-2.11.1-bin/log4j-flume-ng-2.11.1-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apache-log4j-2.11.1-bin/log4j-flume-ng-2.11.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apache-log4j-2.11.1-bin/log4j-iostreams-2.11.1-javadoc.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apache-log4j-2.11.1-bin/log4j-iostreams-2.11.1-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apache-log4j-2.11.1-bin/log4j-iostreams-2.11.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apache-log4j-2.11.1-bin/log4j-jcl-2.11.1-javadoc.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apache-log4j-2.11.1-bin/log4j-jcl-2.11.1-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apache-log4j-2.11.1-bin/log4j-jcl-2.11.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apache-log4j-2.11.1-bin/log4j-jdbc-dbcp2-2.11.1-javadoc.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apache-log4j-2.11.1-bin/log4j-jdbc-dbcp2-2.11.1-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apache-log4j-2.11.1-bin/log4j-jdbc-dbcp2-2.11.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apache-log4j-2.11.1-bin/log4j-jmx-gui-2.11.1-javadoc.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apache-log4j-2.11.1-bin/log4j-jmx-gui-2.11.1-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apache-log4j-2.11.1-bin/log4j-jmx-gui-2.11.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apache-log4j-2.11.1-bin/log4j-jpa-2.11.1-javadoc.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apache-log4j-2.11.1-bin/log4j-jpa-2.11.1-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apache-log4j-2.11.1-bin/log4j-jpa-2.11.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apache-log4j-2.11.1-bin/log4j-jul-2.11.1-javadoc.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apache-log4j-2.11.1-bin/log4j-jul-2.11.1-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apache-log4j-2.11.1-bin/log4j-jul-2.11.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apache-log4j-2.11.1-bin/log4j-liquibase-2.11.1-javadoc.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apache-log4j-2.11.1-bin/log4j-liquibase-2.11.1-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apache-log4j-2.11.1-bin/log4j-liquibase-2.11.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apache-log4j-2.11.1-bin/log4j-mongodb2-2.11.1-javadoc.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apache-log4j-2.11.1-bin/log4j-mongodb2-2.11.1-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apache-log4j-2.11.1-bin/log4j-mongodb2-2.11.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apache-log4j-2.11.1-bin/log4j-mongodb3-2.11.1-javadoc.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apache-log4j-2.11.1-bin/log4j-mongodb3-2.11.1-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apache-log4j-2.11.1-bin/log4j-mongodb3-2.11.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apache-log4j-2.11.1-bin/log4j-slf4j-impl-2.11.1-javadoc.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apache-log4j-2.11.1-bin/log4j-slf4j-impl-2.11.1-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apache-log4j-2.11.1-bin/log4j-slf4j-impl-2.11.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apache-log4j-2.11.1-bin/log4j-slf4j18-impl-2.11.1-javadoc.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apache-log4j-2.11.1-bin/log4j-slf4j18-impl-2.11.1-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apache-log4j-2.11.1-bin/log4j-slf4j18-impl-2.11.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apache-log4j-2.11.1-bin/log4j-taglib-2.11.1-javadoc.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apache-log4j-2.11.1-bin/log4j-taglib-2.11.1-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apache-log4j-2.11.1-bin/log4j-taglib-2.11.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apache-log4j-2.11.1-bin/log4j-to-slf4j-2.11.1-javadoc.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apache-log4j-2.11.1-bin/log4j-to-slf4j-2.11.1-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apache-log4j-2.11.1-bin/log4j-to-slf4j-2.11.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apache-log4j-2.11.1-bin/log4j-web-2.11.1-javadoc.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apache-log4j-2.11.1-bin/log4j-web-2.11.1-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apache-log4j-2.11.1-bin/log4j-web-2.11.1.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Choices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Choices.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/ReadPropertiesFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/ReadPropertiesFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/WritePropertiesFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/WritePropertiesFile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config.properties" afterDir="false" />
     </list>
@@ -26,7 +96,7 @@
       <file leaf-file-name="Choices.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Choices.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
+            <state relative-caret-position="105">
               <caret line="8" selection-start-line="8" selection-end-line="8" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -38,8 +108,8 @@
       <file leaf-file-name="WritePropertiesFile.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/WritePropertiesFile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="26" column="46" selection-start-line="26" selection-start-column="46" selection-end-line="26" selection-end-column="46" />
+            <state relative-caret-position="180">
+              <caret line="18" column="15" selection-start-line="18" selection-start-column="15" selection-end-line="18" selection-end-column="15" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -50,17 +120,32 @@
       <file leaf-file-name="ReadPropertiesFile.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/ReadPropertiesFile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="33" column="39" selection-start-line="33" selection-start-column="39" selection-end-line="33" selection-end-column="39" />
+            <state relative-caret-position="162">
+              <caret line="39" column="13" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Logger.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Logger.java">
+      <file leaf-file-name="Log4j.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Log4j.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+            <state relative-caret-position="180">
+              <caret line="12" column="42" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="log4j.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="12" column="38" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -68,17 +153,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="39" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="config.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/config.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
+            <state relative-caret-position="225">
+              <caret line="15" selection-start-line="15" selection-end-line="15" />
             </state>
           </provider>
         </entry>
@@ -101,11 +177,17 @@
         <option value="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Choice.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Choices.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/WritePropertiesFile.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Main.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/ReadPropertiesFile.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/config.properties" />
         <option value="$PROJECT_DIR$/src/main/resources/log4j.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Logger.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/TestLog4j1.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/TestLoger4j.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/log4j.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/config.properties" />
+        <option value="$PROJECT_DIR$/src/main/resources/log4j.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/ReadPropertiesFile.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Log4j.java" />
       </list>
     </option>
   </component>
@@ -126,10 +208,10 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-11" />
-    <option name="y" value="-11" />
-    <option name="width" value="1943" />
-    <option name="height" value="1103" />
+    <option name="x" value="-12" />
+    <option name="y" value="-12" />
+    <option name="width" value="1944" />
+    <option name="height" value="1104" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -139,8 +221,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
@@ -193,14 +275,24 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path" value="C:\Users\nicob\Documents\GitHub\Projet3\lib\log4j-1.2.17" />
+    <property name="Downloaded.Files.Path.Enabled" value="true" />
+    <property name="Repository.Attach.JavaDocs" value="true" />
+    <property name="Repository.Attach.Sources" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/log4j-1.2.17" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.4402299" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\nicob\Documents\GitHub\Projet3\src\main\resources" />
+      <recent name="C:\Users\nicob\Documents\GitHub\Projet3\src\main\java\com\ocr\nicolas" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -214,9 +306,42 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.Log4j">
+    <configuration name="Log4j" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.ocr.nicolas.Log4j" />
+      <module name="Projet3" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ocr.nicolas.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.ocr.nicolas.Main" />
+      <module name="Projet3" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ocr.nicolas.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+    </configuration>
+    <configuration name="TestLog4j1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.ocr.nicolas.TestLog4j1" />
+      <module name="Projet3" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ocr.nicolas.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+    </configuration>
+    <configuration name="TestLoger4j" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.ocr.nicolas.TestLoger4j" />
       <module name="Projet3" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
@@ -281,10 +406,16 @@
     <list>
       <item itemvalue="Application.WritePropertiesFile" />
       <item itemvalue="Application.Main" />
+      <item itemvalue="Application.TestLog4j1" />
+      <item itemvalue="Application.TestLoger4j" />
+      <item itemvalue="Application.Log4j" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Log4j" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.TestLoger4j" />
+        <item itemvalue="Application.TestLog4j1" />
         <item itemvalue="Application.WritePropertiesFile" />
       </list>
     </recent_temporary>
@@ -300,7 +431,9 @@
       <option name="presentableId" value="Default" />
       <updated>1541607888075</updated>
       <workItem from="1541607890968" duration="4580000" />
-      <workItem from="1541667543763" duration="16708000" />
+      <workItem from="1541667543763" duration="21488000" />
+      <workItem from="1541694323703" duration="3255000" />
+      <workItem from="1541697607009" duration="241000" />
     </task>
     <task id="LOCAL-00001" summary="Developer mode choice added">
       <created>1541675992476</created>
@@ -316,11 +449,18 @@
       <option name="project" value="LOCAL" />
       <updated>1541685863636</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Function added:&#10;&#10;Write if needed developer mode on properties File.&#10;&#10;Log4j.properties added on resources folder.">
+      <created>1541689908830</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1541689908830</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21288000" />
+    <option name="totallyTimeSpent" value="29564000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -337,25 +477,25 @@
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32888147" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.32554257" />
-      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32554257" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info id="Image Layers" order="2" />
-      <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.32888147" />
-      <window_info anchor="right" id="Maven Projects" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.32888147" />
+      <window_info anchor="right" id="Maven Projects" order="7" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32888147" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32554257" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info id="Capture Tool" order="2" />
-      <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29797572" />
-      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32888147" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32554257" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32888147" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info id="Designer" order="3" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20080972" />
+      <window_info anchor="right" id="Database" order="6" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info id="UI Designer" order="2" />
-      <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info id="UI Designer" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -364,36 +504,6 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" />
     </layout>
-    <layout-to-restore>
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32554257" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2534413" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32888147" />
-      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info id="Image Layers" order="2" />
-      <window_info id="Designer" order="3" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info id="UI Designer" order="4" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="right" id="Database" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.32888147" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32888147" />
-      <window_info id="Capture Tool" order="5" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info active="true" anchor="bottom" id="Messages" order="11" visible="true" weight="0.32554257" />
-      <window_info anchor="right" id="Maven Projects" order="8" />
-      <window_info id="Favorites" order="6" side_tool="true" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -430,7 +540,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Developer mode choice added" />
     <MESSAGE value="Wrong input exception on developer mode menu added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Wrong input exception on developer mode menu added" />
+    <MESSAGE value="Function added:&#10;&#10;Write if needed developer mode on properties File.&#10;&#10;Log4j.properties added on resources folder." />
+    <option name="LAST_COMMIT_MESSAGE" value="Function added:&#10;&#10;Write if needed developer mode on properties File.&#10;&#10;Log4j.properties added on resources folder." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -438,6 +549,125 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Choices.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/WritePropertiesFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="18" column="15" selection-start-line="18" selection-start-column="15" selection-end-line="18" selection-end-column="15" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/ReadPropertiesFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="39" column="13" lean-forward="true" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Log4j.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="23" column="33" lean-forward="true" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/config.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="38" lean-forward="true" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/logs.log">
+      <provider selected="true" editor-type-id="LogFileEditorProvider" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Choices.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/WritePropertiesFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="26" column="46" selection-start-line="26" selection-start-column="46" selection-end-line="26" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/ReadPropertiesFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="42" column="48" selection-start-line="42" selection-start-column="48" selection-end-line="42" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/TestLoger4j.java" />
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/config.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="39" selection-start-line="6" selection-start-column="39" selection-end-line="6" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Choices.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
@@ -459,20 +689,7 @@
     <entry file="file://$PROJECT_DIR$/Projet3.iml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/modules.uml">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>MODULES</ID>
-          <OriginalElement />
-          <nodes />
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="0.0" y="0.0" />
-          <SelectedNodes />
-          <Categories />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/modules.uml" />
     <entry file="uml://JavaScript-modules-diagram/C:/Users/nicob/Documents/GitHub/Projet3/src/main">
       <provider selected="true" editor-type-id="UmlEditorProvider">
         <state>
@@ -481,19 +698,55 @@
           <nodes />
           <notes />
           <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="461.0" y="273.5" />
+          <settings layout="Hierarchic Group" zoom="1.0" x="461.0" y="274.0" />
           <SelectedNodes />
           <Categories>
             <Category>All</Category>
           </Categories>
+          <SCOPE>All</SCOPE>
           <VISIBILITY>Details</VISIBILITY>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Logger.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.properties" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/TestLog4j1.java" />
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="10" lean-forward="true" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/TestLoger4j.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Choices.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
+        <state relative-caret-position="105">
           <caret line="8" selection-start-line="8" selection-end-line="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="38" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/config.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/ReadPropertiesFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="39" column="13" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -502,46 +755,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/WritePropertiesFile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="46" selection-start-line="26" selection-start-column="46" selection-end-line="26" selection-end-column="46" />
+        <state relative-caret-position="180">
+          <caret line="18" column="15" selection-start-line="18" selection-start-column="15" selection-end-line="18" selection-end-column="15" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/config.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="39" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="39" />
+        <state relative-caret-position="225">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="72" selection-start-line="3" selection-start-column="72" selection-end-line="3" selection-end-column="72" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/logs.log">
+      <provider editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="LogFileEditorProvider" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/ReadPropertiesFile.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Log4j.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="33" column="39" selection-start-line="33" selection-start-column="39" selection-end-line="33" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Logger.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+        <state relative-caret-position="180">
+          <caret line="12" column="42" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -554,7 +793,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.4402299" />
               </list>
             </option>
           </splitter-proportions>
@@ -577,7 +816,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.4402299" />
               </list>
             </option>
           </splitter-proportions>
@@ -589,7 +828,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.4402299" />
               </list>
             </option>
           </splitter-proportions>
@@ -597,11 +836,12 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>main</last-edited>
+          <last-edited>Projet3</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
@@ -621,11 +861,11 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>apache-log4j-2.11.1-bin</last-edited>
+          <last-edited>log4j:apache-log4j-extras:1.2.17</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.4402299" />
               </list>
             </option>
           </splitter-proportions>

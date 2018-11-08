@@ -1,10 +1,14 @@
 package com.ocr.nicolas;
 
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
+
+import static com.ocr.nicolas.Log4j.logger;
+
 
 public class ReadPropertiesFile {
 
@@ -32,11 +36,11 @@ public class ReadPropertiesFile {
         String developerMode;
         developerMode = prop.getProperty("DeveloperMode");
         if (developerMode.equals("yes"))
-            System.out.println("DeveloperMode est deja ok ");
-        else {
+            logger.info("DeveloperMode est deja ok ");
+        else{
             WritePropertiesFile write = new WritePropertiesFile();
             write.ForceDeveloperModeWriteOnPropertiesFile();
-            System.out.println("developerMode writed");
+            logger.info("developerMode writed");
         }
 
 
