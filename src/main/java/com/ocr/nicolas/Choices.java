@@ -8,6 +8,7 @@ public class Choices {
     Scanner sc = new Scanner(System.in);
 
 
+
     /**
      * Display Ask developer choice
      */
@@ -27,7 +28,6 @@ public class Choices {
     public void displayDeveloperChoice() {
 
         boolean responseIsGood;
-
         int developerChoice = 1;
 
         do {

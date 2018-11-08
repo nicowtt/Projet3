@@ -7,7 +7,9 @@ import java.io.InputStream;
 import java.util.Properties;
 
 public class ReadPropertiesFile {
-    public static void main(final String[] args) {
+
+    public void ReadIfDeveloperModeIsOn() {
+
 
         Properties prop = new Properties();
         InputStream input = null;
@@ -25,9 +27,25 @@ public class ReadPropertiesFile {
             System.out.println("Problème entrée sortie");
         }
 
+
+        // check
+        String developerMode;
+        developerMode = prop.getProperty("DeveloperMode");
+        if (developerMode.equals("yes"))
+            System.out.println("DeveloperMode est deja ok ");
+        else {
+            WritePropertiesFile write = new WritePropertiesFile();
+            write.ForceDeveloperModeWriteOnPropertiesFile();
+            System.out.println("developerMode writed");
+        }
+
+
+
+
         // get the property value and print it out
-        System.out.println(prop.getProperty("DeveloperMode"));
-        System.out.println(prop.getProperty("GameToPlay"));
+
+        //System.out.println(prop.getProperty("DeveloperMode"));
+        //System.out.println(prop.getProperty("GameToPlay"));
 
         }
     }

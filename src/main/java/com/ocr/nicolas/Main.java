@@ -8,5 +8,12 @@ public class Main {
         choice.displayAskDeveloperChoice();
         choice.displayDeveloperChoice();
 
+        ReadPropertiesFile read = new ReadPropertiesFile();
+        read.ReadIfDeveloperModeIsOn();
+
+
+
+
+
     }
 }
