@@ -21,12 +21,16 @@ public class WritePropertiesFile {
         //Line to write in .properties
         prop.setProperty("DeveloperMode", "yes");
         prop.setProperty("GameToPlay", "SearchNumber");
+        prop.setProperty("NumberCaseCombination","1");
+        prop.setProperty("NumberOfTry", "10");
+        prop.setProperty("MastermindHowManyNumber_4-10","4");
+
 
         try {
-            //save properties to project root folder
+            //save .properties to resources folder
             prop.store(output, null);
         } catch (IOException e) {
-            System.err.println("Probleme Input Output");
+            System.err.println("Problème Entrée Sortie");
         }
 
     }
