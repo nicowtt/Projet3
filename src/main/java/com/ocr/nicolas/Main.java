@@ -8,8 +8,5 @@ public class Main {
         choice.displayAskDeveloperChoice();
         choice.displayDeveloperChoice();
 
-
-
-
     }
 }

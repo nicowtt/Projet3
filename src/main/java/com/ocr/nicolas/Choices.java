@@ -14,9 +14,9 @@ public class Choices {
     public void displayAskDeveloperChoice() {
 
         System.out.println("Bienvenu aux jeux de logique");
-        System.out.println("Mode Developpeur ? ");
-        System.out.println("1-oui");
-        System.out.println("2-non");
+        System.out.println("Voulez-vous jouer en Mode Developpeur ? ");
+        System.out.println("1-> oui");
+        System.out.println("2-> non");
 
     }
 
@@ -26,11 +26,23 @@ public class Choices {
      */
     public void displayDeveloperChoice() {
 
-        int developerChoice = -1;
         boolean responseIsGood;
+
+        int developerChoice = 1;
+
         do {
-            System.out.println("choix: ");
-            developerChoice = sc.nextInt();
+            try {
+                System.out.println("quel est votre choix: ");
+                developerChoice = sc.nextInt();
+                responseIsGood = true;
+            } catch (InputMismatchException e) {
+                sc.next();
+                System.out.println("ooups erreur chiffre uniquement (1 ou 2):");
+                responseIsGood = false;
+            }
+        } while (!responseIsGood);
+
+        do {
             switch (developerChoice) {
                 case 1:
                     System.out.println("Vous avez choisi le mode developpeur");
@@ -41,19 +53,15 @@ public class Choices {
                     responseIsGood = true;
                     break;
                 default:
-                    System.out.println("Vous n'avez pas choisi parmi les choix proposés");
+                    System.out.println("Veuillez choisir parmi les choix proposés (1 ou 2):");
                     responseIsGood = false;
+                    developerChoice = sc.nextInt();
                     break;
             }
         }while (!responseIsGood);
     }
 }
 
-
-    /**
-     * Run asking developerMode
-     *
-     */
 
 
 
