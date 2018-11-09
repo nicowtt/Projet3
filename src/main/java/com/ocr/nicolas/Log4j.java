@@ -11,11 +11,17 @@ public class Log4j {
 
     public static void main(String[] args) {
 
-        logger.trace("msg de trace");
+        logger.trace("msg de trace"); // E/S methods
 
-        System.out.println( "Hello man!" );
+        logger.debug("msg de debogage"); // Display values of datas
 
-        logger.trace("msg de trace2");
+        logger.info("msg d'information"); //loading of conf file, beg/end long process
+
+        logger.warn("msg d'avertissement"); // error login, invalid data
+
+        logger.error("msg d'erreur"); // all throwned exceptions
+
+        logger.fatal("msg d'erreur fatale");  // error DB, exceptions which stop the program
     }
 }
 

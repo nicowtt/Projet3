@@ -11,9 +11,8 @@ public class Main {
         ReadPropertiesFile read = new ReadPropertiesFile();
         read.ReadIfDeveloperModeIsOn();
 
-
-
-
-
+        choice.displayAskGamesMenu();
+        choice.displayGamesMenuChoice();
+        
     }
 }

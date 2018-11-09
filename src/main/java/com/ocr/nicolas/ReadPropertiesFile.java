@@ -12,8 +12,12 @@ import org.apache.logging.log4j.Logger;
 
 
 public class ReadPropertiesFile {
+
     static final Logger logger = LogManager.getLogger();
 
+    /**
+     * reading config.properties
+     */
     public void ReadIfDeveloperModeIsOn() {
 
 
@@ -34,24 +38,16 @@ public class ReadPropertiesFile {
         }
 
 
-        // check
+        // check config.properties ,compare and force write if needed
         String developerMode;
         developerMode = prop.getProperty("DeveloperMode");
         if (developerMode.equals("yes"))
-            logger.info("DeveloperMode est deja ok ");
+            logger.info("DeveloperMode deja ok dans config.properties");
         else{
             WritePropertiesFile write = new WritePropertiesFile();
             write.ForceDeveloperModeWriteOnPropertiesFile();
-            logger.info("developerMode writed");
+            logger.info("developerMode ecrit dans config.properties");
         }
-
-
-
-
-        // get the property value and print it out
-
-        //System.out.println(prop.getProperty("DeveloperMode"));
-        //System.out.println(prop.getProperty("GameToPlay"));
 
         }
     }
