@@ -10,7 +10,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        // developer Mode recovery
+        /* developer Mode recovery
         boolean developerMode;
 
         for (int i = 0; i < args.length; i++) {
@@ -19,16 +19,16 @@ public class Main {
                 logger.info("developperMode");
             }
         }
+        */
 
 
         ReadPropertiesFile read = new ReadPropertiesFile();
-        read.ReadIfDeveloperModeIsOn();
+        read.ReadConfigProperties();
 
         Choices choice = new Choices();
-        
+
         choice.displayAskGamesMenu();
         choice.displayGamesMenuChoice();
-
 
     }
 }

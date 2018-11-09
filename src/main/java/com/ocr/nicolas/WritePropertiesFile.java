@@ -24,8 +24,8 @@ public class WritePropertiesFile {
 
         //Line to write in .properties
         prop.setProperty("DeveloperMode", "yes");
-        prop.setProperty("NumberDigitCombinationRecherche+/-", "1");
-        prop.setProperty("NumberOfTryOnRecherche+/-", "1");
+        prop.setProperty("DigitSearchNumber", "1");
+
 
         try {
             //save .properties to resources folder

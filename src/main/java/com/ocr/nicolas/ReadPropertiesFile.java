@@ -16,39 +16,51 @@ public class ReadPropertiesFile {
     static final Logger logger = LogManager.getLogger();
 
     /**
-     * reading config.properties
+     * reading config.properties for developer mode
      */
-    public void ReadIfDeveloperModeIsOn() {
+    public void ReadConfigProperties() {
 
 
-        Properties prop = new Properties();
+        final Properties prop = new Properties();
         InputStream input = null;
 
+
         try {
+
             input = new FileInputStream("C://Users//nicob//Documents//GitHub//Projet3//src//main//resources//config.properties");
-        } catch (FileNotFoundException e) {
-            System.out.println("Fichier .property non trouvé");
-        }
-
-        // load the properties file
-        try {
+            // load a properties file
             prop.load(input);
-        } catch (IOException e) {
-            System.out.println("Problème entrée sortie");
-        }
+
+            // get the property value and print it out
+            String developerMode;
+            developerMode = prop.getProperty("DeveloperMode");
+            logger.info("developerMode: " + developerMode);
+
+            String digitSearchNumber;
+            digitSearchNumber = prop.getProperty("DigitSearchNumber");
+
+            // String digitSearchNumber -> Integer digitSearchNumberInt
+
+            int digitSearchNumberInt = Integer.parseInt(prop.getProperty("DigitSearchNumber"));
+            logger.info("variable digitSearchNumber = " + digitSearchNumberInt);
 
 
-        // check config.properties ,compare and force write if needed
-        String developerMode;
-        developerMode = prop.getProperty("DeveloperMode");
-        if (developerMode.equals("yes"))
-            logger.info("DeveloperMode mode ok dans config.properties");
-        else{
-            logger.info("developerMode NOK dans config.properties");
+
+        } catch (final IOException ex) {
+            ex.printStackTrace();
+        } finally {
+            if (input != null) {
+                try {
+                    input.close();
+                } catch (final IOException e) {
+                    e.printStackTrace();
+                }
+            }
         }
 
-        }
     }
+}
+
 
 
 
