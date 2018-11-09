@@ -7,10 +7,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-import static com.ocr.nicolas.Log4j.logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 
 public class ReadPropertiesFile {
+    static final Logger logger = LogManager.getLogger();
 
     public void ReadIfDeveloperModeIsOn() {
 

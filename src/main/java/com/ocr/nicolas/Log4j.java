@@ -1,18 +1,21 @@
 package com.ocr.nicolas;
 
-import org.apache.log4j.*;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 
 public class Log4j {
 
-    static Logger logger = Logger.getLogger(Log4j.class);
+    static final Logger logger = LogManager.getLogger();
 
     public static void main(String[] args) {
-        ConsoleAppender appender = (ConsoleAppender)  logger.getAppender("console");
-        logger.addAppender(appender);
-        logger.debug("test debug");
-        logger.info("test info");
-        logger.warn("test warning");
+
+        logger.trace("msg de trace");
+
+        System.out.println( "Hello man!" );
+
+        logger.trace("msg de trace2");
     }
 }
 
