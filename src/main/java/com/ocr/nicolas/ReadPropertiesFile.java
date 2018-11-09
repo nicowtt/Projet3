@@ -42,11 +42,9 @@ public class ReadPropertiesFile {
         String developerMode;
         developerMode = prop.getProperty("DeveloperMode");
         if (developerMode.equals("yes"))
-            logger.info("DeveloperMode deja ok dans config.properties");
+            logger.info("DeveloperMode mode ok dans config.properties");
         else{
-            WritePropertiesFile write = new WritePropertiesFile();
-            write.ForceDeveloperModeWriteOnPropertiesFile();
-            logger.info("developerMode ecrit dans config.properties");
+            logger.info("developerMode NOK dans config.properties");
         }
 
         }

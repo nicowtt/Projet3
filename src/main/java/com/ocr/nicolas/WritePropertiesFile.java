@@ -12,8 +12,7 @@ public class WritePropertiesFile {
     /**
      * Write developerMode on config.properties
      */
-    public void ForceDeveloperModeWriteOnPropertiesFile() {
-
+    public static void main(String[] args) {
 
         Properties prop = new Properties();
         OutputStream output = null;
@@ -25,6 +24,8 @@ public class WritePropertiesFile {
 
         //Line to write in .properties
         prop.setProperty("DeveloperMode", "yes");
+        prop.setProperty("NumberDigitCombinationRecherche+/-", "1");
+        prop.setProperty("NumberOfTryOnRecherche+/-", "1");
 
         try {
             //save .properties to resources folder
@@ -33,6 +34,6 @@ public class WritePropertiesFile {
         } catch (IOException e) {
             System.err.println("Problème Entrée Sortie");
         }
-
     }
+
 }
