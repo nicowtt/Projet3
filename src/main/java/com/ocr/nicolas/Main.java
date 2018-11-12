@@ -30,6 +30,10 @@ public class Main {
         choice.displayAskGamesMenu();
         choice.displayGamesMenuChoice();
 
+        choice.displayAskTypeOfGame();
+        choice.displayGameTypeChoice();
+
+
     }
 }
 
