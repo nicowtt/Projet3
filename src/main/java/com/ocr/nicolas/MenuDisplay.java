@@ -3,9 +3,18 @@ package com.ocr.nicolas;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Choices {
+import static com.ocr.nicolas.Log4j.logger;
+
+public class MenuDisplay {
 
     Scanner sc = new Scanner(System.in);
+
+    int NbrCombinationSearchNumber;
+
+    public int getNbrCombinationSearchNumber() {
+        return NbrCombinationSearchNumber;
+    }
+
 
 
     /**
@@ -21,7 +30,7 @@ public class Choices {
     /**
      * Display and confirmation of games choice.
      */
-    public void displayGamesMenuChoice() {
+    public int displayGamesMenuChoice() {
 
         boolean responseIsGood;
         int gameChoice = -1;
@@ -60,6 +69,8 @@ public class Choices {
                     }
             }
         } while (!responseIsGood);
+        logger.info("Choix du jeux-> " + gameChoice + "(1- Recherche+/- ; 2- Mastermind)" );
+        return gameChoice;
     }
 
     /**
@@ -68,15 +79,15 @@ public class Choices {
     public void displayAskTypeOfGame() {
 
         System.out.println("Choisissez le mode de jeux:");
-        System.out.println("1-Challenger");
-        System.out.println("2-Défenseur");
+        System.out.println("1-Challenger -> toi contre l'ordinateur");
+        System.out.println("2-Défenseur -> ordinateur contre toi");
         System.out.println("3-Duel");
     }
 
     /**
      * Display and confirmation of Type games choice.
      */
-    public void displayGameTypeChoice() {
+    public int displayGameTypeChoice() {
 
         boolean responseIsGood;
         int gameTypeChoice = -1;
@@ -120,7 +131,36 @@ public class Choices {
                     }
             }
         }while (!responseIsGood);
+        logger.info("Choix du jeux-> " + gameTypeChoice + "(1- Challenger ; 2- défenseur ; 3- Duel)" );
+        return gameTypeChoice;
     }
+
+    /**
+     * display first choice of number
+     */
+    public int displayAskNumber(int nbr) {
+
+        int userChoice = -1;
+        boolean responseIsGood;
+
+        do {
+            try {
+                System.out.println("Choisissez un nombre entre 0 et " + nbr + ":");
+                userChoice = sc.nextInt();
+                responseIsGood = true;
+            }
+            catch (InputMismatchException e) {
+                sc.next();
+                System.out.println("Erreur le chiffre doit être inferieur a :" + nbr);
+                responseIsGood = false;
+            }
+        }while (!responseIsGood);
+        return userChoice;
+
+
+
+    }
+
 }
 
 

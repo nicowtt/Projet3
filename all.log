@@ -1,2 +1,6 @@
-2018-11-12 09:59:22.679 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - developerMode: yes
-2018-11-12 09:59:22.679 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - variable digitSearchNumber = 1
+2018-11-12 17:40:07.559 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - developerMode: yes
+2018-11-12 17:40:07.562 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - variable nbrCombinationSearchNumber = 10
+2018-11-12 17:40:09.291 [main] INFO  com.ocr.nicolas.Log4j - Choix du jeux-> 1(1- Recherche+/- ; 2- Mastermind)
+2018-11-12 17:40:30.378 [main] INFO  com.ocr.nicolas.Log4j - Choix du jeux-> 1(1- Challenger ; 2- défenseur ; 3- Duel)
+2018-11-12 17:40:30.381 [main] INFO  com.ocr.nicolas.Log4j - nombre aléatoire ordinateur = 4
+2018-11-12 17:40:30.381 [main] INFO  com.ocr.nicolas.Log4j - nombre dans getNbrCombinationSearchNumber 10

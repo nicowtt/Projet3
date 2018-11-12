@@ -2,7 +2,6 @@ package com.ocr.nicolas;
 
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
@@ -13,12 +12,22 @@ import org.apache.logging.log4j.Logger;
 
 public class ReadPropertiesFile {
 
+    private int nbrCombinationSearchNumber;
+
     static final Logger logger = LogManager.getLogger();
+
+
+    public int getNbrCombinationSearchNumber() {
+            return nbrCombinationSearchNumber;
+    }
 
     /**
      * reading config.properties for developer mode
+     *
+     * @nbrCombinationSearchNumber: number of combination (integer in config.properties)
      */
-    public void ReadConfigProperties() {
+
+    public void readConfigProperties() {
 
 
         final Properties prop = new Properties();
@@ -36,13 +45,10 @@ public class ReadPropertiesFile {
             developerMode = prop.getProperty("DeveloperMode");
             logger.info("developerMode: " + developerMode);
 
-            String digitSearchNumber;
-            digitSearchNumber = prop.getProperty("DigitSearchNumber");
+            // String NbrCombinationSearchNumber -> Integer NbrCombinationSearchNumber
 
-            // String digitSearchNumber -> Integer digitSearchNumberInt
-
-            int digitSearchNumberInt = Integer.parseInt(prop.getProperty("DigitSearchNumber"));
-            logger.info("variable digitSearchNumber = " + digitSearchNumberInt);
+            nbrCombinationSearchNumber = Integer.parseInt(prop.getProperty("NbrCombinationSearchNumber"));
+            logger.info("variable nbrCombinationSearchNumber = " + nbrCombinationSearchNumber);
 
 
 
@@ -60,6 +66,7 @@ public class ReadPropertiesFile {
 
     }
 }
+
 
 
 
