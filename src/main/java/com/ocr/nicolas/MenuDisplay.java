@@ -147,11 +147,18 @@ public class MenuDisplay {
             try {
                 System.out.println("Choisissez un nombre entre 0 et " + nbr + ":");
                 userChoice = sc.nextInt();
-                responseIsGood = true;
+                if (userChoice > nbr) {
+                    System.out.println("Le nombre doit etre inferieur a :" + nbr);
+                    responseIsGood = false;
+                    }
+                    else{
+                    responseIsGood = true;
+                }
+
             }
             catch (InputMismatchException e) {
                 sc.next();
-                System.out.println("Erreur le chiffre doit être inferieur a :" + nbr);
+                System.out.println("Ooups nombre inferieur a: " + nbr + " seulement");
                 responseIsGood = false;
             }
         }while (!responseIsGood);
