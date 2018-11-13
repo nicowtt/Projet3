@@ -40,10 +40,23 @@ public class Main {
         //recuperation variable du type de jeux
         int gameTypeChoice = display.displayGameTypeChoice();
 
-        //set du jeu Recherche nombre
+        //**set du jeu Recherche nombre***
         SearchNumber searchNumber = new SearchNumber();
         searchNumber.setNbrCombinationSearchNumber(nbrCombinationSearchNumber);
-        searchNumber.computerNbrCombination(nbrCombinationSearchNumber);
+
+
+        //recuperation variable random ordinateur
+        int randomNumber = searchNumber.computerNbrCombination(nbrCombinationSearchNumber);
+
+        //je trouve le nombre de digit de la combinaison random oridnateur et le recupère dans le main
+        int nbrDigit = searchNumber.FindNbrDigit(randomNumber);
+
+        //je met chaque digit du nombre aleatoire dans une ArrayList
+        searchNumber.combinationOnBoard(randomNumber, nbrDigit);
+
+
+
+
 
         //lancement des jeux:
         switch (gamesMenuChoice) {
