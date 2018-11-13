@@ -23,7 +23,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1035">
@@ -32,7 +32,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MenuDisplay.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MenuDisplay.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/MenuDisplay.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="263">
@@ -80,7 +80,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-12" />
     <option name="y" value="-12" />
     <option name="width" value="1944" />
@@ -245,7 +245,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1542127596935</updated>
-      <workItem from="1542127599752" duration="2749000" />
+      <workItem from="1542127599752" duration="3002000" />
     </task>
     <task id="LOCAL-00001" summary="Search Number Mode challenger updated:&#10;ask user number added">
       <created>1542130169534</created>
@@ -254,14 +254,21 @@
       <option name="project" value="LOCAL" />
       <updated>1542130169534</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="minor update on displayAskNumber:&#10;force user to put in correct number">
+      <created>1542130600896</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1542130600896</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2749000" />
+    <option name="totallyTimeSpent" value="3002000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="695" extended-state="7" />
+    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" />
@@ -278,7 +285,7 @@
       <window_info anchor="bottom" id="Terminal" />
       <window_info id="Capture Tool" />
       <window_info id="Designer" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24939272" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24939272" />
       <window_info anchor="right" id="Database" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -328,7 +335,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Search Number Mode challenger updated:&#10;ask user number added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Search Number Mode challenger updated:&#10;ask user number added" />
+    <MESSAGE value="minor update on displayAskNumber:&#10;force user to put in correct number" />
+    <option name="LAST_COMMIT_MESSAGE" value="minor update on displayAskNumber:&#10;force user to put in correct number" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -373,13 +381,6 @@
     <entry file="file://$PROJECT_DIR$/src/main/resources/config.properties">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/MenuDisplay.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="160" column="62" selection-start-line="160" selection-start-column="62" selection-end-line="160" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/all.log">
       <provider selected="true" editor-type-id="LogFileEditorProvider">
         <state relative-caret-position="120">
@@ -391,6 +392,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1035">
           <caret line="70" column="73" selection-start-line="70" selection-start-column="73" selection-end-line="70" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/MenuDisplay.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="160" column="62" selection-start-line="160" selection-start-column="62" selection-end-line="160" selection-end-column="62" />
         </state>
       </provider>
     </entry>
