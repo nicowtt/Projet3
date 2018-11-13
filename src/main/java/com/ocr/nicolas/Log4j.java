@@ -4,7 +4,6 @@ package com.ocr.nicolas;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-
 public class Log4j {
 
     static final Logger logger = LogManager.getLogger();

@@ -48,7 +48,7 @@ public class Main {
         //recuperation variable random ordinateur
         int randomNumber = searchNumber.computerNbrCombination(nbrCombinationSearchNumber);
 
-        //je trouve le nombre de digit de la combinaison random oridnateur et le recupère dans le main
+        //je trouve le nombre de digit de la combinaison random ordinateur et le recupère dans le main
         int nbrDigit = searchNumber.FindNbrDigit(randomNumber);
 
         //je met chaque digit du nombre aleatoire dans une ArrayList
@@ -61,11 +61,16 @@ public class Main {
         //lancement des jeux:
         switch (gamesMenuChoice) {
             case 1:
-                System.out.println(" lancement du jeu Recherche +/-");
+                System.out.println(" lancement du jeu Recherche +/- en mode challenger");
                 switch (gameTypeChoice) {
                     case 1:
-                        int userChoice = display.displayAskNumber(nbrCombinationSearchNumber);
-                        searchNumber.compare(nbrCombinationSearchNumber, userChoice);
+                        //je lance la demande de nombre utilisateur et recupere la valeur
+                        int nbrUser = display.displayAskNumber(nbrCombinationSearchNumber);
+
+                        //je lance cette valeur pour faire une ArrayList
+                        searchNumber.combinationOnBoard(nbrUser, nbrDigit);
+
+
                     default:
                         //System.out.println("aucun type de jeux");
 
