@@ -45,35 +45,29 @@ public class Main {
         searchNumber.setNbrCombinationSearchNumber(nbrCombinationSearchNumber);
 
 
-        //recuperation variable random ordinateur
-        int randomNumber = searchNumber.computerNbrCombination(nbrCombinationSearchNumber);
-
-        //je trouve le nombre de digit de la combinaison random ordinateur et le recupère dans le main
-        int nbrDigit = searchNumber.FindNbrDigit(randomNumber);
-
-        //je met chaque digit du nombre aleatoire dans une premiere ArrayList (celle de l'ordinateur)
-        int nbrList = searchNumber.nbrList;
-        nbrList = 1;
-        searchNumber.setNbrList(nbrList);
-        searchNumber.combinationOnBoard(randomNumber, nbrDigit);
-
-
-
-
-
         //lancement des jeux:
         switch (gamesMenuChoice) {
             case 1:
                 System.out.println(" lancement du jeu Recherche +/- en mode challenger");
                 switch (gameTypeChoice) {
                     case 1:
+                        //recuperation variable random ordinateur
+                        int randomNumber = searchNumber.computerNbrCombination(nbrCombinationSearchNumber);
+
+                        //je trouve le nombre de digit de l'ordinateur
+                        int nbrDigitComputer = searchNumber.FindNbrDigit(randomNumber);
+
                         //je lance la demande de nombre utilisateur et recupere la valeur
                         int nbrUser = display.displayAskNumber(nbrCombinationSearchNumber);
 
-                        //je lance cette valeur pour faire une ArrayList
-                        nbrList = 2;
-                        searchNumber.setNbrList(nbrList);
-                        searchNumber.combinationOnBoard(nbrUser, nbrDigit);
+                        //je trouve le nombre de digit utilisateur
+                        int nbrDigitUser = searchNumber.FindNbrDigit(nbrUser);
+
+                        //je fait une autre ArrayList utilisateur
+                        searchNumber.combinationOnBoard(randomNumber, nbrUser, nbrDigitComputer, nbrDigitUser);
+
+                        //je compare les listes
+
 
 
                     default:
@@ -81,14 +75,7 @@ public class Main {
 
 
                 }
-            default:
-                //System.out.println("aucun choix");
         }
-
-
-
-
-
     }
 }
 
