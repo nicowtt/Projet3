@@ -25,7 +25,7 @@ public class Main {
         // lecture du fichier config.properties.
         ReadPropertiesFile read = new ReadPropertiesFile();
         read.readConfigProperties();
-        int nbrCombinationSearchNumber = read.getNbrCombinationSearchNumber();
+        int NbrBoxesCombinationSearchNumber = read.getNbrCombinationSearchNumber();
 
         //affichage du menu du choix des jeux.
         MenuDisplay display = new MenuDisplay();
@@ -42,7 +42,7 @@ public class Main {
 
         //**set du jeu Recherche nombre***
         SearchNumber searchNumber = new SearchNumber();
-        searchNumber.setNbrCombinationSearchNumber(nbrCombinationSearchNumber);
+        searchNumber.setNbrCombinationSearchNumber(NbrBoxesCombinationSearchNumber);
 
 
         //lancement des jeux:
@@ -52,13 +52,13 @@ public class Main {
                 switch (gameTypeChoice) {
                     case 1:
                         //recuperation variable random ordinateur
-                        int randomNumber = searchNumber.computerNbrCombination(nbrCombinationSearchNumber);
+                        int randomNumber = searchNumber.computerNbrCombination(NbrBoxesCombinationSearchNumber);
 
                         //je trouve le nombre de digit de l'ordinateur
                         int nbrDigitComputer = searchNumber.FindNbrDigit(randomNumber);
 
                         //je lance la demande de nombre utilisateur et recupere la valeur
-                        int nbrUser = display.displayAskNumber(nbrCombinationSearchNumber);
+                        int nbrUser = display.displayAskNumber(NbrBoxesCombinationSearchNumber);
 
                         //je trouve le nombre de digit utilisateur
                         int nbrDigitUser = searchNumber.FindNbrDigit(nbrUser);

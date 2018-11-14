@@ -47,8 +47,8 @@ public class ReadPropertiesFile {
 
             // String NbrCombinationSearchNumber -> Integer NbrCombinationSearchNumber
 
-            nbrCombinationSearchNumber = Integer.parseInt(prop.getProperty("NbrCombinationSearchNumber"));
-            logger.info("variable nbrCombinationSearchNumber = " + nbrCombinationSearchNumber);
+            nbrCombinationSearchNumber = Integer.parseInt(prop.getProperty("NbrBoxesCombinationSearchNumber"));
+            logger.info("variable nbrBoxesCombinationSearchNumber = " + nbrCombinationSearchNumber);
 
 
 

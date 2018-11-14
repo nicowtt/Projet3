@@ -9,29 +9,43 @@ import static com.ocr.nicolas.Log4j.logger;
 
 public class SearchNumber {
 
-    int nbrCombinationSearchNumber;
+    int NbrBoxesCombinationSearchNumber;
     int nbrDigitComputeur;
     int nbrDigitUser;
 
     public void setNbrCombinationSearchNumber(int nbrCombinationSearchNumber) {
-        this.nbrCombinationSearchNumber = nbrCombinationSearchNumber;
+        this.NbrBoxesCombinationSearchNumber = NbrBoxesCombinationSearchNumber;
     }
 
-    public int getNbrDigitComputeur() {
-        return nbrDigitComputeur;
+    public int getNbrBoxesCombinationSearchNumber() {
+        return NbrBoxesCombinationSearchNumber;
     }
     public int getNbrDigitUser() { return nbrDigitUser; }
 
     /**
      * Computer number of combination
      *
-     * @param nbr limit max of combination (take on config.properties)
+     * @param nbrDigit digit number(take on config.properties)
      */
-    public int computerNbrCombination(int nbr) {
+    public int computerNbrCombination(int nbrDigit) {
+        String finalRandomDigitNumberString = "";
 
-        Random rand = new Random();
-        int randomNumber = rand.nextInt(nbr + 1);
-        logger.info("nombre aléatoire ordinateur = " + randomNumber);
+        while (nbrDigit >= 1) {
+            //nouvel objet
+            Random rand = new Random();
+            //int de 0 a 9 (base 10)
+            int base10RandomDigitNumber = rand.nextInt(9);
+            logger.info("base 10 random =" + base10RandomDigitNumber);
+            //je converti en String
+            String randomDigitNumberString = Integer.toString(base10RandomDigitNumber);
+            //je l'ajoute a la variable String
+            finalRandomDigitNumberString = finalRandomDigitNumberString + randomDigitNumberString;
+            //j'incremente negativement nbrDigit
+            nbrDigit--;
+        }
+        //je reconverti le chiffre final en int
+        int randomNumber = Integer.parseInt(finalRandomDigitNumberString);
+        logger.info("randomNumber = " + randomNumber);
         return randomNumber;
     }
 
@@ -113,7 +127,7 @@ public class SearchNumber {
 
         //les resultats
         List<String> result = new ArrayList<String>();
-        //todo faire la comparaison et mettre dans la list result
+
 
         //les comparaisons
 
@@ -130,7 +144,7 @@ public class SearchNumber {
 
     }
 
-}
+
 
 
 

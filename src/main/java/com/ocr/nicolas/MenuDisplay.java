@@ -142,13 +142,22 @@ public class MenuDisplay {
 
         int userChoice = -1;
         boolean responseIsGood;
+        int nbrDigit = nbr;
+        String digitString = "";
+
+        while (nbrDigit > 0) {
+            digitString = digitString + "9";
+            nbrDigit--;
+        }
+        int finalNumberMaxLimit = Integer.parseInt(digitString);
+        logger.info("number max utilisateur = " + finalNumberMaxLimit);
 
         do {
             try {
-                System.out.println("Choisissez un nombre entre 0 et " + nbr + ":");
+                System.out.println("Choisissez un nombre entre 0 et " + finalNumberMaxLimit + ":");
                 userChoice = sc.nextInt();
-                if (userChoice > nbr) {
-                    System.out.println("Le nombre doit etre inferieur a :" + nbr);
+                if (userChoice > finalNumberMaxLimit) {
+                    System.out.println("Le nombre doit etre inferieur a :" + finalNumberMaxLimit);
                     responseIsGood = false;
                     }
                     else{
@@ -158,7 +167,7 @@ public class MenuDisplay {
             }
             catch (InputMismatchException e) {
                 sc.next();
-                System.out.println("Ooups nombre inferieur a: " + nbr + " seulement");
+                System.out.println("Ooups nombre inferieur a: " + finalNumberMaxLimit + " seulement");
                 responseIsGood = false;
             }
         }while (!responseIsGood);
