@@ -11,9 +11,14 @@ public class SearchNumber {
 
     int nbrCombinationSearchNumber;
     int nbrDigit;
+    int nbrList;
 
     public void setNbrCombinationSearchNumber(int nbrCombinationSearchNumber) {
         this.nbrCombinationSearchNumber = nbrCombinationSearchNumber;
+    }
+
+    public void setNbrList(int nbrList) {
+        this.nbrList = nbrList;
     }
 
     public int getNbrDigit() {
@@ -22,9 +27,10 @@ public class SearchNumber {
 
     /**
      * Computer number of combination
+     *
      * @param nbr limit max of combination (take on config.properties)
      */
-    public int computerNbrCombination (int nbr) {
+    public int computerNbrCombination(int nbr) {
 
         Random rand = new Random();
         int randomNumber = rand.nextInt(nbr + 1);
@@ -35,6 +41,7 @@ public class SearchNumber {
 
     /**
      * find number of digit
+     *
      * @param number number on config.properties
      * @return digit number
      */
@@ -42,26 +49,26 @@ public class SearchNumber {
         int result = number;
         int nbrDigit = 0;
 
-         while (result >= 1)
-         {
-         result = result/10;
-         nbrDigit++;
-         }
-         logger.info("nombre de digit de la combinaison = " + nbrDigit);
-         return nbrDigit;
+        while (result >= 1) {
+            result = result / 10;
+            nbrDigit++;
+        }
+        logger.info("nombre de digit de la combinaison = " + nbrDigit);
+        return nbrDigit;
     }
 
     /**
-     * put number on ArryList
-     * @param number computer number
-     * @param nbrDigit number of time this boucle while run
+     * put number on ArrayList
+     *
+     * @param number   number
+     * @param nbrDigit number of time this loop while will be running
      */
-    public void combinationOnBoard(int number, int nbrDigit ) {
+    public void combinationOnBoard(int number, int nbrDigit) {
         int i = nbrDigit;
         int digit = 0;
         int nbr = number;
         int k = 0;
-        int l = (nbrDigit -1);
+        int l = (nbrDigit - 1);
 
         List<Integer> combinationOnBoardInverted = new ArrayList<Integer>();
         while (i > 0) {
@@ -71,32 +78,33 @@ public class SearchNumber {
             combinationOnBoardInverted.add(digit);
         }
 
-        //creation d'un nouvelle ArrayList pour inverser les chiffres
-        List<Integer> combinationOnBoard = new ArrayList<Integer>();
+        switch (nbrList) {
+            case 1:
+                //creation d'une nouvelle ArrayList pour inverser les chiffres
+                List<Integer> combinationOnBoard = new ArrayList<Integer>();
 
-        while (k != nbrDigit) {
-            combinationOnBoard.add(combinationOnBoardInverted.get(l));
-            k++;
-            l--;
+            while (k != nbrDigit) {
+                combinationOnBoard.add(combinationOnBoardInverted.get(l));
+                k++;
+                l--;
+            }
+            logger.info("Tableau = " + combinationOnBoard);
+
+            case 2:
+                //creation d'une ArrayList ->2 en inversant les chiffres
+                List<Integer> combinationOnBoard2 = new ArrayList<Integer>();
+                while (k != nbrDigit) {
+                    combinationOnBoard2.add(combinationOnBoardInverted.get(l));
+                    k++;
+                    l--;
+                    }
+                    logger.info("Tableau = " + combinationOnBoard2);
+                }
+            }
         }
-        logger.info("Tableau = " + combinationOnBoard);
-    }
-
-
-    /**
-     * Compare value
-     * @param nbrCombinationSearchNumber
-     * @param userChoice
-     */
-    public void compare (int nbrCombinationSearchNumber, int userChoice) {
-        if (nbrCombinationSearchNumber > userChoice) {
-            System.out.println(" c'est plus ");
-        }
-
-
-    }
 
 
 
 
-}
+
+

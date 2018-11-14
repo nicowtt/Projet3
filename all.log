@@ -1,8 +1,9 @@
-2018-11-13 18:27:53.181 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - developerMode: yes
-2018-11-13 18:27:53.181 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - variable nbrCombinationSearchNumber = 1000
-2018-11-13 18:27:54.322 [main] INFO  com.ocr.nicolas.Log4j - Choix du jeux-> 1(1- Recherche+/- ; 2- Mastermind)
-2018-11-13 18:27:54.979 [main] INFO  com.ocr.nicolas.Log4j - Choix du jeux-> 1(1- Challenger ; 2- défenseur ; 3- Duel)
-2018-11-13 18:27:54.979 [main] INFO  com.ocr.nicolas.Log4j - nombre aléatoire ordinateur = 462
-2018-11-13 18:27:54.979 [main] INFO  com.ocr.nicolas.Log4j - nombre de digit de la combinaison = 3
-2018-11-13 18:27:54.982 [main] INFO  com.ocr.nicolas.Log4j - Tableau = [4, 6, 2]
-2018-11-13 18:27:57.985 [main] INFO  com.ocr.nicolas.Log4j - Tableau = [9, 9, 7]
+2018-11-14 10:08:38.062 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - developerMode: yes
+2018-11-14 10:08:38.065 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - variable nbrCombinationSearchNumber = 1000
+2018-11-14 10:08:39.489 [main] INFO  com.ocr.nicolas.Log4j - Choix du jeux-> 1(1- Recherche+/- ; 2- Mastermind)
+2018-11-14 10:08:40.767 [main] INFO  com.ocr.nicolas.Log4j - Choix du jeux-> 1(1- Challenger ; 2- défenseur ; 3- Duel)
+2018-11-14 10:08:40.767 [main] INFO  com.ocr.nicolas.Log4j - nombre aléatoire ordinateur = 934
+2018-11-14 10:08:40.767 [main] INFO  com.ocr.nicolas.Log4j - nombre de digit de la combinaison = 3
+2018-11-14 10:08:40.770 [main] INFO  com.ocr.nicolas.Log4j - Tableau = [9, 3, 4]
+2018-11-14 10:08:40.770 [main] INFO  com.ocr.nicolas.Log4j - Tableau = []
+2018-11-14 10:08:47.312 [main] INFO  com.ocr.nicolas.Log4j - Tableau = [7, 8, 9]

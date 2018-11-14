@@ -51,7 +51,10 @@ public class Main {
         //je trouve le nombre de digit de la combinaison random ordinateur et le recupère dans le main
         int nbrDigit = searchNumber.FindNbrDigit(randomNumber);
 
-        //je met chaque digit du nombre aleatoire dans une ArrayList
+        //je met chaque digit du nombre aleatoire dans une premiere ArrayList (celle de l'ordinateur)
+        int nbrList = searchNumber.nbrList;
+        nbrList = 1;
+        searchNumber.setNbrList(nbrList);
         searchNumber.combinationOnBoard(randomNumber, nbrDigit);
 
 
@@ -68,6 +71,8 @@ public class Main {
                         int nbrUser = display.displayAskNumber(nbrCombinationSearchNumber);
 
                         //je lance cette valeur pour faire une ArrayList
+                        nbrList = 2;
+                        searchNumber.setNbrList(nbrList);
                         searchNumber.combinationOnBoard(nbrUser, nbrDigit);
 
 
