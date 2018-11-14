@@ -12,13 +12,13 @@ import org.apache.logging.log4j.Logger;
 
 public class ReadPropertiesFile {
 
-    private int nbrCombinationSearchNumber;
+    private int nbrBoxesCombinationSearchNumber;
 
     static final Logger logger = LogManager.getLogger();
 
 
-    public int getNbrCombinationSearchNumber() {
-            return nbrCombinationSearchNumber;
+    public int getNbrBoxesCombinationSearchNumber() {
+            return nbrBoxesCombinationSearchNumber;
     }
 
     /**
@@ -47,8 +47,8 @@ public class ReadPropertiesFile {
 
             // String NbrCombinationSearchNumber -> Integer NbrCombinationSearchNumber
 
-            nbrCombinationSearchNumber = Integer.parseInt(prop.getProperty("NbrBoxesCombinationSearchNumber"));
-            logger.info("variable nbrBoxesCombinationSearchNumber = " + nbrCombinationSearchNumber);
+            nbrBoxesCombinationSearchNumber = Integer.parseInt(prop.getProperty("NbrBoxesCombinationSearchNumber"));
+            logger.info("variable nbrBoxesCombinationSearchNumber = " + nbrBoxesCombinationSearchNumber);
 
 
 

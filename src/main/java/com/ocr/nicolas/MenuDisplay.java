@@ -9,10 +9,10 @@ public class MenuDisplay {
 
     Scanner sc = new Scanner(System.in);
 
-    int NbrCombinationSearchNumber;
+    int NbrBoxesCombinationSearchNumber;
 
-    public int getNbrCombinationSearchNumber() {
-        return NbrCombinationSearchNumber;
+    public int getNbrBoxesCombinationSearchNumberCombinationSearchNumber() {
+        return NbrBoxesCombinationSearchNumber;
     }
 
 
@@ -154,7 +154,7 @@ public class MenuDisplay {
 
         do {
             try {
-                System.out.println("Choisissez un nombre entre 0 et " + finalNumberMaxLimit + ":");
+                System.out.println("Choisissez un nombre a " + nbr + " chiffre :");
                 userChoice = sc.nextInt();
                 if (userChoice > finalNumberMaxLimit) {
                     System.out.println("Le nombre doit etre inferieur a :" + finalNumberMaxLimit);

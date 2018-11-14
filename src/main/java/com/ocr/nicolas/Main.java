@@ -25,7 +25,7 @@ public class Main {
         // lecture du fichier config.properties.
         ReadPropertiesFile read = new ReadPropertiesFile();
         read.readConfigProperties();
-        int NbrBoxesCombinationSearchNumber = read.getNbrCombinationSearchNumber();
+        int NbrBoxesCombinationSearchNumber = read.getNbrBoxesCombinationSearchNumber();
 
         //affichage du menu du choix des jeux.
         MenuDisplay display = new MenuDisplay();

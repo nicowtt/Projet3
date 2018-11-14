@@ -20,7 +20,10 @@ public class SearchNumber {
     public int getNbrBoxesCombinationSearchNumber() {
         return NbrBoxesCombinationSearchNumber;
     }
-    public int getNbrDigitUser() { return nbrDigitUser; }
+
+    public int getNbrDigitUser() {
+        return nbrDigitUser;
+    }
 
     /**
      * Computer number of combination
@@ -45,7 +48,7 @@ public class SearchNumber {
         }
         //je reconverti le chiffre final en int
         int randomNumber = Integer.parseInt(finalRandomDigitNumberString);
-        logger.info("randomNumber = " + randomNumber);
+        logger.info("randomNumber = " + finalRandomDigitNumberString);
         return randomNumber;
     }
 
@@ -70,10 +73,10 @@ public class SearchNumber {
     /**
      * put number on ArrayList
      *
-     * @param nbrRandom number random computer
-     * @param nbrUser number user of game
+     * @param nbrRandom        number random computer
+     * @param nbrUser          number user of game
      * @param nbrDigitComputer number of time this loop while will be running
-     * @param nbrDigitUser number of digit on user number
+     * @param nbrDigitUser     number of digit on user number
      */
     public void combinationOnBoard(int nbrRandom, int nbrUser, int nbrDigitComputer, int nbrDigitUser) {
 
@@ -114,24 +117,52 @@ public class SearchNumber {
         logger.info("Tableau 1 (ordinateur + user) = " + combinationOnBoard);
 
         //je compare les chiffre ordinateur-utilisateur
-
+        //prise en compte du nombre de digit
+        int nbrBoxes = nbrDigitUser;
         //les limites
-        int debutComputeurInList = 0;
-        int arretComputerInList = nbrDigitComputer -1;
-        int debutUserInList = nbrDigitComputer;
-        int finUserInList = nbrDigitTotal -1;
+        int minComputerBoxesOnBoard = 0;
+        int maxComputerBoxesOnBoard = nbrBoxes - 1;
+        int minUserBoxesOnBoard = nbrBoxes;
+        int maxUserBoxesOnBoard = (nbrBoxes * 2) - 1;
 
         //les compteurs
-        int counterComputer = arretComputerInList;
-        int counterUser = finUserInList;
+        int counterForComputeur = maxComputerBoxesOnBoard;
+        int counterForUser = maxUserBoxesOnBoard;
+        int counterForLoop = nbrBoxes;
 
-        //les resultats
-        List<String> result = new ArrayList<String>();
+        //Creation d'un tableau pour les resultats:
+        List<String> resultListInverted = new ArrayList<String>();
+
+        //on compare:
+
+        do {
+            int nbrComputerForCompare = combinationOnBoard.get(maxComputerBoxesOnBoard);
+            int nbrUserForCompare = combinationOnBoard.get(maxUserBoxesOnBoard);
+            logger.info("dernier nombre computeur = " + nbrComputerForCompare);
+            logger.info("dernier nombre user = " + nbrUserForCompare);
+
+            if (nbrComputerForCompare > nbrUserForCompare) {
+                resultListInverted.add("+");
 
 
-        //les comparaisons
+            } else if (nbrComputerForCompare < nbrUserForCompare) {
+                resultListInverted.add("-");
+
+            } else {
+                resultListInverted.add("=");
+
+            }
+            counterForLoop--;
+            maxComputerBoxesOnBoard--;
+            maxUserBoxesOnBoard--;
 
 
+        }while (counterForLoop != 0);
+
+
+        logger.info("tableau de comparaison Inversé = " + resultListInverted);
+
+        //j'inverse les valeurs dans un autre tableau mais il veut pas les String....arfff
 
 
 
@@ -140,9 +171,21 @@ public class SearchNumber {
 
         }
 
+        }
 
 
-    }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
