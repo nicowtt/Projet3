@@ -13,13 +13,16 @@ import org.apache.logging.log4j.Logger;
 public class ReadPropertiesFile {
 
     private int nbrBoxesCombinationSearchNumber;
+    private boolean developperMode;
+
+    public int getNbrBoxesCombinationSearchNumber() {
+        return nbrBoxesCombinationSearchNumber;
+    }
+    public boolean isDevelopperMode() { return developperMode; }
+
 
     static final Logger logger = LogManager.getLogger();
 
-
-    public int getNbrBoxesCombinationSearchNumber() {
-            return nbrBoxesCombinationSearchNumber;
-    }
 
     /**
      * reading config.properties for developer mode

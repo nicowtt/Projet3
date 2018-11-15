@@ -41,8 +41,19 @@ public class SearchNumber {
      */
     public int computerNbrCombination(int nbrDigit) {
         String finalRandomDigitNumberString = "";
+        String digitString = "";
         int randomNumber = 0;
 
+        // je trouve le nombre max par rapport au fichier config
+        int counterForMaxNumber = nbrDigit - 1;
+        while (counterForMaxNumber > 0) {
+            digitString = digitString + "9";
+            counterForMaxNumber--;
+        }
+        int finalNumberMaxLimit = Integer.parseInt(digitString);
+        logger.info("number max utilisateur = " + finalNumberMaxLimit);
+
+        // random number computer
         do {
             int counterNbrDigit = nbrDigit;
             finalRandomDigitNumberString = "";
@@ -64,7 +75,7 @@ public class SearchNumber {
             logger.info("randomNumber = " + finalRandomDigitNumberString);
             randomNumber = randomNumberInt;
 
-        }while (randomNumber < 1000 );
+        }while (randomNumber < finalNumberMaxLimit );
 
         return randomNumber;
 

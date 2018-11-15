@@ -1,23 +1,18 @@
-2018-11-15 13:03:31.877 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - developerMode: yes
-2018-11-15 13:03:31.880 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - variable nbrBoxesCombinationSearchNumber = 4
-2018-11-15 13:03:38.226 [main] INFO  com.ocr.nicolas.Log4j - Choix du jeux-> 1(1- Recherche+/- ; 2- Mastermind)
-2018-11-15 13:03:54.897 [main] INFO  com.ocr.nicolas.Log4j - Choix du jeux-> 1(1- Challenger ; 2- défenseur ; 3- Duel)
-2018-11-15 13:03:54.900 [main] INFO  com.ocr.nicolas.Log4j - base 10 random =3
-2018-11-15 13:03:54.900 [main] INFO  com.ocr.nicolas.Log4j - base 10 random =6
-2018-11-15 13:03:54.900 [main] INFO  com.ocr.nicolas.Log4j - base 10 random =7
-2018-11-15 13:03:54.900 [main] INFO  com.ocr.nicolas.Log4j - base 10 random =6
-2018-11-15 13:03:54.900 [main] INFO  com.ocr.nicolas.Log4j - randomNumber = 3676
-2018-11-15 13:03:54.900 [main] INFO  com.ocr.nicolas.Log4j - number max utilisateur = 9999
-2018-11-15 13:03:57.666 [main] INFO  com.ocr.nicolas.Log4j - ajout des nombres sans addition = 36764578
-2018-11-15 13:03:57.666 [main] INFO  com.ocr.nicolas.Log4j - nombre choisi par l'utilisateur = 4578
-2018-11-15 13:03:57.666 [main] INFO  com.ocr.nicolas.Log4j - Tableau 1 (ordinateur + user) = [3, 6, 7, 6, 4, 5, 7, 8]
-2018-11-15 13:03:57.666 [main] INFO  com.ocr.nicolas.Log4j - dernier nombre computeur = 3
-2018-11-15 13:03:57.666 [main] INFO  com.ocr.nicolas.Log4j - dernier nombre user = 4
-2018-11-15 13:03:57.666 [main] INFO  com.ocr.nicolas.Log4j - dernier nombre computeur = 6
-2018-11-15 13:03:57.666 [main] INFO  com.ocr.nicolas.Log4j - dernier nombre user = 5
-2018-11-15 13:03:57.666 [main] INFO  com.ocr.nicolas.Log4j - dernier nombre computeur = 7
-2018-11-15 13:03:57.666 [main] INFO  com.ocr.nicolas.Log4j - dernier nombre user = 7
-2018-11-15 13:03:57.666 [main] INFO  com.ocr.nicolas.Log4j - dernier nombre computeur = 6
-2018-11-15 13:03:57.666 [main] INFO  com.ocr.nicolas.Log4j - dernier nombre user = 8
-2018-11-15 13:03:57.666 [main] INFO  com.ocr.nicolas.Log4j - tableau de comparaison = [-, +, =, -]
-2018-11-15 13:03:57.666 [main] INFO  com.ocr.nicolas.Log4j - resultat final dans la class SearchNumber = -+=-
+2018-11-15 15:24:35.514 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - developerMode: true
+2018-11-15 15:24:35.517 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - variable nbrBoxesCombinationSearchNumber = 2
+2018-11-15 15:24:37.411 [main] INFO  com.ocr.nicolas.Log4j - Choix du jeux-> 1(1- Recherche+/- ; 2- Mastermind)
+2018-11-15 15:24:38.513 [main] INFO  com.ocr.nicolas.Log4j - Choix du jeux-> 1(1- Challenger ; 2- défenseur ; 3- Duel)
+2018-11-15 15:24:38.516 [main] INFO  com.ocr.nicolas.Log4j - number max utilisateur = 9
+2018-11-15 15:24:38.516 [main] INFO  com.ocr.nicolas.Log4j - base 10 random =2
+2018-11-15 15:24:38.516 [main] INFO  com.ocr.nicolas.Log4j - base 10 random =1
+2018-11-15 15:24:38.516 [main] INFO  com.ocr.nicolas.Log4j - randomNumber = 21
+2018-11-15 15:24:38.516 [main] INFO  com.ocr.nicolas.Log4j - number max utilisateur = 99
+2018-11-15 15:24:41.121 [main] INFO  com.ocr.nicolas.Log4j - ajout des nombres sans addition = 2178
+2018-11-15 15:24:41.121 [main] INFO  com.ocr.nicolas.Log4j - nombre choisi par l'utilisateur = 78
+2018-11-15 15:24:41.121 [main] INFO  com.ocr.nicolas.Log4j - Tableau 1 (ordinateur + user) = [2, 1, 7, 8]
+2018-11-15 15:24:41.124 [main] INFO  com.ocr.nicolas.Log4j - dernier nombre computeur = 2
+2018-11-15 15:24:41.124 [main] INFO  com.ocr.nicolas.Log4j - dernier nombre user = 7
+2018-11-15 15:24:41.124 [main] INFO  com.ocr.nicolas.Log4j - dernier nombre computeur = 1
+2018-11-15 15:24:41.124 [main] INFO  com.ocr.nicolas.Log4j - dernier nombre user = 8
+2018-11-15 15:24:41.124 [main] INFO  com.ocr.nicolas.Log4j - tableau de comparaison = [-, -]
+2018-11-15 15:24:41.124 [main] INFO  com.ocr.nicolas.Log4j - resultat final dans la class SearchNumber = --

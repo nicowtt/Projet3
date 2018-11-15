@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f3619a66-8795-4a67-b821-372dcc0a7561" name="Default" comment="SearchNumber mode Challenger updated:&#10;two ArrayList created (computer and user)for compare.">
+    <list default="true" id="f3619a66-8795-4a67-b821-372dcc0a7561" name="Default" comment="SearchNumber mode Challenger updated:&#10;- update computerNbrCombination method on SearchNumber class for error when digit number on config.properties change.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/all.log" beforeDir="false" afterPath="$PROJECT_DIR$/all.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/MenuDisplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/MenuDisplay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/ReadPropertiesFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/ReadPropertiesFile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/SearchNumber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/SearchNumber.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/main.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/WritePropertiesFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/WritePropertiesFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.properties" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,23 +26,17 @@
       <file leaf-file-name="SearchNumber.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/SearchNumber.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2805">
-              <caret line="194" column="62" selection-start-line="194" selection-start-column="62" selection-end-line="194" selection-end-column="62" />
-              <folding>
-                <element signature="e#609#610#0" expanded="true" />
-                <element signature="e#644#645#0" expanded="true" />
-                <element signature="e#726#727#0" expanded="true" />
-                <element signature="e#767#768#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="294">
+              <caret line="55" column="33" selection-start-line="55" selection-start-column="33" selection-end-line="55" selection-end-column="33" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MenuDisplay.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MenuDisplay.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/MenuDisplay.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="85" column="61" selection-start-line="85" selection-start-column="61" selection-end-line="85" selection-end-column="61" />
+            <state relative-caret-position="309">
+              <caret line="162" column="12" lean-forward="true" selection-start-line="162" selection-start-column="12" selection-end-line="162" selection-end-column="12" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -49,11 +44,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="735">
-              <caret line="49" column="19" selection-start-line="49" selection-start-column="19" selection-end-line="49" selection-end-column="19" />
+            <state relative-caret-position="191">
+              <caret line="72" column="24" selection-start-line="72" selection-start-column="24" selection-end-line="72" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -64,8 +59,8 @@
       <file leaf-file-name="ReadPropertiesFile.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/ReadPropertiesFile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="530">
-              <caret line="52" selection-start-line="52" selection-end-line="52" />
+            <state relative-caret-position="240">
+              <caret line="24" selection-start-line="24" selection-end-line="24" />
             </state>
           </provider>
         </entry>
@@ -81,7 +76,11 @@
       </file>
       <file leaf-file-name="all.log" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/all.log">
-          <provider selected="true" editor-type-id="LogFileEditorProvider" />
+          <provider selected="true" editor-type-id="LogFileEditorProvider">
+            <state relative-caret-position="135">
+              <caret line="9" column="80" selection-start-line="9" selection-start-column="80" selection-end-line="9" selection-end-column="80" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -113,8 +112,8 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
-    <option name="x" value="-12" />
-    <option name="y" value="-12" />
+    <option name="x" value="78" />
+    <option name="y" value="-27" />
     <option name="width" value="1944" />
     <option name="height" value="1044" />
   </component>
@@ -124,6 +123,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -174,7 +174,6 @@
       </pane>
       <pane id="AndroidView" />
       <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -186,7 +185,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.general" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -303,7 +302,10 @@
       <workItem from="1542131726595" duration="180000" />
       <workItem from="1542181813756" duration="5366000" />
       <workItem from="1542187437570" duration="22374000" />
-      <workItem from="1542270204775" duration="13107000" />
+      <workItem from="1542270204775" duration="13459000" />
+      <workItem from="1542283724544" duration="1763000" />
+      <workItem from="1542289024754" duration="255000" />
+      <workItem from="1542289302703" duration="2520000" />
     </task>
     <task id="LOCAL-00001" summary="Search Number Mode challenger updated:&#10;ask user number added">
       <created>1542130169534</created>
@@ -330,7 +332,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45015000" />
+    <option name="totallyTimeSpent" value="49905000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -346,7 +348,7 @@
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="TODO" order="10" weight="0.3291592" />
+      <window_info anchor="bottom" id="TODO" order="10" weight="0.32763976" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.32763976" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info id="Image Layers" order="2" />
@@ -355,24 +357,24 @@
       <window_info anchor="right" id="Maven Projects" order="7" />
       <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="4" weight="0.3291592" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32763976" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32608697" />
       <window_info anchor="bottom" id="Terminal" order="5" weight="0.3291592" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="3" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49910554" visible="true" weight="0.17179903" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49910554" visible="true" weight="0.18071313" />
       <window_info anchor="right" id="Database" order="6" />
+      <window_info anchor="bottom" id="Find" order="7" weight="0.3291592" />
       <window_info id="Structure" order="1" sideWeight="0.5008944" side_tool="true" weight="0.12307692" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="4" />
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info id="Favorites" order="5" sideWeight="0.5008944" side_tool="true" weight="0.12307692" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39285713" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39130434" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="6" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="7" weight="0.3291592" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -411,43 +413,143 @@
     <MESSAGE value="Search Number Mode challenger updated:&#10;ask user number added" />
     <MESSAGE value="minor update on displayAskNumber:&#10;force user to put in correct number" />
     <MESSAGE value="SearchNumber mode Challenger updated:&#10;two ArrayList created (computer and user)for compare." />
-    <option name="LAST_COMMIT_MESSAGE" value="SearchNumber mode Challenger updated:&#10;two ArrayList created (computer and user)for compare." />
+    <MESSAGE value="SearchNumber mode Challenger updated:&#10;- update computerNbrCombination method on SearchNumber class for error when digit number on config.properties change." />
+    <option name="LAST_COMMIT_MESSAGE" value="SearchNumber mode Challenger updated:&#10;- update computerNbrCombination method on SearchNumber class for error when digit number on config.properties change." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/SearchNumber.java</url>
+          <line>79</line>
+          <properties />
+          <option name="timeStamp" value="43" />
+        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/SearchNumber.java</url>
           <line>41</line>
           <properties class="com.ocr.nicolas.SearchNumber" method="computerNbrCombination">
             <option name="EMULATED" value="true" />
           </properties>
-          <option name="timeStamp" value="37" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/SearchNumber.java</url>
-          <line>68</line>
-          <properties />
-          <option name="timeStamp" value="38" />
+          <option name="timeStamp" value="42" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="39" />
+      <option name="time" value="44" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/ReadPropertiesFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="52" selection-start-line="52" selection-end-line="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/config.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="33" selection-start-line="1" selection-start-column="33" selection-end-line="1" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/all.log">
+      <provider selected="true" editor-type-id="LogFileEditorProvider" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/SearchNumber.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="50" selection-start-line="50" selection-end-line="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="27" column="88" selection-start-line="27" selection-start-column="88" selection-end-line="27" selection-end-column="88" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/ReadPropertiesFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="52" selection-start-line="52" selection-end-line="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/config.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="33" selection-start-line="1" selection-start-column="33" selection-end-line="1" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/all.log">
+      <provider selected="true" editor-type-id="LogFileEditorProvider" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/MenuDisplay.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2385">
+          <caret line="164" column="86" lean-forward="true" selection-start-line="164" selection-start-column="86" selection-end-line="164" selection-end-column="86" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/SearchNumber.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2745">
+          <caret line="194" column="62" selection-start-line="194" selection-start-column="62" selection-end-line="194" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/MenuDisplay.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="25" column="29" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/ReadPropertiesFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="52" selection-start-line="52" selection-end-line="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/config.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="33" selection-start-line="1" selection-start-column="33" selection-end-line="1" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/all.log">
+      <provider selected="true" editor-type-id="LogFileEditorProvider" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="49" column="19" selection-start-line="49" selection-start-column="19" selection-end-line="49" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/SearchNumber.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2250">
           <caret line="159" column="34" selection-start-line="159" selection-start-column="34" selection-end-line="159" selection-end-column="34" />
-          <folding>
-            <element signature="e#609#610#0" expanded="true" />
-            <element signature="e#644#645#0" expanded="true" />
-            <element signature="e#726#727#0" expanded="true" />
-            <element signature="e#767#768#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -496,12 +598,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1530">
           <caret line="102" selection-start-line="102" selection-end-line="102" />
-          <folding>
-            <element signature="e#609#610#0" expanded="true" />
-            <element signature="e#644#645#0" expanded="true" />
-            <element signature="e#726#727#0" expanded="true" />
-            <element signature="e#767#768#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -536,12 +632,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="840">
           <caret line="56" column="47" selection-start-line="56" selection-start-column="47" selection-end-line="56" selection-end-column="47" />
-          <folding>
-            <element signature="e#609#610#0" expanded="true" />
-            <element signature="e#644#645#0" expanded="true" />
-            <element signature="e#726#727#0" expanded="true" />
-            <element signature="e#767#768#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -651,6 +741,27 @@
     <entry file="file://$PROJECT_DIR$/src/main/main.iml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/WritePropertiesFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/all.log">
+      <provider selected="true" editor-type-id="LogFileEditorProvider">
+        <state relative-caret-position="135">
+          <caret line="9" column="80" selection-start-line="9" selection-start-column="80" selection-end-line="9" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/ReadPropertiesFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/config.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -658,50 +769,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/WritePropertiesFile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="31" column="37" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/all.log">
-      <provider selected="true" editor-type-id="LogFileEditorProvider" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/SearchNumber.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2805">
-          <caret line="194" column="62" selection-start-line="194" selection-start-column="62" selection-end-line="194" selection-end-column="62" />
-          <folding>
-            <element signature="e#609#610#0" expanded="true" />
-            <element signature="e#644#645#0" expanded="true" />
-            <element signature="e#726#727#0" expanded="true" />
-            <element signature="e#767#768#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="294">
+          <caret line="55" column="33" selection-start-line="55" selection-start-column="33" selection-end-line="55" selection-end-column="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/ReadPropertiesFile.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="530">
-          <caret line="52" selection-start-line="52" selection-end-line="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/MenuDisplay.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="85" column="61" selection-start-line="85" selection-start-column="61" selection-end-line="85" selection-end-column="61" />
+        <state relative-caret-position="191">
+          <caret line="72" column="24" selection-start-line="72" selection-start-column="24" selection-end-line="72" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/MenuDisplay.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="735">
-          <caret line="49" column="19" selection-start-line="49" selection-start-column="19" selection-end-line="49" selection-end-column="19" />
+        <state relative-caret-position="309">
+          <caret line="162" column="12" lean-forward="true" selection-start-line="162" selection-start-column="12" selection-end-line="162" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

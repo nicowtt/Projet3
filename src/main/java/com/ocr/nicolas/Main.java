@@ -65,9 +65,22 @@ public class Main {
                         //je fait une autre ArrayList utilisateur et je compare avec l'ordi.
                         searchNumber.combinationOnBoard(randomNumber, nbrUser, nbrDigitComputer, nbrDigitUser);
 
+                        //Je donne le nombre d'essai possible
+
                         //J'affiche la reponse de la comparaison
                         String afterCompareImport = searchNumber.getAfterCompareExport();
                         System.out.println("" + afterCompareImport);
+                        
+                        //mode developper (oui/non)
+                        boolean developerMode = read.isDevelopperMode();
+                        if (developerMode = true) {
+                            System.out.println("(" + randomNumber + ")");
+                        }
+                        else{
+                            developerMode = false;
+                            System.out.println("");
+                        }
+
 
 
 
