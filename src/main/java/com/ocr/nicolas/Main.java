@@ -48,7 +48,6 @@ public class Main {
         //lancement des jeux:
         switch (gamesMenuChoice) {
             case 1:
-                System.out.println(" lancement du jeu Recherche +/- en mode challenger");
                 switch (gameTypeChoice) {
                     case 1:
                         //recuperation variable random ordinateur
@@ -63,10 +62,12 @@ public class Main {
                         //je trouve le nombre de digit utilisateur
                         int nbrDigitUser = searchNumber.FindNbrDigit(nbrUser);
 
-                        //je fait une autre ArrayList utilisateur
+                        //je fait une autre ArrayList utilisateur et je compare avec l'ordi.
                         searchNumber.combinationOnBoard(randomNumber, nbrUser, nbrDigitComputer, nbrDigitUser);
 
-                        //je compare les listes
+                        //J'affiche la reponse de la comparaison
+                        String afterCompareImport = searchNumber.getAfterCompareExport();
+                        System.out.println("" + afterCompareImport);
 
 
 

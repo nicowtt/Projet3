@@ -13,6 +13,9 @@ public class SearchNumber {
     int nbrDigitComputeur;
     int nbrDigitUser;
 
+    String afterCompareExport;
+
+
     public void setNbrCombinationSearchNumber(int nbrCombinationSearchNumber) {
         this.NbrBoxesCombinationSearchNumber = NbrBoxesCombinationSearchNumber;
     }
@@ -25,6 +28,12 @@ public class SearchNumber {
         return nbrDigitUser;
     }
 
+    public String getAfterCompareExport() {
+        return afterCompareExport;
+    }
+
+
+
     /**
      * Computer number of combination
      *
@@ -32,24 +41,33 @@ public class SearchNumber {
      */
     public int computerNbrCombination(int nbrDigit) {
         String finalRandomDigitNumberString = "";
+        int randomNumber = 0;
 
-        while (nbrDigit >= 1) {
-            //nouvel objet
-            Random rand = new Random();
-            //int de 0 a 9 (base 10)
-            int base10RandomDigitNumber = rand.nextInt(9);
-            logger.info("base 10 random =" + base10RandomDigitNumber);
-            //je converti en String
-            String randomDigitNumberString = Integer.toString(base10RandomDigitNumber);
-            //je l'ajoute a la variable String
-            finalRandomDigitNumberString = finalRandomDigitNumberString + randomDigitNumberString;
-            //j'incremente negativement nbrDigit
-            nbrDigit--;
-        }
-        //je reconverti le chiffre final en int
-        int randomNumber = Integer.parseInt(finalRandomDigitNumberString);
-        logger.info("randomNumber = " + finalRandomDigitNumberString);
+        do {
+            int counterNbrDigit = nbrDigit;
+            finalRandomDigitNumberString = "";
+            while (counterNbrDigit >= 1) {
+                //nouvel objet
+                Random rand = new Random();
+                //int de 0 a 9 (base 10)
+                int base10RandomDigitNumber = rand.nextInt(9);
+                logger.info("base 10 random =" + base10RandomDigitNumber);
+                //je converti en String pour arriver a les ajouter sans addition
+                String randomDigitNumberString = Integer.toString(base10RandomDigitNumber);
+                //je l'ajoute a la variable String
+                finalRandomDigitNumberString = finalRandomDigitNumberString + randomDigitNumberString;
+                //j'incremente négativement nbrDigit
+                counterNbrDigit--;
+            }
+            //je reconverti le chiffre final en int
+            int randomNumberInt = Integer.parseInt(finalRandomDigitNumberString);
+            logger.info("randomNumber = " + finalRandomDigitNumberString);
+            randomNumber = randomNumberInt;
+
+        }while (randomNumber < 1000 );
+
         return randomNumber;
+
     }
 
 
@@ -131,42 +149,51 @@ public class SearchNumber {
         int counterForLoop = nbrBoxes;
 
         //Creation d'un tableau pour les resultats:
-        List<String> resultListInverted = new ArrayList<String>();
+        List<String> resultList = new ArrayList<String>();
 
         //on compare:
 
         do {
-            int nbrComputerForCompare = combinationOnBoard.get(maxComputerBoxesOnBoard);
-            int nbrUserForCompare = combinationOnBoard.get(maxUserBoxesOnBoard);
+            int nbrComputerForCompare = combinationOnBoard.get(minComputerBoxesOnBoard);
+            int nbrUserForCompare = combinationOnBoard.get(minUserBoxesOnBoard);
             logger.info("dernier nombre computeur = " + nbrComputerForCompare);
             logger.info("dernier nombre user = " + nbrUserForCompare);
 
             if (nbrComputerForCompare > nbrUserForCompare) {
-                resultListInverted.add("+");
+                resultList.add("+");
 
 
             } else if (nbrComputerForCompare < nbrUserForCompare) {
-                resultListInverted.add("-");
+                resultList.add("-");
 
             } else {
-                resultListInverted.add("=");
+                resultList.add("=");
 
             }
             counterForLoop--;
-            maxComputerBoxesOnBoard--;
-            maxUserBoxesOnBoard--;
+            minComputerBoxesOnBoard++;
+            minUserBoxesOnBoard++;
 
 
         }while (counterForLoop != 0);
 
+        logger.info("tableau de comparaison = " + resultList);
 
-        logger.info("tableau de comparaison Inversé = " + resultListInverted);
+        // enregistrement dans la variable AfterCompare
+        String afterCompare = "";
+        int counterForLoop2 = 0;
 
-        //j'inverse les valeurs dans un autre tableau mais il veut pas les String....arfff
+        do {
+           String OneString = resultList.get(counterForLoop2);
+           afterCompare = afterCompare + OneString;
+           counterForLoop2++;
+        }while (counterForLoop2 != nbrBoxes);
+
+        afterCompareExport = afterCompare;
 
 
-
-
+        logger.info("resultat final dans la class SearchNumber = " + afterCompare);
+        // je set l'info dans la class MenuDisplay
 
 
         }

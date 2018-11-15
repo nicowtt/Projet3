@@ -11,9 +11,11 @@ public class MenuDisplay {
 
     int NbrBoxesCombinationSearchNumber;
 
+
     public int getNbrBoxesCombinationSearchNumberCombinationSearchNumber() {
         return NbrBoxesCombinationSearchNumber;
     }
+
 
 
 
@@ -21,7 +23,7 @@ public class MenuDisplay {
      * Display ask games menu.
      */
     public void displayAskGamesMenu() {
-        System.out.println("Quels jeux voulez-vous lancer:");
+        System.out.println("Voulez-vous jouer:");
         System.out.println("1-> Recherche +/-");
         System.out.println("2-> Mastermind");
 
@@ -51,11 +53,13 @@ public class MenuDisplay {
         do {
             switch (gameChoice) {
                 case 1:
-                    System.out.println("Vous avez choisi le jeux Recherche +/-");
+                    System.out.println("Vous avez choisi le jeux Recherche +/- ");
+                    System.out.println("");
                     responseIsGood = true;
                     break;
                 case 2:
                     System.out.println("Vous avez choisi le Mastermind");
+                    System.out.println("");
                     responseIsGood = true;
                     break;
                 default:
@@ -78,9 +82,9 @@ public class MenuDisplay {
      */
     public void displayAskTypeOfGame() {
 
-        System.out.println("Choisissez le mode de jeux:");
-        System.out.println("1-Challenger -> toi contre l'ordinateur");
-        System.out.println("2-Défenseur -> ordinateur contre toi");
+        System.out.println("******Choisissez le mode de jeux:*******");
+        System.out.println("1-Challenger -> trouve le nombre mystère de l'ordinateur");
+        System.out.println("2-Défenseur -> L'ordinateur doit trouver ton nombre");
         System.out.println("3-Duel");
     }
 
@@ -94,7 +98,7 @@ public class MenuDisplay {
 
         do {
             try {
-                System.out.println("Quel est votre choix: ");
+                System.out.println("-> Quel est votre choix: ");
                 gameTypeChoice = sc.nextInt();
                 responseIsGood = true;
             }
@@ -109,14 +113,18 @@ public class MenuDisplay {
             switch (gameTypeChoice) {
                 case 1:
                     System.out.println("Vous avez choisi le mode Challenger");
+                    System.out.println("************************************");
+                    System.out.println("");
                     responseIsGood = true;
                     break;
                 case 2:
                     System.out.println("Vous avez choisi le mode Défenseur");
+                    System.out.println("");
                     responseIsGood = true;
                     break;
                 case 3:
                     System.out.println("Vous avez choisi le mode Duel");
+                    System.out.println("");
                     responseIsGood = true;
                     break;
                 default:
@@ -154,7 +162,7 @@ public class MenuDisplay {
 
         do {
             try {
-                System.out.println("Choisissez un nombre a " + nbr + " chiffre :");
+                System.out.println("-> Choisissez un nombre a " + nbr + " chiffre :");
                 userChoice = sc.nextInt();
                 if (userChoice > finalNumberMaxLimit) {
                     System.out.println("Le nombre doit etre inferieur a :" + finalNumberMaxLimit);
@@ -172,11 +180,7 @@ public class MenuDisplay {
             }
         }while (!responseIsGood);
         return userChoice;
-
-
-
     }
-
 }
 
 
