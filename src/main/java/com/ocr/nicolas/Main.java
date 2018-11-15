@@ -1,5 +1,6 @@
 package com.ocr.nicolas;
 
+import jdk.nashorn.internal.ir.IfNode;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -25,9 +26,9 @@ public class Main {
         // lecture du fichier config.properties.
         ReadPropertiesFile read = new ReadPropertiesFile();
         read.readConfigProperties();
-        int NbrBoxesCombinationSearchNumber = read.getNbrBoxesCombinationSearchNumber();
-        String developerMode = read.getDeveloperMode();
-        logger.info("variable developerMode dans main = " + developerMode );
+        int NbrBoxesCombinationSearchNumber = read.getNbrBoxesCombinationSearchNumber(); //nbr de digit
+        String developerMode = read.getDeveloperMode(); // developer mode?
+        int nbrOfTrySearchNumber = read.getNbrOfTrySearchNumber(); // nomber of try
 
         //affichage du menu du choix des jeux.
         MenuDisplay display = new MenuDisplay();
@@ -58,49 +59,56 @@ public class Main {
                         //je trouve le nombre de digit de l'ordinateur
                         int nbrDigitComputer = searchNumber.FindNbrDigit(randomNumber);
 
-                        //je lance la demande de nombre utilisateur et recupere la valeur
-                        int nbrUser = display.displayAskNumber(NbrBoxesCombinationSearchNumber);
-
-                        //je trouve le nombre de digit utilisateur
-                        int nbrDigitUser = searchNumber.FindNbrDigit(nbrUser);
-
-                        //je fait une autre ArrayList utilisateur et je compare avec l'ordi.
-                        searchNumber.combinationOnBoard(randomNumber, nbrUser, nbrDigitComputer, nbrDigitUser);
-
                         //Je donne le nombre d'essai possible
+                        System.out.println("vous avez " + nbrOfTrySearchNumber + " essai");
 
-                        //J'affiche la reponse de la comparaison
-                        String afterCompareImport = searchNumber.getAfterCompareExport();
-                        System.out.println("" + afterCompareImport);
+                        //je lance le mode
+                        int nbrLoop = nbrOfTrySearchNumber;
+                        int win = 0;
 
-                        //mode developper (oui/non)
-                        if (developerMode.contains("true")) {
-                            System.out.println("(" + randomNumber + ")");
-                        }
-                        else {
-                            System.out.println("");
-                        }
+                            do {
+                                while (nbrLoop != 0) {
+                                    //je lance la demande de nombre utilisateur et recupere la valeur
+                                    int nbrUser = display.displayAskNumber(NbrBoxesCombinationSearchNumber);
 
+                                    //je trouve le nombre de digit utilisateur
+                                    int nbrDigitUser = searchNumber.FindNbrDigit(nbrUser);
 
+                                    //je fait une autre ArrayList utilisateur et je compare avec l'ordi.
+                                    searchNumber.combinationOnBoard(randomNumber, nbrUser, nbrDigitComputer, nbrDigitUser);
 
+                                    //J'affiche la reponse de la comparaison
+                                    String afterCompareImport = searchNumber.getAfterCompareExport();
+                                    System.out.println("" + afterCompareImport);
 
+                                    //mode developper (oui/non)
+                                    if (developerMode.contains("true")) {
+                                        System.out.println("(" + randomNumber + ")");
+                                    } else {
+                                        System.out.println("");
+                                    }
+                                    //je teste gagnat ou perdant
+                                    if (randomNumber == nbrUser) {
+                                        System.out.println(" Exellent Vous avez gagné !!!");
+                                        win = 1;
+                                        nbrLoop = 0;
 
+                                    } else {
+                                        nbrLoop--;
+                                        System.out.println(" il vous reste " + nbrLoop + " essai.");
+                                    }
+                                }
+                            } while (nbrLoop != 0);
+                            if (win == 0) {
+                                System.out.println(" vous avez perdu");
+                            }
+                            else {
 
-
-
-
-
-
-
-
-
-
-                    default:
-                        //System.out.println("aucun type de jeux");
-
-
-                }
+                            }
+            default:
+                //System.out.println("aucun type de jeux
         }
-    }
-}
+    }}}
+
+
 

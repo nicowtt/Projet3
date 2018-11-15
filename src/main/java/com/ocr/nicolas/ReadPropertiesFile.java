@@ -14,7 +14,9 @@ public class ReadPropertiesFile {
 
     private int nbrBoxesCombinationSearchNumber;
     private String developerMode;
+    private int nbrOfTrySearchNumber;
 
+    public int getNbrOfTrySearchNumber() { return nbrOfTrySearchNumber; }
     public String getDeveloperMode() { return developerMode; }
     public int getNbrBoxesCombinationSearchNumber() {
         return nbrBoxesCombinationSearchNumber;
@@ -47,10 +49,13 @@ public class ReadPropertiesFile {
             developerMode = prop.getProperty("DeveloperMode");
             logger.info("developerMode: " + developerMode);
 
-            // String NbrCombinationSearchNumber -> Integer NbrCombinationSearchNumber
+            // String -> Integer
 
             nbrBoxesCombinationSearchNumber = Integer.parseInt(prop.getProperty("NbrBoxesCombinationSearchNumber"));
             logger.info("variable nbrBoxesCombinationSearchNumber = " + nbrBoxesCombinationSearchNumber);
+
+            nbrOfTrySearchNumber = Integer.parseInt(prop.getProperty("nbrOfTrySearchNumber"));
+            logger.info("variable nbrOfTrySearchNumber = "+ nbrOfTrySearchNumber);
 
 
 

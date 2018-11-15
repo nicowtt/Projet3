@@ -33,7 +33,6 @@ public class SearchNumber {
     }
 
 
-
     /**
      * Computer number of combination
      *
@@ -75,7 +74,7 @@ public class SearchNumber {
             logger.info("nombre aléatoire ordinateur = " + finalRandomDigitNumberString);
             randomNumber = randomNumberInt;
 
-        }while (randomNumber < finalNumberMaxLimit );
+        } while (randomNumber < finalNumberMaxLimit);
 
         return randomNumber;
 
@@ -187,7 +186,7 @@ public class SearchNumber {
             minUserBoxesOnBoard++;
 
 
-        }while (counterForLoop != 0);
+        } while (counterForLoop != 0);
 
         logger.info("tableau de comparaison = " + resultList);
 
@@ -196,17 +195,19 @@ public class SearchNumber {
         int counterForLoop2 = 0;
 
         do {
-           String OneString = resultList.get(counterForLoop2);
-           afterCompare = afterCompare + OneString;
-           counterForLoop2++;
-        }while (counterForLoop2 != nbrBoxes);
+            String OneString = resultList.get(counterForLoop2);
+            afterCompare = afterCompare + OneString;
+            counterForLoop2++;
+        } while (counterForLoop2 != nbrBoxes);
 
         afterCompareExport = afterCompare;
         logger.info("resultat final dans la class SearchNumber = " + afterCompare);
 
-        }
+    }
 
-        }
+    }
+
+
 
 
 
