@@ -44,14 +44,14 @@ public class SearchNumber {
         String digitString = "";
         int randomNumber = 0;
 
-        // je trouve le nombre max par rapport au fichier config
+        // je trouve la limite minimum du nombre aleatoire de l'ordinateur par rapport au fichier config
         int counterForMaxNumber = nbrDigit - 1;
         while (counterForMaxNumber > 0) {
             digitString = digitString + "9";
             counterForMaxNumber--;
         }
         int finalNumberMaxLimit = Integer.parseInt(digitString);
-        logger.info("number max utilisateur = " + finalNumberMaxLimit);
+        logger.info("number minimum a depasser pour avoir le nombre de digit necessaire = " + finalNumberMaxLimit);
 
         // random number computer
         do {
@@ -72,7 +72,7 @@ public class SearchNumber {
             }
             //je reconverti le chiffre final en int
             int randomNumberInt = Integer.parseInt(finalRandomDigitNumberString);
-            logger.info("randomNumber = " + finalRandomDigitNumberString);
+            logger.info("nombre aléatoire ordinateur = " + finalRandomDigitNumberString);
             randomNumber = randomNumberInt;
 
         }while (randomNumber < finalNumberMaxLimit );
@@ -115,10 +115,11 @@ public class SearchNumber {
         String nbrUserString = Integer.toString(nbrUser);
         String nbrUserAndRandomString = nbrRandomString + nbrUserString;
         Integer nbrUserAndRandomInt = Integer.parseInt(nbrUserAndRandomString);
+        logger.info("nombre choisi par l'utilisateur = " + nbrUser);
         logger.info("ajout des nombres sans addition = " + nbrUserAndRandomInt);
 
         //je compte combien il y a de digit en tous (ordinateur + user)
-        logger.info("nombre choisi par l'utilisateur = " + nbrUser);
+
         int nbrDigitTotal = FindNbrDigit(nbrUserAndRandomInt);
 
         //je fais un tableau global
@@ -167,8 +168,8 @@ public class SearchNumber {
         do {
             int nbrComputerForCompare = combinationOnBoard.get(minComputerBoxesOnBoard);
             int nbrUserForCompare = combinationOnBoard.get(minUserBoxesOnBoard);
-            logger.info("dernier nombre computeur = " + nbrComputerForCompare);
-            logger.info("dernier nombre user = " + nbrUserForCompare);
+            logger.info("Premier nombre computeur = " + nbrComputerForCompare);
+            logger.info("Premier nombre user = " + nbrUserForCompare);
 
             if (nbrComputerForCompare > nbrUserForCompare) {
                 resultList.add("+");
@@ -201,11 +202,7 @@ public class SearchNumber {
         }while (counterForLoop2 != nbrBoxes);
 
         afterCompareExport = afterCompare;
-
-
         logger.info("resultat final dans la class SearchNumber = " + afterCompare);
-        // je set l'info dans la class MenuDisplay
-
 
         }
 

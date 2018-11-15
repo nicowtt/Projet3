@@ -13,12 +13,12 @@ import org.apache.logging.log4j.Logger;
 public class ReadPropertiesFile {
 
     private int nbrBoxesCombinationSearchNumber;
-    private boolean developperMode;
+    private String developerMode;
 
+    public String getDeveloperMode() { return developerMode; }
     public int getNbrBoxesCombinationSearchNumber() {
         return nbrBoxesCombinationSearchNumber;
     }
-    public boolean isDevelopperMode() { return developperMode; }
 
 
     static final Logger logger = LogManager.getLogger();
@@ -44,7 +44,6 @@ public class ReadPropertiesFile {
             prop.load(input);
 
             // get the property value and print it out
-            String developerMode;
             developerMode = prop.getProperty("DeveloperMode");
             logger.info("developerMode: " + developerMode);
 

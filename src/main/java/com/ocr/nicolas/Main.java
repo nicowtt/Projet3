@@ -26,6 +26,8 @@ public class Main {
         ReadPropertiesFile read = new ReadPropertiesFile();
         read.readConfigProperties();
         int NbrBoxesCombinationSearchNumber = read.getNbrBoxesCombinationSearchNumber();
+        String developerMode = read.getDeveloperMode();
+        logger.info("variable developerMode dans main = " + developerMode );
 
         //affichage du menu du choix des jeux.
         MenuDisplay display = new MenuDisplay();
@@ -70,16 +72,25 @@ public class Main {
                         //J'affiche la reponse de la comparaison
                         String afterCompareImport = searchNumber.getAfterCompareExport();
                         System.out.println("" + afterCompareImport);
-                        
+
                         //mode developper (oui/non)
-                        boolean developerMode = read.isDevelopperMode();
-                        if (developerMode = true) {
+                        if (developerMode.contains("true")) {
                             System.out.println("(" + randomNumber + ")");
                         }
-                        else{
-                            developerMode = false;
+                        else {
                             System.out.println("");
                         }
+
+
+
+
+
+
+
+
+
+
+
 
 
 

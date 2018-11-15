@@ -162,7 +162,7 @@ public class MenuDisplay {
 
         do {
             try {
-                System.out.println("-> Choisissez un nombre a " + nbr + " chiffre :");
+                System.out.println("Choisissez un nombre a " + nbr + " chiffre :");
                 userChoice = sc.nextInt();
                 if (userChoice > finalNumberMaxLimit) {
                     System.out.println("Le nombre doit etre inferieur a :" + finalNumberMaxLimit);
