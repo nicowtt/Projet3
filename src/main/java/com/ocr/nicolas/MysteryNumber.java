@@ -99,12 +99,15 @@ public class MysteryNumber {
         //creation d'une liste pour le resultat final
         List<String> resultList = new ArrayList<String>();
 
+        //mise en place d'un compter de String "="
+        int counterForSeeEgal = 0;
+        //mise en place d'un compter pour voir si gagnant
+        int counterForWin = 0;
+
         // je compare les chiffres dans cette liste
         do {
             int nbrComputeurForCompare = compareList.get(minComputerOnBoxes);
             int nbrUserForCompare = compareList.get(minUserOnBoxes);
-            logger.info("Premier nombre computeur = " + minComputerOnBoxes);
-            logger.info("Premier nombre user = " + minUserOnBoxes);
 
             if (nbrComputeurForCompare > nbrUserForCompare) {
                 resultList.add("+");
@@ -115,38 +118,50 @@ public class MysteryNumber {
 
             } else {
                 resultList.add("=");
+                counterForSeeEgal += 1; // a chaque passage de digit le compteur increment (je vais savoir combien y il d'egal lorsque la methode est lancé
+                }
 
-            }
             counterForResultList--;
             minComputerOnBoxes++;
             minUserOnBoxes++;
         }while (counterForResultList != 0);
-
         logger.info("tableau de comparaison =" + resultList);
 
-        //mise en place d'un counter de String "="
-        int counterForWin = 0;
+        // si il a autant d'egal que de digit je signale qu'on a un gagnant
+        if ( counterForSeeEgal == nbrDigit) {
+            counterForWin = 1;
+        }
+        logger.info("nombre d'egal dans la comparaison class MysteryNumber = " + counterForSeeEgal);
+
+        // je reinitialize la variable counterForSeeEgal
+        counterForSeeEgal = 0;
+
+
+
+
+
 
         //enregistrement dans la variabla afterCompare
         String afterCompare = "";
 
         int counterForLoopAfterCompare = 0;
 
+
         do {
             String OneString = resultList.get(counterForLoopAfterCompare);
             afterCompare = afterCompare + OneString;
-            if (afterCompare.contains("=")) {
-                counterForWin += 1;
-            }
+
             counterForLoopAfterCompare++;
         } while (counterForLoopAfterCompare != nbrDigit);
+
+
 
         //j'exporte la variable finale
         afterCompareExport = afterCompare;
         logger.info("resultat final dans la class MysteryNumber = " + afterCompare);
         //j'exporte la variable du compteur pour voir si l'utilisateur a gagné
         counterForWinExport = counterForWin;
-        logger.info("compteur pour voir si gagnant " + counterForWin + " doit etre egal au nombre de case: " + nbrDigit);
+        logger.info("compteur pour voir si gagnant " + counterForSeeEgal + " doit etre egal au nombre de case: " + nbrDigit);
 
 
 

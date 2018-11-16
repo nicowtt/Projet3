@@ -74,19 +74,21 @@ public class Main {
                                 //je teste gagnant ou perdant !!!! etape 5 !!!!
                                 // je fait une variable pour voir si gagnant
                                 int winTest = mysteryNumber.getCounterForWinExport();
-                                if (winTest == nbrBoxesCombinationMysteryNumber) {
+                                if (winTest == 1) {
                                     System.out.println(" Exellent Vous avez gagné !!!");
                                     win = 1;
                                     nbrLoop = 0;
 
                                 } else {
                                     nbrLoop--;
+
                                     System.out.println(" il vous reste " + nbrLoop + " essai.");
                                 }
                             }
                         } while (nbrLoop != 0);
                         if (win == 0) {
                             System.out.println(" vous avez perdu");
+                            System.out.println("le nombre mystere etait: " + randomNumberString);
                         } else {
 
                         }
