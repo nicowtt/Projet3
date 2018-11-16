@@ -12,14 +12,14 @@ import org.apache.logging.log4j.Logger;
 
 public class ReadPropertiesFile {
 
-    private int nbrBoxesCombinationSearchNumber;
+    private int nbrBoxesCombinationMysteryNumber;
     private String developerMode;
-    private int nbrOfTrySearchNumber;
+    private int nbrOfTryMysteryNumber;
 
-    public int getNbrOfTrySearchNumber() { return nbrOfTrySearchNumber; }
+    public int getNbrOfTryMysteryNumber() { return nbrOfTryMysteryNumber; }
     public String getDeveloperMode() { return developerMode; }
     public int getNbrBoxesCombinationSearchNumber() {
-        return nbrBoxesCombinationSearchNumber;
+        return nbrBoxesCombinationMysteryNumber;
     }
 
 
@@ -51,11 +51,11 @@ public class ReadPropertiesFile {
 
             // String -> Integer
 
-            nbrBoxesCombinationSearchNumber = Integer.parseInt(prop.getProperty("NbrBoxesCombinationSearchNumber"));
-            logger.info("variable nbrBoxesCombinationSearchNumber = " + nbrBoxesCombinationSearchNumber);
+            nbrBoxesCombinationMysteryNumber = Integer.parseInt(prop.getProperty("NbrBoxesCombinationMysteryNumber"));
+            logger.info("variable nbrBoxesCombinationMysteryNumber = " + nbrBoxesCombinationMysteryNumber);
 
-            nbrOfTrySearchNumber = Integer.parseInt(prop.getProperty("nbrOfTrySearchNumber"));
-            logger.info("variable nbrOfTrySearchNumber = "+ nbrOfTrySearchNumber);
+            nbrOfTryMysteryNumber = Integer.parseInt(prop.getProperty("nbrOfTryMysteryNumber"));
+            logger.info("variable nbrOfTryMysteryNumber = "+ nbrOfTryMysteryNumber);
 
 
 

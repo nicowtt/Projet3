@@ -144,11 +144,11 @@ public class MenuDisplay {
     }
 
     /**
-     * display first choice of number
+     * display first choice of number on String
      */
-    public int displayAskNumber(int nbr) {
+    public String displayAskNumber(int nbr) {
 
-        int userChoice = -1;
+        //nombre max utilisateur
         boolean responseIsGood;
         int nbrDigit = nbr;
         String digitString = "";
@@ -160,11 +160,16 @@ public class MenuDisplay {
         int finalNumberMaxLimit = Integer.parseInt(digitString);
         logger.info("number max utilisateur = " + finalNumberMaxLimit);
 
+        //demande de chiffre
+
+        System.out.println("Choisissez une suite de " + nbr + " chiffre :");
+        String userChoiceString = sc.next();
+
         do {
             try {
-                System.out.println("Choisissez un nombre a " + nbr + " chiffre :");
-                userChoice = sc.nextInt();
-                if (userChoice > finalNumberMaxLimit) {
+                //je converti pour verifier le chiffre
+                int userchoiceInt = Integer.parseInt(userChoiceString);
+                if (userchoiceInt > finalNumberMaxLimit) {
                     System.out.println("Le nombre doit etre inferieur a :" + finalNumberMaxLimit);
                     responseIsGood = false;
                     }
@@ -179,7 +184,8 @@ public class MenuDisplay {
                 responseIsGood = false;
             }
         }while (!responseIsGood);
-        return userChoice;
+        return userChoiceString;
+
     }
 }
 

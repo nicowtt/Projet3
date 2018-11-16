@@ -1,6 +1,5 @@
 package com.ocr.nicolas;
 
-import jdk.nashorn.internal.ir.IfNode;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -12,23 +11,12 @@ public class Main {
 
     public static void main(String[] args) {
 
-        /* developer Mode recovery
-        boolean developerMode;
-
-        for (int i = 0; i < args.length; i++) {
-            if ("-d".equals(args[i])) {
-                developerMode = true;
-                logger.info("developperMode");
-            }
-        }
-        */
-
         // lecture du fichier config.properties.
         ReadPropertiesFile read = new ReadPropertiesFile();
         read.readConfigProperties();
-        int NbrBoxesCombinationSearchNumber = read.getNbrBoxesCombinationSearchNumber(); //nbr de digit
+        int nbrBoxesCombinationMysteryNumber = read.getNbrBoxesCombinationSearchNumber(); // = nbr de digit
         String developerMode = read.getDeveloperMode(); // developer mode?
-        int nbrOfTrySearchNumber = read.getNbrOfTrySearchNumber(); // nomber of try
+        int nbrOfTryMysteryNumber = read.getNbrOfTryMysteryNumber(); // nomber of try
 
         //affichage du menu du choix des jeux.
         MenuDisplay display = new MenuDisplay();
@@ -43,9 +31,9 @@ public class Main {
         //recuperation variable du type de jeux
         int gameTypeChoice = display.displayGameTypeChoice();
 
-        //**set du jeu Recherche nombre***
-        SearchNumber searchNumber = new SearchNumber();
-        searchNumber.setNbrCombinationSearchNumber(NbrBoxesCombinationSearchNumber);
+        //**set du jeu Recherche nombre*** !!!ici je change pour mysteryNumber!!! etape 1
+        MysteryNumber mysteryNumber = new MysteryNumber();
+        mysteryNumber.setNbrDigit(nbrBoxesCombinationMysteryNumber);
 
 
         //lancement des jeux:
@@ -53,62 +41,63 @@ public class Main {
             case 1:
                 switch (gameTypeChoice) {
                     case 1:
-                        //recuperation variable random ordinateur
-                        int randomNumber = searchNumber.computerNbrCombination(NbrBoxesCombinationSearchNumber);
-
-                        //je trouve le nombre de digit de l'ordinateur
-                        int nbrDigitComputer = searchNumber.FindNbrDigit(randomNumber);
+                        //recuperation variable random ordinateur !!! etape 2!! -> randomNumberString
+                        String randomNumberString = mysteryNumber.computerNbrCombination(nbrBoxesCombinationMysteryNumber);
+                        logger.info("aleatoire String computeur = " + randomNumberString);
 
                         //Je donne le nombre d'essai possible
-                        System.out.println("vous avez " + nbrOfTrySearchNumber + " essai");
+                        System.out.println("vous avez " + nbrOfTryMysteryNumber + " essai");
 
                         //je lance le mode
-                        int nbrLoop = nbrOfTrySearchNumber;
+                        int nbrLoop = nbrOfTryMysteryNumber;
                         int win = 0;
 
-                            do {
-                                while (nbrLoop != 0) {
-                                    //je lance la demande de nombre utilisateur et recupere la valeur
-                                    int nbrUser = display.displayAskNumber(NbrBoxesCombinationSearchNumber);
+                        do {
+                            while (nbrLoop != 0) {
+                                //je lance la demande de nombre utilisateur et recupere la valeur !! etape 3 !!! -> nbrUserString
+                                String nbrUserString = display.displayAskNumber(nbrBoxesCombinationMysteryNumber);
+                                logger.info("nombre user dans la class main = " + nbrUserString);
 
-                                    //je trouve le nombre de digit utilisateur
-                                    int nbrDigitUser = searchNumber.FindNbrDigit(nbrUser);
+                                //je compare les deux nombres !!!!! etape 4 !!!!!
+                                mysteryNumber.CompareTwoString(randomNumberString, nbrUserString, nbrBoxesCombinationMysteryNumber);
 
-                                    //je fait une autre ArrayList utilisateur et je compare avec l'ordi.
-                                    searchNumber.combinationOnBoard(randomNumber, nbrUser, nbrDigitComputer, nbrDigitUser);
+                                //J'affiche la reponse de la comparaison
+                                String afterCompareImport = mysteryNumber.getAfterCompareExport();
+                                System.out.println("" + afterCompareImport);
 
-                                    //J'affiche la reponse de la comparaison
-                                    String afterCompareImport = searchNumber.getAfterCompareExport();
-                                    System.out.println("" + afterCompareImport);
-
-                                    //mode developper (oui/non)
-                                    if (developerMode.contains("true")) {
-                                        System.out.println("(" + randomNumber + ")");
-                                    } else {
-                                        System.out.println("");
-                                    }
-                                    //je teste gagnat ou perdant
-                                    if (randomNumber == nbrUser) {
-                                        System.out.println(" Exellent Vous avez gagné !!!");
-                                        win = 1;
-                                        nbrLoop = 0;
-
-                                    } else {
-                                        nbrLoop--;
-                                        System.out.println(" il vous reste " + nbrLoop + " essai.");
-                                    }
+                                //mode developper (oui/non)
+                                if (developerMode.contains("true")) {
+                                    System.out.println("(" + randomNumberString + ")");
+                                } else {
+                                    System.out.println("");
                                 }
-                            } while (nbrLoop != 0);
-                            if (win == 0) {
-                                System.out.println(" vous avez perdu");
-                            }
-                            else {
+                                //je teste gagnant ou perdant !!!! etape 5 !!!!
+                                // je fait une variable pour voir si gagnant
+                                int winTest = mysteryNumber.getCounterForWinExport();
+                                if (winTest == nbrBoxesCombinationMysteryNumber) {
+                                    System.out.println(" Exellent Vous avez gagné !!!");
+                                    win = 1;
+                                    nbrLoop = 0;
 
+                                } else {
+                                    nbrLoop--;
+                                    System.out.println(" il vous reste " + nbrLoop + " essai.");
+                                }
                             }
-            default:
-                //System.out.println("aucun type de jeux
+                        } while (nbrLoop != 0);
+                        if (win == 0) {
+                            System.out.println(" vous avez perdu");
+                        } else {
+
+                        }
+                }
         }
-    }}}
+    }
+}
+
+
+
+
 
 
 
