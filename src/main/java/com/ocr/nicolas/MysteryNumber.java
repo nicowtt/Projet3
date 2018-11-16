@@ -20,7 +20,7 @@ public class MysteryNumber {
 
 
     /**
-     * Computer number of combination on String
+     * Random computer number(s) combination (String)
      *
      * @param nbrDigit digit number(take on config.properties)
      */
@@ -32,24 +32,36 @@ public class MysteryNumber {
 
 
         while (counterNbrDigit >= 1) {
-            //nouvel objet
+            // nouvel objet
             Random rand = new Random();
+
             //int de 0 a 9 (base 10)
             int base10RandomDigitNumber = rand.nextInt(9);
             logger.info("base 10 random =" + base10RandomDigitNumber);
-            //je converti le chiffre en string
+
+            // je converti le chiffre en string
             String base10RandomDigitNumberString = String.valueOf(base10RandomDigitNumber);
-            //je l'ajoute au string computer final
+
+            // Je l'ajoute au string computer final
             finalRandomDigitNumberString = finalRandomDigitNumberString + base10RandomDigitNumberString;
-            //j'incremente le compteur
+
+            // j'incremente le compteur
             counterNbrDigit--;
         }
         return finalRandomDigitNumberString;
     }
 
 
+    /**
+     * For Compare 2 String (with number(s) inside)
+     *
+     * @param computeur Computeur string (with number(s) inside)
+     * @param user User string (with number(s) inside)
+     * @param nbrDigit number of boxes
+     */
     public void CompareTwoString (String computeur, String user, int nbrDigit ) {
-        //les compteurs
+
+        // les compteurs:
         int counterTotalLetter = (nbrDigit * 2) -1;
         int counterForMax = counterTotalLetter;
         int counterTotalLetterForLoop = counterTotalLetter + 1;
@@ -57,36 +69,42 @@ public class MysteryNumber {
         int counterAddCompareList = (nbrDigit * 2) -1;
         int counterForResultList = nbrDigit;
 
-        //les limites
+        // les limites:
         int minComputerOnBoxes = 0;
-        int maxComputerOnBoxes = nbrDigit -1;
         int minUserOnBoxes = nbrDigit;
-        int maxUserOnBoxes = (nbrDigit * 2) -1;
 
-        //je joint les mots computeur et user
+
+        // je joint les mots computeur et user:
         String computerUserString = computeur + user;
         String computerUserStringLoop = computerUserString;
-        // je crée une ArrayList pour comparer
+
+        // creation d'une ArrayList pour comparer
         List<Integer> compareListinverted = new ArrayList<>();
 
-        logger.info("nombre total = " + computerUserString);
+        logger.info("nombre total (String) = " + computerUserString);
 
-        //Total des lettres en int -> dans un tableau ArrayList 0 = Computer, 1 = User etc:
+        // avec le mot "computer" + "user" collé je converti les lettres en nombre  une par une -> dans un tableau ArrayList
         while (counterTotalLetterForLoop > 0 ) {
             char letter = computerUserString.charAt(counterTotalLetter);
-            //je converti en String
+
+            // je converti en String
             String letterString = String.valueOf(letter);
+
             //je converti en Int
             int letterInt = Integer.parseInt(letterString);
+
             //j'ajoute le chifre dans le tableau
             compareListinverted.add(letterInt);
+
             //j'increment le compteur total negativement
             counterTotalLetter --;
             counterTotalLetterForLoop--;
+
             //j'enleve la premiere lettre du mot total
             computerUserString = computerUserStringLoop.substring(0,counterForMax);
             counterForMax--;
         }
+
         // je crée une autre liste pour mettre les chiffres dans le bon ordre -> compareList
         List<Integer> compareList = new ArrayList<>();
         while (counterReverseLoop != 0) {
@@ -94,17 +112,16 @@ public class MysteryNumber {
             counterReverseLoop--;
             counterAddCompareList--;
         }
-        logger.info("tableau des chiffre (computeur en premier et user aprés) a l'endroit = " + compareList);
+        logger.info("tableau des chiffres (computeur en premier et user aprés) a l'endroit = " + compareList);
 
-        //creation d'une liste pour le resultat final
+        // creation d'une liste pour le resultat final (indication + et -)
         List<String> resultList = new ArrayList<String>();
 
-        //mise en place d'un compter de String "="
+        // mise en place d'un compteur de String "=" (indication si gagnant) et d'une variable (0 = perdant, 1= gagnant)
         int counterForSeeEgal = 0;
-        //mise en place d'un compter pour voir si gagnant
         int counterForWin = 0;
 
-        // je compare les chiffres dans cette liste
+        // je compare les chiffres de la derniere liste et j'ajoute les indication + , = ou - dans une autre liste -> resultList
         do {
             int nbrComputeurForCompare = compareList.get(minComputerOnBoxes);
             int nbrUserForCompare = compareList.get(minUserOnBoxes);
@@ -118,7 +135,7 @@ public class MysteryNumber {
 
             } else {
                 resultList.add("=");
-                counterForSeeEgal += 1; // a chaque passage de digit le compteur increment (je vais savoir combien y il d'egal lorsque la methode est lancé
+                counterForSeeEgal += 1; // a chaque passage de digit le compteur incremente (je vais savoir combien il y a d'egal lorsque la methode est lancé
                 }
 
             counterForResultList--;
@@ -126,26 +143,17 @@ public class MysteryNumber {
             minUserOnBoxes++;
         }while (counterForResultList != 0);
         logger.info("tableau de comparaison =" + resultList);
+        logger.info("nombre d'egal dans la comparaison class MysteryNumber = " + counterForSeeEgal);
 
-        // si il a autant d'egal que de digit je signale qu'on a un gagnant
+        // Si il a autant d'egal que de digit je signale qu'on a un gagnant
         if ( counterForSeeEgal == nbrDigit) {
             counterForWin = 1;
         }
-        logger.info("nombre d'egal dans la comparaison class MysteryNumber = " + counterForSeeEgal);
 
-        // je reinitialize la variable counterForSeeEgal
-        counterForSeeEgal = 0;
-
-
-
-
-
-
-        //enregistrement dans la variabla afterCompare
+        // Je met les signes (+, - ou =) dans la variable -> afterCompare
         String afterCompare = "";
 
         int counterForLoopAfterCompare = 0;
-
 
         do {
             String OneString = resultList.get(counterForLoopAfterCompare);
@@ -156,12 +164,13 @@ public class MysteryNumber {
 
 
 
-        //j'exporte la variable finale
+        // J'exporte la variable finale
         afterCompareExport = afterCompare;
         logger.info("resultat final dans la class MysteryNumber = " + afterCompare);
-        //j'exporte la variable du compteur pour voir si l'utilisateur a gagné
+
+        // j'exporte aussi la variable du compteur pour voir si l'utilisateur a gagné
         counterForWinExport = counterForWin;
-        logger.info("compteur pour voir si gagnant " + counterForSeeEgal + " doit etre egal au nombre de case: " + nbrDigit);
+        logger.info("compteur pour voir si gagnant (1 = gagné) -> " + counterForWin);
 
 
 

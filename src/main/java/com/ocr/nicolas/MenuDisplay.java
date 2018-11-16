@@ -9,15 +9,9 @@ public class MenuDisplay {
 
     Scanner sc = new Scanner(System.in);
 
-    int NbrBoxesCombinationSearchNumber;
+    private String userChoiceStringExport;
 
-
-    public int getNbrBoxesCombinationSearchNumberCombinationSearchNumber() {
-        return NbrBoxesCombinationSearchNumber;
-    }
-
-
-
+    public String getUserChoiceStringExport() { return userChoiceStringExport; }
 
     /**
      * Display ask games menu.
@@ -73,7 +67,7 @@ public class MenuDisplay {
                     }
             }
         } while (!responseIsGood);
-        logger.info("Choix du jeux-> " + gameChoice + "(1- Recherche+/- ; 2- Mastermind)" );
+        logger.info("Choix du jeux-> " + gameChoice + " (1- Recherche+/- ; 2- Mastermind)" );
         return gameChoice;
     }
 
@@ -139,16 +133,17 @@ public class MenuDisplay {
                     }
             }
         }while (!responseIsGood);
-        logger.info("Choix du jeux-> " + gameTypeChoice + "(1- Challenger ; 2- défenseur ; 3- Duel)" );
+        logger.info("Mode de jeux-> " + gameTypeChoice + " (1- Challenger ; 2- défenseur ; 3- Duel)" );
         return gameTypeChoice;
     }
 
     /**
      * display first choice of number on String
+     * @param nbr number of boxes (digit)
      */
-    public String displayAskNumber(int nbr) {
+    public void displayAskNumber(int nbr) {
 
-        //nombre max utilisateur
+        // Nombre max utilisateur
         boolean responseIsGood;
         int nbrDigit = nbr;
         String digitString = "";
@@ -160,17 +155,17 @@ public class MenuDisplay {
         int finalNumberMaxLimit = Integer.parseInt(digitString);
         logger.info("number max utilisateur = " + finalNumberMaxLimit);
 
-        //demande de chiffre
+        // Demande de chiffre
 
         System.out.println("Choisissez une suite de " + nbr + " chiffre :");
-        String userChoiceString = sc.next();
-
         do {
             try {
                 //je converti pour verifier le chiffre
+                String userChoiceString = sc.next();
+                userChoiceStringExport = userChoiceString;
                 int userchoiceInt = Integer.parseInt(userChoiceString);
                 if (userchoiceInt > finalNumberMaxLimit) {
-                    System.out.println("Le nombre doit etre inferieur a :" + finalNumberMaxLimit);
+                    System.out.println("Le nombre doit etre inferieur a : " + finalNumberMaxLimit + " Veuillez choisir une suite de 4 chiffre: ");
                     responseIsGood = false;
                     }
                     else{
@@ -184,7 +179,6 @@ public class MenuDisplay {
                 responseIsGood = false;
             }
         }while (!responseIsGood);
-        return userChoiceString;
 
     }
 }

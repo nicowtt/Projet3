@@ -18,70 +18,77 @@ public class Main {
         String developerMode = read.getDeveloperMode(); // developer mode?
         int nbrOfTryMysteryNumber = read.getNbrOfTryMysteryNumber(); // nomber of try
 
-        //affichage du menu du choix des jeux.
+        // Affichage du menu du choix des jeux.
         MenuDisplay display = new MenuDisplay();
         display.displayAskGamesMenu();
 
-        //recuperation variable du choix des jeux
+        // Recuperation variable du choix des jeux
         int gamesMenuChoice = display.displayGamesMenuChoice();
 
-        //affichage du menu du type de jeux  .
+        // Affichage du menu du type de jeux  .
         display.displayAskTypeOfGame();
 
-        //recuperation variable du type de jeux
+        // Recuperation variable du type de jeux
         int gameTypeChoice = display.displayGameTypeChoice();
 
-        //**set du jeu Recherche nombre*** !!!ici je change pour mysteryNumber!!! etape 1
+        // Set du jeu Recherche nombre
         MysteryNumber mysteryNumber = new MysteryNumber();
         mysteryNumber.setNbrDigit(nbrBoxesCombinationMysteryNumber);
 
 
-        //lancement des jeux:
+        // Lancement des jeux:
         switch (gamesMenuChoice) {
             case 1:
                 switch (gameTypeChoice) {
                     case 1:
-                        //recuperation variable random ordinateur !!! etape 2!! -> randomNumberString
-                        String randomNumberString = mysteryNumber.computerNbrCombination(nbrBoxesCombinationMysteryNumber);
-                        logger.info("aleatoire String computeur = " + randomNumberString);
+                        //**********jeux searchnumber+/-****** mode challenger******
 
-                        //Je donne le nombre d'essai possible
+                        // Recuperation variable random ordinateur  -> randomNumberString
+                        String randomNumberString = mysteryNumber.computerNbrCombination(nbrBoxesCombinationMysteryNumber);
+                        logger.info("--------> aleatoire String computeur = " + randomNumberString);
+
+                        // Je donne le nombre d'essai possible
                         System.out.println("vous avez " + nbrOfTryMysteryNumber + " essai");
 
-                        //je lance le mode
+                        // Je lance le jeux
                         int nbrLoop = nbrOfTryMysteryNumber;
                         int win = 0;
+                        int loopForInformation = 0;
 
                         do {
                             while (nbrLoop != 0) {
-                                //je lance la demande de nombre utilisateur et recupere la valeur !! etape 3 !!! -> nbrUserString
-                                String nbrUserString = display.displayAskNumber(nbrBoxesCombinationMysteryNumber);
-                                logger.info("nombre user dans la class main = " + nbrUserString);
+                                loopForInformation += 1;
+                                logger.info("");
+                                logger.info("********************   Boucle " + loopForInformation + "    *********************");
 
-                                //je compare les deux nombres !!!!! etape 4 !!!!!
+                                // J'affiche la demande de nombre utilisateur et recupere la valeur  -> nbrUserString
+                                display.displayAskNumber(nbrBoxesCombinationMysteryNumber);
+                                String nbrUserString = display.getUserChoiceStringExport();
+
+                                logger.info("nombre entré par l'utilisateur (class main) = " + nbrUserString);
+
+                                // Je lance la comparaison des deux nombres (class MysteryNumber)
                                 mysteryNumber.CompareTwoString(randomNumberString, nbrUserString, nbrBoxesCombinationMysteryNumber);
 
-                                //J'affiche la reponse de la comparaison
+                                // J'affiche la réponse de la comparaison
                                 String afterCompareImport = mysteryNumber.getAfterCompareExport();
                                 System.out.println("" + afterCompareImport);
 
-                                //mode developper (oui/non)
+                                // je verifie si le Mode developper a été demandé
                                 if (developerMode.contains("true")) {
                                     System.out.println("(" + randomNumberString + ")");
                                 } else {
                                     System.out.println("");
                                 }
-                                //je teste gagnant ou perdant !!!! etape 5 !!!!
-                                // je fait une variable pour voir si gagnant
+
+                                // je teste si gagnant ou perdant
                                 int winTest = mysteryNumber.getCounterForWinExport();
                                 if (winTest == 1) {
                                     System.out.println(" Exellent Vous avez gagné !!!");
                                     win = 1;
                                     nbrLoop = 0;
-
                                 } else {
                                     nbrLoop--;
-
                                     System.out.println(" il vous reste " + nbrLoop + " essai.");
                                 }
                             }
