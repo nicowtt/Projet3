@@ -77,8 +77,7 @@ public class Main {
                                 // je verifie si le Mode developper a été demandé
                                 if (developerMode.contains("true")) {
                                     System.out.println("(" + randomNumberString + ")");
-                                } else {
-                                    System.out.println("");
+                                } else { System.out.println("");
                                 }
 
                                 // je teste si gagnant ou perdant
@@ -87,6 +86,7 @@ public class Main {
                                     System.out.println(" Exellent Vous avez gagné !!!");
                                     win = 1;
                                     nbrLoop = 0;
+                                    logger.info("l'utilisateur a gagné contre l'ordinateur aprés " + loopForInformation + " essais");
                                 } else {
                                     nbrLoop--;
                                     System.out.println(" il vous reste " + nbrLoop + " essai.");

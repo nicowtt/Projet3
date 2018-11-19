@@ -18,21 +18,19 @@ public class MysteryNumber {
     public int getCounterForWinExport() { return counterForWinExport; }
 
 
-
     /**
-     * Random computer number(s) combination (String)
+     * for make random computer number(s) combination
      *
      * @param nbrDigit digit number(take on config.properties)
+     * @return random digit number (type of character string)
      */
     public String computerNbrCombination(int nbrDigit) {
 
-        // random number computer
         String finalRandomDigitNumberString = "";
         int counterNbrDigit = nbrDigit;
 
-
         while (counterNbrDigit >= 1) {
-            // nouvel objet
+            // Creation d'un nouvel objet pour l'aléatoire
             Random rand = new Random();
 
             //int de 0 a 9 (base 10)
@@ -51,7 +49,6 @@ public class MysteryNumber {
         return finalRandomDigitNumberString;
     }
 
-
     /**
      * For Compare 2 String (with number(s) inside)
      *
@@ -61,132 +58,89 @@ public class MysteryNumber {
      */
     public void CompareTwoString (String computeur, String user, int nbrDigit ) {
 
-        // les compteurs:
-        int counterTotalLetter = (nbrDigit * 2) -1;
-        int counterForMax = counterTotalLetter;
-        int counterTotalLetterForLoop = counterTotalLetter + 1;
-        int counterReverseLoop = nbrDigit * 2;
-        int counterAddCompareList = (nbrDigit * 2) -1;
-        int counterForResultList = nbrDigit;
 
-        // les limites:
-        int minComputerOnBoxes = 0;
-        int minUserOnBoxes = nbrDigit;
+        // Je converti la chaine de caractere computeur en arraylist de integer -> computerArrayListInt
+        List<Integer> computerArrayListInt = stringToArrayList(computeur);
 
+        // Je converti la chaine de caractere utilisateur en arraylist de integer -> userArrayListInt
+        List<Integer> userArrayListInt = stringToArrayList(user);
 
-        // je joint les mots computeur et user:
-        String computerUserString = computeur + user;
-        String computerUserStringLoop = computerUserString;
+        // Je compare les deux arrayLists
+        String compareListString = compareTwoArrayList(userArrayListInt, computerArrayListInt, nbrDigit); //-> compareListString
 
-        // creation d'une ArrayList pour comparer
-        List<Integer> compareListinverted = new ArrayList<>();
+        // J'exporte la variable de comparaison vers la class main
+        afterCompareExport = compareListString;
 
-        logger.info("nombre total (String) = " + computerUserString);
-
-        // avec le mot "computer" + "user" collé je converti les lettres en nombre  une par une -> dans un tableau ArrayList
-        while (counterTotalLetterForLoop > 0 ) {
-            char letter = computerUserString.charAt(counterTotalLetter);
-
-            // je converti en String
-            String letterString = String.valueOf(letter);
-
-            //je converti en Int
-            int letterInt = Integer.parseInt(letterString);
-
-            //j'ajoute le chifre dans le tableau
-            compareListinverted.add(letterInt);
-
-            //j'increment le compteur total negativement
-            counterTotalLetter --;
-            counterTotalLetterForLoop--;
-
-            //j'enleve la premiere lettre du mot total
-            computerUserString = computerUserStringLoop.substring(0,counterForMax);
-            counterForMax--;
+        logger.info("resultat de la comparaison = " + compareListString);
         }
 
-        // je crée une autre liste pour mettre les chiffres dans le bon ordre -> compareList
-        List<Integer> compareList = new ArrayList<>();
-        while (counterReverseLoop != 0) {
-            compareList.add(compareListinverted.get(counterAddCompareList));
-            counterReverseLoop--;
-            counterAddCompareList--;
-        }
-        logger.info("tableau des chiffres (computeur en premier et user aprés) a l'endroit = " + compareList);
 
-        // creation d'une liste pour le resultat final (indication + et -)
-        List<String> resultList = new ArrayList<String>();
+    /**
+     * For compare Two Array List (with number(s) inside)
+     *
+     * @param userArrayListInt User Array List (number inside )
+     * @param computerArrayListInt Computer Array List (number inside)
+     * @param nbrDigit number of boxes
+     * @return String with + , - or =
+     */
+    private String compareTwoArrayList(List<Integer> userArrayListInt, List<Integer> computerArrayListInt, Integer nbrDigit) {
 
         // mise en place d'un compteur de String "=" (indication si gagnant) et d'une variable (0 = perdant, 1= gagnant)
         int counterForSeeEgal = 0;
         int counterForWin = 0;
 
-        // je compare les chiffres de la derniere liste et j'ajoute les indication + , = ou - dans une autre liste -> resultList
-        do {
-            int nbrComputeurForCompare = compareList.get(minComputerOnBoxes);
-            int nbrUserForCompare = compareList.get(minUserOnBoxes);
+        // creation d'une nouvelle list pour les resultat (+--+)
+        List<String>resultWithIndicationList = new ArrayList<>();
 
-            if (nbrComputeurForCompare > nbrUserForCompare) {
-                resultList.add("+");
-
-
-            } else if (nbrComputeurForCompare < nbrUserForCompare) {
-                resultList.add("-");
-
+        for (int i = 0; i < nbrDigit; i++) {
+            int nbrComputerForCompare = computerArrayListInt.get(i);
+            int nbrUserForCompare = userArrayListInt.get(i);
+            if (nbrComputerForCompare > nbrUserForCompare) {
+                resultWithIndicationList.add("+");
+            } else if (nbrComputerForCompare < nbrUserForCompare) {
+                resultWithIndicationList.add("-");
             } else {
-                resultList.add("=");
-                counterForSeeEgal += 1; // a chaque passage de digit le compteur incremente (je vais savoir combien il y a d'egal lorsque la methode est lancé
-                }
-
-            counterForResultList--;
-            minComputerOnBoxes++;
-            minUserOnBoxes++;
-        }while (counterForResultList != 0);
-        logger.info("tableau de comparaison =" + resultList);
-        logger.info("nombre d'egal dans la comparaison class MysteryNumber = " + counterForSeeEgal);
+                resultWithIndicationList.add("=");
+                counterForSeeEgal += 1; // pour savoir combien il y a d'egal lorsque la methode est lancé.
+            }
+        }
 
         // Si il a autant d'egal que de digit je signale qu'on a un gagnant
-        if ( counterForSeeEgal == nbrDigit) {
-            counterForWin = 1;
-        }
+        if ( counterForSeeEgal == nbrDigit) {counterForWin = 1;}
 
-        // Je met les signes (+, - ou =) dans la variable -> afterCompare
-        String afterCompare = "";
-
-        int counterForLoopAfterCompare = 0;
-
-        do {
-            String OneString = resultList.get(counterForLoopAfterCompare);
-            afterCompare = afterCompare + OneString;
-
-            counterForLoopAfterCompare++;
-        } while (counterForLoopAfterCompare != nbrDigit);
-
-
-
-        // J'exporte la variable finale
-        afterCompareExport = afterCompare;
-        logger.info("resultat final dans la class MysteryNumber = " + afterCompare);
-
-        // j'exporte aussi la variable du compteur pour voir si l'utilisateur a gagné
+        //j'exporte l'information du counterForWin
         counterForWinExport = counterForWin;
-        logger.info("compteur pour voir si gagnant (1 = gagné) -> " + counterForWin);
+
+        // je converti cette liste en string
+        String compareListString = "";
+
+        for (int i = 0; i < nbrDigit; i++) {
+            String oneString = resultWithIndicationList.get(i);
+            compareListString = compareListString + oneString;
+        }
+        return compareListString;
+    }
 
 
 
+    /**
+     * For convert String to Array List (String inside)
+     *
+     * @param inputString String for convert
+     * @return List of integer
+     */
+    private List<Integer> stringToArrayList(String inputString) {
 
-
-
-
-
-
-
-
-
-
+        List<Integer> resultat = new ArrayList<>();
+        for (int i = 0; i < inputString.length(); i++) {
+            char letter = inputString.charAt(i);
+            String letterString = String.valueOf(letter);
+            int letterInt = Integer.parseInt(letterString);
+            resultat.add(letterInt);
         }
 
-
+        return resultat;
 
     }
+}
 

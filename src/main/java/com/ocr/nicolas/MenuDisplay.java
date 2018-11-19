@@ -146,44 +146,55 @@ public class MenuDisplay {
      */
     public void displayAskNumber(int nbr) {
 
-        // demande et verification nombre de digit entrée utilisateur
+        // demande et verification nombre de digit entrée utilisateur (re-demande si pas assez ou trop de nombre ou lettre(s))
+
         boolean responseIsGood;
         responseIsGood = false;
         int nbrDigit = nbr;
-        String digitString = "";
+        String nbrMax = "";
         int counterTotalLetter = 0;
-
+        int counterOfDigit = 0;
+        int tooManyNbr = 0;
 
         System.out.println("Choisissez une suite de " + nbr + " chiffre :");
-
-        // je compte le nombre de chiffre rentré (et je redemande si il ya des lettres ou peu de chiffres)
 
         do {
             try {
                 String userChoiceString = sc.next();
-                userChoiceStringExport = userChoiceString;
-                String userChoiceForCountString = userChoiceString;
-                while (responseIsGood != true) {
-                    // je prend le premier caractère
-                    char letter = userChoiceForCountString.charAt(counterTotalLetter);
-                    // je le converti en string
-                    String letterString = String.valueOf(letter);
-                    // je le converti en Int
-                    int letterInt = Integer.parseInt(letterString);
-                    // j'incrémente mon compteur de nombre de chiffre
-                    counterTotalLetter++;
-                    // je compare par rapport au nombre de digit
-                    if (counterTotalLetter == nbrDigit) {
-                        responseIsGood = true;
+
+                // Verification si y a trop de caractères en entrée
+                if ( userChoiceString.length() > nbrDigit) {tooManyNbr++;}
+
+                if (tooManyNbr != 1 ) {
+                    userChoiceStringExport = userChoiceString;
+
+                    String userChoiceForCountString = userChoiceString;
+                    while (responseIsGood != true) {
+                        // je prend le premier caractère
+                        char letter = userChoiceForCountString.charAt(counterTotalLetter);
+                        // je le converti en string
+                        String letterString = String.valueOf(letter);
+                        // je le converti en Int
+                        int letterInt = Integer.parseInt(letterString);
+                        // j'incrémente mon compteur de nombre de chiffre
+                        counterTotalLetter++;
+                        // je compare par rapport au nombre de digit
+                        if (counterTotalLetter == nbrDigit) {responseIsGood = true;}
                     }
+                }else {
+                    System.out.println("oupss ! trop de caractères, veuillez choisir une suite de " + nbrDigit + " chiffres: ");
+                    logger.info("- INFO - trop de caractère entrée par l'utilisateur");
                 }
             } catch (StringIndexOutOfBoundsException e) {
-                System.out.println("Vous devez rentrer " + nbr + " chiffres");
+                System.out.println("Vous devez rentrer " + nbr + " chiffres:");
+                logger.info("- INFO - pas assez de caractère entrée par l'utilisateur");
             } catch (NumberFormatException e ) {
-                System.out.println("Lettre non accepté");
+                System.out.println("Lettre(s) non acceptée(s), veuillez choisir une suite de " + nbrDigit + " chiffres: ");
+                logger.info("- INFO - Lettre(s) entrée par l'utilisateur");
             }
+            tooManyNbr = 0;
+
             }while (responseIsGood != true) ;
-        counterTotalLetter++;
     }
 }
 
