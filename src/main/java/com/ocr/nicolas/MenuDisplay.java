@@ -1,5 +1,7 @@
 package com.ocr.nicolas;
 
+import jdk.nashorn.internal.ir.IfNode;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -11,7 +13,9 @@ public class MenuDisplay {
 
     private String userChoiceStringExport;
 
-    public String getUserChoiceStringExport() { return userChoiceStringExport; }
+    public String getUserChoiceStringExport() {
+        return userChoiceStringExport;
+    }
 
     /**
      * Display ask games menu.
@@ -67,7 +71,7 @@ public class MenuDisplay {
                     }
             }
         } while (!responseIsGood);
-        logger.info("Choix du jeux-> " + gameChoice + " (1- Recherche+/- ; 2- Mastermind)" );
+        logger.info("Choix du jeux-> " + gameChoice + " (1- Recherche+/- ; 2- Mastermind)");
         return gameChoice;
     }
 
@@ -95,13 +99,12 @@ public class MenuDisplay {
                 System.out.println("-> Quel est votre choix: ");
                 gameTypeChoice = sc.nextInt();
                 responseIsGood = true;
-            }
-            catch (InputMismatchException e) {
+            } catch (InputMismatchException e) {
                 sc.next();
                 System.out.println("Erreur chiffre uniquement (1, 2 ou 3)");
                 responseIsGood = false;
             }
-        }while (!responseIsGood);
+        } while (!responseIsGood);
 
         do {
             switch (gameTypeChoice) {
@@ -126,62 +129,65 @@ public class MenuDisplay {
                         System.out.println("Il faut choisir parmis les choix proposés (1,2 ou 3)");
                         responseIsGood = false;
                         gameTypeChoice = sc.nextInt();
-                    }
-                    catch (InputMismatchException e) {
+                    } catch (InputMismatchException e) {
                         sc.next();
                         break;
                     }
             }
-        }while (!responseIsGood);
-        logger.info("Mode de jeux-> " + gameTypeChoice + " (1- Challenger ; 2- défenseur ; 3- Duel)" );
+        } while (!responseIsGood);
+        logger.info("Mode de jeux-> " + gameTypeChoice + " (1- Challenger ; 2- défenseur ; 3- Duel)");
         return gameTypeChoice;
     }
 
     /**
      * display first choice of number on String
+     *
      * @param nbr number of boxes (digit)
      */
     public void displayAskNumber(int nbr) {
 
-        // Nombre max utilisateur
+        // demande et verification nombre de digit entrée utilisateur
         boolean responseIsGood;
+        responseIsGood = false;
         int nbrDigit = nbr;
         String digitString = "";
+        int counterTotalLetter = 0;
 
-        while (nbrDigit > 0) {
-            digitString = digitString + "9";
-            nbrDigit--;
-        }
-        int finalNumberMaxLimit = Integer.parseInt(digitString);
-        logger.info("number max utilisateur = " + finalNumberMaxLimit);
-
-        // Demande de chiffre
 
         System.out.println("Choisissez une suite de " + nbr + " chiffre :");
+
+        // je compte le nombre de chiffre rentré (et je redemande si il ya des lettres ou peu de chiffres)
+
         do {
             try {
-                //je converti pour verifier le chiffre
                 String userChoiceString = sc.next();
                 userChoiceStringExport = userChoiceString;
-                int userchoiceInt = Integer.parseInt(userChoiceString);
-                if (userchoiceInt > finalNumberMaxLimit) {
-                    System.out.println("Le nombre doit etre inferieur a : " + finalNumberMaxLimit + " Veuillez choisir une suite de 4 chiffre: ");
-                    responseIsGood = false;
+                String userChoiceForCountString = userChoiceString;
+                while (responseIsGood != true) {
+                    // je prend le premier caractère
+                    char letter = userChoiceForCountString.charAt(counterTotalLetter);
+                    // je le converti en string
+                    String letterString = String.valueOf(letter);
+                    // je le converti en Int
+                    int letterInt = Integer.parseInt(letterString);
+                    // j'incrémente mon compteur de nombre de chiffre
+                    counterTotalLetter++;
+                    // je compare par rapport au nombre de digit
+                    if (counterTotalLetter == nbrDigit) {
+                        responseIsGood = true;
                     }
-                    else{
-                    responseIsGood = true;
                 }
-
+            } catch (StringIndexOutOfBoundsException e) {
+                System.out.println("Vous devez rentrer " + nbr + " chiffres");
+            } catch (NumberFormatException e ) {
+                System.out.println("Lettre non accepté");
             }
-            catch (InputMismatchException e) {
-                sc.next();
-                System.out.println("Ooups nombre inferieur a: " + finalNumberMaxLimit + " seulement");
-                responseIsGood = false;
-            }
-        }while (!responseIsGood);
-
+            }while (responseIsGood != true) ;
+        counterTotalLetter++;
     }
 }
+
+
 
 
 
