@@ -124,7 +124,7 @@ public class MysteryNumber {
 
 
     /**
-     * For convert String to Array List (String inside)
+     * For convert String to Array List (integer inside)
      *
      * @param inputString String for convert
      * @return List of integer
@@ -138,7 +138,6 @@ public class MysteryNumber {
             int letterInt = Integer.parseInt(letterString);
             resultat.add(letterInt);
         }
-
         return resultat;
 
     }
