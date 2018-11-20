@@ -1,7 +1,5 @@
 package com.ocr.nicolas;
 
-import jdk.nashorn.internal.ir.IfNode;
-
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -13,9 +11,7 @@ public class MenuDisplay {
 
     private String userChoiceStringExport;
 
-    public String getUserChoiceStringExport() {
-        return userChoiceStringExport;
-    }
+    public String getUserChoiceStringExport() { return userChoiceStringExport; }
 
     /**
      * Display ask games menu.
@@ -24,7 +20,7 @@ public class MenuDisplay {
         System.out.println("Voulez-vous jouer:");
         System.out.println("1-> Recherche +/-");
         System.out.println("2-> Mastermind");
-
+        System.out.println("3-> quitter");
     }
 
     /**
@@ -33,20 +29,9 @@ public class MenuDisplay {
     public int displayGamesMenuChoice() {
 
         boolean responseIsGood;
-        int gameChoice = -1;
-
-        do {
-            try {
-                System.out.println("quel est votre choix:");
-                gameChoice = sc.nextInt();
-                responseIsGood = true;
-            } catch (InputMismatchException e) {
-                sc.next();
-                System.out.println("ooups erreur chiffre uniquement (1 ou 2):");
-                responseIsGood = false;
-
-            }
-        } while (!responseIsGood);
+        //Combien de choix maximum pour limité l'entree utilisateur
+        int nbrChoiceMax = 3;
+        int gameChoice = forceProposedChoice(nbrChoiceMax);
 
         do {
             switch (gameChoice) {
@@ -60,18 +45,18 @@ public class MenuDisplay {
                     System.out.println("");
                     responseIsGood = true;
                     break;
+                case 3:
+                    System.out.println("arrêt des jeux");
+                    System.exit(0);
+                    responseIsGood = true;
+                    break;
                 default:
-                    try {
-                        System.out.println("Veuillez choisir parmi les choix proposés (1 ou 2):");
-                        responseIsGood = false;
-                        gameChoice = sc.nextInt();
-                    } catch (InputMismatchException e) {
-                        sc.next();
-                        break;
-                    }
+                    responseIsGood = false;
+                    break;
             }
         } while (!responseIsGood);
-        logger.info("Choix du jeux-> " + gameChoice + " (1- Recherche+/- ; 2- Mastermind)");
+
+        logger.info("Choix du jeux-> " + gameChoice + " (1- Recherche+/- ; 2- Mastermind; 3 -arret)");
         return gameChoice;
     }
 
@@ -80,7 +65,8 @@ public class MenuDisplay {
      */
     public void displayAskTypeOfGame() {
 
-        System.out.println("******Choisissez le mode de jeux:*******");
+        System.out.println("");
+        System.out.println("****** Choisissez le mode de jeux: *******");
         System.out.println("1-Challenger -> trouve le nombre mystère de l'ordinateur");
         System.out.println("2-Défenseur -> L'ordinateur doit trouver ton nombre");
         System.out.println("3-Duel");
@@ -92,19 +78,10 @@ public class MenuDisplay {
     public int displayGameTypeChoice() {
 
         boolean responseIsGood;
-        int gameTypeChoice = -1;
 
-        do {
-            try {
-                System.out.println("-> Quel est votre choix: ");
-                gameTypeChoice = sc.nextInt();
-                responseIsGood = true;
-            } catch (InputMismatchException e) {
-                sc.next();
-                System.out.println("Erreur chiffre uniquement (1, 2 ou 3)");
-                responseIsGood = false;
-            }
-        } while (!responseIsGood);
+        // je demande a l'utilisateur de choisir
+        int nbrChoiceMax = 3;
+        int gameTypeChoice = forceProposedChoice(nbrChoiceMax);
 
         do {
             switch (gameTypeChoice) {
@@ -125,14 +102,8 @@ public class MenuDisplay {
                     responseIsGood = true;
                     break;
                 default:
-                    try {
-                        System.out.println("Il faut choisir parmis les choix proposés (1,2 ou 3)");
-                        responseIsGood = false;
-                        gameTypeChoice = sc.nextInt();
-                    } catch (InputMismatchException e) {
-                        sc.next();
-                        break;
-                    }
+                    responseIsGood = false;
+                    break;
             }
         } while (!responseIsGood);
         logger.info("Mode de jeux-> " + gameTypeChoice + " (1- Challenger ; 2- défenseur ; 3- Duel)");
@@ -195,6 +166,82 @@ public class MenuDisplay {
             tooManyNbr = 0;
 
             }while (responseIsGood != true) ;
+    }
+
+    /**
+     * display end of game menu
+     */
+    public void displayAskIfReplay () {
+        System.out.println("****** voulez-vous rejouer ? *******");
+        System.out.println(" 1 -> oui je veux rejouer au meme jeux");
+        System.out.println(" 2 -> retour a l'ecran de choix des jeux");
+        System.out.println(" 3 -> quitter");
+    }
+
+
+    /**
+     * for display replay choice
+     * @return replay choice (int)
+     */
+    public int displayReplayChoice () {
+        boolean responseIsGood;
+        int nbrChoiceMax = 3;
+
+        int replayChoice = forceProposedChoice(nbrChoiceMax);
+
+
+        do {
+            switch (replayChoice) {
+                case 1:
+                    System.out.println("Vous avez choisi de rejouer au jeux Recherche +/- ");
+                    System.out.println("");
+                    responseIsGood = true;
+                    break;
+                case 2:
+                    System.out.println("Vous avez le retour a l'ecran du choix des jeux");
+                    System.out.println("");
+                    responseIsGood = true;
+                    break;
+                case 3:
+                    System.out.println("Vous avez choisi de quitter");
+                    System.exit(0);
+                    System.out.println("");
+                    responseIsGood = true;
+                    break;
+                default:
+                    responseIsGood = false;
+                    break;
+            }
+        } while (!responseIsGood);
+        logger.info("Choix du replay-> " + replayChoice + " (1- Recherche+/- ; 2- choix d'un autre jeux; 3- quitter)");
+        return replayChoice;
+
+
+    }
+
+    private int forceProposedChoice(int nbrMax) {
+        boolean responseIsGood;
+        int forcedChoice = 0;
+
+        do {
+            try {
+                System.out.println("-> Veuillez choisir parmi les choix proposés:");
+                forcedChoice = sc.nextInt();
+                if (forcedChoice <= 0 || forcedChoice > nbrMax) {
+                    forcedChoice = 0;
+                    responseIsGood = false;
+                }else {
+                    responseIsGood = true;
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("erreur chiffre uniquement");
+                sc.next();
+                responseIsGood = false;
+            }
+        }while (!responseIsGood);
+
+        return forcedChoice;
+
     }
 }
 

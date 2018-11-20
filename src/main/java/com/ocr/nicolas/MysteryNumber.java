@@ -131,14 +131,14 @@ public class MysteryNumber {
      */
     private List<Integer> stringToArrayList(String inputString) {
 
-        List<Integer> resultat = new ArrayList<>();
+        List<Integer> result = new ArrayList<>();
         for (int i = 0; i < inputString.length(); i++) {
             char letter = inputString.charAt(i);
             String letterString = String.valueOf(letter);
             int letterInt = Integer.parseInt(letterString);
-            resultat.add(letterInt);
+            result.add(letterInt);
         }
-        return resultat;
+        return result;
 
     }
 }
