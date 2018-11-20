@@ -52,21 +52,20 @@ public class MysteryNumber {
     /**
      * For Compare 2 String (with number(s) inside)
      *
-     * @param computeur Computeur string (with number(s) inside)
+     * @param computer Computeur string (with number(s) inside)
      * @param user User string (with number(s) inside)
-     * @param nbrDigit number of boxes
      */
-    public void CompareTwoString (String computeur, String user, int nbrDigit ) {
+    public void CompareTwoString (String computer, String user) {
 
 
         // Je converti la chaine de caractere computeur en arraylist de integer -> computerArrayListInt
-        List<Integer> computerArrayListInt = stringToArrayList(computeur);
+        List<Integer> computerArrayListInt = stringToArrayList(computer);
 
         // Je converti la chaine de caractere utilisateur en arraylist de integer -> userArrayListInt
         List<Integer> userArrayListInt = stringToArrayList(user);
 
         // Je compare les deux arrayLists
-        String compareListString = compareTwoArrayList(userArrayListInt, computerArrayListInt, nbrDigit); //-> compareListString
+        String compareListString = compareTwoArrayList(userArrayListInt, computerArrayListInt); //-> compareListString
 
         // J'exporte la variable de comparaison vers la class main
         afterCompareExport = compareListString;
@@ -80,10 +79,9 @@ public class MysteryNumber {
      *
      * @param userArrayListInt User Array List (number inside )
      * @param computerArrayListInt Computer Array List (number inside)
-     * @param nbrDigit number of boxes
      * @return String with + , - or =
      */
-    private String compareTwoArrayList(List<Integer> userArrayListInt, List<Integer> computerArrayListInt, Integer nbrDigit) {
+    private String compareTwoArrayList(List<Integer> userArrayListInt, List<Integer> computerArrayListInt) {
 
         // mise en place d'un compteur de String "=" (indication si gagnant) et d'une variable (0 = perdant, 1= gagnant)
         int counterForSeeEgal = 0;
@@ -92,7 +90,7 @@ public class MysteryNumber {
         // creation d'une nouvelle list pour les resultat (+--+)
         List<String>resultWithIndicationList = new ArrayList<>();
 
-        for (int i = 0; i < nbrDigit; i++) {
+        for (int i = 0; i < computerArrayListInt.size(); i++) {
             int nbrComputerForCompare = computerArrayListInt.get(i);
             int nbrUserForCompare = userArrayListInt.get(i);
             if (nbrComputerForCompare > nbrUserForCompare) {
@@ -106,7 +104,7 @@ public class MysteryNumber {
         }
 
         // Si il a autant d'egal que de digit je signale qu'on a un gagnant
-        if ( counterForSeeEgal == nbrDigit) {counterForWin = 1;}
+        if ( counterForSeeEgal == computerArrayListInt.size()) {counterForWin = 1;}
 
         //j'exporte l'information du counterForWin
         counterForWinExport = counterForWin;
@@ -114,7 +112,7 @@ public class MysteryNumber {
         // je converti cette liste en string
         String compareListString = "";
 
-        for (int i = 0; i < nbrDigit; i++) {
+        for (int i = 0; i < computerArrayListInt.size(); i++) {
             String oneString = resultWithIndicationList.get(i);
             compareListString = compareListString + oneString;
         }

@@ -186,9 +186,7 @@ public class MenuDisplay {
     public int displayReplayChoice () {
         boolean responseIsGood;
         int nbrChoiceMax = 3;
-
         int replayChoice = forceProposedChoice(nbrChoiceMax);
-
 
         do {
             switch (replayChoice) {
@@ -215,8 +213,6 @@ public class MenuDisplay {
         } while (!responseIsGood);
         logger.info("Choix du replay-> " + replayChoice + " (1- Recherche+/- ; 2- choix d'un autre jeux; 3- quitter)");
         return replayChoice;
-
-
     }
 
     private int forceProposedChoice(int nbrMax) {

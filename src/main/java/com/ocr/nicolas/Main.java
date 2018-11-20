@@ -68,10 +68,10 @@ public class Main {
                                     display.displayAskNumber(nbrBoxesCombinationMysteryNumber);
                                     String nbrUserString = display.getUserChoiceStringExport();
 
-                                    logger.info("nombre entré par l'utilisateur (class main) = " + nbrUserString);
+                                    logger.info("nombre entré par l'utilisateur = " + nbrUserString);
 
                                     // Je lance la comparaison des deux nombres (class MysteryNumber)
-                                    mysteryNumber.CompareTwoString(randomNumberString, nbrUserString, nbrBoxesCombinationMysteryNumber);
+                                    mysteryNumber.CompareTwoString(randomNumberString, nbrUserString);
 
                                     // J'affiche la réponse de la comparaison
                                     String afterCompareImport = mysteryNumber.getAfterCompareExport();
