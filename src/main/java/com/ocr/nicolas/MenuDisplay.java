@@ -122,9 +122,7 @@ public class MenuDisplay {
         boolean responseIsGood;
         responseIsGood = false;
         int nbrDigit = nbr;
-        String nbrMax = "";
         int counterTotalLetter = 0;
-        int counterOfDigit = 0;
         int tooManyNbr = 0;
 
         System.out.println("Choisissez une suite de " + nbr + " chiffre :");
@@ -196,7 +194,7 @@ public class MenuDisplay {
                     responseIsGood = true;
                     break;
                 case 2:
-                    System.out.println("Vous avez le retour a l'ecran du choix des jeux");
+                    System.out.println("Vous avez choisi le retour a l'ecran principal du choix des jeux");
                     System.out.println("");
                     responseIsGood = true;
                     break;
