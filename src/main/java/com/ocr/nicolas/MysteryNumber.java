@@ -2,21 +2,25 @@ package com.ocr.nicolas;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 import static com.ocr.nicolas.Log4j.logger;
 
 public class MysteryNumber {
 
     private int nbrDigit;
-    private String afterCompareExport;
     private int counterForWinExport;
+    private int refinedMinExport;
+    private int refinedMaxExport;
+    private int digitCompOkExport;
 
 
-    public void setNbrDigit(int nbrDigit) { this.nbrDigit = nbrDigit; }
-    public String getAfterCompareExport() { return afterCompareExport; }
-    public int getCounterForWinExport() { return counterForWinExport; }
 
+    public void setNbrDigit(int nbrDigit) {this.nbrDigit = nbrDigit;}
+
+    public int getCounterForWinExport() {return counterForWinExport;}
+    public int getRefinedMinExport() {return refinedMinExport;}
+    public int getRefinedMaxExport() {return refinedMaxExport;}
+    public int getDigitCompOkExport() {return digitCompOkExport;}
 
     /**
      * for make random computer number(s) combination
@@ -24,17 +28,15 @@ public class MysteryNumber {
      * @param nbrDigit digit number(take on config.properties)
      * @return random digit number (type of character string)
      */
-    public String computerNbrCombination(int nbrDigit) {
+    public String computerNbrCombination(int nbrDigit, int min, int max) {
 
         String finalRandomDigitNumberString = "";
         int counterNbrDigit = nbrDigit;
 
         while (counterNbrDigit >= 1) {
-            // Creation d'un nouvel objet pour l'aléatoire
-            Random rand = new Random();
 
-            //int de 0 a 9 (base 10)
-            int base10RandomDigitNumber = rand.nextInt(9);
+            //int de 0 a 9 (base 10) avec min et max
+            int base10RandomDigitNumber = min + (int) (Math.random() * ((max - min) + 1));
             logger.info("base 10 random =" + base10RandomDigitNumber);
 
             // je converti le chiffre en string
@@ -49,13 +51,15 @@ public class MysteryNumber {
         return finalRandomDigitNumberString;
     }
 
+
+
     /**
      * For Compare 2 String (with number(s) inside)
      *
      * @param computer Computeur string (with number(s) inside)
      * @param user User string (with number(s) inside)
      */
-    public void CompareTwoString (String computer, String user) {
+    public String CompareTwoString (String computer, String user) {
 
 
         // Je converti la chaine de caractere computeur en arraylist de integer -> computerArrayListInt
@@ -67,11 +71,12 @@ public class MysteryNumber {
         // Je compare les deux arrayLists
         String compareListString = compareTwoArrayList(userArrayListInt, computerArrayListInt); //-> compareListString
 
-        // J'exporte la variable de comparaison vers la class main
-        afterCompareExport = compareListString;
-
         logger.info("resultat de la comparaison = " + compareListString);
-        }
+
+        return compareListString;
+    }
+
+
 
 
     /**
@@ -81,11 +86,12 @@ public class MysteryNumber {
      * @param computerArrayListInt Computer Array List (number inside)
      * @return String with + , - or =
      */
-    private String compareTwoArrayList(List<Integer> userArrayListInt, List<Integer> computerArrayListInt) {
+    public String compareTwoArrayList(List<Integer> userArrayListInt, List<Integer> computerArrayListInt) {
 
         // mise en place d'un compteur de String "=" (indication si gagnant) et d'une variable (0 = perdant, 1= gagnant)
         int counterForSeeEgal = 0;
         int counterForWin = 0;
+
 
         // creation d'une nouvelle list pour les resultat (+--+)
         List<String>resultWithIndicationList = new ArrayList<>();
@@ -93,21 +99,41 @@ public class MysteryNumber {
         for (int i = 0; i < computerArrayListInt.size(); i++) {
             int nbrComputerForCompare = computerArrayListInt.get(i);
             int nbrUserForCompare = userArrayListInt.get(i);
+
             if (nbrComputerForCompare > nbrUserForCompare) {
                 resultWithIndicationList.add("+");
+                // je prend l'information pour ajusté le min du prochain random computeur (Search number - mode defender)
+
+                int refinedMin = computerArrayListInt.get(i);
+                // j'exporte la variable
+                refinedMinExport = refinedMin;
+                logger.info("reajustement du minimum au besoin = " + refinedMin);
+
+
             } else if (nbrComputerForCompare < nbrUserForCompare) {
                 resultWithIndicationList.add("-");
+                // je prend l'information pour ajusté le max du prochain random computeur (Search number - mode defender)
+                int refinedMax = computerArrayListInt.get(i);
+                // j'exporte la variable
+                refinedMaxExport = refinedMax;
+                logger.info("reajustement du maximum au besoin = " + refinedMax);
+
             } else {
                 resultWithIndicationList.add("=");
                 counterForSeeEgal += 1; // pour savoir combien il y a d'egal lorsque la methode est lancé.
+                int digitCompOk = computerArrayListInt.get(i);
+                // j'exporte la variable
+                digitCompOkExport = digitCompOk;
+
             }
         }
 
         // Si il a autant d'egal que de digit je signale qu'on a un gagnant
         if ( counterForSeeEgal == computerArrayListInt.size()) {counterForWin = 1;}
 
-        //j'exporte l'information du counterForWin
+        //j'exporte l'information pour savoir si il y a gagnant
         counterForWinExport = counterForWin;
+
 
         // je converti cette liste en string
         String compareListString = "";
@@ -127,7 +153,7 @@ public class MysteryNumber {
      * @param inputString String for convert
      * @return List of integer
      */
-    private List<Integer> stringToArrayList(String inputString) {
+    public List<Integer> stringToArrayList(String inputString) {
 
         List<Integer> result = new ArrayList<>();
         for (int i = 0; i < inputString.length(); i++) {
@@ -139,5 +165,6 @@ public class MysteryNumber {
         return result;
 
     }
+
 }
 

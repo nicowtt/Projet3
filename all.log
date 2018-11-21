@@ -1,43 +1,16 @@
-2018-11-20 16:52:06.640 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - developerMode: true
-2018-11-20 16:52:06.643 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - variable nbrBoxesCombinationMysteryNumber = 2
-2018-11-20 16:52:06.643 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - variable nbrOfTryMysteryNumber = 2
-2018-11-20 16:52:07.955 [main] INFO  com.ocr.nicolas.Log4j - Choix du jeux-> 1 (1- Recherche+/- ; 2- Mastermind; 3 -arret)
-2018-11-20 16:52:09.714 [main] INFO  com.ocr.nicolas.Log4j - Mode de jeux-> 1 (1- Challenger ; 2- défenseur ; 3- Duel)
-2018-11-20 16:52:09.714 [main] INFO  com.ocr.nicolas.Log4j - base 10 random =4
-2018-11-20 16:52:09.714 [main] INFO  com.ocr.nicolas.Log4j - base 10 random =0
-2018-11-20 16:52:09.714 [main] INFO  com.ocr.nicolas.Main - --------> aleatoire String computeur = 40
-2018-11-20 16:52:09.714 [main] INFO  com.ocr.nicolas.Main - 
-2018-11-20 16:52:09.714 [main] INFO  com.ocr.nicolas.Main - ********************   Boucle 1    *********************
-2018-11-20 16:52:11.202 [main] INFO  com.ocr.nicolas.Main - nombre entré par l'utilisateur = 21
-2018-11-20 16:52:11.202 [main] INFO  com.ocr.nicolas.Log4j - resultat de la comparaison = +-
-2018-11-20 16:52:11.202 [main] INFO  com.ocr.nicolas.Main - 
-2018-11-20 16:52:11.202 [main] INFO  com.ocr.nicolas.Main - ********************   Boucle 2    *********************
-2018-11-20 16:52:11.904 [main] INFO  com.ocr.nicolas.Main - nombre entré par l'utilisateur = 51
-2018-11-20 16:52:11.904 [main] INFO  com.ocr.nicolas.Log4j - resultat de la comparaison = --
-2018-11-20 16:52:13.425 [main] INFO  com.ocr.nicolas.Log4j - Choix du replay-> 1 (1- Recherche+/- ; 2- choix d'un autre jeux; 3- quitter)
-2018-11-20 16:52:14.850 [main] INFO  com.ocr.nicolas.Log4j - Mode de jeux-> 1 (1- Challenger ; 2- défenseur ; 3- Duel)
-2018-11-20 16:52:14.850 [main] INFO  com.ocr.nicolas.Log4j - base 10 random =4
-2018-11-20 16:52:14.850 [main] INFO  com.ocr.nicolas.Log4j - base 10 random =0
-2018-11-20 16:52:14.850 [main] INFO  com.ocr.nicolas.Main - --------> aleatoire String computeur = 40
-2018-11-20 16:52:14.850 [main] INFO  com.ocr.nicolas.Main - 
-2018-11-20 16:52:14.850 [main] INFO  com.ocr.nicolas.Main - ********************   Boucle 1    *********************
-2018-11-20 16:52:16.098 [main] INFO  com.ocr.nicolas.Main - nombre entré par l'utilisateur = 51
-2018-11-20 16:52:16.098 [main] INFO  com.ocr.nicolas.Log4j - resultat de la comparaison = --
-2018-11-20 16:52:16.098 [main] INFO  com.ocr.nicolas.Main - 
-2018-11-20 16:52:16.098 [main] INFO  com.ocr.nicolas.Main - ********************   Boucle 2    *********************
-2018-11-20 16:52:16.626 [main] INFO  com.ocr.nicolas.Main - nombre entré par l'utilisateur = 21
-2018-11-20 16:52:16.626 [main] INFO  com.ocr.nicolas.Log4j - resultat de la comparaison = +-
-2018-11-20 16:52:18.576 [main] INFO  com.ocr.nicolas.Log4j - Choix du replay-> 2 (1- Recherche+/- ; 2- choix d'un autre jeux; 3- quitter)
-2018-11-20 16:52:20.592 [main] INFO  com.ocr.nicolas.Log4j - Choix du jeux-> 1 (1- Recherche+/- ; 2- Mastermind; 3 -arret)
-2018-11-20 16:52:21.857 [main] INFO  com.ocr.nicolas.Log4j - Mode de jeux-> 1 (1- Challenger ; 2- défenseur ; 3- Duel)
-2018-11-20 16:52:21.857 [main] INFO  com.ocr.nicolas.Log4j - base 10 random =8
-2018-11-20 16:52:21.857 [main] INFO  com.ocr.nicolas.Log4j - base 10 random =8
-2018-11-20 16:52:21.857 [main] INFO  com.ocr.nicolas.Main - --------> aleatoire String computeur = 88
-2018-11-20 16:52:21.857 [main] INFO  com.ocr.nicolas.Main - 
-2018-11-20 16:52:21.860 [main] INFO  com.ocr.nicolas.Main - ********************   Boucle 1    *********************
-2018-11-20 16:52:24.415 [main] INFO  com.ocr.nicolas.Main - nombre entré par l'utilisateur = 51
-2018-11-20 16:52:24.418 [main] INFO  com.ocr.nicolas.Log4j - resultat de la comparaison = ++
-2018-11-20 16:52:24.418 [main] INFO  com.ocr.nicolas.Main - 
-2018-11-20 16:52:24.418 [main] INFO  com.ocr.nicolas.Main - ********************   Boucle 2    *********************
-2018-11-20 16:52:25.025 [main] INFO  com.ocr.nicolas.Main - nombre entré par l'utilisateur = 21
-2018-11-20 16:52:25.025 [main] INFO  com.ocr.nicolas.Log4j - resultat de la comparaison = ++
+2018-11-21 19:05:14.566 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - developerMode: true
+2018-11-21 19:05:14.569 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - variable nbrBoxesCombinationMysteryNumber = 2
+2018-11-21 19:05:14.569 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - variable nbrOfTryMysteryNumber = 10
+2018-11-21 19:05:18.038 [main] INFO  com.ocr.nicolas.Log4j - Choix du jeux-> 1 (1- Recherche+/- ; 2- Mastermind; 3 -arret)
+2018-11-21 19:05:20.294 [main] INFO  com.ocr.nicolas.Log4j - Mode de jeux-> 2 (1- Challenger ; 2- défenseur ; 3- Duel)
+2018-11-21 19:05:23.646 [main] INFO  com.ocr.nicolas.Main - nombre entré par l'utilisateur = 51
+2018-11-21 19:05:23.938 [main] INFO  com.ocr.nicolas.Log4j - base 10 random =9
+2018-11-21 19:05:24.170 [main] INFO  com.ocr.nicolas.Log4j - base 10 random =6
+2018-11-21 19:05:24.435 [main] INFO  com.ocr.nicolas.Main -  1er nombre aleatoire ordinateur = 96
+2018-11-21 19:05:24.861 [main] INFO  com.ocr.nicolas.Log4j - reajustement du maximum au besoin = 5
+2018-11-21 19:05:25.741 [main] INFO  com.ocr.nicolas.Log4j - reajustement du maximum au besoin = 1
+2018-11-21 19:05:28.461 [main] INFO  com.ocr.nicolas.Log4j - resultat de la comparaison = --
+2018-11-21 19:05:29.349 [main] INFO  com.ocr.nicolas.Main - 
+2018-11-21 19:05:34.828 [main] INFO  com.ocr.nicolas.Main - ********************   Boucle 1    *********************
+2018-11-21 19:05:40.816 [main] INFO  com.ocr.nicolas.Log4j - reajustement du minimum au besoin = 9
+2018-11-21 19:08:05.724 [main] INFO  com.ocr.nicolas.Log4j - reajustement du maximum au besoin = 5
