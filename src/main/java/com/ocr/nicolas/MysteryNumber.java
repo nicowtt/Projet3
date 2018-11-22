@@ -1,7 +1,9 @@
 package com.ocr.nicolas;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static com.ocr.nicolas.Log4j.logger;
 
@@ -12,7 +14,7 @@ public class MysteryNumber {
     private int refinedMinExport;
     private int refinedMaxExport;
     private int digitCompOkExport;
-
+    private String digitOkExport;
 
 
     public void setNbrDigit(int nbrDigit) {this.nbrDigit = nbrDigit;}
@@ -21,6 +23,7 @@ public class MysteryNumber {
     public int getRefinedMinExport() {return refinedMinExport;}
     public int getRefinedMaxExport() {return refinedMaxExport;}
     public int getDigitCompOkExport() {return digitCompOkExport;}
+    public String getDigitOkExport() {return digitOkExport;}
 
     /**
      * for make random computer number(s) combination
@@ -165,9 +168,86 @@ public class MysteryNumber {
 
     }
 
-    public void addInfoHashMapDigit () {
+    /**
+     * for put information of digit on Hashmap
+     * @param str String "54"
+     * @param value String "+--="
+     */
+    public Map<String, Integer> infoDigitForRefined (String str, String value) {
 
+        String refinedMin = "refinedMin";
+        String refinedMax = "refinedMax";
+        String digitOk = "digitOk";
+        Integer strDigit = Integer.valueOf(str);
+
+
+        // creation d'un hashMap
+        Map<String, Integer> digitHashMap = new HashMap<String, Integer>();
+
+
+        // comparaison et entré dans la hashMap
+        if (value.contains("+") ) {
+            digitHashMap.put(refinedMin,strDigit);
+        }
+
+        if (value.contains("-")) {
+            digitHashMap.put(refinedMax,strDigit);
+        }
+
+        if (value.contains("=")) {
+            digitHashMap.put(digitOk,strDigit);
+        }
+        logger.info("digit hashMap = " + digitHashMap);
+        return digitHashMap;
     }
+
+
+    /**
+     * for create a random digit with refined
+     *
+     * @param list hashMap with information on digit
+     * @param digit one int
+     * @return int refined
+     */
+    public String digitWithRefined (Map<String, Integer> list, String digit) {
+
+        int digitRefined = Integer.valueOf(digit);
+
+        int refineNumberMin;
+        int refineNumberMax;
+        int digitOk = 0;
+        int refineNumberMinAndMax;
+
+
+        if (list.containsKey("refinedMin")) {
+            refineNumberMin = list.get("refinedMin") + (int) (Math.random() * ((9 - list.get("refinedMin")) + 1));
+            digitRefined = refineNumberMin;
+            logger.info("passage par refineNumber Min, nouveau nombre aleatoire = " + digitRefined);
+        }
+        if (list.containsKey("refinedMax")) {
+            refineNumberMax = (int) (Math.random() * ((list.get("refinedMax") + 1)));
+            digitRefined = refineNumberMax;
+            logger.info("passage par refineNumber Max, nouveau nombre aleatoire = " + digitRefined);
+        }
+        if (list.containsKey("digitOk")) {
+            digitOk = list.get("digitOk");
+            logger.info("passage par digit ok = " );
+        }
+        if (list.containsKey("refinedMin") && list.containsKey("refinedMax")) {
+            refineNumberMinAndMax = list.get("refinedMin") + (int) (Math.random() * (((list.get("refinedMax")) - (list.get("refinedMin"))) + 1));
+            digitRefined = refineNumberMinAndMax;
+            logger.info("passage par refineNumber Min et Max, nouveau nombre aleatoire = " + digitRefined);
+        }
+        // je met le digit en string
+        String digitRefinedString = String.valueOf(digitRefined);
+
+        // je converti en string
+        String digitOkString = String.valueOf(digitOk);
+        digitOkExport = digitOkString;
+
+        return digitRefinedString;
+    }
+
 
 }
 

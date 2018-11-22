@@ -172,6 +172,8 @@ public class Main {
                                 int winDefender = 0;
                                 int loopForDefenderMode = 1;
                                 do {
+                                    logger.info("");
+                                    logger.info("******* boucle " + loopForDefenderMode + "*************");
                                     // je met les variables (pour le random computeur) au niveau normal :
                                     int refinedMax = 9;
                                     int refinedMin = 0;
@@ -181,34 +183,51 @@ public class Main {
                                     String refineStringCompDefender = "";
 
                                     // premier jet computeur en recuperant chaque digit dans un string
-                                    for (int i = 0; i < nbrBoxesCombinationMysteryNumber; i++) {
-                                        // je fais un random computeur 1 seul digit
-                                        String nbrCompDigitDefenderString = mysteryNumber.computerNbrCombination(1, refinedMin, refinedMax);
-
-                                        // je converti le string computeur en arraylist de integer -> listCompDefenderInt -> 1 seul digit
-                                        List<Integer> listCompDigitDefenderInt = mysteryNumber.stringToArrayList(nbrCompDigitDefenderString);
-
-                                        // je met ce chiffre dans une variable integer
-                                        int nbrCompDigitDefenderInteger = listCompDigitDefenderInt.get(0);
-
-                                        // je l'ajoute a une nouvelle liste computeur qui sera donc complete a la fin du cycle
-                                        List<Integer> listCompDefenderIntFull = new ArrayList<>();
-                                        listCompDefenderIntFull.add(nbrCompDigitDefenderInteger);
-
-                                        // je l'ajoute dans une variable String: String Computeur --> compDefenderIntFull
-                                        compDefenderStringFull = compDefenderStringFull + String.valueOf(listCompDefenderIntFull.get(0));
-                                        logger.info("variable computeur premier jet " + compDefenderStringFull );
-                                    }
+                                    String compDefenderString = mysteryNumber.computerNbrCombination(nbrBoxesCombinationMysteryNumber, 0, 9);
 
                                     /// je lancer la comparaison des deux string pour affichage sur la console ( !! user en premier pour inversé)
-                                    String displayResultCompareBase = mysteryNumber.CompareTwoString(nbrUserDefender,compDefenderStringFull);
-                                    System.out.println(displayResultCompareBase + "( computeur = " + compDefenderStringFull + ")");
+                                    String displayResultCompareBase = mysteryNumber.CompareTwoString(nbrUserDefender,compDefenderString);
+                                    System.out.println(displayResultCompareBase + "( computeur = " + compDefenderString + ")");
                                     logger.info(" 1er comparaison " + displayResultCompareBase);
 
-                                    while (loopForDefenderMode > 0 && loopForDefenderMode != nbrOfTryMysteryNumber) {
+                                    // ensuite il va falloir affiné les reponses de l'ordinateur (!!!!je vais commencer avec un seul digit !!!)
+
+
+                                    // je lance la comparaison avec la valeur ordinateur et la valeur + - ou =
+                                    Map<String, Integer> infoDigitHashMap = mysteryNumber.infoDigitForRefined(compDefenderString,displayResultCompareBase);
+
+
+                                    // je prend le dernier lancé aléatoire computeur + la hashMap et je lance la methode pour avoir un nouveau chiffre affiné
+                                    String refinedDigit = mysteryNumber.digitWithRefined(infoDigitHashMap,compDefenderString);
+
+                                    // je l'affiche pour le mode developper
+                                    System.out.println("("+ refinedDigit + ")");
+
+                                    // je le compare en mode basique pour avoir le + et le -
+                                    String infoDigitValue = mysteryNumber.CompareTwoString(nbrUserDefender,refinedDigit);
+                                    System.out.println(infoDigitValue);
+                                    logger.info("info sur la nouvelle valeur = " + infoDigitValue);
+
+                                    // je recupere le string du nouveau digit et le string de la comparaison pour mon nouveau nombre affiné
+                                    String refinedDigit2 = mysteryNumber.digitWithRefined(infoDigitHashMap, refinedDigit );
+
+                                    // je l'affiche pour le mode developper
+                                    System.out.println("("+ refinedDigit2 + ")");
+
+
+                                    //j'increment la boucle
+                                    loopForDefenderMode++;
+
+                                    // todo ça marche sur une boucle
+                                    // todo faire une boucle pour relander l'affinage autant de fois qu'il faut
+                                    //
+
+
+
+                                    /*while (loopForDefenderMode > 0 && loopForDefenderMode != nbrOfTryMysteryNumber) {
 
                                         logger.info("");
-                                        logger.info("********************   Boucle " + loopForDefenderMode + "    *********************");
+                                        logger.info("********************   Boucle affinage " + loopForDefenderMode + "    *********************");
 
                                         //boucle for pour chaque digit
                                         for (int i = 0; i < nbrBoxesCombinationMysteryNumber; i++) {
@@ -328,18 +347,22 @@ public class Main {
                                         if (CompOk == nbrBoxesCombinationMysteryNumber) {
                                             System.out.println("L'ordinateur à gagné aprés " + loopForDefenderMode + "essais");
                                         }
-                                    }
+                                    }*/
 
-                                    }while (loopForDefenderMode > 0 && loopForDefenderMode != nbrOfTryMysteryNumber);
+                                    }while (loopForDefenderMode != nbrOfTryMysteryNumber);
+
                                 System.out.println(" l'ordinateur n'a pas trouvé ta combinaison aprés " + nbrOfTryMysteryNumber + " essais tu a donc gagné !!!");
                                 System.exit(0);
                                     //todo faire la boucle pour rejouer ou relancer un autre jeux.
+
                                 }
+
                         }
                 }
             }
         }
     }
+
 
 
 
