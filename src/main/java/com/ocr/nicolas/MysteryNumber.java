@@ -92,6 +92,10 @@ public class MysteryNumber {
         int counterForSeeEgal = 0;
         int counterForWin = 0;
 
+        //variable export reset
+        refinedMinExport = 0;
+        refinedMaxExport = 0;
+
 
         // creation d'une nouvelle list pour les resultat (+--+)
         List<String>resultWithIndicationList = new ArrayList<>();

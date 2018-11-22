@@ -188,20 +188,25 @@ public class Main {
                                         List<Integer> listCompDigitDefenderInt = mysteryNumber.stringToArrayList(nbrCompDigitDefenderString);
 
                                         // je met ce chiffre dans une variable integer
-                                        int nbrCompDigitDefenderInteger = listCompDigitDefenderInt.get(i);
+                                        int nbrCompDigitDefenderInteger = listCompDigitDefenderInt.get(0);
 
                                         // je l'ajoute a une nouvelle liste computeur qui sera donc complete a la fin du cycle
                                         List<Integer> listCompDefenderIntFull = new ArrayList<>();
                                         listCompDefenderIntFull.add(nbrCompDigitDefenderInteger);
 
                                         // je l'ajoute dans une variable String: String Computeur --> compDefenderIntFull
-                                        compDefenderStringFull = compDefenderStringFull + String.valueOf(listCompDefenderIntFull.get(i));
+                                        compDefenderStringFull = compDefenderStringFull + String.valueOf(listCompDefenderIntFull.get(0));
+
+
                                     }
 
                                     /// je lancer la comparaison des deux string pour affichage sur la console ( !! user en premier pour inversé)
                                     String displayResultCompareBase = mysteryNumber.CompareTwoString(nbrUserDefender,compDefenderStringFull);
                                     System.out.println(displayResultCompareBase);
                                     logger.info(" 1er comparaison " + displayResultCompareBase);
+
+                                    //j'affiche la valeur computeur (mode developer)
+                                    System.out.println("("+ compDefenderStringFull +")");
 
                                     while (loopForDefenderMode > 0 && loopForDefenderMode != nbrOfTryMysteryNumber) {
 
@@ -221,24 +226,40 @@ public class Main {
 
                                             // je fais une liste avec un seul digit user -> listUserDigitDefenderInt (digit user)
                                             List<Integer> listUserDigitDefenderInt = new ArrayList<>();
-                                            listUserDigitDefenderInt.add(listUserDigitDefenderInt.get(i));
+                                            int digit1 = listUserDefenderInt.get(i);
+                                            listUserDigitDefenderInt.add(digit1);
 
                                             // je fais une liste avec un seul digit comp -> listCompDigitDefenderInt (digit computer)
                                             List<Integer> listCompDigitDefenderInt = new ArrayList<>();
-                                            listCompDigitDefenderInt.add(listCompDigitDefenderInt.get(i));
+                                            int digit2 = listCompDefenderInt.get(i);
+                                            listCompDigitDefenderInt.add(digit2);
 
                                             // je compare digit par digit et je recupere les variables affiné au fur et a mesure pour le prochain random (en premier le user !! pour inversé)
+
+                                            // variable affiné a zero
+                                            refinedMax = 0;
+                                            refinedMin = 0;
 
                                             // je peux donc comparé les deux listes de 1 digit
                                             String compareDigitWithRefine = mysteryNumber.compareTwoArrayList(listUserDigitDefenderInt, listCompDigitDefenderInt);
 
+                                            // for debuger le digit on afine quel valeur? (comp par rapport a user)
+                                            System.out.println(compareDigitWithRefine);
+
                                             // je peux recuperer la variables pour affiner le prochain random de ce digit
 
                                             // je recupere les valeurs
-                                            refinedMax = 0;
                                             refinedMax += mysteryNumber.getRefinedMinExport();
                                             refinedMin += mysteryNumber.getRefinedMaxExport();
                                             digitCompOk = mysteryNumber.getDigitCompOkExport();
+
+                                            // j'enleve la valeur user des variable (seul le digit computeur va varier)
+                                            if (refinedMax == digit1) {
+                                                refinedMax = 0;
+                                            }
+                                            if (refinedMin == digit1) {
+                                                refinedMin = 0;
+                                            }
 
                                             // je les ajoute dans une liste au fur et a mesure du nombre de digit -> list donc avec indication affiné ou gardé
                                             // je crée une liste pour le nombre de digit
@@ -263,23 +284,22 @@ public class Main {
                                             List<Integer> nbrListRefine = new ArrayList<>();
 
                                             // pour chaque digit dans la liste avec le nombre de digit + hashmap
-                                            for (int j = 0; j < nbrBoxesCombinationMysteryNumber; j++) {
-                                                if (indicateRefineAndEqualMap.containsKey("refinedMin")) {
-                                                    int refineNumberMin = 0;
-                                                    refineNumberMin = indicateRefineAndEqualMap.get("refinedMin") + (int) (Math.random() * ((9 - indicateRefineAndEqualMap.get("refinedMin")) + 1));
-                                                    nbrListRefine.add(refineNumberMin);
-                                                }
-                                                if (indicateRefineAndEqualMap.containsKey("refinedMax")) {
-                                                    int refineNumberMax = 0;
-                                                    refineNumberMax = (int) (Math.random() * ((indicateRefineAndEqualMap.get("refinedMax") + 1)));
-                                                    nbrListRefine.add(refineNumberMax);
-                                                }
-                                                if (indicateRefineAndEqualMap.containsKey("digitCompOk")) {
-                                                    digitCompOk += 1;
-                                                }
-                                            }// je converti la liste affiné en string
-                                            for (int j = 0; j < (nbrBoxesCombinationMysteryNumber - 1); j++) {
-                                                int newInt = nbrListRefine.get(j);
+                                            int refineNumberMin = 10;
+                                            int refineNumberMax = 10;
+                                            if (indicateRefineAndEqualMap.containsKey("refinedMin")) {
+                                                refineNumberMin = indicateRefineAndEqualMap.get("refinedMin") + (int) (Math.random() * ((9 - indicateRefineAndEqualMap.get("refinedMin")) + 1));
+                                                nbrListRefine.add(refineNumberMin);
+                                            }
+                                            if (indicateRefineAndEqualMap.containsKey("refinedMax")) {
+                                                refineNumberMax = (int) (Math.random() * ((indicateRefineAndEqualMap.get("refinedMax") + 1)));
+                                                nbrListRefine.add(refineNumberMax);
+                                            }
+                                            if (indicateRefineAndEqualMap.containsKey("digitCompOk")) {
+                                                digitCompOk += 1;
+                                            }
+                                            // j'ajoute le digit affiné en string
+                                            if (nbrListRefine.get(0) != null) {
+                                                int newInt = nbrListRefine.get(0);
                                                 refineStringCompDefender = refineStringCompDefender + newInt;
                                             }
                                         }
@@ -295,15 +315,17 @@ public class Main {
                                             System.out.println("L'ordinateur à gagné aprés " + loopForDefenderMode + "essais");
                                         }
                                     }
-                                    //todo faire la boucle pour rejouer ou relancer un autre jeux.
-                                }while (loopForDefenderMode > 0 && loopForDefenderMode != nbrOfTryMysteryNumber);
+
+                                    }while (loopForDefenderMode > 0 && loopForDefenderMode != nbrOfTryMysteryNumber);
                                 System.out.println(" l'ordinateur n'a pas trouvé ta combinaison aprés " + nbrOfTryMysteryNumber + " essais tu a donc gagné !!!");
+                                    //todo faire la boucle pour rejouer ou relancer un autre jeux.
+                                }
                         }
                 }
             }
         }
     }
-}
+
 
 
 
