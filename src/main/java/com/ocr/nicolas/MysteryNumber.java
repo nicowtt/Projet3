@@ -92,11 +92,6 @@ public class MysteryNumber {
         int counterForSeeEgal = 0;
         int counterForWin = 0;
 
-        //variable export reset
-        refinedMinExport = 0;
-        refinedMaxExport = 0;
-
-
         // creation d'une nouvelle list pour les resultat (+--+)
         List<String>resultWithIndicationList = new ArrayList<>();
 
@@ -108,19 +103,19 @@ public class MysteryNumber {
                 resultWithIndicationList.add("+");
                 // je prend l'information pour ajusté le min du prochain random computeur (Search number - mode defender)
 
-                int refinedMin = computerArrayListInt.get(i);
+                int refinedMin = userArrayListInt.get(i);
                 // j'exporte la variable
                 refinedMinExport = refinedMin;
-                logger.info("reajustement du minimum au besoin = " + refinedMin);
+                logger.info("passage par reajustement du minimum (mysteryNumber)= " + refinedMin);
 
 
             } else if (nbrComputerForCompare < nbrUserForCompare) {
                 resultWithIndicationList.add("-");
                 // je prend l'information pour ajusté le max du prochain random computeur (Search number - mode defender)
-                int refinedMax = computerArrayListInt.get(i);
+                int refinedMax = userArrayListInt.get(i);
                 // j'exporte la variable
                 refinedMaxExport = refinedMax;
-                logger.info("reajustement du maximum au besoin = " + refinedMax);
+                logger.info("passage par reajustement du maximum (mysteryNumber) = " + refinedMax);
 
             } else {
                 resultWithIndicationList.add("=");
@@ -167,6 +162,10 @@ public class MysteryNumber {
             result.add(letterInt);
         }
         return result;
+
+    }
+
+    public void addInfoHashMapDigit () {
 
     }
 

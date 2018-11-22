@@ -1,0 +1,17 @@
+2018-11-22 16:39:56.034 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - developerMode: true
+2018-11-22 16:39:56.037 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - variable nbrBoxesCombinationMysteryNumber = 1
+2018-11-22 16:39:56.037 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - variable nbrOfTryMysteryNumber = 2
+2018-11-22 16:39:57.301 [main] INFO  com.ocr.nicolas.Log4j - Choix du jeux-> 1 (1- Recherche+/- ; 2- Mastermind; 3 -arret)
+2018-11-22 16:39:58.919 [main] INFO  com.ocr.nicolas.Log4j - Mode de jeux-> 2 (1- Challenger ; 2- défenseur ; 3- Duel)
+2018-11-22 16:40:01.542 [main] INFO  com.ocr.nicolas.Main - nombre entré par l'utilisateur = 5
+2018-11-22 16:40:01.542 [main] INFO  com.ocr.nicolas.Log4j - base 10 random =8
+2018-11-22 16:40:01.542 [main] INFO  com.ocr.nicolas.Main - variable computeur premier jet 8
+2018-11-22 16:40:01.542 [main] INFO  com.ocr.nicolas.Log4j - passage par reajustement du maximum (mysteryNumber) = 8
+2018-11-22 16:40:01.542 [main] INFO  com.ocr.nicolas.Log4j - resultat de la comparaison = -
+2018-11-22 16:40:01.542 [main] INFO  com.ocr.nicolas.Main -  1er comparaison -
+2018-11-22 16:40:01.542 [main] INFO  com.ocr.nicolas.Main - 
+2018-11-22 16:40:01.542 [main] INFO  com.ocr.nicolas.Main - ********************   Boucle 1    *********************
+2018-11-22 16:40:01.542 [main] INFO  com.ocr.nicolas.Main - limites max affiné suivant l'ancien random 8
+2018-11-22 16:40:01.542 [main] INFO  com.ocr.nicolas.Main - digit computeur ok = 0
+2018-11-22 16:40:01.545 [main] INFO  com.ocr.nicolas.Main - hashmap = {refinedMax=8}
+2018-11-22 16:40:01.545 [main] INFO  com.ocr.nicolas.Main - aléatoire computeur affiné boucle(1) = 2
