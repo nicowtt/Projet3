@@ -54,7 +54,7 @@ public class MysteryNumber {
 
 
     /**
-     * For Compare 2 String (with number(s) inside)
+     * For Compare 2 String (with number(s) inside) result -> (+--=) for exemple
      *
      * @param computer Computeur string (with number(s) inside)
      * @param user User string (with number(s) inside)
