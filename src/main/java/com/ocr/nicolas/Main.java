@@ -65,7 +65,7 @@ public class Main {
                                 //**********jeux searchnumber+/-****** mode challenger******
 
                                 // Recuperation variable random ordinateur  -> randCompChallenger
-                                String randCompChallenger = mysteryNumber.computerNbrCombination(nbrBoxesCombinationMysteryNumber, 0, 10);
+                                String randCompChallenger = mysteryNumber.computerNbrCombination(nbrBoxesCombinationMysteryNumber, 0, 9);
                                 logger.info("--------> aleatoire String computeur = " + randCompChallenger);
 
                                 // Je donne le nombre d'essai possible
@@ -110,9 +110,6 @@ public class Main {
                                             //remise a zero des parametres de choix
                                             gamesMenuChoice = 0;
                                             gameTypeChoice = 0;
-                                            //lancement du menu du nouveau choix (1- rejouer; 2- Retour choix jeux; 3- quitter
-                                            display.displayAskIfReplay();
-                                            display.displayReplayChoice();
                                         } else {
                                             nbrLoopChallengerMode--;
                                             System.out.println(" il vous reste " + nbrLoopChallengerMode + " essai.");
@@ -128,7 +125,7 @@ public class Main {
                                     //remise a zero des parametres de choix
                                     gamesMenuChoice = 0;
                                     gameTypeChoice = 0;
-
+                                }
                                     //lancement du menu pour nouveau choix (1- rejouer; 2- Retour choix jeux; 3- quitter
                                     display.displayAskIfReplay();
                                     int replayIntern = display.displayReplayChoice();
@@ -156,6 +153,7 @@ public class Main {
                                     }
                                     break;
                                 }
+
                             case 2:
                                 //**********jeux searchnumber+/-****** mode defenseur******
 
@@ -324,7 +322,7 @@ public class Main {
                                             listDefenderModeCompFinal.add(digitRefinedInt);
                                         }
                                         if (digitCompOk == nbrBoxesCombinationMysteryNumber) {
-                                            System.out.println("l'ordinateur a gagné aprés " + loopForDefenderMode + " Coup !!");
+                                            System.out.println("l'ordinateur a gagné au " + (loopForDefenderMode + 1) + "eme essai !!");
                                             System.exit(0);
                                         }
 
@@ -342,7 +340,7 @@ public class Main {
 
                                         // je regarde si gagnant
                                         if (numberRefinedCompString == nbrUserDefender) {
-                                            System.out.println("l'ordinateur a gagné aprés " + loopForDefenderMode + " Coup !!");
+                                            System.out.println("l'ordinateur a gagné au " + loopForDefenderMode + " essai !!");
                                         }
 
                                         //j'increment la boucle
@@ -358,7 +356,6 @@ public class Main {
             }
         }
     }
-}
 
 
 
