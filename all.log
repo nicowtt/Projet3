@@ -1,30 +1,55 @@
-2018-11-22 19:31:35.590 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - developerMode: true
-2018-11-22 19:31:35.596 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - variable nbrBoxesCombinationMysteryNumber = 1
-2018-11-22 19:31:35.596 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - variable nbrOfTryMysteryNumber = 3
-2018-11-22 19:31:37.023 [main] INFO  com.ocr.nicolas.Log4j - Choix du jeux-> 1 (1- Recherche+/- ; 2- Mastermind; 3 -arret)
-2018-11-22 19:31:38.223 [main] INFO  com.ocr.nicolas.Log4j - Mode de jeux-> 2 (1- Challenger ; 2- défenseur ; 3- Duel)
-2018-11-22 19:31:39.407 [main] INFO  com.ocr.nicolas.Main - nombre entré par l'utilisateur = 5
-2018-11-22 19:31:39.407 [main] INFO  com.ocr.nicolas.Main - 
-2018-11-22 19:31:39.407 [main] INFO  com.ocr.nicolas.Main - ******* boucle 1*************
-2018-11-22 19:31:39.410 [main] INFO  com.ocr.nicolas.Log4j - base 10 random =7
-2018-11-22 19:31:39.410 [main] INFO  com.ocr.nicolas.Log4j - passage par reajustement du maximum (mysteryNumber) = 7
-2018-11-22 19:31:39.410 [main] INFO  com.ocr.nicolas.Log4j - resultat de la comparaison = -
-2018-11-22 19:31:39.410 [main] INFO  com.ocr.nicolas.Main -  1er comparaison -
-2018-11-22 19:31:39.410 [main] INFO  com.ocr.nicolas.Log4j - digit hashMap = {refinedMax=7}
-2018-11-22 19:31:39.410 [main] INFO  com.ocr.nicolas.Log4j - passage par refineNumber Max, nouveau nombre aleatoire = 0
-2018-11-22 19:31:39.410 [main] INFO  com.ocr.nicolas.Log4j - passage par reajustement du minimum (mysteryNumber)= 0
-2018-11-22 19:31:39.410 [main] INFO  com.ocr.nicolas.Log4j - resultat de la comparaison = +
-2018-11-22 19:31:39.410 [main] INFO  com.ocr.nicolas.Main - info sur la nouvelle valeur = +
-2018-11-22 19:31:39.410 [main] INFO  com.ocr.nicolas.Log4j - passage par refineNumber Max, nouveau nombre aleatoire = 3
-2018-11-22 19:31:39.410 [main] INFO  com.ocr.nicolas.Main - 
-2018-11-22 19:31:39.410 [main] INFO  com.ocr.nicolas.Main - ******* boucle 2*************
-2018-11-22 19:31:39.410 [main] INFO  com.ocr.nicolas.Log4j - base 10 random =3
-2018-11-22 19:31:39.410 [main] INFO  com.ocr.nicolas.Log4j - passage par reajustement du minimum (mysteryNumber)= 3
-2018-11-22 19:31:39.410 [main] INFO  com.ocr.nicolas.Log4j - resultat de la comparaison = +
-2018-11-22 19:31:39.410 [main] INFO  com.ocr.nicolas.Main -  1er comparaison +
-2018-11-22 19:31:39.410 [main] INFO  com.ocr.nicolas.Log4j - digit hashMap = {refinedMin=3}
-2018-11-22 19:31:39.410 [main] INFO  com.ocr.nicolas.Log4j - passage par refineNumber Min, nouveau nombre aleatoire = 7
-2018-11-22 19:31:39.410 [main] INFO  com.ocr.nicolas.Log4j - passage par reajustement du maximum (mysteryNumber) = 7
-2018-11-22 19:31:39.410 [main] INFO  com.ocr.nicolas.Log4j - resultat de la comparaison = -
-2018-11-22 19:31:39.410 [main] INFO  com.ocr.nicolas.Main - info sur la nouvelle valeur = -
-2018-11-22 19:31:39.413 [main] INFO  com.ocr.nicolas.Log4j - passage par refineNumber Min, nouveau nombre aleatoire = 6
+2018-11-23 15:29:08.058 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - developerMode: true
+2018-11-23 15:29:08.061 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - variable nbrBoxesCombinationMysteryNumber = 1
+2018-11-23 15:29:08.061 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - variable nbrOfTryMysteryNumber = 10
+2018-11-23 15:29:09.362 [main] INFO  com.ocr.nicolas.Log4j - Choix du jeux-> 1 (1- Recherche+/- ; 2- Mastermind; 3 -arret)
+2018-11-23 15:29:10.402 [main] INFO  com.ocr.nicolas.Log4j - Mode de jeux-> 2 (1- Challenger ; 2- défenseur ; 3- Duel)
+2018-11-23 15:29:11.525 [main] INFO  com.ocr.nicolas.Main - nombre entré par l'utilisateur = 5
+2018-11-23 15:29:11.525 [main] INFO  com.ocr.nicolas.Log4j - base 10 random =1
+2018-11-23 15:29:11.525 [main] INFO  com.ocr.nicolas.Main - premier let aleatoire computeur = 1
+2018-11-23 15:29:11.525 [main] INFO  com.ocr.nicolas.Log4j - passage par reajustement du minimum (mysteryNumber)= 1
+2018-11-23 15:29:11.525 [main] INFO  com.ocr.nicolas.Log4j - resultat de la comparaison = +
+2018-11-23 15:29:11.525 [main] INFO  com.ocr.nicolas.Main -  1er comparaison +
+2018-11-23 15:29:11.525 [main] INFO  com.ocr.nicolas.Main - 1ere list computeur = [1]
+2018-11-23 15:29:11.525 [main] INFO  com.ocr.nicolas.Main - list User = [5]
+2018-11-23 15:29:11.525 [main] INFO  com.ocr.nicolas.Main - 
+2018-11-23 15:29:11.525 [main] INFO  com.ocr.nicolas.Main - ******* boucle 1*************
+2018-11-23 15:29:11.525 [main] INFO  com.ocr.nicolas.Main - liste digit computeur (pour comparaison) = [1]
+2018-11-23 15:29:11.525 [main] INFO  com.ocr.nicolas.Main - liste digit user (pour comparaison) = [5]
+2018-11-23 15:29:11.525 [main] INFO  com.ocr.nicolas.Log4j - passage par reajustement du minimum (mysteryNumber)= 1
+2018-11-23 15:29:11.525 [main] INFO  com.ocr.nicolas.Main - valeur comparaison digit = +
+2018-11-23 15:29:11.525 [main] INFO  com.ocr.nicolas.Log4j - digit hashMap = {refinedMin=1}
+2018-11-23 15:29:11.525 [main] INFO  com.ocr.nicolas.Main - valeur hashMap pour digit 0 = {refinedMin=1}
+2018-11-23 15:29:11.525 [main] INFO  com.ocr.nicolas.Log4j - base 10 random =8
+2018-11-23 15:29:11.525 [main] INFO  com.ocr.nicolas.Main - digit affiné = 8
+2018-11-23 15:29:11.528 [main] INFO  com.ocr.nicolas.Main - listDigitDefenderModeAfterrefine = [8]
+2018-11-23 15:29:11.528 [main] INFO  com.ocr.nicolas.Main - liste affiné digitaprés remove = []
+2018-11-23 15:29:11.528 [main] INFO  com.ocr.nicolas.Main - String ordinateur after refine = 8
+2018-11-23 15:29:11.528 [main] INFO  com.ocr.nicolas.Log4j - passage par reajustement du maximum (mysteryNumber) = 8
+2018-11-23 15:29:11.528 [main] INFO  com.ocr.nicolas.Log4j - resultat de la comparaison = -
+2018-11-23 15:29:11.528 [main] INFO  com.ocr.nicolas.Main - 
+2018-11-23 15:29:11.528 [main] INFO  com.ocr.nicolas.Main - ******* boucle 2*************
+2018-11-23 15:29:11.528 [main] INFO  com.ocr.nicolas.Main - liste digit computeur (pour comparaison) = [8]
+2018-11-23 15:29:11.528 [main] INFO  com.ocr.nicolas.Main - liste digit user (pour comparaison) = [5]
+2018-11-23 15:29:11.528 [main] INFO  com.ocr.nicolas.Log4j - passage par reajustement du maximum (mysteryNumber) = 8
+2018-11-23 15:29:11.528 [main] INFO  com.ocr.nicolas.Main - valeur comparaison digit = -
+2018-11-23 15:29:11.528 [main] INFO  com.ocr.nicolas.Log4j - digit hashMap = {refinedMax=8}
+2018-11-23 15:29:11.528 [main] INFO  com.ocr.nicolas.Main - valeur hashMap pour digit 0 = {refinedMax=8}
+2018-11-23 15:29:11.528 [main] INFO  com.ocr.nicolas.Log4j - base 10 random =3
+2018-11-23 15:29:11.528 [main] INFO  com.ocr.nicolas.Main - digit affiné = 3
+2018-11-23 15:29:11.528 [main] INFO  com.ocr.nicolas.Main - listDigitDefenderModeAfterrefine = [3]
+2018-11-23 15:29:11.528 [main] INFO  com.ocr.nicolas.Main - liste affiné digitaprés remove = []
+2018-11-23 15:29:11.528 [main] INFO  com.ocr.nicolas.Main - String ordinateur after refine = 3
+2018-11-23 15:29:11.528 [main] INFO  com.ocr.nicolas.Log4j - passage par reajustement du minimum (mysteryNumber)= 3
+2018-11-23 15:29:11.528 [main] INFO  com.ocr.nicolas.Log4j - resultat de la comparaison = +
+2018-11-23 15:29:11.528 [main] INFO  com.ocr.nicolas.Main - 
+2018-11-23 15:29:11.528 [main] INFO  com.ocr.nicolas.Main - ******* boucle 3*************
+2018-11-23 15:29:11.528 [main] INFO  com.ocr.nicolas.Main - liste digit computeur (pour comparaison) = [3]
+2018-11-23 15:29:11.528 [main] INFO  com.ocr.nicolas.Main - liste digit user (pour comparaison) = [5]
+2018-11-23 15:29:11.528 [main] INFO  com.ocr.nicolas.Log4j - passage par reajustement du minimum (mysteryNumber)= 3
+2018-11-23 15:29:11.528 [main] INFO  com.ocr.nicolas.Main - valeur comparaison digit = +
+2018-11-23 15:29:11.528 [main] INFO  com.ocr.nicolas.Log4j - digit hashMap = {refinedMin=3}
+2018-11-23 15:29:11.528 [main] INFO  com.ocr.nicolas.Main - valeur hashMap pour digit 0 = {refinedMin=3}
+2018-11-23 15:29:11.528 [main] INFO  com.ocr.nicolas.Log4j - base 10 random =5
+2018-11-23 15:29:11.528 [main] INFO  com.ocr.nicolas.Main - digit affiné = 5
+2018-11-23 15:29:11.528 [main] INFO  com.ocr.nicolas.Main - listDigitDefenderModeAfterrefine = [5]
+2018-11-23 15:29:11.531 [main] INFO  com.ocr.nicolas.Main - liste affiné digitaprés remove = []

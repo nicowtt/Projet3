@@ -1,5 +1,6 @@
 package com.ocr.nicolas;
 
+import jdk.nashorn.internal.ir.IfNode;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -167,6 +168,10 @@ public class Main {
 
                                 logger.info("nombre entré par l'utilisateur = " + nbrUserDefender);
 
+                                //je converti en int pour voir si gagnant du premier coup
+                                Integer nbrUserIntFirst = Integer.valueOf(nbrUserDefender);
+
+
                                 // Je lance le jeux
                                 int nbrLoopDefenderMode = nbrOfTryMysteryNumber;
                                 int winDefender = 0;
@@ -176,15 +181,13 @@ public class Main {
                                 List<String> listDigitDefenderModeAfterRefine = new ArrayList<>();
 
 
-
                                 do {
 
-                                    logger.info("");
-                                    logger.info("******* boucle " + loopForDefenderMode + "*************");
-
                                     // je met les variables (pour le random computeur) au niveau normal :
-                                    int refinedMax;
-                                    int refinedMin;
+                                    int valueMin = 0;
+                                    int valueMax = 9;
+                                    int valueMinRefine = 0;
+                                    int valueMaxRefine = 0;
                                     int digitCompOk = 0;
                                     String compDefenderStringFull = "";
                                     String refineStringCompDefender = "";
@@ -194,6 +197,14 @@ public class Main {
                                     String compDefenderString1 = mysteryNumber.computerNbrCombination(nbrBoxesCombinationMysteryNumber, 0, 9);
                                     logger.info("premier let aleatoire computeur = " + compDefenderString1);
 
+                                    // je convertie en int pour voir si gagnant
+                                    Integer compDefenderInt = Integer.valueOf(compDefenderString1);
+                                    // gagnant?
+                                    if (compDefenderInt == nbrUserIntFirst ) {
+                                        System.out.println("l'ordinateur a gagné du premier coup ");
+                                        System.exit(0);
+                                    }
+
                                     /// je lancer la comparaison des deux string pour affichage sur la console ( !! user en premier pour inversé)
                                     String displayFirstResultCompare = mysteryNumber.CompareTwoString(nbrUserDefender, compDefenderString1);
                                     System.out.println(displayFirstResultCompare + "( computeur = " + compDefenderString1 + ")");
@@ -201,220 +212,148 @@ public class Main {
 
                                     // creation d'une arrayList et je met le string computer dans cette arrayList finale (pour la prise en compte dans la boucle)
                                     List<Integer> listDefenderModeCompFinal = mysteryNumber.stringToArrayList(compDefenderString1);
-                                    logger.info("1ere list computeur = " + listDefenderModeCompFinal );
+                                    logger.info("1ere list computeur = " + listDefenderModeCompFinal);
 
                                     // creation d'une arrayList utilisateur pour pouvoir comparer digit par digit
                                     List<Integer> listDefenderModeUserFinal = mysteryNumber.stringToArrayList(nbrUserDefender);
                                     logger.info("list User = " + listDefenderModeUserFinal);
 
-                                    // ensuite il va falloir affiné les reponses de l'ordinateur
-
-                                    while (loopForDefenderMode != nbrOfTryMysteryNumber);
-
-                                    // pour chaque digit de la liste finale ( je vais affiné les reponses)
-                                    for (int i = 0; i < nbrBoxesCombinationMysteryNumber; i++) {
-                                        // je fait deux array list avec un seul digit
-                                        // computer
-                                        List<Integer> listDigitComp = new ArrayList<>();
-                                        listDigitComp.add(listDefenderModeCompFinal.get(i));
-                                        logger.info("liste digit computeur (pour comparaison) = " + listDigitComp);
-                                        // user
-                                        List<Integer> listDigituser = new ArrayList<>();
-                                        listDigituser.add(listDefenderModeUserFinal.get(i));
-                                        logger.info("liste digit user (pour comparaison) = " + listDigituser);
-
-                                        // je lance la comparaison avec les arrayList par digit pour avoir le valu (+ ou - ou =)
-                                        String compareDigitForValue = mysteryNumber.compareTwoArrayList(listDigituser, listDigitComp );
-                                        logger.info("valeur comparaison digit = " + compareDigitForValue);
-
-
-                                        // convertion du digit en string pour lancer la comparaison pas digit (afin de renseigner la hashMap par digit)
-                                        // je met la valeur int du premier digit computeur en String
-                                        int digitComp = listDefenderModeCompFinal.get(i);
-                                        String digitCompString = String.valueOf(digitComp);
-                                        // je met la valeur int du premier digit user en string
-                                        int digitUser = listDefenderModeUserFinal.get(i);
-                                        String digitUserString = String.valueOf(digitUser);
-
-
-                                        // je lance ma methode pour avoir le renseignement dans la hashMap par digit
-                                        Map<String, Integer> hashMapDigit = mysteryNumber.infoDigitForRefined(digitCompString, compareDigitForValue);
-                                        logger.info("valeur hashMap pour digit " + i + " = " + hashMapDigit);
-
-                                        // j'affine le chiffre au besoin
-                                        String digitRefined = mysteryNumber.digitWithRefined(hashMapDigit,digitCompString);
-
-                                        // j'increment de le compteur d'equal si ok
-                                        if (digitRefined.contains("=")) {
-                                            digitCompOk += 1;
-                                        }
-
-                                        // j'ajoute le chiffre affiné pour afficher la valeur (developper mode)
-                                        listDigitDefenderModeAfterRefine.add(digitRefined);
-
-                                        // je converti le digit affiné en Int
-                                        Integer digitRefinedInt = Integer.parseInt(digitRefined);
-
-                                        // je remplace la liste finale avec ce digit pour le prochain réafinage
-                                        listDefenderModeCompFinal.add(digitRefinedInt);
-                                    }
                                     if (digitCompOk == nbrBoxesCombinationMysteryNumber) {
                                         System.out.println(" l'ordinateur a gagné");
                                         System.exit(0);
                                     }
-                                    // je converti la liste int des chiffres affiné en string (pour la recomparé en mode normale
-                                    String numberRefinedCompString = "";
-                                    for (int k = 0; k < listDigitDefenderModeAfterRefine.size(); k++) {
-                                        numberRefinedCompString = numberRefinedCompString + listDigitDefenderModeAfterRefine.get(k);
-                                    }
-                                    logger.info("String ordinateur after refine = " + numberRefinedCompString);
+                                    //initialization
+                                    listDigitDefenderModeAfterRefine.add("0");
 
-                                    // je compare le string affiné avec le String user et j'affiche la nouvelle comparaison
-                                    String displayResultCompareOnLoop = mysteryNumber.CompareTwoString(nbrUserDefender,numberRefinedCompString);
-                                    System.out.println(displayResultCompareOnLoop);
 
-                                    //j'increment la boucle
-                                    loopForDefenderMode++;
-                                   
-
-                                    /*while (loopForDefenderMode > 0 && loopForDefenderMode != nbrOfTryMysteryNumber) {
+                                    // ensuite il va falloir affiné les reponses de l'ordinateur
+                                    while (loopForDefenderMode != nbrOfTryMysteryNumber) {
 
                                         logger.info("");
-                                        logger.info("********************   Boucle affinage " + loopForDefenderMode + "    *********************");
+                                        logger.info("******* boucle " + loopForDefenderMode + "*************");
 
-                                        //boucle for pour chaque digit
+                                        // pour chaque digit de la liste finale ( je vais affiné les reponses)
                                         for (int i = 0; i < nbrBoxesCombinationMysteryNumber; i++) {
-                                            //lecture des variable d'affinage
 
 
-                                            // !!!!!! Comparaison  digit par digit !! pour avoir mes variables pour prochain random computeur (attention je met en premier le user !! pour inversé le resultat + et -)
+                                            // je fait deux array list avec un seul digit
+                                            // computer
+                                            List<Integer> listDigitComp = new ArrayList<>();
+                                            listDigitComp.add(listDefenderModeCompFinal.get(i));
+                                            logger.info("liste digit computeur (pour comparaison) = " + listDigitComp);
+                                            // user
+                                            List<Integer> listDigituser = new ArrayList<>();
+                                            listDigituser.add(listDefenderModeUserFinal.get(i));
+                                            logger.info("liste digit user (pour comparaison) = " + listDigituser);
 
-                                            // je converti le string user en arraylist de integer -> listUserDefenderInt -> Il peut y en avoir plusieurs
-                                            List<Integer> listUserDefenderInt = mysteryNumber.stringToArrayList(nbrUserDefender);
+                                            // je lance la comparaison avec les arrayList par digit pour avoir le valu (+ ou - ou =)
+                                            String compareDigitForValue = mysteryNumber.compareTwoArrayList(listDigitComp, listDigituser);
+                                            logger.info("valeur comparaison digit = " + compareDigitForValue);
 
-                                            // je converti le string computer en arraylist de integer -> listCompDefenderInt -> Il peut y en avoir plusieurs
-                                            List<Integer> listCompDefenderInt = mysteryNumber.stringToArrayList(compDefenderStringFull);
 
-                                            // je fais une liste avec un seul digit user -> listUserDigitDefenderInt (digit user)
-                                            List<Integer> listUserDigitDefenderInt = new ArrayList<>();
-                                            int digit1 = listUserDefenderInt.get(i);
-                                            listUserDigitDefenderInt.add(digit1);
+                                            // convertion du digit en string pour lancer la comparaison pas digit (afin de renseigner la hashMap par digit)
+                                            // je met la valeur int du premier digit computeur en String
+                                            int digitComp = listDefenderModeCompFinal.get(i);
+                                            String digitCompString = String.valueOf(digitComp);
+                                            // je met la valeur int du premier digit user en string
+                                            int digitUser = listDefenderModeUserFinal.get(i);
+                                            String digitUserString = String.valueOf(digitUser);
 
-                                            // je fais une liste avec un seul digit comp -> listCompDigitDefenderInt (digit computer)
-                                            List<Integer> listCompDigitDefenderInt = new ArrayList<>();
-                                            int digit2 = listCompDefenderInt.get(i);
-                                            listCompDigitDefenderInt.add(digit2);
 
-                                            // je compare digit par digit et je recupere les variables affiné au fur et a mesure pour le prochain random (en premier le user !! pour inversé)
+                                            // je lance ma methode pour avoir le renseignement dans la hashMap par digit
+                                            Map<String, Integer> hashMapDigit = mysteryNumber.infoDigitForRefined(digitCompString, compareDigitForValue);
+                                            logger.info("valeur hashMap pour digit " + i + " = " + hashMapDigit);
 
-                                            // variable affiné suivant l'ancien random
-                                            if (refinedMax > mysteryNumber.getRefinedMaxExport()) {
-                                                refinedMax = mysteryNumber.getRefinedMaxExport();
-                                                logger.info("limites max affiné suivant l'ancien random " + refinedMax);
+                                            // methode sans ma derniere methode je recupere la valeur que je met dans une variable
+
+                                            if (hashMapDigit.containsKey("refinedMin")) {
+                                                valueMinRefine = hashMapDigit.get("refinedMin") + 1;
+                                                valueMin = 0;
+                                                if (valueMinRefine > valueMin) {
+                                                    valueMin = valueMinRefine;
+                                                }
+                                            } else {
+                                                valueMin = 0;
                                             }
-                                            if (refinedMin < mysteryNumber.getRefinedMinExport()) {
-                                                refinedMin = mysteryNumber.getRefinedMinExport();
-                                                logger.info("limites min affiné suivant l'ancien random " + refinedMin);
+                                            if (hashMapDigit.containsKey("refinedMax")) {
+                                                valueMaxRefine = hashMapDigit.get("refinedMax" ) - 1;
+                                                valueMax = 0;
+                                                if (valueMaxRefine < valueMax) {
+                                                    valueMax = valueMaxRefine;
+                                                }
+                                            }else {
+                                                valueMaxRefine = 9;
                                             }
 
-
-                                            // je peux donc comparé les deux listes de 1 digit
-                                            //String compareDigitWithRefine = mysteryNumber.compareTwoArrayList(listUserDigitDefenderInt, listCompDigitDefenderInt);
-
-                                            // je recupere la valeur de la valeur ok
-                                            digitCompOk = mysteryNumber.getDigitCompOkExport();
-                                            logger.info("digit computeur ok = " + digitCompOk);
-
-                                            // je peux recuperer la variables pour affiner le prochain random de ce digit
-
-                                            // j'enleve la valeur user des variable (seul le digit computeur va varier)
-                                            if (refinedMax == digit1) {
-                                                refinedMax = 0;
-                                            }
-                                            if (refinedMin == digit1) {
-                                                refinedMin = 0;
+                                            if (hashMapDigit.containsKey("digitOk")) {
+                                                digitCompOk += 1;
                                             }
 
-                                            // je les ajoute dans une liste au fur et a mesure du nombre de digit -> list donc avec indication affiné ou gardé
-                                            // je crée une liste pour le nombre de digit
-                                            List<Integer> nbrDigitList = new ArrayList<>();
+                                            // gagnant?
+                                            if (digitCompOk == nbrBoxesCombinationMysteryNumber) {
+                                                System.out.println(" l'ordinateur a gagné");
+                                                System.exit(0);
+                                            }
 
-                                            // je crée une  liste hashmap pour metre l'info de chaque digit
-                                            Map<String, Integer> indicateRefineAndEqualMap = new HashMap<String, Integer>();
-                                            // J'ajoute dans cette liste uniquement ce qui change pour ce digit et je l'ajoute dans la list nbrDigit (une hash map dans une list)
-                                            if (refinedMin != 0) {
-                                                nbrDigitList.add(indicateRefineAndEqualMap.put("refinedMin", refinedMin));
-                                            }
-                                            if (refinedMax != 0) {
-                                                nbrDigitList.add(indicateRefineAndEqualMap.put("refinedMax", refinedMax));
-                                            }
-                                            if (digitCompOk != 0) {
-                                                nbrDigitList.add(indicateRefineAndEqualMap.put("digitCompOk", digitCompOk));
-                                            }
-                                            logger.info("hashmap = " + indicateRefineAndEqualMap);
+                                            // j'affine le chiffre au besoin
+                                            String digitRefined = mysteryNumber.computerNbrCombination(1,valueMinRefine,valueMaxRefine);
+                                            logger.info("digit affiné = " + digitRefined);
 
-                                            // je vais faire un random affiner pour chaque digit en String
-                                            // je consulte la liste avec la hashmap dedans et je lance du random affiné par digit au besoin
-                                            // je cree une list pour affiché les resultats affiné
-                                            List<Integer> nbrListRefine = new ArrayList<>();
+                                            // je converti le digit affiné en Int
+                                            Integer digitRefinedInt = Integer.parseInt(digitRefined);
 
-                                            // je cree une list  pour afficher les resultats ok
-                                            List<Integer> listNumbCompOk = new ArrayList<>();
+                                            // j'increment de le compteur d'equal si ok
+                                            if ( digitRefinedInt == digitUser ) {
+                                                digitCompOk += 1;
+                                            }
 
-                                            // pour chaque digit dans la liste avec le nombre de digit + hashmap
-                                            int refineNumberMin = 10;
-                                            int refineNumberMax = 10;
-                                            int refineNumberMinAndMax = 10;
-                                            if (indicateRefineAndEqualMap.containsKey("refinedMin") && !indicateRefineAndEqualMap.containsValue(10)) {
-                                                refineNumberMin = indicateRefineAndEqualMap.get("refinedMin") + (int) (Math.random() * ((9 - indicateRefineAndEqualMap.get("refinedMin")) + 1));
-                                                nbrListRefine.add(refineNumberMin);
-                                            }
-                                            if (indicateRefineAndEqualMap.containsKey("refinedMax")&& !indicateRefineAndEqualMap.containsValue(10)) {
-                                                refineNumberMax = (int) (Math.random() * ((indicateRefineAndEqualMap.get("refinedMax") + 1)));
-                                                nbrListRefine.add(refineNumberMax);
-                                            }
-                                            if (indicateRefineAndEqualMap.containsKey("digitCompOk")) {
-                                                listNumbCompOk.add(digitCompOk);
-                                                CompOk += 1;
-                                            }
-                                            if (indicateRefineAndEqualMap.containsKey("refinedMin") && indicateRefineAndEqualMap.containsKey("refinedMax")) {
-                                                refineNumberMinAndMax = indicateRefineAndEqualMap.get("refinedMin") + (int) (Math.random() * (((indicateRefineAndEqualMap.get("refinedMax")) - (indicateRefineAndEqualMap.get("refinedMin"))) + 1));
-                                                nbrListRefine.add(refineNumberMinAndMax);
-                                            }
-                                            // j'enleve l'ancien Strin affiné
-                                            refineStringCompDefender = "";
-                                            // j'ajoute le digit affiné en string
-                                            if (nbrListRefine.get(0) != null) {
-                                                int newInt = nbrListRefine.get(0);
-                                                refineStringCompDefender = refineStringCompDefender + newInt;
-                                            }
+                                            // j'ajoute le chiffre affiné pour afficher la valeur (developper mode)
+                                            listDigitDefenderModeAfterRefine.remove(i);
+                                            listDigitDefenderModeAfterRefine.add(digitRefined);
+                                            logger.info("listDigitDefenderModeAfterrefine = " + listDigitDefenderModeAfterRefine);
+
+
+                                            // je remplace la liste finale avec ce digit pour le prochain réafinage
+                                            listDefenderModeCompFinal.remove(i);
+                                            logger.info("liste affiné digitaprés remove = " + listDefenderModeCompFinal);
+                                            listDefenderModeCompFinal.add(digitRefinedInt);
                                         }
-                                        // j'affiche le string affiné
-                                        System.out.println(refineStringCompDefender);
-                                        logger.info("aléatoire computeur affiné boucle(" + loopForDefenderMode + ") = " + refineStringCompDefender);
-
-                                        // j'incremente la boucle
-                                        loopForDefenderMode += 1;
-
-                                        //je regarde si l'ordinateur à gagné pour finir
-                                        if (CompOk == nbrBoxesCombinationMysteryNumber) {
-                                            System.out.println("L'ordinateur à gagné aprés " + loopForDefenderMode + "essais");
+                                        if (digitCompOk == nbrBoxesCombinationMysteryNumber) {
+                                            System.out.println("l'ordinateur a gagné aprés " + loopForDefenderMode + " Coup !!");
+                                            System.exit(0);
                                         }
-                                    }*/
 
-                                    }while (loopForDefenderMode != nbrOfTryMysteryNumber);
+                                        // je converti la liste int des chiffres affiné en string (pour la recomparé en mode normale
+                                        String numberRefinedCompString = "";
+                                        for (int k = 0; k < listDigitDefenderModeAfterRefine.size(); k++) {
+                                            numberRefinedCompString = numberRefinedCompString + listDigitDefenderModeAfterRefine.get(k);
+                                        }
+                                        logger.info("String ordinateur after refine = " + numberRefinedCompString);
+
+
+                                        // je compare le string affiné avec le String user et j'affiche la nouvelle comparaison
+                                        String displayResultCompareOnLoop = mysteryNumber.CompareTwoString(nbrUserDefender, numberRefinedCompString);
+                                        System.out.println(displayResultCompareOnLoop + "( computeur = " + numberRefinedCompString + ")");
+
+                                        // je regarde si gagnant
+                                        if (numberRefinedCompString == nbrUserDefender) {
+                                            System.out.println("l'ordinateur a gagné aprés " + loopForDefenderMode + " Coup !!");
+                                        }
+
+                                        //j'increment la boucle
+                                        loopForDefenderMode++;
+                                    }
+
+                                } while (loopForDefenderMode != nbrOfTryMysteryNumber);
 
                                 System.out.println(" l'ordinateur n'a pas trouvé ta combinaison aprés " + nbrOfTryMysteryNumber + " essais tu a donc gagné !!!");
                                 System.exit(0);
-                                    //todo faire la boucle pour rejouer ou relancer un autre jeux.
-
-                                }
-
                         }
                 }
             }
         }
     }
+}
 
 
 

@@ -219,25 +219,29 @@ public class MysteryNumber {
         int refineNumberMinAndMax;
 
 
-        if (list.containsKey("refinedMin")) {
-            refineNumberMin = list.get("refinedMin") + (int) (Math.random() * ((9 - list.get("refinedMin")) + 1));
-            digitRefined = refineNumberMin;
-            logger.info("passage par refineNumber Min, nouveau nombre aleatoire = " + digitRefined);
-        }
-        if (list.containsKey("refinedMax")) {
-            refineNumberMax = (int) (Math.random() * ((list.get("refinedMax") + 1)));
-            digitRefined = refineNumberMax;
-            logger.info("passage par refineNumber Max, nouveau nombre aleatoire = " + digitRefined);
-        }
-        if (list.containsKey("digitOk")) {
-            digitOk = list.get("digitOk");
-            logger.info("passage par digit ok = " );
-        }
+
         if (list.containsKey("refinedMin") && list.containsKey("refinedMax")) {
             refineNumberMinAndMax = list.get("refinedMin") + (int) (Math.random() * (((list.get("refinedMax")) - (list.get("refinedMin"))) + 1));
             digitRefined = refineNumberMinAndMax;
             logger.info("passage par refineNumber Min et Max, nouveau nombre aleatoire = " + digitRefined);
+        } else {
+            if (list.containsKey("refinedMin")) {
+                refineNumberMin = list.get("refinedMin") + (int) (Math.random() * ((9 - list.get("refinedMin")) + 1));
+                digitRefined = refineNumberMin;
+                logger.info("passage par refineNumber Min, nouveau nombre aleatoire = " + digitRefined);
+            }
+            if (list.containsKey("refinedMax")) {
+                refineNumberMax = (int) (Math.random() * ((list.get("refinedMax") + 1)));
+                digitRefined = refineNumberMax;
+                logger.info("passage par refineNumber Max, nouveau nombre aleatoire = " + digitRefined);
+            }
+            if (list.containsKey("digitOk")) {
+                digitOk = list.get("digitOk");
+                logger.info("passage par digit ok = " );
+            }
         }
+
+
         // je met le digit en string
         String digitRefinedString = String.valueOf(digitRefined);
 
