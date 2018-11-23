@@ -187,7 +187,7 @@ public class Main {
                                     int valueMin = 0;
                                     int valueMax = 9;
                                     int valueMinRefine = 0;
-                                    int valueMaxRefine = 0;
+                                    int valueMaxRefine = 9;
                                     int digitCompOk = 0;
                                     String compDefenderStringFull = "";
                                     String refineStringCompDefender = "";
@@ -268,7 +268,7 @@ public class Main {
 
                                             if (hashMapDigit.containsKey("refinedMin")) {
                                                 valueMinRefine = hashMapDigit.get("refinedMin") + 1;
-                                                valueMin = 0;
+
                                                 if (valueMinRefine > valueMin) {
                                                     valueMin = valueMinRefine;
                                                 }
@@ -277,12 +277,12 @@ public class Main {
                                             }
                                             if (hashMapDigit.containsKey("refinedMax")) {
                                                 valueMaxRefine = hashMapDigit.get("refinedMax" ) - 1;
-                                                valueMax = 0;
-                                                if (valueMaxRefine < valueMax) {
+
+                                                if (valueMaxRefine > valueMax) {
                                                     valueMax = valueMaxRefine;
                                                 }
                                             }else {
-                                                valueMaxRefine = 9;
+                                                valueMax = 9;
                                             }
 
                                             if (hashMapDigit.containsKey("digitOk")) {
@@ -294,6 +294,11 @@ public class Main {
                                                 System.out.println(" l'ordinateur a gagné");
                                                 System.exit(0);
                                             }
+
+                                            logger.info("");
+                                            logger.info("refine min = " + valueMinRefine);
+                                            logger.info("refine max = " + valueMaxRefine);
+                                            logger.info("");
 
                                             // j'affine le chiffre au besoin
                                             String digitRefined = mysteryNumber.computerNbrCombination(1,valueMinRefine,valueMaxRefine);
