@@ -11,10 +11,6 @@ public class MysteryNumber {
 
     private int nbrDigit;
     private int counterForWinExport;
-    private int refinedMinExport;
-    private int refinedMaxExport;
-    private int digitCompOkExport;
-    private String digitOkExport;
 
     //private valueMinRefine = 0;
     //private valueMaxRefine = 9;
@@ -29,21 +25,6 @@ public class MysteryNumber {
         return counterForWinExport;
     }
 
-    public int getRefinedMinExport() {
-        return refinedMinExport;
-    }
-
-    public int getRefinedMaxExport() {
-        return refinedMaxExport;
-    }
-
-    public int getDigitCompOkExport() {
-        return digitCompOkExport;
-    }
-
-    public String getDigitOkExport() {
-        return digitOkExport;
-    }
 
     /**
      * for make random computer number(s) combination
@@ -60,7 +41,7 @@ public class MysteryNumber {
 
             //int de 0 a 9 (base 10) avec min et max
             int base10RandomDigitNumber = min + (int) (Math.random() * ((max - min) + 1));
-            logger.info("base 10 random =" + base10RandomDigitNumber);
+            //logger.info("base 10 random =" + base10RandomDigitNumber);
 
             // je converti le chiffre en string
             String base10RandomDigitNumberString = String.valueOf(base10RandomDigitNumber);
@@ -93,7 +74,7 @@ public class MysteryNumber {
         // Je compare les deux arrayLists
         String compareListString = compareTwoArrayList(userArrayListInt, computerArrayListInt); //-> compareListString
 
-        logger.info("resultat de la comparaison = " + compareListString);
+        //logger.info("resultat de la comparaison = " + compareListString);
 
         return compareListString;
     }
@@ -121,29 +102,13 @@ public class MysteryNumber {
 
             if (nbrComputerForCompare > nbrUserForCompare) {
                 resultWithIndicationList.add("+");
-                // je prend l'information pour ajusté le min du prochain random computeur (Search number - mode defender)
-
-                int refinedMin = userArrayListInt.get(i);
-                // j'exporte la variable
-                refinedMinExport = refinedMin;
-                logger.info("passage par reajustement du minimum (mysteryNumber)= " + refinedMin);
-
 
             } else if (nbrComputerForCompare < nbrUserForCompare) {
                 resultWithIndicationList.add("-");
-                // je prend l'information pour ajusté le max du prochain random computeur (Search number - mode defender)
-                int refinedMax = userArrayListInt.get(i);
-                // j'exporte la variable
-                refinedMaxExport = refinedMax;
-                logger.info("passage par reajustement du maximum (mysteryNumber) = " + refinedMax);
 
             } else {
                 resultWithIndicationList.add("=");
                 counterForSeeEgal += 1; // pour savoir combien il y a d'egal lorsque la methode est lancé.
-                int digitCompOk = computerArrayListInt.get(i);
-                // j'exporte la variable
-                digitCompOkExport = digitCompOk;
-
             }
         }
 
@@ -265,6 +230,49 @@ public class MysteryNumber {
         return completeHashMapBase;
 
     }
+
+    /**
+     * for put information of each digit on Hashmap
+     *
+     * @param pHashMap  old hashMap
+     *
+     * @param pFirst
+     * @param pValue
+     * @return hashmap updated with new limit information
+     */
+    public Map<String, Integer> infoDigitForRefined2(Map<String, Integer> pHashMap, List<Integer> pFirst, List<String> pValue) {
+
+        Map<String, Integer> hashMapRefine = new HashMap<>();
+
+        for (int i = 0; i < pFirst.size(); i++) {
+            if (pValue.contains("+")) {
+                //hashMapRefine.
+            }
+
+        }
+        return hashMapRefine;
+    }
+
+    /**
+     * For convert String to Array List (value inside)
+     *
+     * @param pInputString String for convert (+--+)
+     * @return List of String ( [+] [-] [=]
+     */
+    public List<String> valueStringToArrayList(String pInputString) {
+
+        List<String> result = new ArrayList<>();
+
+        for (int i = 0; i < pInputString.length(); i++) {
+            char letter = pInputString.charAt(i);
+            String letterString = String.valueOf(letter);
+            result.add(letterString);
+        }
+        return result;
+
+    }
+
+
 }
 
 

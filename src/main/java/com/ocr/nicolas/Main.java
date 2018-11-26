@@ -157,6 +157,10 @@ public class Main {
                             case 2:
                                 //**********jeux searchnumber+/-****** mode defenseur******
 
+                                //variables
+                                int loopForDefenderMode = 1;
+
+
                                 // Je donne le nombre d'essai possible
                                 System.out.println("l'ordinateur a " + nbrOfTryMysteryNumber + " essai pour trouver ta combinaison");
 
@@ -169,8 +173,6 @@ public class Main {
                                 //je converti en int pour voir si gagnant du premier coup (avec un digit cela peut arriver)
                                 Integer nbrUserIntFirst = Integer.valueOf(nbrUserDefender);
 
-                                // Variable du jeux
-                                int loopForDefenderMode = 1;
 
                                 // creation d'une arrayList pour chaque digit affiné
                                 List<String> listDigitDefenderModeAfterRefine = new ArrayList<>();
@@ -178,17 +180,6 @@ public class Main {
                                 // creation d'une hashMap base avec les limite Max, Min et digitok incrementé par digit -> ok
                                 Map<String, Integer> completeHashMapBase = mysteryNumber.createHashMapBase(nbrBoxesCombinationMysteryNumber);
                                 logger.info(" hashMap Base dans la class Main = " + completeHashMapBase);
-
-
-                                //todo do ** je fais ma comparaison comme le mode challenger pour affiché les +-+= a l'utilisateur
-                                //todo je crée deux array list avec chaque digit afin de comparé chaque digit séparement
-                                //todo je compare chaque digit de la liste computeur et je renseigne ma hashMap pour le futur random.
-                                //todo while ** debut boucle (jusqu'a -> computer gagne ou fin des essais, il perd)
-                                //todo je lance les nouveau randomDigit avec les info de la hashmap
-                                //todo je recupere les nouveaux digits random computeur dans une derniere arrayList
-                                //todo je la compare pour affiché les + - et = a l'utilisateur et je renseigne la hasmap.
-
-
 
                                 do {
 
@@ -204,7 +195,7 @@ public class Main {
 
                                     // premier jet computeur en recuperant chaque digit dans un string -> compDefenderString1
                                     String compDefenderString1 = mysteryNumber.computerNbrCombination(nbrBoxesCombinationMysteryNumber, 0, 9);
-                                    logger.info("premier let aleatoire computeur = " + compDefenderString1);
+                                    logger.info("premier jet aleatoire computeur = " + compDefenderString1);
 
                                     // je convertie en int pour voir si gagnant
                                     Integer compDefenderInt = Integer.valueOf(compDefenderString1);
@@ -227,22 +218,34 @@ public class Main {
                                     List<Integer> listDefenderModeUserFinal = mysteryNumber.stringToArrayList(nbrUserDefender);
                                     logger.info("list User = " + listDefenderModeUserFinal);
 
-                                    if (digitCompOk == nbrBoxesCombinationMysteryNumber) {
-                                        System.out.println(" l'ordinateur a gagné");
-                                        System.exit(0);
-                                    }
+                                    // je met les valeur + - et = dans une ArrayList
+                                    List<String> valueListDefender = mysteryNumber.valueStringToArrayList(displayFirstResultCompare);
+                                    logger.info ("liste de valeur = " + valueListDefender);
 
                                     //initialization
                                     listDigitDefenderModeAfterRefine.add("0");
 
+                                    // je met a jour ma hashmap avec les nouvelles données de comparaison
+                                    Map<String, Integer> hashMapRefine = mysteryNumber.infoDigitForRefined2(completeHashMapBase,listDefenderModeCompFinal,valueListDefender);
+                                    logger.info(" 1 HashMap pour metre a jour les valeur max et min et egual" + hashMapRefine);
 
-                                    // ensuite il va falloir affiné les reponses de l'ordinateur
+                                    //todo je renseigne ma hashMap pour le futur random affiné. -> en cour dans mysteryNumber
+                                    //todo while ** debut boucle (jusqu'a -> computer gagne ou fin des essais, il perd)
+                                    //todo je lance les nouveau randomDigit avec les info de la hashmap
+                                    //todo je recupere les nouveaux digits random computeur dans une derniere arrayList
+                                    //todo je la compare pour affiché les + - et = a l'utilisateur et je renseigne la hasmap.
+
+
+
+                                    // ensuite il va falloir affiné les reponses de l'ordinateur -> ici debut de la boucle while
                                     while (loopForDefenderMode != nbrOfTryMysteryNumber) {
 
                                         logger.info("");
-                                        logger.info("******* boucle " + loopForDefenderMode + "*************");
+                                        logger.info("******* boucle " + loopForDefenderMode + " *************");
+
 
                                         // pour chaque digit de la liste finale ( je vais affiné les reponses)
+
                                         for (int i = 0; i < nbrBoxesCombinationMysteryNumber; i++) {
 
 

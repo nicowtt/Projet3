@@ -56,7 +56,7 @@ public class MenuDisplay {
             }
         } while (!responseIsGood);
 
-        logger.info("Choix du jeux-> " + gameChoice + " (1- Recherche+/- ; 2- Mastermind; 3 -arret)");
+        logger.info("Choix du jeux (1- Recherche+/- ; 2- Mastermind; 3 -arret) -> " + gameChoice);
         return gameChoice;
     }
 
@@ -106,7 +106,7 @@ public class MenuDisplay {
                     break;
             }
         } while (!responseIsGood);
-        logger.info("Mode de jeux-> " + gameTypeChoice + " (1- Challenger ; 2- défenseur ; 3- Duel)");
+        logger.info("Mode de jeux (1- Challenger ; 2- défenseur ; 3- Duel) -> " + gameTypeChoice );
         return gameTypeChoice;
     }
 
