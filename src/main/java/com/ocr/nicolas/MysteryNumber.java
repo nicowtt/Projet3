@@ -16,14 +16,34 @@ public class MysteryNumber {
     private int digitCompOkExport;
     private String digitOkExport;
 
+    //private valueMinRefine = 0;
+    //private valueMaxRefine = 9;
+    //private digitCompOk = 0;
 
-    public void setNbrDigit(int nbrDigit) {this.nbrDigit = nbrDigit;}
 
-    public int getCounterForWinExport() {return counterForWinExport;}
-    public int getRefinedMinExport() {return refinedMinExport;}
-    public int getRefinedMaxExport() {return refinedMaxExport;}
-    public int getDigitCompOkExport() {return digitCompOkExport;}
-    public String getDigitOkExport() {return digitOkExport;}
+    public void setNbrDigit(int nbrDigit) {
+        this.nbrDigit = nbrDigit;
+    }
+
+    public int getCounterForWinExport() {
+        return counterForWinExport;
+    }
+
+    public int getRefinedMinExport() {
+        return refinedMinExport;
+    }
+
+    public int getRefinedMaxExport() {
+        return refinedMaxExport;
+    }
+
+    public int getDigitCompOkExport() {
+        return digitCompOkExport;
+    }
+
+    public String getDigitOkExport() {
+        return digitOkExport;
+    }
 
     /**
      * for make random computer number(s) combination
@@ -55,14 +75,13 @@ public class MysteryNumber {
     }
 
 
-
     /**
      * For Compare 2 String (with number(s) inside) result -> (+--=) for exemple
      *
      * @param computer Computeur string (with number(s) inside)
-     * @param user User string (with number(s) inside)
+     * @param user     User string (with number(s) inside)
      */
-    public String CompareTwoString (String computer, String user) {
+    public String CompareTwoString(String computer, String user) {
 
 
         // Je converti la chaine de caractere computeur en arraylist de integer -> computerArrayListInt
@@ -80,12 +99,10 @@ public class MysteryNumber {
     }
 
 
-
-
     /**
      * For compare Two Array List (with number(s) inside)
      *
-     * @param userArrayListInt User Array List (number inside )
+     * @param userArrayListInt     User Array List (number inside )
      * @param computerArrayListInt Computer Array List (number inside)
      * @return String with + , - or =
      */
@@ -96,7 +113,7 @@ public class MysteryNumber {
         int counterForWin = 0;
 
         // creation d'une nouvelle list pour les resultat (+--+)
-        List<String>resultWithIndicationList = new ArrayList<>();
+        List<String> resultWithIndicationList = new ArrayList<>();
 
         for (int i = 0; i < computerArrayListInt.size(); i++) {
             int nbrComputerForCompare = computerArrayListInt.get(i);
@@ -131,7 +148,9 @@ public class MysteryNumber {
         }
 
         // Si il a autant d'egal que de digit je signale qu'on a un gagnant
-        if ( counterForSeeEgal == computerArrayListInt.size()) {counterForWin = 1;}
+        if (counterForSeeEgal == computerArrayListInt.size()) {
+            counterForWin = 1;
+        }
 
         //j'exporte l'information pour savoir si il y a gagnant
         counterForWinExport = counterForWin;
@@ -146,7 +165,6 @@ public class MysteryNumber {
         }
         return compareListString;
     }
-
 
 
     /**
@@ -170,14 +188,19 @@ public class MysteryNumber {
 
     /**
      * for put information of digit on Hashmap
-     * @param str String "54"
-     * @param value String "+--="
+     *
+     * @param str   String "5"
+     * @param value String "+" or "-" or "="
+     * @return hashmap updated with limit information
      */
-    public Map<String, Integer> infoDigitForRefined (String str, String value) {
+    public Map<String, Integer> infoDigitForRefined(String str, String value) {
+
 
         String refinedMin = "refinedMin";
         String refinedMax = "refinedMax";
         String digitOk = "digitOk";
+
+
         Integer strDigit = Integer.valueOf(str);
 
 
@@ -186,72 +209,63 @@ public class MysteryNumber {
 
 
         // comparaison et entré dans la hashMap
-        if (value.contains("+") ) {
-            digitHashMap.put(refinedMin,strDigit);
+        if (value.contains("+")) {
+            digitHashMap.put(refinedMin, strDigit);
         }
 
         if (value.contains("-")) {
-            digitHashMap.put(refinedMax,strDigit);
+            digitHashMap.put(refinedMax, strDigit);
         }
 
         if (value.contains("=")) {
-            digitHashMap.put(digitOk,strDigit);
+            digitHashMap.put(digitOk, strDigit);
         }
         logger.info("digit hashMap = " + digitHashMap);
         return digitHashMap;
     }
 
-
     /**
-     * for create a random digit with refined
-     *
-     * @param list hashMap with information on digit
-     * @param digit one int
-     * @return int refined
+     * For create a hashMap with increment key (nbrdigit)
+     * @param pNbrDigit
+     * @return hashMap with base infomation for each digit
      */
-    public String digitWithRefined (Map<String, Integer> list, String digit) {
+    public Map<String, Integer> createHashMapBase(int pNbrDigit) {
 
-        int digitRefined = Integer.valueOf(digit);
+        int countDigit = 0;
 
-        int refineNumberMin;
-        int refineNumberMax;
-        int digitOk = 0;
-        int refineNumberMinAndMax;
+        int valueMin = 0;
+        int valueMax = 9;
+
+        // creation d'une arrayList avec le nombre de digit en String
+        List<String> nbrDigitList = new ArrayList<>();
 
 
+        // creation d'un hashMap
+        Map<String, Integer> completeHashMapBase = new HashMap<String, Integer>();
 
-        if (list.containsKey("refinedMin") && list.containsKey("refinedMax")) {
-            refineNumberMinAndMax = list.get("refinedMin") + (int) (Math.random() * (((list.get("refinedMax")) - (list.get("refinedMin"))) + 1));
-            digitRefined = refineNumberMinAndMax;
-            logger.info("passage par refineNumber Min et Max, nouveau nombre aleatoire = " + digitRefined);
-        } else {
-            if (list.containsKey("refinedMin")) {
-                refineNumberMin = list.get("refinedMin") + (int) (Math.random() * ((9 - list.get("refinedMin")) + 1));
-                digitRefined = refineNumberMin;
-                logger.info("passage par refineNumber Min, nouveau nombre aleatoire = " + digitRefined);
-            }
-            if (list.containsKey("refinedMax")) {
-                refineNumberMax = (int) (Math.random() * ((list.get("refinedMax") + 1)));
-                digitRefined = refineNumberMax;
-                logger.info("passage par refineNumber Max, nouveau nombre aleatoire = " + digitRefined);
-            }
-            if (list.containsKey("digitOk")) {
-                digitOk = list.get("digitOk");
-                logger.info("passage par digit ok = " );
-            }
+        //j'incremente le String refinedMin, max et digit ok (grâce à l'ArrayList nbr DigitList) et je le rajoute a la hashMap
+        for (int j = 0; j < pNbrDigit; j++) {
+            nbrDigitList.add(String.valueOf(countDigit));
+
+            String refinedMin = "refinedMin";
+            refinedMin = refinedMin + nbrDigitList.get(j);
+            completeHashMapBase.put(refinedMin,valueMin);
+
+            String refinedMax = "refinedMax";
+            refinedMax = refinedMax + nbrDigitList.get(j);
+            completeHashMapBase.put(refinedMax,valueMax);
+
+            String digitOk = "digitOk";
+            digitOk = digitOk +  nbrDigitList.get(j);
+            completeHashMapBase.put(digitOk,10);
+
+
+            countDigit++;
         }
+        return completeHashMapBase;
 
-
-        // je met le digit en string
-        String digitRefinedString = String.valueOf(digitRefined);
-
-        // je converti en string
-        String digitOkString = String.valueOf(digitOk);
-        digitOkExport = digitOkString;
-
-        return digitRefinedString;
     }
-
-
 }
+
+
 

@@ -166,17 +166,28 @@ public class Main {
 
                                 logger.info("nombre entré par l'utilisateur = " + nbrUserDefender);
 
-                                //je converti en int pour voir si gagnant du premier coup
+                                //je converti en int pour voir si gagnant du premier coup (avec un digit cela peut arriver)
                                 Integer nbrUserIntFirst = Integer.valueOf(nbrUserDefender);
 
-
-                                // Je lance le jeux
-                                int nbrLoopDefenderMode = nbrOfTryMysteryNumber;
-                                int winDefender = 0;
+                                // Variable du jeux
                                 int loopForDefenderMode = 1;
 
                                 // creation d'une arrayList pour chaque digit affiné
                                 List<String> listDigitDefenderModeAfterRefine = new ArrayList<>();
+
+                                // creation d'une hashMap base avec les limite Max, Min et digitok incrementé par digit -> ok
+                                Map<String, Integer> completeHashMapBase = mysteryNumber.createHashMapBase(nbrBoxesCombinationMysteryNumber);
+                                logger.info(" hashMap Base dans la class Main = " + completeHashMapBase);
+
+
+                                //todo do ** je fais ma comparaison comme le mode challenger pour affiché les +-+= a l'utilisateur
+                                //todo je crée deux array list avec chaque digit afin de comparé chaque digit séparement
+                                //todo je compare chaque digit de la liste computeur et je renseigne ma hashMap pour le futur random.
+                                //todo while ** debut boucle (jusqu'a -> computer gagne ou fin des essais, il perd)
+                                //todo je lance les nouveau randomDigit avec les info de la hashmap
+                                //todo je recupere les nouveaux digits random computeur dans une derniere arrayList
+                                //todo je la compare pour affiché les + - et = a l'utilisateur et je renseigne la hasmap.
+
 
 
                                 do {
@@ -220,6 +231,7 @@ public class Main {
                                         System.out.println(" l'ordinateur a gagné");
                                         System.exit(0);
                                     }
+
                                     //initialization
                                     listDigitDefenderModeAfterRefine.add("0");
 
@@ -351,6 +363,7 @@ public class Main {
 
                                 System.out.println(" l'ordinateur n'a pas trouvé ta combinaison aprés " + nbrOfTryMysteryNumber + " essais tu a donc gagné !!!");
                                 System.exit(0);
+
                         }
                 }
             }
