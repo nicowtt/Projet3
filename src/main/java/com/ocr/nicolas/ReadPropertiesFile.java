@@ -12,14 +12,14 @@ import org.apache.logging.log4j.Logger;
 
 public class ReadPropertiesFile {
 
-    private int nbrBoxesCombinationMysteryNumber;
+    private int nbrDigit;
     private String developerMode;
-    private int nbrOfTryMysteryNumber;
+    private int nbrOfTry;
 
-    public int getNbrOfTryMysteryNumber() { return nbrOfTryMysteryNumber; }
+    public int getNbrOfTry() { return nbrOfTry; }
     public String getDeveloperMode() { return developerMode; }
-    public int getNbrBoxesCombinationSearchNumber() {
-        return nbrBoxesCombinationMysteryNumber;
+    public int getNbrDigit() {
+        return nbrDigit;
     }
 
 
@@ -51,11 +51,11 @@ public class ReadPropertiesFile {
 
             // String -> Integer
 
-            nbrBoxesCombinationMysteryNumber = Integer.parseInt(prop.getProperty("NbrBoxesCombinationMysteryNumber"));
-            logger.info("variable nbrBoxesCombinationMysteryNumber = " + nbrBoxesCombinationMysteryNumber);
+            nbrDigit = Integer.parseInt(prop.getProperty("NbrDigit"));
+            logger.info("variable NbrDigit = " + nbrDigit);
 
-            nbrOfTryMysteryNumber = Integer.parseInt(prop.getProperty("nbrOfTryMysteryNumber"));
-            logger.info("variable nbrOfTryMysteryNumber = "+ nbrOfTryMysteryNumber);
+            nbrOfTry = Integer.parseInt(prop.getProperty("NbrOfTry"));
+            logger.info("variable nbrOfTry = "+ nbrOfTry);
 
 
 

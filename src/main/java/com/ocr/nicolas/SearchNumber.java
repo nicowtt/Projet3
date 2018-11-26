@@ -1,28 +1,59 @@
 package com.ocr.nicolas;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static com.ocr.nicolas.Log4j.logger;
+public class SearchNumber {
 
-public class MysteryNumber {
+    static final Logger logger = LogManager.getLogger();
 
-    private int nbrDigit;
-    private int counterForWinExport;
-
-    //private valueMinRefine = 0;
-    //private valueMaxRefine = 9;
-    //private digitCompOk = 0;
+    public int countWin;
 
 
-    public void setNbrDigit(int nbrDigit) {
-        this.nbrDigit = nbrDigit;
-    }
+    /**
+     * For playing SearchNumber game
+     * @return playin
+     */
+    public int playSearchNumber() {
 
-    public int getCounterForWinExport() {
-        return counterForWinExport;
+        int searchNumber = 1;
+
+
+        // Affichage du menu du type de jeux.
+        MenuDisplay display = new MenuDisplay();
+        display.displayAskTypeOfGame();
+
+        // Recuperation variable du type de jeux
+        int gameTypeChoice = display.displayGameTypeChoice();
+
+        // objet mystery Number Challenger Mode
+        SearchNumberChallenger searchNumberChallenger = new SearchNumberChallenger();
+
+        switch (gameTypeChoice) {
+            case 1:
+                while (gameTypeChoice == 1) {
+                    searchNumberChallenger.playChallengerMode();
+                    break;
+                }
+            case 2:
+                while (gameTypeChoice == 2) {
+                    //searchNumberChallenger.playDefenderMode();
+                    break;
+                }
+            case 3:
+                while (gameTypeChoice == 3) {
+                    //searchNumberChallenger.playDuelMode();
+                    break;
+                }
+            default:
+                break;
+        }
+        return searchNumber;
     }
 
 
@@ -118,7 +149,7 @@ public class MysteryNumber {
         }
 
         //j'exporte l'information pour savoir si il y a gagnant
-        counterForWinExport = counterForWin;
+        countWin = counterForWin;
 
 
         // je converti cette liste en string
@@ -232,7 +263,7 @@ public class MysteryNumber {
     }
 
     /**
-     * for put information of each digit on Hashmap
+     * for put information of each digit on Hashmap (!!!! in progress !!!!
      *
      * @param pHashMap  old hashMap
      *
@@ -271,9 +302,6 @@ public class MysteryNumber {
         return result;
 
     }
-
-
 }
-
 
 

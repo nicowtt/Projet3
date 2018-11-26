@@ -24,8 +24,8 @@ public class WritePropertiesFile {
 
         //Line to write in .properties
         prop.setProperty("DeveloperMode", "true");
-        prop.setProperty("NbrBoxesCombinationMysteryNumber", "4");
-        prop.setProperty("nbrOfTryMysteryNumber", "6");
+        prop.setProperty("NbrDigit", "1");
+        prop.setProperty("NbrOfTry", "6");
 
 
         try {
