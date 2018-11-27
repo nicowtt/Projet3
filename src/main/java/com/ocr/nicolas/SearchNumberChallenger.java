@@ -5,9 +5,13 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 
-public class SearchNumberChallenger {
+public class SearchNumberChallenger extends SearchNumber {
 
     static final Logger logger = LogManager.getLogger();
+
+    public SearchNumberChallenger(int nbrDigit, int nbrOfTry, String developerMode, int countWin) {
+        super(nbrDigit, nbrOfTry, developerMode, countWin);
+    }
 
     /**
      * For play Challenger mode of Search Number
@@ -17,27 +21,19 @@ public class SearchNumberChallenger {
 
         int playChallengerMode = 1;
 
-        //je  recupère les infos importantes
-        ReadPropertiesFile read = new ReadPropertiesFile();
-        read.readConfigProperties();
-        int nbrDigit = read.getNbrDigit();
-        String developerMode = read.getDeveloperMode(); // developer mode?
-        int nbrOfTry = read.getNbrOfTry();
-
         // declaration objet
-        SearchNumber searchNumber = new SearchNumber();
+        SearchNumber searchNumber = new SearchNumber(getNbrDigit(),getNbrOfTry(),getDeveloperMode(),getCountWin());
         MenuDisplay display = new MenuDisplay();
-        Games games = new Games();
 
         // Recuperation variable random ordinateur  -> randCompChallenger
-        String randCompChallenger = searchNumber.computerNbrCombination(nbrDigit, 0, 9);
+        String randCompChallenger = searchNumber.computerNbrCombination(getNbrDigit(), 0, 9);
         logger.info("--------> aleatoire String computeur = " + randCompChallenger);
 
         // Je donne le nombre d'essai possible
-        System.out.println("vous avez " + nbrOfTry + " essai");
+        System.out.println("vous avez " + getNbrOfTry() + " essai");
 
         // Je lance le jeux
-        int nbrLoopChallengerMode = nbrOfTry;
+        int nbrLoopChallengerMode = getNbrOfTry();
         int winChallenger = 0;
         int loopForChallengerMode = 0;
 
@@ -48,7 +44,7 @@ public class SearchNumberChallenger {
                 logger.info("********************   Boucle " + loopForChallengerMode + "    *********************");
 
                 // J'affiche la demande de nombre utilisateur et recupere la valeur  -> nbrUserChallenger
-                display.displayAskNumber(nbrDigit);
+                display.displayAskNumber(getNbrDigit());
                 String nbrUserChallenger = display.getUserChoiceStringExport();
 
                 logger.info("nombre entré par l'utilisateur = " + nbrUserChallenger);
@@ -58,7 +54,7 @@ public class SearchNumberChallenger {
                 System.out.println(afterCompareChallenger);
 
                 // je verifie si le Mode developper a été demandé
-                if (developerMode.contains("true")) {System.out.println("(" + randCompChallenger + ")");}
+                if (getDeveloperMode().contains("true")) {System.out.println("(" + randCompChallenger + ")");}
                 else {System.out.println("");}
 
                 // je teste si gagnant ou perdant
@@ -86,7 +82,7 @@ public class SearchNumberChallenger {
         //lancement du menu pour nouveau choix (1- rejouer; 2- Retour choix jeux; 3- quitter
         display.displayAskIfReplay();
         int replayIntern = display.displayReplayChoice();
-        if (replayIntern == 2) {games.playTwoGames();}
+        //if (replayIntern == 2) {break;}
 
         return playChallengerMode;
     }

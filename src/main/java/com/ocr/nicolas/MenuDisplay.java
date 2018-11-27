@@ -11,6 +11,7 @@ public class MenuDisplay {
 
     private String userChoiceStringExport;
 
+
     public String getUserChoiceStringExport() { return userChoiceStringExport; }
 
     /**
@@ -213,6 +214,11 @@ public class MenuDisplay {
         return replayChoice;
     }
 
+    /**
+     * for force user to input on choice and int only
+     * @param nbrMax choice max
+     * @return choice
+     */
     private int forceProposedChoice(int nbrMax) {
         boolean responseIsGood;
         int forcedChoice = 0;
@@ -237,6 +243,20 @@ public class MenuDisplay {
         return forcedChoice;
 
     }
+
+    /**
+     * For display to user to input values
+     */
+    public void displayForValueToUser() {
+
+        System.out.println("veuillez rentrer les valeurs (+,- ou =) pour chaque chiffre par rapport au votre:");
+
+
+    }
+
+
+
+
 }
 
 
