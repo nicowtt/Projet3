@@ -14,15 +14,14 @@ public class SearchNumber {
 
     public int countWin;
 
+    public int getCountWin() {return countWin;}
+
 
     /**
      * For playing SearchNumber game
-     * @return playin
+     * @return playing
      */
-    public int playSearchNumber() {
-
-        int searchNumber = 1;
-
+    public void playSearchNumber() {
 
         // Affichage du menu du type de jeux.
         MenuDisplay display = new MenuDisplay();
@@ -33,6 +32,7 @@ public class SearchNumber {
 
         // objet mystery Number Challenger Mode
         SearchNumberChallenger searchNumberChallenger = new SearchNumberChallenger();
+        SearchNumberDefender searchNumberDefender = new SearchNumberDefender();
 
         switch (gameTypeChoice) {
             case 1:
@@ -42,7 +42,7 @@ public class SearchNumber {
                 }
             case 2:
                 while (gameTypeChoice == 2) {
-                    //searchNumberChallenger.playDefenderMode();
+                    searchNumberDefender.playDefenderMode();
                     break;
                 }
             case 3:
@@ -53,7 +53,6 @@ public class SearchNumber {
             default:
                 break;
         }
-        return searchNumber;
     }
 
 
@@ -131,13 +130,9 @@ public class SearchNumber {
             int nbrComputerForCompare = computerArrayListInt.get(i);
             int nbrUserForCompare = userArrayListInt.get(i);
 
-            if (nbrComputerForCompare > nbrUserForCompare) {
-                resultWithIndicationList.add("+");
-
-            } else if (nbrComputerForCompare < nbrUserForCompare) {
-                resultWithIndicationList.add("-");
-
-            } else {
+            if (nbrComputerForCompare > nbrUserForCompare) {resultWithIndicationList.add("+");}
+            else if (nbrComputerForCompare < nbrUserForCompare) {resultWithIndicationList.add("-");}
+            else {
                 resultWithIndicationList.add("=");
                 counterForSeeEgal += 1; // pour savoir combien il y a d'egal lorsque la methode est lancé.
             }
@@ -150,7 +145,6 @@ public class SearchNumber {
 
         //j'exporte l'information pour savoir si il y a gagnant
         countWin = counterForWin;
-
 
         // je converti cette liste en string
         String compareListString = "";
@@ -191,31 +185,20 @@ public class SearchNumber {
      */
     public Map<String, Integer> infoDigitForRefined(String str, String value) {
 
-
         String refinedMin = "refinedMin";
         String refinedMax = "refinedMax";
         String digitOk = "digitOk";
 
-
         Integer strDigit = Integer.valueOf(str);
-
 
         // creation d'un hashMap
         Map<String, Integer> digitHashMap = new HashMap<String, Integer>();
 
-
         // comparaison et entré dans la hashMap
-        if (value.contains("+")) {
-            digitHashMap.put(refinedMin, strDigit);
-        }
+        if (value.contains("+")) {digitHashMap.put(refinedMin, strDigit);}
+        if (value.contains("-")) {digitHashMap.put(refinedMax, strDigit);}
+        if (value.contains("=")) {digitHashMap.put(digitOk, strDigit);}
 
-        if (value.contains("-")) {
-            digitHashMap.put(refinedMax, strDigit);
-        }
-
-        if (value.contains("=")) {
-            digitHashMap.put(digitOk, strDigit);
-        }
         logger.info("digit hashMap = " + digitHashMap);
         return digitHashMap;
     }
@@ -302,6 +285,7 @@ public class SearchNumber {
         return result;
 
     }
+
 }
 
 

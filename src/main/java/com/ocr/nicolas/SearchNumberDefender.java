@@ -2,6 +2,9 @@ package com.ocr.nicolas;
 
 public class SearchNumberDefender {
 
+    public void playDefenderMode() {
+
+
 
     /*
     //**********jeux searchnumber+/-****** mode defenseur******
@@ -215,4 +218,5 @@ public class SearchNumberDefender {
                 System.out.println(" l'ordinateur n'a pas trouvé ta combinaison aprés " + nbrOfTry + " essais tu a donc gagné !!!");
                 System.exit(0);
                 */
+    }
 }
