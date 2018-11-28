@@ -5,21 +5,18 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.*;
 
-public class SearchNumber extends Games {
+public class SearchNumber extends Common {
 
     Scanner sc = new Scanner(System.in);
 
-    public int countWin;
+    private int countWin;
 
     public SearchNumber(int nbrDigit, int nbrOfTry, String developerMode, int countWin) {
         super(nbrDigit, nbrOfTry, developerMode);
         this.countWin = countWin;
     }
 
-
-    public int getCountWin() {
-        return countWin;
-    }
+    public int getCountWin() {return countWin;}
 
     static final Logger logger = LogManager.getLogger();
 
@@ -40,17 +37,23 @@ public class SearchNumber extends Games {
 
         // objet searchNumber Challenger Mode
         SearchNumberChallenger searchNumberChallenger = new SearchNumberChallenger(getNbrDigit(), getNbrOfTry(), getDeveloperMode(), getCountWin());
-        SearchNumberDefender searchNumberDefender = new SearchNumberDefender(getNbrDigit(), getNbrOfTry(), getDeveloperMode(), getCountWin());
+        SearchNumberDefender searchNumberDefender = new SearchNumberDefender(getNbrDigit(),getNbrOfTry(),getDeveloperMode(), getCountWin());
 
-        switch (gameTypeChoice) {
+
+        do
+            switch (gameTypeChoice) {
             case 1:
                 while (gameTypeChoice == 1) {
                     searchNumberChallenger.playChallengerMode();
+                    display.displayAskTypeOfGame();
+                    gameTypeChoice = display.displayGameTypeChoice();
                     break;
                 }
             case 2:
                 while (gameTypeChoice == 2) {
                     searchNumberDefender.playDefenderMode();
+                    display.displayAskTypeOfGame();
+                    gameTypeChoice = display.displayGameTypeChoice();
                     break;
                 }
             case 3:
@@ -60,7 +63,7 @@ public class SearchNumber extends Games {
                 }
             default:
                 break;
-        }
+        }while (gameTypeChoice == 1 || gameTypeChoice == 2 || gameTypeChoice == 3);
     }
 
 
@@ -272,6 +275,7 @@ public class SearchNumber extends Games {
         int digitMaxRefine = 9;
         int digitCompOk = 0;
 
+
         //creation d'une nouvelle hasMap refined
         Map<String, Integer> hashMapRefine = new HashMap<>();
 
@@ -296,7 +300,6 @@ public class SearchNumber extends Games {
                     digitInt = 0;
                 }
             }
-
             if (valueString.contains("-")) {
                 if (pHashMap.containsKey("refinedMax" + i)) {
                     digitInt = pHashMap.get("refinedMax" + i);
@@ -314,7 +317,6 @@ public class SearchNumber extends Games {
                     digitInt = 0;
                 }
             }
-
             if (valueString.contains("=")) {hashMapRefine.put("digitOk" + i, digitListNewInt);}
         }
         return hashMapRefine;

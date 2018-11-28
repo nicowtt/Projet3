@@ -1,9 +1,7 @@
 package com.ocr.nicolas;
 
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 
 public class SearchNumberChallenger extends SearchNumber {
 
@@ -21,9 +19,10 @@ public class SearchNumberChallenger extends SearchNumber {
 
         int playChallengerMode = 1;
 
-        // declaration objet
+        // declaration objets
         SearchNumber searchNumber = new SearchNumber(getNbrDigit(),getNbrOfTry(),getDeveloperMode(),getCountWin());
         MenuDisplay display = new MenuDisplay();
+        Games games = new Games();
 
         // Recuperation variable random ordinateur  -> randCompChallenger
         String randCompChallenger = searchNumber.computerNbrCombination(getNbrDigit(), 0, 9);
@@ -65,7 +64,6 @@ public class SearchNumberChallenger extends SearchNumber {
                     nbrLoopChallengerMode = 0;
                     logger.info("l'utilisateur a gagné contre l'ordinateur aprés " + loopForChallengerMode + " essais");
                     System.out.println("");
-
                 } else {
                     nbrLoopChallengerMode--;
                     System.out.println(" il vous reste " + nbrLoopChallengerMode + " essai.");
@@ -82,7 +80,9 @@ public class SearchNumberChallenger extends SearchNumber {
         //lancement du menu pour nouveau choix (1- rejouer; 2- Retour choix jeux; 3- quitter
         display.displayAskIfReplay();
         int replayIntern = display.displayReplayChoice();
-        //if (replayIntern == 2) {break;}
+        if (replayIntern == 2) {games.playGames();}
+        if (replayIntern == 3) {System.exit(0);}
+
 
         return playChallengerMode;
     }

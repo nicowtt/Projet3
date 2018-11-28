@@ -12,6 +12,7 @@ public class MenuDisplay {
     private String userChoiceStringExport;
 
 
+
     public String getUserChoiceStringExport() { return userChoiceStringExport; }
 
     /**
@@ -62,7 +63,7 @@ public class MenuDisplay {
     }
 
     /**
-     * Display Type of Games.
+     * Display Type of Common.
      */
     public void displayAskTypeOfGame() {
 
@@ -171,6 +172,7 @@ public class MenuDisplay {
      * display end of game menu
      */
     public void displayAskIfReplay () {
+        logger.info("");
         System.out.println("****** voulez-vous rejouer ? *******");
         System.out.println(" 1 -> oui je veux rejouer au meme jeux");
         System.out.println(" 2 -> retour a l'ecran de choix des jeux");
