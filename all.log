@@ -1,21 +1,12 @@
-2018-11-28 11:18:21.864 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - developerMode: true
-2018-11-28 11:18:21.867 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - variable NbrDigit = 2
-2018-11-28 11:18:21.867 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - variable nbrOfTry = 6
-2018-11-28 11:18:23.114 [main] INFO  com.ocr.nicolas.Log4j - Choix du jeux (1- Recherche+/- ; 2- Mastermind; 3 -arret) -> 1
-2018-11-28 11:18:27.612 [main] INFO  com.ocr.nicolas.Log4j - Mode de jeux (1- Challenger ; 2- défenseur ; 3- Duel) -> 1
-2018-11-28 11:18:27.615 [main] INFO  com.ocr.nicolas.SearchNumberChallenger - --------> aleatoire String computeur = 07
-2018-11-28 11:18:27.615 [main] INFO  com.ocr.nicolas.SearchNumberChallenger - 
-2018-11-28 11:18:27.615 [main] INFO  com.ocr.nicolas.SearchNumberChallenger - ********************   Boucle 1    *********************
-2018-11-28 11:18:29.097 [main] INFO  com.ocr.nicolas.SearchNumberChallenger - nombre entré par l'utilisateur = 51
-2018-11-28 11:18:29.097 [main] INFO  com.ocr.nicolas.SearchNumberChallenger - 
-2018-11-28 11:18:29.097 [main] INFO  com.ocr.nicolas.SearchNumberChallenger - ********************   Boucle 2    *********************
-2018-11-28 11:18:30.825 [main] INFO  com.ocr.nicolas.SearchNumberChallenger - nombre entré par l'utilisateur = 07
-2018-11-28 11:18:30.828 [main] INFO  com.ocr.nicolas.SearchNumberChallenger - l'utilisateur a gagné contre l'ordinateur aprés 2 essais
-2018-11-28 11:18:30.828 [main] INFO  com.ocr.nicolas.Log4j - 
-2018-11-28 11:18:33.899 [main] INFO  com.ocr.nicolas.Log4j - Choix du replay-> 1 (1- Recherche+/- ; 2- choix d'un autre jeux; 3- quitter)
-2018-11-28 11:18:36.234 [main] INFO  com.ocr.nicolas.Log4j - Mode de jeux (1- Challenger ; 2- défenseur ; 3- Duel) -> 2
-2018-11-28 11:18:39.643 [main] INFO  com.ocr.nicolas.SearchNumber - nombre entré par l'utilisateur = 54
-2018-11-28 11:18:39.643 [main] INFO  com.ocr.nicolas.SearchNumber -  hashMap Base dans la class Main = {digitOk0=10, refinedMin0=0, refinedMax1=9, refinedMin1=0, digitOk1=10, refinedMax0=9}
-2018-11-28 11:18:39.643 [main] INFO  com.ocr.nicolas.SearchNumber - premier jet aleatoire computeur = 55
-2018-11-28 11:18:51.210 [main] INFO  com.ocr.nicolas.SearchNumber - Valeur entré par l'utilisateur = =-
-2018-11-28 11:18:51.210 [main] INFO  com.ocr.nicolas.SearchNumber - nouvelle hasmap refined = {digitOk0=5, refinedMax1=5}
+2018-11-28 19:45:44.302 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - developerMode: true
+2018-11-28 19:45:44.305 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - variable NbrDigit = 2
+2018-11-28 19:45:44.305 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - variable nbrOfTry = 6
+2018-11-28 19:45:46.089 [main] INFO  com.ocr.nicolas.Log4j - Choix du jeux (1- Recherche+/- ; 2- Mastermind; 3 -arret) -> 1
+2018-11-28 19:45:46.646 [main] INFO  com.ocr.nicolas.Log4j - Mode de jeux (1- Challenger ; 2- défenseur ; 3- Duel) -> 2
+2018-11-28 19:45:48.504 [main] INFO  com.ocr.nicolas.SearchNumber - nombre entré par l'utilisateur = 55
+2018-11-28 19:45:48.504 [main] INFO  com.ocr.nicolas.SearchNumber -  hashMap Base dans la class Main = {digitOk0=10, refinedMin0=0, refinedMax1=9, refinedMin1=0, digitOk1=10, refinedMax0=9}
+2018-11-28 19:45:48.504 [main] INFO  com.ocr.nicolas.SearchNumber - premier jet aleatoire computeur = 55
+2018-11-28 19:45:50.842 [main] INFO  com.ocr.nicolas.SearchNumber - Valeur entré par l'utilisateur = ==
+2018-11-28 19:45:50.842 [main] INFO  com.ocr.nicolas.SearchNumber - nouvelle hasmap refined = {digitOk0=5, digitOk1=5}
+2018-11-28 19:45:50.842 [main] INFO  com.ocr.nicolas.SearchNumber - ordi gagnant ? = true
+2018-11-28 19:45:50.842 [main] INFO  com.ocr.nicolas.Log4j - 

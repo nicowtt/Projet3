@@ -10,7 +10,8 @@ public class Games {
         int nbrDigit = read.getNbrDigit();
         String developerMode = read.getDeveloperMode(); // developer mode?
         int nbrOfTry = read.getNbrOfTry();
-        int countWin = 0;
+        boolean isWin = false;
+
 
         // Affichage du menu du choix des jeux.
         MenuDisplay display = new MenuDisplay();
@@ -23,7 +24,7 @@ public class Games {
         switch (gamesMenuChoice) {
             case 1:
                 while (gamesMenuChoice == 1) {
-                    SearchNumber searchNumber = new SearchNumber(nbrDigit, nbrOfTry, developerMode, countWin);
+                    SearchNumber searchNumber = new SearchNumber(nbrDigit, nbrOfTry, developerMode, isWin);
                     searchNumber.playSearchNumber();
                     break;
                 }

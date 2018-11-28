@@ -9,14 +9,14 @@ public class SearchNumber extends Common {
 
     Scanner sc = new Scanner(System.in);
 
-    private int countWin;
+    private boolean isWin; // Grâce aux methode ci-dessous je peux voir si il y a gagnant, donc je rajoute ce parametre
 
-    public SearchNumber(int nbrDigit, int nbrOfTry, String developerMode, int countWin) {
+    public SearchNumber(int nbrDigit, int nbrOfTry, String developerMode, boolean isWin) {
         super(nbrDigit, nbrOfTry, developerMode);
-        this.countWin = countWin;
+        this.isWin = isWin;
     }
 
-    public int getCountWin() {return countWin;}
+    public boolean getIsWin() {return isWin;}
 
     static final Logger logger = LogManager.getLogger();
 
@@ -36,8 +36,8 @@ public class SearchNumber extends Common {
         int gameTypeChoice = display.displayGameTypeChoice();
 
         // objet searchNumber Challenger Mode
-        SearchNumberChallenger searchNumberChallenger = new SearchNumberChallenger(getNbrDigit(), getNbrOfTry(), getDeveloperMode(), getCountWin());
-        SearchNumberDefender searchNumberDefender = new SearchNumberDefender(getNbrDigit(),getNbrOfTry(),getDeveloperMode(), getCountWin());
+        SearchNumberChallenger searchNumberChallenger = new SearchNumberChallenger(getNbrDigit(), getNbrOfTry(), getDeveloperMode(), getIsWin());
+        SearchNumberDefender searchNumberDefender = new SearchNumberDefender(getNbrDigit(),getNbrOfTry(),getDeveloperMode(), getIsWin());
 
 
         do
@@ -130,6 +130,9 @@ public class SearchNumber extends Common {
      */
     public String compareTwoArrayList(List<Integer> userArrayListInt, List<Integer> computerArrayListInt) {
 
+        //variable gagnante a zero
+        isWin = false;
+
         // mise en place d'un compteur de String "=" (indication si gagnant) et d'une variable (0 = perdant, 1= gagnant)
         int counterForSeeEgal = 0;
         int counterForWin = 0;
@@ -153,11 +156,9 @@ public class SearchNumber extends Common {
 
         // Si il a autant d'egal que de digit je signale qu'on a un gagnant
         if (counterForSeeEgal == computerArrayListInt.size()) {
-            counterForWin = 1;
+            isWin = true;
         }
 
-        //j'exporte l'information pour savoir si il y a gagnant
-        countWin = counterForWin;
 
         // je converti cette liste en string
         String compareListString = "";
@@ -209,6 +210,8 @@ public class SearchNumber extends Common {
 
     }
 
+
+
     /**
      * For create a hashMap with increment key (nbrdigit)
      *
@@ -253,14 +256,14 @@ public class SearchNumber extends Common {
     }
 
     /**
-     * for put information of each digit on Hashmap (!!!! in progress !!!!
+     * for put information of each digit on Hashmap
      *
      * @param pHashMap old hashMap
      * @param pFirst
      * @param pValue
      * @return hashmap updated with new limit information
      */
-    public Map<String, Integer> infoDigitForRefinedToHahMap(Map<String, Integer> pHashMap, List<Integer> pFirst, List<String> pValue) {
+    public Map<String, Integer> infoDigitForRefinedToHahMap(Map<String, Integer> pHashMap, String pFirst, String pValue) {
 
         //variable locales
         int digitInt = 0;
@@ -268,6 +271,7 @@ public class SearchNumber extends Common {
         String digitString = "";
         String digitStringHashMap = "";
         String valueString = "";
+        isWin = false;
 
         int digitMin = 0;
         int digitMax = 9;
@@ -275,13 +279,18 @@ public class SearchNumber extends Common {
         int digitMaxRefine = 9;
         int digitCompOk = 0;
 
+        //je converti le string computeur en array list
+        List<Integer> listCompInt = stringToArrayList(pFirst);
+
+        //je converti le string user en array list
+        List<String> listUserStringValues = stringToArrayListString(pValue);
 
         //creation d'une nouvelle hasMap refined
         Map<String, Integer> hashMapRefine = new HashMap<>();
 
-        for (int i = 0; i < pFirst.size(); i++) {
-            digitListNewInt = pFirst.get(i);
-            valueString = pValue.get(i);
+        for (int i = 0; i < listCompInt.size(); i++) {
+            digitListNewInt = listCompInt.get(i);
+            valueString = listUserStringValues.get(i);
 
             if (valueString.contains("+")) {
                 if (pHashMap.containsKey("refinedMin" + i)) {
@@ -317,8 +326,12 @@ public class SearchNumber extends Common {
                     digitInt = 0;
                 }
             }
-            if (valueString.contains("=")) {hashMapRefine.put("digitOk" + i, digitListNewInt);}
+            if (valueString.contains("=")) {
+                hashMapRefine.put("digitOk" + i, digitListNewInt);
+                digitCompOk ++;
+            }
         }
+        if (digitCompOk == getNbrDigit()) {isWin = true;}
         return hashMapRefine;
     }
 
@@ -350,7 +363,6 @@ public class SearchNumber extends Common {
                 result.add(letterString);
                 count++;
             }
-
             if (count < getNbrDigit() || count > getNbrDigit()) {
                 System.out.println("vous avez rentré trop ou pas assez de valeur, veuillez re-essayer:");
                 count = 0;
@@ -362,9 +374,7 @@ public class SearchNumber extends Common {
                 for (int j = 0; j < userValueString.length(); j++) {
                     resultString = resultString + result.get(j);
                 }
-
             }
-
         } while (responseIsGood == false);
 
         return resultString;
@@ -378,43 +388,122 @@ public class SearchNumber extends Common {
      *
      * @param pNbrMin min value
      * @param pNbrMax max value
-     * @param pNbrOut value out
      * @return
      */
-    public void dichotomousResearch(int pNbrMin, int pNbrMax, int pNbrOut) {
-
-        // declaration du tableau
-        int[] tab10 = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+    public int dichotomousResearch(int pNbrMin, int pNbrMax) {
 
         // declaration des variables locale à la methode
-        boolean find;  //vaut faux tant que la valeur "val" n'aura pas été trouvée
-        int id;  //indice de début
-        int ifin;  //indice de fin
-        int im;  //indice de "milieu"*
+        int vMin;  // Min value
+        int vMax;  // Max value
+        int vMiddle;  // Middle value
 
-        //initialisation de ces variables avant la boucle de recherche
-        find = false;  //la valeur n'a pas encore été trouvée
-        id = pNbrMin;  //intervalle de recherche compris entre pNbrMin...
-        ifin = pNbrMax;  //...et pNbrMax
+        //initialisation de variables
 
-        // boucle de recherche
-        while (!find && ((ifin - id) > 1)) {
+        vMin = pNbrMin;  //intervale entre pNbrMin...
+        vMax = pNbrMax;  //...et pNbrMax
 
-            im = (id + ifin) / 2;  //on détermine l'indice de milieu
+        // recherche
+        vMiddle = (vMin + vMax) / 2;  //on détermine le nombre entier au milieu
 
-            find = (tab10[im] == pNbrOut);  //on regarde si la valeur recherchée est à cet indice
+        logger.info("Valeur mediane trouvé dans la methode = " + vMiddle);
 
-            if (tab10[im] > pNbrOut)
-                ifin = im;  //si la valeur qui est à la case "im" est supérieure à la valeur recherchée, l'indice de fin "ifin" << devient >> l'indice de milieu, ainsi l'intervalle de recherche est restreint lors du prochain tour de boucle
-            else
-                id = im;  //sinon l'indice de début << devient >> l'indice de milieu et l'intervalle est de la même façon restreint
-        }
-
-        // test conditionnant la valeur que la fonction va renvoyer
-        //if (tab10[id] == pNbrOut) return (id);  //si on a trouvé la bonne valeur, on retourne l'indice
-        //else return (-1);  //sinon on retourne -1
+        return vMiddle;
     }
+
+
+    /**
+     * for create new HashMap with digit refined (dichotomous method)
+     * @param pHashMap
+     * @param pValuesString
+     * @return
+     */
+    public String hashMapRefined(Map<String, Integer> pHashMap, String pValuesString) {
+
+        //variables
+        int countOfWin = 0;
+        int digitRefined = 0;
+        String digitRefinedStr = "";
+        isWin = false;
+
+        //objet
+        SearchNumber searchNumber = new SearchNumber(getNbrDigit(),getNbrOfTry(),getDeveloperMode(), getIsWin());
+        SearchNumberDefender defender = new SearchNumberDefender(getNbrDigit(),getNbrOfTry(),getDeveloperMode(), getIsWin());
+
+        // je converti le pString en ArrayList (creation)
+        List<String> listStringValues = new ArrayList<>();
+        for (int i = 0; i < getNbrDigit(); i++) {
+            char letter = pValuesString.charAt(i);
+            String letterStr = String.valueOf(letter);
+            listStringValues.add(letterStr);}
+
+        // pour chaque digit de l'Arraylist je compare avec la Valeur +- ou = et je renseigne la hashmapRefined
+        for (int j = 0; j < listStringValues.size(); j++) {
+
+            String value = listStringValues.get(j);
+
+            if (value.contains("+")) {
+                if (pHashMap.containsKey("refinedMin" + j)) {
+                    int digitMin = pHashMap.get("refinedMin" + j);
+                    // je lance une demande de valeur dicotomique avec digitMin
+                    digitRefined = searchNumber.dichotomousResearch(digitMin, 9);
+                    digitRefinedStr = digitRefinedStr + digitRefined;
+                } else {
+                    digitRefined = searchNumber.dichotomousResearch(0, 9);
+                    digitRefinedStr = digitRefinedStr + digitRefined;
+                }
+            }
+
+            if (value.contains("-")) {
+                if (pHashMap.containsKey("refinedMax" + j)) {
+                    int digitMax = pHashMap.get("refinedMax" + j);
+                    // je lance une demande de valeur dicotomique avec digitMax
+                    digitRefined = searchNumber.dichotomousResearch(0, digitMax);
+                    digitRefinedStr = digitRefinedStr + digitRefined;
+                } else {
+                    digitRefined = searchNumber.dichotomousResearch(0, 9);
+                    digitRefinedStr = digitRefinedStr + digitRefined;
+                }
+            }
+            if (value.contains("=")) {
+                countOfWin++;
+                int digitOk = pHashMap.get("digitOk" + j);
+                String digitOkStr = String.valueOf(digitOk);
+                digitRefinedStr = digitRefinedStr + digitOkStr ;
+            }
+        }
+        if (countOfWin == getNbrDigit()) {isWin = true;}
+        return digitRefinedStr;
+    }
+
+    /**
+     * for make "5555" following nbrDigit on config.properties
+     * @return String with only "55..."
+     */
+    public String fiveOnlyDigit () {
+        String str = "";
+        for (int i = 0; i < getNbrDigit(); i++) {
+            str = str + 5;
+        }
+        return str;
+    }
+
+    public void replay() {
+
+        // objets
+        MenuDisplay display = new MenuDisplay();
+        Games games = new Games();
+        SearchNumber searchNumber = new SearchNumber(getNbrDigit(),getNbrOfTry(),getDeveloperMode(), getIsWin());
+
+        // affichage console for replay et redirection
+        display.displayAskIfReplay();
+        int replayIntern = display.displayReplayChoice();
+        if (replayIntern == 1) {searchNumber.playSearchNumber();}
+        if (replayIntern == 2) {games.playGames();}
+        if (replayIntern == 3) {System.exit(0);}
+    }
+
 }
+
 
 
 
