@@ -16,7 +16,9 @@ public class SearchNumber extends Common {
         this.isWin = isWin;
     }
 
-    public boolean getIsWin() {return isWin;}
+    public boolean getIsWin() {
+        return isWin;
+    }
 
     static final Logger logger = LogManager.getLogger();
 
@@ -37,33 +39,33 @@ public class SearchNumber extends Common {
 
         // objet searchNumber Challenger Mode
         SearchNumberChallenger searchNumberChallenger = new SearchNumberChallenger(getNbrDigit(), getNbrOfTry(), getDeveloperMode(), getIsWin());
-        SearchNumberDefender searchNumberDefender = new SearchNumberDefender(getNbrDigit(),getNbrOfTry(),getDeveloperMode(), getIsWin());
+        SearchNumberDefender searchNumberDefender = new SearchNumberDefender(getNbrDigit(), getNbrOfTry(), getDeveloperMode(), getIsWin());
 
 
         do
             switch (gameTypeChoice) {
-            case 1:
-                while (gameTypeChoice == 1) {
-                    searchNumberChallenger.playChallengerMode();
-                    display.displayAskTypeOfGame();
-                    gameTypeChoice = display.displayGameTypeChoice();
+                case 1:
+                    while (gameTypeChoice == 1) {
+                        searchNumberChallenger.playChallengerMode();
+                        display.displayAskTypeOfGame();
+                        gameTypeChoice = display.displayGameTypeChoice();
+                        break;
+                    }
+                case 2:
+                    while (gameTypeChoice == 2) {
+                        searchNumberDefender.playDefenderMode();
+                        display.displayAskTypeOfGame();
+                        gameTypeChoice = display.displayGameTypeChoice();
+                        break;
+                    }
+                case 3:
+                    while (gameTypeChoice == 3) {
+                        //searchNumberChallenger.playDuelMode();
+                        break;
+                    }
+                default:
                     break;
-                }
-            case 2:
-                while (gameTypeChoice == 2) {
-                    searchNumberDefender.playDefenderMode();
-                    display.displayAskTypeOfGame();
-                    gameTypeChoice = display.displayGameTypeChoice();
-                    break;
-                }
-            case 3:
-                while (gameTypeChoice == 3) {
-                    //searchNumberChallenger.playDuelMode();
-                    break;
-                }
-            default:
-                break;
-        }while (gameTypeChoice == 1 || gameTypeChoice == 2 || gameTypeChoice == 3);
+            } while (gameTypeChoice == 1 || gameTypeChoice == 2 || gameTypeChoice == 3);
     }
 
 
@@ -211,7 +213,6 @@ public class SearchNumber extends Common {
     }
 
 
-
     /**
      * For create a hashMap with increment key (nbrdigit)
      *
@@ -328,10 +329,12 @@ public class SearchNumber extends Common {
             }
             if (valueString.contains("=")) {
                 hashMapRefine.put("digitOk" + i, digitListNewInt);
-                digitCompOk ++;
+                digitCompOk++;
             }
         }
-        if (digitCompOk == getNbrDigit()) {isWin = true;}
+        if (digitCompOk == getNbrDigit()) {
+            isWin = true;
+        }
         return hashMapRefine;
     }
 
@@ -381,7 +384,6 @@ public class SearchNumber extends Common {
     }
 
 
-
     /**
      * for dichotomous Research
      * fonction de recherche dichotomique qui renvoie un indice où se trouve la valeur "val" si elle est dans le tableau "tab[]" et -1 si cette valeur n'y est pas
@@ -413,6 +415,7 @@ public class SearchNumber extends Common {
 
     /**
      * for create new HashMap with digit refined (dichotomous method)
+     *
      * @param pHashMap
      * @param pValuesString
      * @return
@@ -426,15 +429,16 @@ public class SearchNumber extends Common {
         isWin = false;
 
         //objet
-        SearchNumber searchNumber = new SearchNumber(getNbrDigit(),getNbrOfTry(),getDeveloperMode(), getIsWin());
-        SearchNumberDefender defender = new SearchNumberDefender(getNbrDigit(),getNbrOfTry(),getDeveloperMode(), getIsWin());
+        SearchNumber searchNumber = new SearchNumber(getNbrDigit(), getNbrOfTry(), getDeveloperMode(), getIsWin());
+        SearchNumberDefender defender = new SearchNumberDefender(getNbrDigit(), getNbrOfTry(), getDeveloperMode(), getIsWin());
 
         // je converti le pString en ArrayList (creation)
         List<String> listStringValues = new ArrayList<>();
         for (int i = 0; i < getNbrDigit(); i++) {
             char letter = pValuesString.charAt(i);
             String letterStr = String.valueOf(letter);
-            listStringValues.add(letterStr);}
+            listStringValues.add(letterStr);
+        }
 
         // pour chaque digit de l'Arraylist je compare avec la Valeur +- ou = et je renseigne la hashmapRefined
         for (int j = 0; j < listStringValues.size(); j++) {
@@ -468,18 +472,21 @@ public class SearchNumber extends Common {
                 countOfWin++;
                 int digitOk = pHashMap.get("digitOk" + j);
                 String digitOkStr = String.valueOf(digitOk);
-                digitRefinedStr = digitRefinedStr + digitOkStr ;
+                digitRefinedStr = digitRefinedStr + digitOkStr;
             }
         }
-        if (countOfWin == getNbrDigit()) {isWin = true;}
+        if (countOfWin == getNbrDigit()) {
+            isWin = true;
+        }
         return digitRefinedStr;
     }
 
     /**
      * for make "5555" following nbrDigit on config.properties
+     *
      * @return String with only "55..."
      */
-    public String fiveOnlyDigit () {
+    public String fiveOnlyDigit() {
         String str = "";
         for (int i = 0; i < getNbrDigit(); i++) {
             str = str + 5;
@@ -487,6 +494,100 @@ public class SearchNumber extends Common {
         return str;
     }
 
+    /**
+     * For check if user Cheat
+     *
+     * @param pbase  nbr user
+     * @param pcheck nbr comp
+     * @param pvalue value "+-=" user in
+     */
+    public boolean checkCheat(String pbase, String pcheck, String pvalue) {
+
+        // variables
+        boolean cheat = false;
+        int countCheat = 0;
+
+        // je converti chaque string en ArraList
+        List<Integer> pbaseList = new ArrayList<>();
+        List<Integer> pcheckList = new ArrayList<>();
+        List<String> pvalueList = new ArrayList<>();
+
+        // je met les string dans les Array List
+        for (int i = 0; i < getNbrDigit(); i++) {
+            // pour pbase
+            char letter = pbase.charAt(i);
+            String letterString = String.valueOf(letter);
+            Integer letterInt = Integer.parseInt(letterString);
+            pbaseList.add(letterInt);
+            // pour pcheck
+            char letter2 = pcheck.charAt(i);
+            String letterString2 = String.valueOf(letter2);
+            Integer letterInt2 = Integer.parseInt(letterString2);
+            pcheckList.add(letterInt2);
+            // pour pvalue
+            char letter3 = pvalue.charAt(i);
+            String letterString3 = String.valueOf(letter3);
+            pvalueList.add(letterString3);
+        }
+
+        // je peux comparer chaque digit
+        for (int j = 0; j < pbase.length(); j++) {
+            if (pvalueList.get(j).contains("=")) {
+                if (pbaseList.get(j) != pcheckList.get(j)) {
+                    System.out.println(" Ooups le digit " + (j + 1) + " n'a pas été evalué correctement, triche ? ou erreur ;o)? veuillez recommencer");
+                    countCheat++;}}
+
+            if (pvalueList.get(j).contains("+")) {
+                if (pbaseList.get(j) <= pcheckList.get(j)) {
+                    System.out.println(" Ooups le digit " + (j + 1) + " n'a pas été evalué correctement, triche ? ou erreur humaine ;o)? veuillez recommencer");
+                    countCheat++;}}
+
+            if (pvalueList.get(j).contains("-")) {
+                if (pbaseList.get(j) >= pcheckList.get(j)) {
+                    System.out.println(" Ooups le digit " + (j + 1) + " n'a pas été evalué correctement, triche ? ou erreur humaine ;o)? veuillez recommencer");
+                    countCheat++;}}
+        }
+        if (countCheat > 0 ) {cheat = true;}
+        else { cheat = false;}
+        return cheat;
+    }
+
+
+    /**
+     * for correct input value + no cheat
+     */
+    public String inputValuesUserAndCheckIfCheat (String puser,String pcomp) {
+        // variable
+        boolean cheakCheatInput;
+        boolean cheakCheat;
+        String valueUserInString;
+
+        // objets
+        SearchNumber searchNumber = new SearchNumber(getNbrDigit(),getNbrOfTry(),getDeveloperMode(),getIsWin());
+
+        // boucle entré utilisateur valeur correcte
+        do {
+            valueUserInString = searchNumber.inputValueUserToString();
+            logger.info("Valeur entré par l'utilisateur = " + valueUserInString);
+
+            // check des valeurs (erreur ou tricherie)
+            cheakCheatInput = searchNumber.checkCheat(puser,pcomp, valueUserInString);
+            logger.info("utilisateur erreur ou triche ---> " + cheakCheatInput);
+
+            // boucle si un digit mal evalué
+            if (cheakCheatInput) {cheakCheat = true;}
+                else {cheakCheat = false;}
+
+
+        }while (cheakCheat);
+
+        return valueUserInString;
+    }
+
+
+    /**
+     * For redirection of replay or leave
+     */
     public void replay() {
 
         // objets

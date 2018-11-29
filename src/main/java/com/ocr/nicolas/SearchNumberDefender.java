@@ -1,12 +1,14 @@
 package com.ocr.nicolas;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 public class SearchNumberDefender extends SearchNumber {
 
-    private int loopForDefenderMode = 1;
+    private int loopForDefenderMode = 1; //nbr of loop
+    private String nbrUserDefender = ""; //String user input
+    private String valueUserInString = ""; //String values input (+-=+)
+    private String compDefenderString1 = ""; // First computeur nbr
+    private String getCompDefenderString = ""; // computeur nbr (in loop)
 
     public SearchNumberDefender(int nbrDigit, int nbrOfTry, String developerMode, boolean isWin) {
         super(nbrDigit, nbrOfTry, developerMode, isWin);
@@ -26,8 +28,7 @@ public class SearchNumberDefender extends SearchNumber {
 
         // Je demande la suite de chiffre a l'utilisateur -> nbrUserString
         display.displayAskNumber(getNbrDigit());
-        String nbrUserDefender = display.getUserChoiceStringExport(); //-> variable string utilisateur = nbrUserDefender
-
+        nbrUserDefender = display.getUserChoiceStringExport(); //-> variable string utilisateur = nbrUserDefender
         logger.info("nombre entré par l'utilisateur = " + nbrUserDefender);
 
         // creation d'une hashMap base avec les limite Max, Min et digitok incrementé par digit
@@ -43,9 +44,8 @@ public class SearchNumberDefender extends SearchNumber {
             // j'affiche la demande de valeur
             display.displayForValueToUser();
 
-            // je recupères les valeurs (+--+) a l'utilisateur en String
-            String valueUserInString = searchNumber.inputValueUserToString();
-            logger.info("Valeur entré par l'utilisateur = " + valueUserInString);
+            // je check si erreur ou tricherie
+            valueUserInString = searchNumber.inputValuesUserAndCheckIfCheat(nbrUserDefender,compDefenderString1);
 
             // je renseigne la hashmap
             Map<String, Integer> hashmapRefined = searchNumber.infoDigitForRefinedToHahMap(completeHashMapBase, compDefenderString1, valueUserInString);
