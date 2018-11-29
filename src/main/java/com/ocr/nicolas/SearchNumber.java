@@ -41,7 +41,6 @@ public class SearchNumber extends Common {
         SearchNumberChallenger searchNumberChallenger = new SearchNumberChallenger(getNbrDigit(), getNbrOfTry(), getDeveloperMode(), getIsWin());
         SearchNumberDefender searchNumberDefender = new SearchNumberDefender(getNbrDigit(), getNbrOfTry(), getDeveloperMode(), getIsWin());
 
-
         do
             switch (gameTypeChoice) {
                 case 1:
@@ -282,12 +281,12 @@ public class SearchNumber extends Common {
 
         //je converti le string computeur en array list
         List<Integer> listCompInt = stringToArrayList(pFirst);
+        logger.info("list computeur = " + listCompInt);
 
         //je converti le string user en array list
         List<String> listUserStringValues = stringToArrayListString(pValue);
+        logger.info("list user = " + listUserStringValues);
 
-        //creation d'une nouvelle hasMap refined
-        Map<String, Integer> hashMapRefine = new HashMap<>();
 
         for (int i = 0; i < listCompInt.size(); i++) {
             digitListNewInt = listCompInt.get(i);
@@ -298,15 +297,16 @@ public class SearchNumber extends Common {
                     digitInt = pHashMap.get("refinedMin" + i);
                     if (digitInt > digitMin) {
                         digitMinRefine = digitInt;
-                        hashMapRefine.put("refinedMin" + i, digitMinRefine);
+                        pHashMap.put("refinedMin" + i, digitMinRefine);
                     }
+
                     if (digitListNewInt > digitMinRefine) {
-                        hashMapRefine.put("refinedMin" + i, digitListNewInt);
+                        pHashMap.put("refinedMin" + i, digitListNewInt);
                     }
                     digitInt = 0;
                     digitListNewInt = 0;
                 } else {
-                    hashMapRefine.put("refinedMin" + i, 0);
+                    pHashMap.put("refinedMin" + i, 0);
                     digitInt = 0;
                 }
             }
@@ -315,28 +315,29 @@ public class SearchNumber extends Common {
                     digitInt = pHashMap.get("refinedMax" + i);
                     if (digitInt < digitMax) {
                         digitMinRefine = digitInt;
-                        hashMapRefine.put("refinedMax" + i, digitMaxRefine);
+                        pHashMap.put("refinedMax" + i, digitMaxRefine);
                     }
                     if (digitListNewInt < digitMaxRefine) {
-                        hashMapRefine.put("refinedMax" + i, digitListNewInt);
+                        pHashMap.put("refinedMax" + i, digitListNewInt);
                     }
                     digitInt = 0;
                     digitListNewInt = 0;
                 } else {
-                    hashMapRefine.put("refinedMin" + i, 0);
+                    pHashMap.put("refinedMin" + i, 0);
                     digitInt = 0;
                 }
             }
             if (valueString.contains("=")) {
-                hashMapRefine.put("digitOk" + i, digitListNewInt);
+                pHashMap.put("digitOk" + i, listCompInt.get(i));
                 digitCompOk++;
             }
         }
         if (digitCompOk == getNbrDigit()) {
             isWin = true;
         }
-        return hashMapRefine;
+        return pHashMap;
     }
+
 
 
     /**
@@ -408,6 +409,8 @@ public class SearchNumber extends Common {
         vMiddle = (vMin + vMax) / 2;  //on détermine le nombre entier au milieu
 
         logger.info("Valeur mediane trouvé dans la methode = " + vMiddle);
+        logger.info("valeur min" + vMin);
+        logger.info("valeur max" + vMax);
 
         return vMiddle;
     }
@@ -420,65 +423,35 @@ public class SearchNumber extends Common {
      * @param pValuesString
      * @return
      */
-    public String hashMapRefined(Map<String, Integer> pHashMap, String pValuesString) {
+    public String hasmapToDicotomousString(Map<String, Integer> pHashMap, String pfirst, String pValuesString, String pStrToComparForWin) {
 
         //variables
-        int countOfWin = 0;
-        int digitRefined = 0;
-        String digitRefinedStr = "";
         isWin = false;
+        int digit;
+        int digitMin;
+        int digitMax;
+        String digitStr;
+        String digitFinal = "";
 
-        //objet
-        SearchNumber searchNumber = new SearchNumber(getNbrDigit(), getNbrOfTry(), getDeveloperMode(), getIsWin());
-        SearchNumberDefender defender = new SearchNumberDefender(getNbrDigit(), getNbrOfTry(), getDeveloperMode(), getIsWin());
+        // objet
+        SearchNumber searchNumber = new SearchNumber(getNbrDigit(),getNbrOfTry(),getDeveloperMode(),getIsWin());
 
-        // je converti le pString en ArrayList (creation)
-        List<String> listStringValues = new ArrayList<>();
+        // je lance la methode pour renseigner la hashMap avec les nouvelles valeurs
+        Map<String, Integer> hashMapUpdated = searchNumber.infoDigitForRefinedToHahMap(pHashMap,pfirst,pValuesString);
+        logger.info(" 2 eme renseignement hashmap = " + hashMapUpdated);
+
+        // pour chaque digit je crée un nouveau digit avec la methode dicotomous
         for (int i = 0; i < getNbrDigit(); i++) {
-            char letter = pValuesString.charAt(i);
-            String letterStr = String.valueOf(letter);
-            listStringValues.add(letterStr);
+            digitMin = hashMapUpdated.get("refinedMin" + i);
+            digitMax = hashMapUpdated.get("refinedMax" + i);
+            digit = searchNumber.dichotomousResearch(digitMin, digitMax);
+            digitStr = String.valueOf(digit);
+            digitFinal = digitFinal + digitStr;
         }
-
-        // pour chaque digit de l'Arraylist je compare avec la Valeur +- ou = et je renseigne la hashmapRefined
-        for (int j = 0; j < listStringValues.size(); j++) {
-
-            String value = listStringValues.get(j);
-
-            if (value.contains("+")) {
-                if (pHashMap.containsKey("refinedMin" + j)) {
-                    int digitMin = pHashMap.get("refinedMin" + j);
-                    // je lance une demande de valeur dicotomique avec digitMin
-                    digitRefined = searchNumber.dichotomousResearch(digitMin, 9);
-                    digitRefinedStr = digitRefinedStr + digitRefined;
-                } else {
-                    digitRefined = searchNumber.dichotomousResearch(0, 9);
-                    digitRefinedStr = digitRefinedStr + digitRefined;
-                }
-            }
-
-            if (value.contains("-")) {
-                if (pHashMap.containsKey("refinedMax" + j)) {
-                    int digitMax = pHashMap.get("refinedMax" + j);
-                    // je lance une demande de valeur dicotomique avec digitMax
-                    digitRefined = searchNumber.dichotomousResearch(0, digitMax);
-                    digitRefinedStr = digitRefinedStr + digitRefined;
-                } else {
-                    digitRefined = searchNumber.dichotomousResearch(0, 9);
-                    digitRefinedStr = digitRefinedStr + digitRefined;
-                }
-            }
-            if (value.contains("=")) {
-                countOfWin++;
-                int digitOk = pHashMap.get("digitOk" + j);
-                String digitOkStr = String.valueOf(digitOk);
-                digitRefinedStr = digitRefinedStr + digitOkStr;
-            }
-        }
-        if (countOfWin == getNbrDigit()) {
+        if (digitFinal.equals(pStrToComparForWin)) {
             isWin = true;
         }
-        return digitRefinedStr;
+        return digitFinal;
     }
 
     /**

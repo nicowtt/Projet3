@@ -68,7 +68,7 @@ public class SearchNumberChallenger extends SearchNumber {
         } while (nbrLoopChallengerMode != 0);
         if (!isWin) {
             System.out.println(" vous avez perdu...");
-            System.out.println("-----> le nombre mystere etait: " + randCompChallenger);
+            System.out.println("-----> la combinaison mystère etait: " + randCompChallenger);
             System.out.println("");
             logger.info("l'utilisateur a perdu");
         }
