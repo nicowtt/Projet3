@@ -223,7 +223,7 @@ public class SearchNumber extends Common {
         int countDigit = 0;
 
         int valueMin = 0;
-        int valueMax = 9;
+        int valueMax = 10;
 
         // creation d'une arrayList avec le nombre de digit en String
         List<String> nbrDigitList = new ArrayList<>();
@@ -274,9 +274,9 @@ public class SearchNumber extends Common {
         isWin = false;
 
         int digitMin = 0;
-        int digitMax = 9;
+        int digitMax = 10;
         int digitMinRefine = 0;
-        int digitMaxRefine = 9;
+        int digitMaxRefine = 10;
         int digitCompOk = 0;
 
         //je converti le string computeur en array list
@@ -291,6 +291,10 @@ public class SearchNumber extends Common {
         for (int i = 0; i < listCompInt.size(); i++) {
             digitListNewInt = listCompInt.get(i);
             valueString = listUserStringValues.get(i);
+            digitInt = 0;
+            digitMinRefine = 0;
+            digitMaxRefine = 10;
+
 
             if (valueString.contains("+")) {
                 if (pHashMap.containsKey("refinedMin" + i)) {
@@ -299,32 +303,21 @@ public class SearchNumber extends Common {
                         digitMinRefine = digitInt;
                         pHashMap.put("refinedMin" + i, digitMinRefine);
                     }
-
                     if (digitListNewInt > digitMinRefine) {
                         pHashMap.put("refinedMin" + i, digitListNewInt);
                     }
-                    digitInt = 0;
-                    digitListNewInt = 0;
-                } else {
-                    pHashMap.put("refinedMin" + i, 0);
-                    digitInt = 0;
                 }
             }
             if (valueString.contains("-")) {
                 if (pHashMap.containsKey("refinedMax" + i)) {
                     digitInt = pHashMap.get("refinedMax" + i);
                     if (digitInt < digitMax) {
-                        digitMinRefine = digitInt;
+                        digitMaxRefine = digitInt;
                         pHashMap.put("refinedMax" + i, digitMaxRefine);
                     }
                     if (digitListNewInt < digitMaxRefine) {
                         pHashMap.put("refinedMax" + i, digitListNewInt);
                     }
-                    digitInt = 0;
-                    digitListNewInt = 0;
-                } else {
-                    pHashMap.put("refinedMin" + i, 0);
-                    digitInt = 0;
                 }
             }
             if (valueString.contains("=")) {
@@ -346,43 +339,74 @@ public class SearchNumber extends Common {
      * @return String "+-="
      */
     public String inputValueUserToString() {
-
-        //creation compteur pour comparer au nombre de digit
         int count = 0;
-
-        boolean responseIsGood;
-
         String resultString = "";
 
+
+        boolean responseIsGood;
         do {
+            boolean testIfInt = false;
+            responseIsGood = false;
+            boolean nbrValue = true;
+
             // creation nouvelle ArrayList
             List<String> result = new ArrayList<>();
 
-            //je recupere la valeur user
-            String userValueString = sc.next();
+            do {
+                //je recupere la valeur user
+                String userValueString = sc.next();
 
-            for (int i = 0; i < userValueString.length(); i++) {
-                char letter = userValueString.charAt(i);
-                String letterString = String.valueOf(letter);
-                result.add(letterString);
-                count++;
-            }
-            if (count < getNbrDigit() || count > getNbrDigit()) {
-                System.out.println("vous avez rentré trop ou pas assez de valeur, veuillez re-essayer:");
+                //creation compteur pour comparer au nombre de digit
                 count = 0;
-                responseIsGood = false;
-            } else {
-                responseIsGood = true;
 
-                // je converti la array list en string
-                for (int j = 0; j < userValueString.length(); j++) {
-                    resultString = resultString + result.get(j);
+                for (int i = 0; i < userValueString.length(); i++) {
+                    char letter = userValueString.charAt(i);
+                    // je verifie si il y a pas un chiffre dans cette valeur
+                    testIfInt = Character.isDigit(letter);
+                    if (testIfInt) {
+                        System.out.println(" Ooups chiffres non autorisé, re-essaye");
+                        count = getNbrDigit();
+                        responseIsGood = false;
+                        break;
+                    }
+                    String letterString = String.valueOf(letter);
+                    // je verifie si la lettre correspond a "+" "-" ou "="
+                    if (letterString.contains("+") || letterString.contains("-") || letterString.contains("=")) {
+                        result.add(letterString);
+                        count++;
+                    } else {
+                        System.out.println("Valeur(s) +,- ou = seulement");
+                        responseIsGood = false;
+                        testIfInt = true;
+                    }
+                }
+            } while (testIfInt);
+
+            if (!testIfInt) {
+                if (count < getNbrDigit() || count > getNbrDigit()) {
+                    System.out.println("vous avez rentré trop ou pas assez de valeur, re-essaye:");
+                    nbrValue = true;
+                    responseIsGood = false;
+                } else {
+                    nbrValue = false;
                 }
             }
-        } while (responseIsGood == false);
 
+            // je converti la array list en string
+            if (!nbrValue)
+                for (int j = 0; j < getNbrDigit(); j++) {
+                    resultString = resultString + result.get(j);
+                    responseIsGood = true;
+                    }
+
+
+        } while (!responseIsGood);
         return resultString;
     }
+
+
+
+
 
 
     /**

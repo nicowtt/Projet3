@@ -19,7 +19,7 @@ public class MenuDisplay {
      * Display ask games menu.
      */
     public void displayAskGamesMenu() {
-        System.out.println("Voulez-vous jouer:");
+        System.out.println("A quel jeux veux-tu jouer:");
         System.out.println("1-> Recherche +/-");
         System.out.println("2-> Mastermind");
         System.out.println("3-> quitter");
@@ -38,12 +38,12 @@ public class MenuDisplay {
         do {
             switch (gameChoice) {
                 case 1:
-                    System.out.println("Vous avez choisi le jeux Recherche +/- ");
+                    System.out.println("Tu as choisi le jeux Recherche +/- ");
                     System.out.println("");
                     responseIsGood = true;
                     break;
                 case 2:
-                    System.out.println("Vous avez choisi le Mastermind");
+                    System.out.println("Tu as choisi le Mastermind");
                     System.out.println("");
                     responseIsGood = true;
                     break;
@@ -68,9 +68,9 @@ public class MenuDisplay {
     public void displayAskTypeOfGame() {
 
         System.out.println("");
-        System.out.println("****** Choisissez le mode de jeux: *******");
-        System.out.println("1-Challenger -> trouve le nombre mystère de l'ordinateur");
-        System.out.println("2-Défenseur -> L'ordinateur doit trouver ton nombre");
+        System.out.println("****** Choisi le mode de jeux: *******");
+        System.out.println("1-Challenger -> Trouve la combinaison mystère de l'ordinateur");
+        System.out.println("2-Défenseur -> L'ordinateur doit trouver ta combinaison");
         System.out.println("3-Duel");
     }
 
@@ -88,18 +88,18 @@ public class MenuDisplay {
         do {
             switch (gameTypeChoice) {
                 case 1:
-                    System.out.println("Vous avez choisi le mode Challenger");
+                    System.out.println("Tu as choisi le mode Challenger");
                     System.out.println("************************************");
                     System.out.println("");
                     responseIsGood = true;
                     break;
                 case 2:
-                    System.out.println("Vous avez choisi le mode Défenseur");
+                    System.out.println("Tu as choisi le mode Défenseur");
                     System.out.println("");
                     responseIsGood = true;
                     break;
                 case 3:
-                    System.out.println("Vous avez choisi le mode Duel");
+                    System.out.println("Tu as choisi le mode Duel");
                     System.out.println("");
                     responseIsGood = true;
                     break;
@@ -127,7 +127,7 @@ public class MenuDisplay {
         int counterTotalLetter = 0;
         int tooManyNbr = 0;
 
-        System.out.println("Choisissez une suite de " + nbr + " chiffre :");
+        System.out.println("Choisi une combinaison de " + nbr + " chiffre :");
 
         do {
             try {
@@ -153,14 +153,14 @@ public class MenuDisplay {
                         if (counterTotalLetter == nbrDigit) {responseIsGood = true;}
                     }
                 }else {
-                    System.out.println("oupss ! trop de caractères, veuillez choisir une suite de " + nbrDigit + " chiffres: ");
+                    System.out.println("oupss ! trop de caractères, choisi une suite de " + nbrDigit + " chiffres: ");
                     logger.info("- INFO - trop de caractère entrée par l'utilisateur");
                 }
             } catch (StringIndexOutOfBoundsException e) {
-                System.out.println("Vous devez rentrer " + nbr + " chiffres:");
+                System.out.println("Tu dois rentrer " + nbr + " chiffres:");
                 logger.info("- INFO - pas assez de caractère entrée par l'utilisateur");
             } catch (NumberFormatException e ) {
-                System.out.println("Lettre(s) non acceptée(s), veuillez choisir une suite de " + nbrDigit + " chiffres: ");
+                System.out.println("Lettre(s) non acceptée(s), choisi une suite de " + nbrDigit + " chiffres: ");
                 logger.info("- INFO - Lettre(s) entrée par l'utilisateur");
             }
             tooManyNbr = 0;
@@ -173,9 +173,9 @@ public class MenuDisplay {
      */
     public void displayAskIfReplay () {
         logger.info("");
-        System.out.println("****** voulez-vous rejouer ? *******");
+        System.out.println("****** Veux-tu rejouer ? *******");
         System.out.println(" 1 -> oui je veux rejouer au meme jeux");
-        System.out.println(" 2 -> retour a l'ecran de choix des jeux");
+        System.out.println(" 2 -> retour à l'ecran du choix des jeux");
         System.out.println(" 3 -> quitter");
     }
 
@@ -192,17 +192,17 @@ public class MenuDisplay {
         do {
             switch (replayChoice) {
                 case 1:
-                    System.out.println("Vous avez choisi de rejouer au jeux Recherche +/- ");
+                    System.out.println("Tu as choisi de rejouer au jeux Recherche +/- ");
                     System.out.println("");
                     responseIsGood = true;
                     break;
                 case 2:
-                    System.out.println("Vous avez choisi le retour a l'ecran principal du choix des jeux");
+                    System.out.println("Tu as choisi le retour a l'ecran principal du choix des jeux");
                     System.out.println("");
                     responseIsGood = true;
                     break;
                 case 3:
-                    System.out.println("Vous avez choisi de quitter");
+                    System.out.println("tu as choisi de quitter");
                     System.exit(0);
                     System.out.println("");
                     responseIsGood = true;
@@ -227,7 +227,7 @@ public class MenuDisplay {
 
         do {
             try {
-                System.out.println("-> Veuillez choisir parmi les choix proposés:");
+                System.out.println("-> Choisi parmi les choix proposés:");
                 forcedChoice = sc.nextInt();
                 if (forcedChoice <= 0 || forcedChoice > nbrMax) {
                     forcedChoice = 0;
@@ -251,7 +251,7 @@ public class MenuDisplay {
      */
     public void displayForValueToUser() {
 
-        System.out.println("veuillez rentrer les valeurs (+,- ou =) pour chaque chiffre par rapport au votre:");
+        System.out.println("peux-tu donner les valeurs (+,- ou =) pour chaque chiffre par rapport au tien:");
 
 
     }

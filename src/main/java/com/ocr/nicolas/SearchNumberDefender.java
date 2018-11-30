@@ -69,7 +69,7 @@ public class SearchNumberDefender extends SearchNumber {
         logger.info("ordi gagnant ? = " + winTestDefender);
 
         if (winTestDefender == true) {
-            System.out.println(" l'ordinateur a trouvé ta combinaison au " + loopForDefenderMode + "ème essais");
+            System.out.println(" l'ordinateur a trouvé ta combinaison au " + (loopForDefenderMode + 1) + "ème essais");
             System.out.println("");
             // je lance la methode replay
             searchNumber.replay();
@@ -100,7 +100,7 @@ public class SearchNumberDefender extends SearchNumber {
             logger.info("ordi gagnant ? = " + winTestDefender);
 
             if (winTestDefender == true) {
-                System.out.println(" l'ordinateur a trouvé ta combinaison au " + loopForDefenderMode + "ème essais");
+                System.out.println(" l'ordinateur a trouvé ta combinaison" + " au " + (loopForDefenderMode + 1) + "ème essais");
                 System.out.println("");
                 // je lance la methode replay
                 searchNumber.replay();

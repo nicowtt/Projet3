@@ -28,7 +28,7 @@ public class SearchNumberChallenger extends SearchNumber {
         logger.info("--------> aleatoire String computeur = " + randCompChallenger);
 
         // Je donne le nombre d'essai possible
-        System.out.println("vous avez " + getNbrOfTry() + " essai");
+        System.out.println("tu as " + getNbrOfTry() + " essai.");
 
         // Je lance le jeux
         int nbrLoopChallengerMode = getNbrOfTry();
@@ -56,18 +56,18 @@ public class SearchNumberChallenger extends SearchNumber {
             // je teste si gagnant ou perdant
             boolean winTestChallenger = searchNumber.getIsWin();
             if (winTestChallenger) {
-                System.out.println(" Exellent Vous avez gagné !!!");
+                System.out.println(" Exellent tu as gagné !!! au " + loopForChallengerMode + "ème essai." );
                 isWin = true;
                 nbrLoopChallengerMode = 0;
                 logger.info("l'utilisateur a gagné contre l'ordinateur aprés " + loopForChallengerMode + " essais");
                 System.out.println("");
             } else {
                 nbrLoopChallengerMode--;
-                System.out.println(" il vous reste " + nbrLoopChallengerMode + " essai.");
+                System.out.println(" il te reste " + nbrLoopChallengerMode + " essai.");
             }
         } while (nbrLoopChallengerMode != 0);
         if (!isWin) {
-            System.out.println(" vous avez perdu...");
+            System.out.println(" tu as perdu... :-(");
             System.out.println("-----> la combinaison mystère etait: " + randCompChallenger);
             System.out.println("");
             logger.info("l'utilisateur a perdu");
