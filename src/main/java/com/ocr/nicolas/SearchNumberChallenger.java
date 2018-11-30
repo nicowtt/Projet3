@@ -11,7 +11,6 @@ public class SearchNumberChallenger extends SearchNumber {
         super(nbrDigit, nbrOfTry, developerMode, isWin);
     }
 
-
     /**
      * For play Challenger mode of Search Number
      * @return
@@ -78,7 +77,7 @@ public class SearchNumberChallenger extends SearchNumber {
 }
 
 
-
+// ( * pour info * methode "playChallengerMode" total = 57 - 24 lignes (espace , teste et logger) ->  33 lignes
 
 
 

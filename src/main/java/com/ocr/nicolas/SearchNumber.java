@@ -16,9 +16,7 @@ public class SearchNumber extends Common {
         this.isWin = isWin;
     }
 
-    public boolean getIsWin() {
-        return isWin;
-    }
+    public boolean getIsWin() {return isWin;}
 
     static final Logger logger = LogManager.getLogger();
 
@@ -188,7 +186,6 @@ public class SearchNumber extends Common {
             result.add(letterInt);
         }
         return result;
-
     }
 
     /**
@@ -208,7 +205,6 @@ public class SearchNumber extends Common {
             result.add(letterString);
         }
         return result;
-
     }
 
 
@@ -228,7 +224,6 @@ public class SearchNumber extends Common {
         // creation d'une arrayList avec le nombre de digit en String
         List<String> nbrDigitList = new ArrayList<>();
 
-
         // creation d'un hashMap
         Map<String, Integer> completeHashMapBase = new HashMap<String, Integer>();
 
@@ -247,7 +242,6 @@ public class SearchNumber extends Common {
             String digitOk = "digitOk";
             digitOk = digitOk + nbrDigitList.get(j);
             completeHashMapBase.put(digitOk, 10);
-
 
             countDigit++;
         }
@@ -287,14 +281,12 @@ public class SearchNumber extends Common {
         List<String> listUserStringValues = stringToArrayListString(pValue);
         logger.info("list user = " + listUserStringValues);
 
-
         for (int i = 0; i < listCompInt.size(); i++) {
             digitListNewInt = listCompInt.get(i);
             valueString = listUserStringValues.get(i);
             digitInt = 0;
             digitMinRefine = 0;
             digitMaxRefine = 10;
-
 
             if (valueString.contains("+")) {
                 if (pHashMap.containsKey("refinedMin" + i)) {
@@ -391,22 +383,15 @@ public class SearchNumber extends Common {
                     nbrValue = false;
                 }
             }
-
             // je converti la array list en string
             if (!nbrValue)
                 for (int j = 0; j < getNbrDigit(); j++) {
                     resultString = resultString + result.get(j);
                     responseIsGood = true;
                     }
-
-
         } while (!responseIsGood);
         return resultString;
     }
-
-
-
-
 
 
     /**
@@ -581,6 +566,32 @@ public class SearchNumber extends Common {
         return valueUserInString;
     }
 
+
+
+    public boolean testIfComputerWin(int pTry) {
+
+        //objets
+        SearchNumber searchNumber = new SearchNumber(getNbrDigit(), getNbrOfTry(), getDeveloperMode(), getIsWin());
+        SearchNumberDefender defender = new SearchNumberDefender(getNbrDigit(), getNbrOfTry(), getDeveloperMode(), getIsWin());
+
+        //Variable
+        isWin = getIsWin();
+
+
+        if (isWin && pTry <= getNbrOfTry()) {
+            System.out.println(" l'ordinateur a trouvé ta combinaison en " + pTry + " essai(s)");
+            System.out.println("");
+            logger.info("l'ordi a gagné au " + (defender.getLoopForDefenderMode() + 1) + "ème essais");
+            // je lance la methode replay
+            searchNumber.replay();
+        }
+        if (pTry >= getNbrOfTry()) {
+            System.out.println("l'ordinateur n'a pas trouvé ta combinaison de chiffre(s), tu as gagné !!!");
+            System.out.println("");
+            // je lance la methode replay
+            searchNumber.replay();}
+        return isWin;
+    }
 
     /**
      * For redirection of replay or leave

@@ -14,6 +14,8 @@ public class SearchNumberDefender extends SearchNumber {
         super(nbrDigit, nbrOfTry, developerMode, isWin);
     }
 
+    public int getLoopForDefenderMode() {return loopForDefenderMode;}
+
     /**
      * For playing DefenderMode of SearchNumber
      */
@@ -26,7 +28,7 @@ public class SearchNumberDefender extends SearchNumber {
         // Je donne le nombre d'essai possible
         System.out.println("l'ordinateur a " + getNbrOfTry() + " essai pour trouver ta combinaison");
 
-        // Je demande la suite de chiffre a l'utilisateur -> nbrUserString
+        // Je demande la suite de chiffre a l'utilisateur
         display.displayAskNumber(getNbrDigit());
         nbrUserDefender = display.getUserChoiceStringExport(); //-> variable string utilisateur = nbrUserDefender
         logger.info("nombre entré par l'utilisateur = " + nbrUserDefender);
@@ -35,8 +37,8 @@ public class SearchNumberDefender extends SearchNumber {
         Map<String, Integer> completeHashMapBase = searchNumber.createHashMapBase(getNbrDigit());
         logger.info(" hashMap Base dans la class Main = " + completeHashMapBase);
 
-        // premier jet computeur  "55...."-> compDefenderString1 et affichage sur la console
-        String compDefenderString1 = searchNumber.fiveOnlyDigit(); // ou si tu veux aleatoire -> searchNumber.computerNbrCombination(getNbrDigit(), 0, 9);
+        // premier jet computeur  uniquement des "5" -> compDefenderString1 et affichage sur la console
+        String compDefenderString1 = searchNumber.fiveOnlyDigit();
         logger.info("premier jet aleatoire computeur = " + compDefenderString1);
         System.out.println(compDefenderString1);
 
@@ -50,41 +52,28 @@ public class SearchNumberDefender extends SearchNumber {
         Map<String, Integer> hashmapRefined = searchNumber.infoDigitForRefinedToHahMap(completeHashMapBase, compDefenderString1, valueUserInString);
         logger.info("nouvelle hasmap refined = " + hashmapRefined);
 
-        // je regarde si l'ordi gagne (ça peut arriver au premier coup (si l'utilisateur rentre "55")
-        boolean winTestDefender = searchNumber.getIsWin();
-        logger.info("ordi gagnant ? = " + winTestDefender);
+        // check si gagnant au premier coup
+        searchNumber.testIfComputerWin(loopForDefenderMode);
+        logger.info("ordi gagnant ? = " + getIsWin());
 
-        if (winTestDefender == true) {
-            System.out.println(" l'ordinateur a trouvé ta combinaison au 1er coup !! (je me demande si tu es au courant de ma methode de recherche hum hum...");
-            System.out.println("");
-            // je lance la methode replay
-            searchNumber.replay();
-        }
-        // lancement des nouveaux DichotomousDigits computeur avec les info de la hashmapRefined
+        // lancement des nouveaux DichotomousDigits computeur avec les infos de la hashmapRefined
         String compDefenderRefined = searchNumber.hasmapToDicotomousString(hashmapRefined, compDefenderString1,valueUserInString,nbrUserDefender);
         logger.info(" nouveaux digit avec la methode dichotomique = " + compDefenderRefined);
 
-        // je check si computeur gagne
-        winTestDefender = searchNumber.getIsWin();
-        logger.info("ordi gagnant ? = " + winTestDefender);
-
-        if (winTestDefender == true) {
-            System.out.println(" l'ordinateur a trouvé ta combinaison au " + (loopForDefenderMode + 1) + "ème essais");
-            System.out.println("");
-            // je lance la methode replay
-            searchNumber.replay();
-        }
         // j'affiche le nouvel essai computeur
         System.out.println(compDefenderRefined);
 
+        // je check si gagnant
+        loopForDefenderMode++;
+        searchNumber.testIfComputerWin(loopForDefenderMode);
+
         do {
             // debut de la boucle (jusqu'a -> computer gagne ou fin des essais, il perd)
-            logger.info("");
-            logger.info("************* Debut de la boucle ********* " + loopForDefenderMode);
+            logger.info("************* Debut de la boucle" + loopForDefenderMode + "********* ");
 
-            loopForDefenderMode++;
             // j'affiche la demande de valeur
             display.displayForValueToUser();
+
             // je check si erreur ou tricherie
             valueUserInString = searchNumber.inputValuesUserAndCheckIfCheat(nbrUserDefender, compDefenderRefined);
 
@@ -94,22 +83,16 @@ public class SearchNumberDefender extends SearchNumber {
 
             // j'affiche le nouvel essai computeur
             System.out.println(compDefenderRefined);
+            loopForDefenderMode++;
 
-            // je check si computeur gagne
-            winTestDefender = searchNumber.getIsWin();
-            logger.info("ordi gagnant ? = " + winTestDefender);
-
-            if (winTestDefender == true) {
-                System.out.println(" l'ordinateur a trouvé ta combinaison" + " au " + (loopForDefenderMode + 1) + "ème essais");
-                System.out.println("");
-                // je lance la methode replay
-                searchNumber.replay();
-            }
+            // je check si gagnant
+            searchNumber.testIfComputerWin(loopForDefenderMode);
 
         } while (loopForDefenderMode != getNbrOfTry());
-        System.out.println("l'ordinateur n'a pas trouvé ta combinaison de chiffre(s), tu as gagné !!!");
-        System.exit(0);
+        searchNumber.testIfComputerWin(loopForDefenderMode);
     }
 }
+
+// ( * pour info * methode "playDefenderMode" total = 70 - 44 ligne (espace , teste et logger) -> 26 lignes
 
 
