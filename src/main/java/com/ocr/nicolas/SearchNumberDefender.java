@@ -53,7 +53,7 @@ public class SearchNumberDefender extends SearchNumber {
         logger.info("nouvelle hasmap refined = " + hashmapRefined);
 
         // check si gagnant au premier coup
-        searchNumber.testIfComputerWin(loopForDefenderMode);
+        searchNumber.testIfComputerWinDefenderMode(loopForDefenderMode);
         logger.info("ordi gagnant ? = " + getIsWin());
 
         // lancement des nouveaux DichotomousDigits computeur avec les infos de la hashmapRefined
@@ -65,7 +65,7 @@ public class SearchNumberDefender extends SearchNumber {
 
         // je check si gagnant
         loopForDefenderMode++;
-        searchNumber.testIfComputerWin(loopForDefenderMode);
+        searchNumber.testIfComputerWinDefenderMode(loopForDefenderMode);
 
         do {
             // debut de la boucle (jusqu'a -> computer gagne ou fin des essais, il perd)
@@ -77,7 +77,7 @@ public class SearchNumberDefender extends SearchNumber {
             // je check si erreur ou tricherie
             valueUserInString = searchNumber.inputValuesUserAndCheckIfCheat(nbrUserDefender, compDefenderRefined);
 
-            // je fait des nouveau numero computer avec les  nouvelles valeurs
+            // je fais des nouveaux chiffres computer avec les  nouvelles valeurs
             compDefenderRefined = searchNumber.hasmapToDicotomousString(hashmapRefined,compDefenderRefined,valueUserInString,nbrUserDefender);
             logger.info("nouveau numero computeur avec methode dicotomous = " + compDefenderRefined);
 
@@ -86,10 +86,10 @@ public class SearchNumberDefender extends SearchNumber {
             loopForDefenderMode++;
 
             // je check si gagnant
-            searchNumber.testIfComputerWin(loopForDefenderMode);
+            searchNumber.testIfComputerWinDefenderMode(loopForDefenderMode);
 
         } while (loopForDefenderMode != getNbrOfTry());
-        searchNumber.testIfComputerWin(loopForDefenderMode);
+        searchNumber.testIfComputerWinDefenderMode(loopForDefenderMode);
     }
 }
 

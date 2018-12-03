@@ -38,6 +38,7 @@ public class SearchNumber extends Games {
         // objets
         SearchNumberChallenger searchNumberChallenger = new SearchNumberChallenger(getNbrDigit(), getNbrOfTry(), getDeveloperMode(), getIsWin());
         SearchNumberDefender searchNumberDefender = new SearchNumberDefender(getNbrDigit(), getNbrOfTry(), getDeveloperMode(), getIsWin());
+        SearchNumberDuel searchNumberDuel = new SearchNumberDuel(getNbrDigit(),getNbrOfTry(),getDeveloperMode(),getIsWin());
 
         do
             switch (gameTypeChoice) {
@@ -57,7 +58,9 @@ public class SearchNumber extends Games {
                     }
                 case 3:
                     while (gameTypeChoice == 3) {
-                        //searchNumberChallenger.playDuelMode();
+                        searchNumberDuel.playDuelMode();
+                        display.displayAskTypeOfGame();
+                        gameTypeChoice = display.displayGameTypeChoice();
                         break;
                     }
                 default:
@@ -568,7 +571,7 @@ public class SearchNumber extends Games {
 
 
 
-    public boolean testIfComputerWin(int pTry) {
+    public boolean testIfComputerWinDefenderMode(int pTry) {
 
         //objets
         SearchNumber searchNumber = new SearchNumber(getNbrDigit(), getNbrOfTry(), getDeveloperMode(), getIsWin());
