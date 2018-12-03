@@ -1,5 +1,7 @@
 package com.ocr.nicolas;
 
+import com.ocr.nicolas.utils.Utils;
+
 import java.util.Map;
 
 public class SearchNumberDefender extends SearchNumber {
@@ -10,8 +12,8 @@ public class SearchNumberDefender extends SearchNumber {
     private String compDefenderString1 = ""; // First computeur nbr
     private String getCompDefenderString = ""; // computeur nbr (in loop)
 
-    public SearchNumberDefender(int nbrDigit, int nbrOfTry, String developerMode, boolean isWin) {
-        super(nbrDigit, nbrOfTry, developerMode, isWin);
+    public SearchNumberDefender(int nbrDigit, int nbrOfTry, String developerMode) {
+        super(nbrDigit, nbrOfTry, developerMode);
     }
 
     public int getLoopForDefenderMode() {return loopForDefenderMode;}
@@ -23,22 +25,21 @@ public class SearchNumberDefender extends SearchNumber {
 
         //objets
         MenuDisplay display = new MenuDisplay();
-        SearchNumber searchNumber = new SearchNumber(getNbrDigit(), getNbrOfTry(), getDeveloperMode(), getIsWin());
 
         // Je donne le nombre d'essai possible
-        System.out.println("l'ordinateur a " + getNbrOfTry() + " essai pour trouver ta combinaison");
+        System.out.println("l'ordinateur a " + nbrOfTry + " essai pour trouver ta combinaison");
 
         // Je demande la suite de chiffre a l'utilisateur
-        display.displayAskNumber(getNbrDigit());
+        display.displayAskNumber(nbrDigit);
         nbrUserDefender = display.getUserChoiceStringExport(); //-> variable string utilisateur = nbrUserDefender
         logger.info("nombre entré par l'utilisateur = " + nbrUserDefender);
 
         // creation d'une hashMap base avec les limite Max, Min et digitok incrementé par digit
-        Map<String, Integer> completeHashMapBase = searchNumber.createHashMapBase(getNbrDigit());
+        Map<String, Integer> completeHashMapBase = Utils.createHashMapBase(nbrDigit);
         logger.info(" hashMap Base dans la class Main = " + completeHashMapBase);
 
         // premier jet computeur  uniquement des "5" -> compDefenderString1 et affichage sur la console
-        String compDefenderString1 = searchNumber.fiveOnlyDigit();
+        String compDefenderString1 = this.fiveOnlyDigit();
         logger.info("premier jet aleatoire computeur = " + compDefenderString1);
         System.out.println(compDefenderString1);
 
@@ -46,18 +47,18 @@ public class SearchNumberDefender extends SearchNumber {
         display.displayForValueToUser();
 
         // je check si erreur ou tricherie
-        valueUserInString = searchNumber.inputValuesUserAndCheckIfCheat(nbrUserDefender, compDefenderString1);
+        valueUserInString = this.inputValuesUserAndCheckIfCheat(nbrUserDefender, compDefenderString1);
 
         // je renseigne la hashmap
-        Map<String, Integer> hashmapRefined = searchNumber.infoDigitForRefinedToHahMap(completeHashMapBase, compDefenderString1, valueUserInString);
+        Map<String, Integer> hashmapRefined = this.infoDigitForRefinedToHahMap(completeHashMapBase, compDefenderString1, valueUserInString);
         logger.info("nouvelle hasmap refined = " + hashmapRefined);
 
         // check si gagnant au premier coup
-        searchNumber.testIfComputerWinDefenderMode(loopForDefenderMode);
-        logger.info("ordi gagnant ? = " + getIsWin());
+        this.testIfComputerWinDefenderMode(loopForDefenderMode);
+        logger.info("ordi gagnant ? = " + isWin);
 
         // lancement des nouveaux DichotomousDigits computeur avec les infos de la hashmapRefined
-        String compDefenderRefined = searchNumber.hasmapToDicotomousString(hashmapRefined, compDefenderString1,valueUserInString,nbrUserDefender);
+        String compDefenderRefined = this.hasmapToDicotomousString(hashmapRefined, compDefenderString1,valueUserInString,nbrUserDefender);
         logger.info(" nouveaux digit avec la methode dichotomique = " + compDefenderRefined);
 
         // j'affiche le nouvel essai computeur
@@ -65,7 +66,7 @@ public class SearchNumberDefender extends SearchNumber {
 
         // je check si gagnant
         loopForDefenderMode++;
-        searchNumber.testIfComputerWinDefenderMode(loopForDefenderMode);
+        this.testIfComputerWinDefenderMode(loopForDefenderMode);
 
         do {
             // debut de la boucle (jusqu'a -> computer gagne ou fin des essais, il perd)
@@ -75,10 +76,10 @@ public class SearchNumberDefender extends SearchNumber {
             display.displayForValueToUser();
 
             // je check si erreur ou tricherie
-            valueUserInString = searchNumber.inputValuesUserAndCheckIfCheat(nbrUserDefender, compDefenderRefined);
+            valueUserInString = this.inputValuesUserAndCheckIfCheat(nbrUserDefender, compDefenderRefined);
 
             // je fais des nouveaux chiffres computer avec les  nouvelles valeurs
-            compDefenderRefined = searchNumber.hasmapToDicotomousString(hashmapRefined,compDefenderRefined,valueUserInString,nbrUserDefender);
+            compDefenderRefined = this.hasmapToDicotomousString(hashmapRefined,compDefenderRefined,valueUserInString,nbrUserDefender);
             logger.info("nouveau numero computeur avec methode dicotomous = " + compDefenderRefined);
 
             // j'affiche le nouvel essai computeur
@@ -86,10 +87,10 @@ public class SearchNumberDefender extends SearchNumber {
             loopForDefenderMode++;
 
             // je check si gagnant
-            searchNumber.testIfComputerWinDefenderMode(loopForDefenderMode);
+            this.testIfComputerWinDefenderMode(loopForDefenderMode);
 
-        } while (loopForDefenderMode != getNbrOfTry());
-        searchNumber.testIfComputerWinDefenderMode(loopForDefenderMode);
+        } while (loopForDefenderMode != nbrOfTry);
+        this.testIfComputerWinDefenderMode(loopForDefenderMode);
     }
 }
 

@@ -1,18 +1,24 @@
 package com.ocr.nicolas;
 
+import com.ocr.nicolas.utils.Utils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import java.util.Scanner;
+
+
 public class Games {
 
+    Scanner sc = new Scanner(System.in);
+    static final Logger logger = LogManager.getLogger();
+
     //commun a tous les jeux
-    private int nbrDigit;
-    private int nbrOfTry;
-    private String developerMode;
+    protected int nbrDigit;
+    protected int nbrOfTry;
+    protected String developerMode;
 
     //pour le mastermind
-    private int nbrDigitUsable;
-
-    public Games() {
-
-    }
+    protected int nbrDigitUsable;
 
     public Games(int nbrDigit, int nbrOfTry, String developerMode) {
         this.nbrDigit = nbrDigit;
@@ -20,21 +26,19 @@ public class Games {
         this.developerMode = developerMode;
     }
 
-    public int getNbrDigit() {return nbrDigit;}
-
-    public int getNbrOfTry() {return nbrOfTry;}
-
-    public String getDeveloperMode() {return developerMode;}
+    public Games() {
+    }
 
 
     public void playGames() {
         // lecture config.propertie et variable a zero
         ReadPropertiesFile read = new ReadPropertiesFile();
-        read.readConfigProperties();
-        int nbrDigit = read.getNbrDigit();
-        String developerMode = read.getDeveloperMode(); // developer mode?
-        int nbrOfTry = read.getNbrOfTry();
+        nbrDigit = read.getNbrDigit();
+        developerMode = read.getDeveloperMode(); // developer mode?
+        nbrOfTry = read.getNbrOfTry();
         boolean isWin = false;
+
+        logger.info("info dans la class mere Games (nbrDigit= "+ nbrDigit +" nbrOfTry = " + nbrOfTry +" developerMode =" + developerMode);
 
 
         // Affichage du menu du choix des jeux.
@@ -48,17 +52,70 @@ public class Games {
         switch (gamesMenuChoice) {
             case 1:
                 while (gamesMenuChoice == 1) {
-                    SearchNumber searchNumber = new SearchNumber(nbrDigit, nbrOfTry, developerMode, isWin);
+                    SearchNumber searchNumber = new SearchNumber(nbrDigit,nbrOfTry,developerMode);
                     searchNumber.playSearchNumber();
                     break;
                 }
             case 2:
                 while (gamesMenuChoice == 2) {
-                    // mastermind
+                    Mastermind mastermind = new Mastermind(nbrDigit,nbrOfTry,developerMode);
+                    mastermind.playMastermind();
                     break;
                 }
             default:
                 break;
         }
+    }
+
+    /**
+     * for play headsOrTails (Pile ou face en fr)
+     *
+     * @return boolean luck (luck or no luck)
+     */
+    public boolean headsOrTails() {
+
+        //variable(s)
+        String user;
+        Boolean comp;
+        Boolean luck = true;
+        Boolean responseIsGood = false;
+
+        System.out.println("Qui commence ?");
+
+        do {
+            System.out.println("Choisi pile ou face :");
+            user = sc.nextLine();
+            comp = Utils.getRandomBoolean();
+            if (user.contains("pile")) {
+                if (comp) {
+                    luck = true;
+                } else {
+                    luck = false;
+                }
+                responseIsGood = true;
+            }
+            if (user.contains("face")) {
+                if (!comp) {
+                    luck = true;
+                } else {
+                    luck = false;
+                }
+                responseIsGood = true;
+            }
+        } while (!responseIsGood);
+
+        if (luck) {
+            System.out.println("Tirage aléatoire = pile");
+        } else {
+            System.out.println("Tirage aléatoire = face");
+        }
+        if (luck = comp) {
+            System.out.println("Tu as de la chance ! A toi de commencer. ");
+        }else {
+            System.out.println("Domage !, c'est donc l'ordinateur qui commence.");}
+
+        logger.info("tirage de la chance (false: ordi qui commence, true: utilisateur commence) = " + luck );
+
+        return luck;
     }
 }

@@ -1,13 +1,40 @@
-2018-12-03 10:42:50.148 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - developerMode: false
-2018-12-03 10:42:50.151 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - variable NbrDigit = 2
-2018-12-03 10:42:50.151 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - variable nbrOfTry = 4
-2018-12-03 10:42:52.697 [main] INFO  com.ocr.nicolas.Log4j - Choix du jeux (1- Recherche+/- ; 2- Mastermind; 3 -arret) -> 1
-2018-12-03 10:42:53.543 [main] INFO  com.ocr.nicolas.Log4j - Mode de jeux (1- Challenger ; 2- défenseur ; 3- Duel) -> 3
-2018-12-03 10:42:53.545 [main] INFO  com.ocr.nicolas.Log4j - 
-2018-12-03 10:42:59.318 [main] INFO  com.ocr.nicolas.Log4j - Choix du replay-> 1 (1- Recherche+/- ; 2- choix d'un autre jeux; 3- quitter)
-2018-12-03 10:43:06.998 [main] INFO  com.ocr.nicolas.Log4j - Mode de jeux (1- Challenger ; 2- défenseur ; 3- Duel) -> 3
-2018-12-03 10:43:06.998 [main] INFO  com.ocr.nicolas.Log4j - 
-2018-12-03 10:43:11.382 [main] INFO  com.ocr.nicolas.Log4j - Choix du replay-> 2 (1- Recherche+/- ; 2- choix d'un autre jeux; 3- quitter)
-2018-12-03 10:43:11.382 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - developerMode: false
-2018-12-03 10:43:11.382 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - variable NbrDigit = 2
-2018-12-03 10:43:11.382 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - variable nbrOfTry = 4
+2018-12-03 18:04:25.731 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - developerMode: true
+2018-12-03 18:04:25.734 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - variable NbrDigit = 2
+2018-12-03 18:04:25.734 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - variable nbrOfTry = 4
+2018-12-03 18:04:25.737 [main] INFO  com.ocr.nicolas.Games - info dans la class mere Games (nbrDigit= 2 nbrOfTry = 4 developerMode =true
+2018-12-03 18:04:28.321 [main] INFO  com.ocr.nicolas.Log4j - Choix du jeux (1- Recherche+/- ; 2- Mastermind; 3 -arret) -> 1
+2018-12-03 18:04:29.745 [main] INFO  com.ocr.nicolas.Log4j - Mode de jeux (1- Challenger ; 2- défenseur ; 3- Duel) -> 2
+2018-12-03 18:04:33.167 [main] INFO  com.ocr.nicolas.SearchNumber - nombre entré par l'utilisateur = 63
+2018-12-03 18:04:33.170 [main] INFO  com.ocr.nicolas.SearchNumber -  hashMap Base dans la class Main = {digitOk0=10, refinedMin0=0, refinedMax1=10, refinedMin1=0, digitOk1=10, refinedMax0=10}
+2018-12-03 18:04:33.170 [main] INFO  com.ocr.nicolas.SearchNumber - premier jet aleatoire computeur = 55
+2018-12-03 18:04:35.743 [main] INFO  com.ocr.nicolas.SearchNumber - Valeur entré par l'utilisateur = +-
+2018-12-03 18:04:35.743 [main] INFO  com.ocr.nicolas.SearchNumber - utilisateur erreur ou triche ---> false
+2018-12-03 18:04:35.746 [main] INFO  com.ocr.nicolas.SearchNumber - list computeur = [5, 5]
+2018-12-03 18:04:35.746 [main] INFO  com.ocr.nicolas.SearchNumber - list user = [+, -]
+2018-12-03 18:04:35.746 [main] INFO  com.ocr.nicolas.SearchNumber - nouvelle hasmap refined = {digitOk0=10, refinedMin0=5, refinedMax1=5, refinedMin1=0, digitOk1=10, refinedMax0=10}
+2018-12-03 18:04:35.746 [main] INFO  com.ocr.nicolas.SearchNumber - ordi gagnant ? = false
+2018-12-03 18:04:35.746 [main] INFO  com.ocr.nicolas.SearchNumber - list computeur = [5, 5]
+2018-12-03 18:04:35.746 [main] INFO  com.ocr.nicolas.SearchNumber - list user = [+, -]
+2018-12-03 18:04:35.746 [main] INFO  com.ocr.nicolas.SearchNumber -  2 eme renseignement hashmap = {digitOk0=10, refinedMin0=5, refinedMax1=5, refinedMin1=0, digitOk1=10, refinedMax0=10}
+2018-12-03 18:04:35.746 [main] INFO  com.ocr.nicolas.SearchNumber - Valeur mediane trouvé dans la methode = 7
+2018-12-03 18:04:35.746 [main] INFO  com.ocr.nicolas.SearchNumber - valeur min5
+2018-12-03 18:04:35.746 [main] INFO  com.ocr.nicolas.SearchNumber - valeur max10
+2018-12-03 18:04:35.746 [main] INFO  com.ocr.nicolas.SearchNumber - Valeur mediane trouvé dans la methode = 2
+2018-12-03 18:04:35.746 [main] INFO  com.ocr.nicolas.SearchNumber - valeur min0
+2018-12-03 18:04:35.746 [main] INFO  com.ocr.nicolas.SearchNumber - valeur max5
+2018-12-03 18:04:35.746 [main] INFO  com.ocr.nicolas.SearchNumber -  nouveaux digit avec la methode dichotomique = 72
+2018-12-03 18:04:35.746 [main] INFO  com.ocr.nicolas.SearchNumber - ************* Debut de la boucle2********* 
+2018-12-03 18:04:38.689 [main] INFO  com.ocr.nicolas.SearchNumber - Valeur entré par l'utilisateur = -+
+2018-12-03 18:04:38.689 [main] INFO  com.ocr.nicolas.SearchNumber - utilisateur erreur ou triche ---> false
+2018-12-03 18:04:38.689 [main] INFO  com.ocr.nicolas.SearchNumber - list computeur = [7, 2]
+2018-12-03 18:04:38.689 [main] INFO  com.ocr.nicolas.SearchNumber - list user = [-, +]
+2018-12-03 18:04:38.689 [main] INFO  com.ocr.nicolas.SearchNumber -  2 eme renseignement hashmap = {digitOk0=10, refinedMin0=5, refinedMax1=5, refinedMin1=2, digitOk1=10, refinedMax0=7}
+2018-12-03 18:04:38.689 [main] INFO  com.ocr.nicolas.SearchNumber - Valeur mediane trouvé dans la methode = 6
+2018-12-03 18:04:38.689 [main] INFO  com.ocr.nicolas.SearchNumber - valeur min5
+2018-12-03 18:04:38.689 [main] INFO  com.ocr.nicolas.SearchNumber - valeur max7
+2018-12-03 18:04:38.689 [main] INFO  com.ocr.nicolas.SearchNumber - Valeur mediane trouvé dans la methode = 3
+2018-12-03 18:04:38.689 [main] INFO  com.ocr.nicolas.SearchNumber - valeur min2
+2018-12-03 18:04:38.689 [main] INFO  com.ocr.nicolas.SearchNumber - valeur max5
+2018-12-03 18:04:38.689 [main] INFO  com.ocr.nicolas.SearchNumber - nouveau numero computeur avec methode dicotomous = 63
+2018-12-03 18:04:38.689 [main] INFO  com.ocr.nicolas.SearchNumber - l'ordi a gagné au 2ème essais
+2018-12-03 18:04:38.689 [main] INFO  com.ocr.nicolas.Log4j - 

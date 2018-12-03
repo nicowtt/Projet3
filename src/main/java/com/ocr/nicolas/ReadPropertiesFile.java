@@ -25,6 +25,9 @@ public class ReadPropertiesFile {
 
     static final Logger logger = LogManager.getLogger();
 
+    public ReadPropertiesFile() {
+        readConfigProperties();
+    }
 
     /**
      * reading config.properties for developer mode
@@ -32,12 +35,11 @@ public class ReadPropertiesFile {
      * @nbrCombinationSearchNumber: number of combination (integer in config.properties)
      */
 
-    public void readConfigProperties() {
+    private void readConfigProperties() {
 
 
         final Properties prop = new Properties();
         InputStream input = null;
-
 
         try {
 

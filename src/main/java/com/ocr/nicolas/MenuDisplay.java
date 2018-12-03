@@ -11,8 +11,6 @@ public class MenuDisplay {
 
     private String userChoiceStringExport;
 
-
-
     public String getUserChoiceStringExport() { return userChoiceStringExport; }
 
     /**

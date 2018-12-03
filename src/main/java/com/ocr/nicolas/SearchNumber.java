@@ -1,5 +1,6 @@
 package com.ocr.nicolas;
 
+import com.ocr.nicolas.utils.Utils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -7,19 +8,14 @@ import java.util.*;
 
 public class SearchNumber extends Games {
 
+    protected boolean isWin; // Grâce aux methode ci-dessous je peux voir si il y a gagnant, donc je rajoute ce parametre
+
     Scanner sc = new Scanner(System.in);
-
-    private boolean isWin; // Grâce aux methode ci-dessous je peux voir si il y a gagnant, donc je rajoute ce parametre
-
-    public SearchNumber(int nbrDigit, int nbrOfTry, String developerMode, boolean isWin) {
-        super(nbrDigit, nbrOfTry, developerMode);
-        this.isWin = isWin;
-    }
-
-    public boolean getIsWin() {return isWin;}
-
     static final Logger logger = LogManager.getLogger();
 
+    public SearchNumber(int nbrDigit, int nbrOfTry, String developerMode) {
+        super(nbrDigit, nbrOfTry, developerMode);
+    }
 
     /**
      * For playing SearchNumber game
@@ -36,9 +32,9 @@ public class SearchNumber extends Games {
         int gameTypeChoice = display.displayGameTypeChoice();
 
         // objets
-        SearchNumberChallenger searchNumberChallenger = new SearchNumberChallenger(getNbrDigit(), getNbrOfTry(), getDeveloperMode(), getIsWin());
-        SearchNumberDefender searchNumberDefender = new SearchNumberDefender(getNbrDigit(), getNbrOfTry(), getDeveloperMode(), getIsWin());
-        SearchNumberDuel searchNumberDuel = new SearchNumberDuel(getNbrDigit(),getNbrOfTry(),getDeveloperMode(),getIsWin());
+        SearchNumberChallenger searchNumberChallenger = new SearchNumberChallenger(nbrDigit,nbrOfTry,developerMode);
+        SearchNumberDefender searchNumberDefender = new SearchNumberDefender(nbrDigit,nbrOfTry,developerMode);
+        SearchNumberDuel searchNumberDuel = new SearchNumberDuel(nbrDigit,nbrOfTry,developerMode);
 
         do
             switch (gameTypeChoice) {
@@ -72,13 +68,12 @@ public class SearchNumber extends Games {
     /**
      * for make random computer number(s) combination
      *
-     * @param nbrDigit digit number(take on config.properties)
      * @return random digit number (type of character string)
      */
-    public String computerNbrCombination(int nbrDigit, int min, int max) {
+    protected String computerNbrCombination(int min, int max) {
 
         String finalRandomDigitNumberString = "";
-        int counterNbrDigit = nbrDigit;
+        int counterNbrDigit = this.nbrDigit;
 
         while (counterNbrDigit >= 1) {
 
@@ -109,10 +104,10 @@ public class SearchNumber extends Games {
 
 
         // Je converti la chaine de caractere computeur en arraylist de integer -> computerArrayListInt
-        List<Integer> computerArrayListInt = stringToArrayList(computer);
+        List<Integer> computerArrayListInt = Utils.stringToArrayList(computer);
 
         // Je converti la chaine de caractere utilisateur en arraylist de integer -> userArrayListInt
-        List<Integer> userArrayListInt = stringToArrayList(user);
+        List<Integer> userArrayListInt = Utils.stringToArrayList(user);
 
         // Je compare les deux arrayLists
         String compareListString = compareTwoArrayList(userArrayListInt, computerArrayListInt); //-> compareListString
@@ -161,7 +156,6 @@ public class SearchNumber extends Games {
             isWin = true;
         }
 
-
         // je converti cette liste en string
         String compareListString = "";
 
@@ -174,85 +168,6 @@ public class SearchNumber extends Games {
 
 
     /**
-     * For convert String to Array List (integer inside)
-     *
-     * @param inputString String for convert
-     * @return List of integer
-     */
-    public List<Integer> stringToArrayList(String inputString) {
-
-        List<Integer> result = new ArrayList<>();
-        for (int i = 0; i < inputString.length(); i++) {
-            char letter = inputString.charAt(i);
-            String letterString = String.valueOf(letter);
-            int letterInt = Integer.parseInt(letterString);
-            result.add(letterInt);
-        }
-        return result;
-    }
-
-    /**
-     * For convert String to Array List (String inside)
-     *
-     * @param inputStr String for convert
-     * @return List of integer
-     */
-    public List<String> stringToArrayListString(String inputStr) {
-
-        //creation nouvelle ArrayList
-        List<String> result = new ArrayList<>();
-
-        for (int i = 0; i < inputStr.length(); i++) {
-            char letter = inputStr.charAt(i);
-            String letterString = String.valueOf(letter);
-            result.add(letterString);
-        }
-        return result;
-    }
-
-
-    /**
-     * For create a hashMap with increment key (nbrdigit)
-     *
-     * @param pNbrDigit
-     * @return hashMap with base infomation for each digit
-     */
-    public Map<String, Integer> createHashMapBase(int pNbrDigit) {
-
-        int countDigit = 0;
-
-        int valueMin = 0;
-        int valueMax = 10;
-
-        // creation d'une arrayList avec le nombre de digit en String
-        List<String> nbrDigitList = new ArrayList<>();
-
-        // creation d'un hashMap
-        Map<String, Integer> completeHashMapBase = new HashMap<String, Integer>();
-
-        //j'incremente le String refinedMin, max et digit ok (grâce à l'ArrayList nbr DigitList) et je le rajoute a la hashMap
-        for (int j = 0; j < pNbrDigit; j++) {
-            nbrDigitList.add(String.valueOf(countDigit));
-
-            String refinedMin = "refinedMin";
-            refinedMin = refinedMin + nbrDigitList.get(j);
-            completeHashMapBase.put(refinedMin, valueMin);
-
-            String refinedMax = "refinedMax";
-            refinedMax = refinedMax + nbrDigitList.get(j);
-            completeHashMapBase.put(refinedMax, valueMax);
-
-            String digitOk = "digitOk";
-            digitOk = digitOk + nbrDigitList.get(j);
-            completeHashMapBase.put(digitOk, 10);
-
-            countDigit++;
-        }
-        return completeHashMapBase;
-
-    }
-
-    /**
      * for put information of each digit on Hashmap
      *
      * @param pHashMap old hashMap
@@ -263,31 +178,28 @@ public class SearchNumber extends Games {
     public Map<String, Integer> infoDigitForRefinedToHahMap(Map<String, Integer> pHashMap, String pFirst, String pValue) {
 
         //variable locales
-        int digitInt = 0;
-        int digitListNewInt = 0;
-        String digitString = "";
-        String digitStringHashMap = "";
-        String valueString = "";
+        int digitInt;
+        int digitListNewInt;
+        String valueString;
         isWin = false;
 
         int digitMin = 0;
         int digitMax = 10;
-        int digitMinRefine = 0;
-        int digitMaxRefine = 10;
+        int digitMinRefine;
+        int digitMaxRefine;
         int digitCompOk = 0;
 
         //je converti le string computeur en array list
-        List<Integer> listCompInt = stringToArrayList(pFirst);
+        List<Integer> listCompInt = Utils.stringToArrayList(pFirst);
         logger.info("list computeur = " + listCompInt);
 
         //je converti le string user en array list
-        List<String> listUserStringValues = stringToArrayListString(pValue);
+        List<String> listUserStringValues = Utils.stringToArrayListString(pValue);
         logger.info("list user = " + listUserStringValues);
 
         for (int i = 0; i < listCompInt.size(); i++) {
             digitListNewInt = listCompInt.get(i);
             valueString = listUserStringValues.get(i);
-            digitInt = 0;
             digitMinRefine = 0;
             digitMaxRefine = 10;
 
@@ -320,13 +232,11 @@ public class SearchNumber extends Games {
                 digitCompOk++;
             }
         }
-        if (digitCompOk == getNbrDigit()) {
+        if (digitCompOk == nbrDigit) {
             isWin = true;
         }
         return pHashMap;
     }
-
-
 
     /**
      * For create a good string of value ("+-=")
@@ -336,7 +246,6 @@ public class SearchNumber extends Games {
     public String inputValueUserToString() {
         int count = 0;
         String resultString = "";
-
 
         boolean responseIsGood;
         do {
@@ -360,7 +269,7 @@ public class SearchNumber extends Games {
                     testIfInt = Character.isDigit(letter);
                     if (testIfInt) {
                         System.out.println(" Ooups chiffres non autorisé, re-essaye");
-                        count = getNbrDigit();
+                        count = nbrDigit;
                         responseIsGood = false;
                         break;
                     }
@@ -378,7 +287,7 @@ public class SearchNumber extends Games {
             } while (testIfInt);
 
             if (!testIfInt) {
-                if (count < getNbrDigit() || count > getNbrDigit()) {
+                if (count < nbrDigit || count > nbrDigit) {
                     System.out.println("vous avez rentré trop ou pas assez de valeur, re-essaye:");
                     nbrValue = true;
                     responseIsGood = false;
@@ -388,43 +297,12 @@ public class SearchNumber extends Games {
             }
             // je converti la array list en string
             if (!nbrValue)
-                for (int j = 0; j < getNbrDigit(); j++) {
+                for (int j = 0; j < nbrDigit; j++) {
                     resultString = resultString + result.get(j);
                     responseIsGood = true;
                     }
         } while (!responseIsGood);
         return resultString;
-    }
-
-
-    /**
-     * for dichotomous Research
-     * fonction de recherche dichotomique qui renvoie un indice où se trouve la valeur "val" si elle est dans le tableau "tab[]" et -1 si cette valeur n'y est pas
-     *
-     * @param pNbrMin min value
-     * @param pNbrMax max value
-     * @return
-     */
-    public int dichotomousResearch(int pNbrMin, int pNbrMax) {
-
-        // declaration des variables locale à la methode
-        int vMin;  // Min value
-        int vMax;  // Max value
-        int vMiddle;  // Middle value
-
-        //initialisation de variables
-
-        vMin = pNbrMin;  //intervale entre pNbrMin...
-        vMax = pNbrMax;  //...et pNbrMax
-
-        // recherche
-        vMiddle = (vMin + vMax) / 2;  //on détermine le nombre entier au milieu
-
-        logger.info("Valeur mediane trouvé dans la methode = " + vMiddle);
-        logger.info("valeur min" + vMin);
-        logger.info("valeur max" + vMax);
-
-        return vMiddle;
     }
 
 
@@ -445,18 +323,17 @@ public class SearchNumber extends Games {
         String digitStr;
         String digitFinal = "";
 
-        // objet
-        SearchNumber searchNumber = new SearchNumber(getNbrDigit(),getNbrOfTry(),getDeveloperMode(),getIsWin());
+
 
         // je lance la methode pour renseigner la hashMap avec les nouvelles valeurs
-        Map<String, Integer> hashMapUpdated = searchNumber.infoDigitForRefinedToHahMap(pHashMap,pfirst,pValuesString);
+        Map<String, Integer> hashMapUpdated = this.infoDigitForRefinedToHahMap(pHashMap,pfirst,pValuesString);
         logger.info(" 2 eme renseignement hashmap = " + hashMapUpdated);
 
         // pour chaque digit je crée un nouveau digit avec la methode dicotomous
-        for (int i = 0; i < getNbrDigit(); i++) {
+        for (int i = 0; i < nbrDigit; i++) {
             digitMin = hashMapUpdated.get("refinedMin" + i);
             digitMax = hashMapUpdated.get("refinedMax" + i);
-            digit = searchNumber.dichotomousResearch(digitMin, digitMax);
+            digit = Utils.dichotomousResearch(digitMin, digitMax);
             digitStr = String.valueOf(digit);
             digitFinal = digitFinal + digitStr;
         }
@@ -473,7 +350,7 @@ public class SearchNumber extends Games {
      */
     public String fiveOnlyDigit() {
         String str = "";
-        for (int i = 0; i < getNbrDigit(); i++) {
+        for (int i = 0; i < nbrDigit; i++) {
             str = str + 5;
         }
         return str;
@@ -498,7 +375,7 @@ public class SearchNumber extends Games {
         List<String> pvalueList = new ArrayList<>();
 
         // je met les string dans les Array List
-        for (int i = 0; i < getNbrDigit(); i++) {
+        for (int i = 0; i < nbrDigit; i++) {
             // pour pbase
             char letter = pbase.charAt(i);
             String letterString = String.valueOf(letter);
@@ -547,16 +424,13 @@ public class SearchNumber extends Games {
         boolean cheakCheat;
         String valueUserInString;
 
-        // objets
-        SearchNumber searchNumber = new SearchNumber(getNbrDigit(),getNbrOfTry(),getDeveloperMode(),getIsWin());
-
         // boucle entré utilisateur valeur correcte
         do {
-            valueUserInString = searchNumber.inputValueUserToString();
+            valueUserInString = this.inputValueUserToString();
             logger.info("Valeur entré par l'utilisateur = " + valueUserInString);
 
             // check des valeurs (erreur ou tricherie)
-            cheakCheatInput = searchNumber.checkCheat(puser,pcomp, valueUserInString);
+            cheakCheatInput = this.checkCheat(puser,pcomp, valueUserInString);
             logger.info("utilisateur erreur ou triche ---> " + cheakCheatInput);
 
             // boucle si un digit mal evalué
@@ -574,25 +448,20 @@ public class SearchNumber extends Games {
     public boolean testIfComputerWinDefenderMode(int pTry) {
 
         //objets
-        SearchNumber searchNumber = new SearchNumber(getNbrDigit(), getNbrOfTry(), getDeveloperMode(), getIsWin());
-        SearchNumberDefender defender = new SearchNumberDefender(getNbrDigit(), getNbrOfTry(), getDeveloperMode(), getIsWin());
+        SearchNumberDefender defender = new SearchNumberDefender(nbrDigit,nbrOfTry,developerMode);
 
-        //Variable
-        isWin = getIsWin();
-
-
-        if (isWin && pTry <= getNbrOfTry()) {
+        if (isWin && pTry <= nbrOfTry) {
             System.out.println(" l'ordinateur a trouvé ta combinaison en " + pTry + " essai(s)");
             System.out.println("");
             logger.info("l'ordi a gagné au " + (defender.getLoopForDefenderMode() + 1) + "ème essais");
             // je lance la methode replay
-            searchNumber.replay();
+            this.replay();
         }
-        if (pTry >= getNbrOfTry()) {
+        if (pTry >= nbrOfTry) {
             System.out.println("l'ordinateur n'a pas trouvé ta combinaison de chiffre(s), tu as gagné !!!");
             System.out.println("");
             // je lance la methode replay
-            searchNumber.replay();}
+            this.replay();}
         return isWin;
     }
 
@@ -603,14 +472,12 @@ public class SearchNumber extends Games {
 
         // objets
         MenuDisplay display = new MenuDisplay();
-        Games games = new Games();
-        SearchNumber searchNumber = new SearchNumber(getNbrDigit(),getNbrOfTry(),getDeveloperMode(), getIsWin());
 
         // affichage console for replay et redirection
         display.displayAskIfReplay();
         int replayIntern = display.displayReplayChoice();
-        if (replayIntern == 1) {searchNumber.playSearchNumber();}
-        if (replayIntern == 2) {games.playGames();}
+        if (replayIntern == 1) {this.playSearchNumber();}
+        if (replayIntern == 2) {this.playGames();}
         if (replayIntern == 3) {System.exit(0);}
     }
 

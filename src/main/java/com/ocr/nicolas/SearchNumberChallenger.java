@@ -7,8 +7,8 @@ public class SearchNumberChallenger extends SearchNumber {
 
     static final Logger logger = LogManager.getLogger();
 
-    public SearchNumberChallenger(int nbrDigit, int nbrOfTry, String developerMode, boolean isWin) {
-        super(nbrDigit, nbrOfTry, developerMode, isWin);
+    public SearchNumberChallenger(int nbrDigit, int nbrOfTry, String developerMode) {
+        super(nbrDigit, nbrOfTry, developerMode);
     }
 
     /**
@@ -18,19 +18,18 @@ public class SearchNumberChallenger extends SearchNumber {
     public void playChallengerMode () {
 
         // declaration objets et mise a zero variable
-        SearchNumber searchNumber = new SearchNumber(getNbrDigit(),getNbrOfTry(),getDeveloperMode(), getIsWin());
         MenuDisplay display = new MenuDisplay();
         boolean isWin = false;
 
         // Recuperation variable random ordinateur  -> randCompChallenger
-        String randCompChallenger = searchNumber.computerNbrCombination(getNbrDigit(), 0, 9);
+        String randCompChallenger = this.computerNbrCombination(0, 9);
         logger.info("--------> aleatoire String computeur = " + randCompChallenger);
 
         // Je donne le nombre d'essai possible
-        System.out.println("tu as " + getNbrOfTry() + " essai.");
+        System.out.println("tu as " + nbrOfTry + " essai.");
 
         // Je lance le jeux
-        int nbrLoopChallengerMode = getNbrOfTry();
+        int nbrLoopChallengerMode = nbrOfTry;
         int loopForChallengerMode = 0;
 
         do {
@@ -39,21 +38,20 @@ public class SearchNumberChallenger extends SearchNumber {
             logger.info("********************   Boucle " + loopForChallengerMode + "    *********************");
 
             // J'affiche la demande de nombre utilisateur et recupere la valeur  -> nbrUserChallenger
-            display.displayAskNumber(getNbrDigit());
+            display.displayAskNumber(nbrDigit);
             String nbrUserChallenger = display.getUserChoiceStringExport();
-
             logger.info("nombre entré par l'utilisateur = " + nbrUserChallenger);
 
             // Je lance la comparaison et j'affiche le resultat
-            String afterCompareChallenger = searchNumber.CompareTwoString(randCompChallenger, nbrUserChallenger);
+            String afterCompareChallenger = this.CompareTwoString(randCompChallenger, nbrUserChallenger);
             System.out.println(afterCompareChallenger);
 
             // je verifie si le Mode developper a été demandé
-            if (getDeveloperMode().contains("true")) {System.out.println("(" + randCompChallenger + ")");}
+            if (developerMode.contains("true")) {System.out.println("(" + randCompChallenger + ")");}
             else {System.out.println("");}
 
             // je teste si gagnant ou perdant
-            boolean winTestChallenger = searchNumber.getIsWin();
+            boolean winTestChallenger = this.isWin;
             if (winTestChallenger) {
                 System.out.println(" Exellent tu as gagné !!! au " + loopForChallengerMode + "ème essai." );
                 isWin = true;
@@ -72,7 +70,7 @@ public class SearchNumberChallenger extends SearchNumber {
             logger.info("l'utilisateur a perdu");
         }
         //lancement du menu pour replay
-        searchNumber.replay();
+        this.replay();
     }
 }
 
