@@ -63,7 +63,7 @@ public class MenuDisplay {
     }
 
     /**
-     * Display Type of Common.
+     * Display Type of Games.
      */
     public void displayAskTypeOfGame() {
 

@@ -5,7 +5,7 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.*;
 
-public class SearchNumber extends Common {
+public class SearchNumber extends Games {
 
     Scanner sc = new Scanner(System.in);
 
@@ -35,7 +35,7 @@ public class SearchNumber extends Common {
         // Recuperation variable du type de jeux
         int gameTypeChoice = display.displayGameTypeChoice();
 
-        // objet searchNumber Challenger Mode
+        // objets
         SearchNumberChallenger searchNumberChallenger = new SearchNumberChallenger(getNbrDigit(), getNbrOfTry(), getDeveloperMode(), getIsWin());
         SearchNumberDefender searchNumberDefender = new SearchNumberDefender(getNbrDigit(), getNbrOfTry(), getDeveloperMode(), getIsWin());
 
