@@ -29,8 +29,8 @@ public class SearchNumberChallenger extends SearchNumber {
         System.out.println("tu as " + nbrOfTry + " essai.");
 
         // Je lance le jeux
-        int nbrLoopChallengerMode = nbrOfTry;
         int loopForChallengerMode = 0;
+        int inverseLoop = nbrOfTry;
 
         do {
             loopForChallengerMode += 1;
@@ -51,24 +51,16 @@ public class SearchNumberChallenger extends SearchNumber {
             else {System.out.println("");}
 
             // je teste si gagnant ou perdant
-            boolean winTestChallenger = this.isWin;
-            if (winTestChallenger) {
-                System.out.println(" Exellent tu as gagné !!! au " + loopForChallengerMode + "ème essai." );
-                isWin = true;
-                nbrLoopChallengerMode = 0;
-                logger.info("l'utilisateur a gagné contre l'ordinateur aprés " + loopForChallengerMode + " essais");
-                System.out.println("");
-            } else {
-                nbrLoopChallengerMode--;
-                System.out.println(" il te reste " + nbrLoopChallengerMode + " essai.");
-            }
-        } while (nbrLoopChallengerMode != 0);
-        if (!isWin) {
-            System.out.println(" tu as perdu... :-(");
-            System.out.println("-----> la combinaison mystère etait: " + randCompChallenger);
-            System.out.println("");
-            logger.info("l'utilisateur a perdu");
-        }
+            this.testIfUserWinChallengerMode(loopForChallengerMode, randCompChallenger,nbrUserChallenger,inverseLoop);
+            inverseLoop -= 1;
+
+        } while (inverseLoop != 0);
+        System.out.println(" tu as perdu... :-(");
+        System.out.println("");
+        logger.info("l'utilisateur a perdu");
+        System.out.println("-----> la combinaison mystère etait: " + randCompChallenger);
+        System.out.println("");
+
         //lancement du menu pour replay
         this.replay();
     }

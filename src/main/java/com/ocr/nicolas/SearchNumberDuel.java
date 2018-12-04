@@ -1,6 +1,25 @@
 package com.ocr.nicolas;
 
+import com.ocr.nicolas.utils.Utils;
+
+import java.util.Map;
+
 public class SearchNumberDuel extends SearchNumber{
+
+    private int loopForDuelMode = 1; //nbr of loop
+
+    // challenger
+    private String randCompDuel; //String Random Computer -> challenger
+    private String nbrUserDuelChallenger; // string user -> challenger (change with loop)
+    private String afterCompareDuel; //value after compare -> challenger
+
+    // defender
+    private String nbrUserDuelDefender = ""; //String user input ->  defender
+    private String valueUserInString = ""; //String values input (+-=+) pour le mode defender
+    private String compDuelFirstString; // 1er String comp -> "5555"
+
+
+
 
 
     public SearchNumberDuel(int nbrDigit, int nbrOfTry, String developerMode) {
@@ -9,51 +28,132 @@ public class SearchNumberDuel extends SearchNumber{
 
     public void playDuelMode() {
 
-        //qui commence? pile ou face
-        this.headsOrTails();
+        //objet
+        MenuDisplay display = new MenuDisplay();
 
+        //variable
+        int inverseLoop = nbrOfTry;
 
+        //annonce du nombre global d'essai possible
+        System.out.println("il y aura " + nbrOfTry + " essai(s) possible pour trouver les combinaisons.");
+        System.out.println("");
 
+        // random computeur
+        randCompDuel = this.computerNbrCombination(0, 9);
+        logger.info("--------> aleatoire String computeur = " + randCompDuel);
 
-        //todo demande qui joue en premier -> ordinateur ou user (question 3 au mentor, j'ai une preference pour commencement par ordi ça simplifi mon code ->)
-        //todo methode pile ou face pour savoir qui joue en premier??
-        //todo demande une combinaison utilisateur (mode Defender)
-        //todo creation d'une combinaison aléatoire ordinateur (mode Challenger)
-        //todo annonce le nombre global d'essai possible
+        //************** Defender1************************
+        System.out.println("**** 1er essai mode defender (l'ordinateur doit trouver ta combinaison) *****");
 
-        //todo: do
+        //demande une combinaison utilisateur (mode Defender)
+        display.displayAskNumber(nbrDigit);
+        nbrUserDuelDefender = display.getUserChoiceStringExport(); //-> variable string utilisateur = nbrUserDefender
+        logger.info("nombre entré par l'utilisateur = " + nbrUserDuelDefender);
 
-        //todo: -> premier essai
-        //todo defender 1: creation d'une hashMap base avec les limite Max, Min et digitok incrementé par digit.
-        //todo defender 1: premier jet computeur  uniquement des "5" et affichage sur la console
-        //todo challenger 1: Je lance la comparaison et j'affiche le resultat.
-        //todo challenger 1: je verifie si le Mode developper a été demandé
-        //todo verification si il y a un gagnant du premier coup
+        //defender 1: creation d'une hashMap base avec les limite Max, Min et digitok incrementé par digit.
+        Map<String, Integer> completeHashMapBase = Utils.createHashMapBase(nbrDigit);
+        logger.info(" hashMap Base dans la class Main = " + completeHashMapBase);
 
-        //todo: -> deuxieme essai computeur (et user (si il y a choix du commencement au debut))
-        //todo defender 2: lancement des nouveaux DichotomousDigits computeur avec les infos de la hashmapRefined
-        //todo defender 2: j'affiche le nouvel essai computeur
-        //todo verification si gagnant
-        //todo challenger 2 : J'affiche la demande de nombre utilisateur et recupere la valeur (si il y a choix du commencement au debut)
-        //todo challenger 2 : Je lance la comparaison et j'affiche le resultat. (si il y a choix du commencement au debut)
-        //todo challenger 2 : je verifie si le Mode developper a été demandé (si il y a choix du commencement au debut)
-        //todo verification si gagnant
+        //defender 1: premier jet computeur  uniquement des "5" et affichage sur la console
+        compDuelFirstString = this.fiveOnlyDigit();
+        logger.info("premier jet aleatoire computeur = " + compDuelFirstString);
+        System.out.println(compDuelFirstString);
 
-        //todo  while -> essai en boucle a partir d'ici
+        // j'affiche la demande de valeur
+        display.displayForValueToUser();
 
-        //todo challenger 3 et suivant: J'affiche la demande de nombre utilisateur et recupere la valeur
-        //todo challenger 3 et suivant: Je lance la comparaison et j'affiche le resultat.
-        //todo challenger 3 et suivant: je verifie si le Mode developper a été demandé
-        //todo verification si gagnant
+        // je check si erreur ou tricherie
+        valueUserInString = this.inputValuesUserAndCheckIfCheat(nbrUserDuelDefender, compDuelFirstString);
 
-        //todo defender 3 et suivant: j'affiche la demande de valeur
-        //todo defender 3 et suivant: je check si erreur ou tricherie
-        //todo defender 3 et suivant: je fais des nouveaux chiffres computer avec les  nouvelles valeurs
-        //todo defender 3 et suivant:  j'affiche le nouvel essai computeur
-        //todo verification si gagnant
+        // je renseigne la hashmap
+        Map<String, Integer> hashmapRefined = this.infoDigitForRefinedToHahMap(completeHashMapBase, compDuelFirstString, valueUserInString);
+        logger.info("nouvelle hasmap refined = " + hashmapRefined);
 
+        // check si gagnant au premier coup
+        this.testIfComputerWinDefenderMode(loopForDuelMode);
+        logger.info("ordi gagnant ? = " + isWin);
 
+        System.out.println("L'ordinateur n'a pas trouver ta combinaison au 1er essai");
+        System.out.println("");
 
+        //*********** Challenger1******************
+        System.out.println("**** 1er essai mode Challenger (Tu dois trouver la combinaison de l'ordinateur) *****");
+        System.out.println(" Voici les valeurs pour trouver la combinaison de l'ordinateur:");
+
+        // je verifie et j'affiche si le Mode developper a été demandé
+        if (developerMode.contains("true")) {System.out.println("(" + randCompDuel + ") = chiffre ordinateur (mode developpeur)");}
+        else {System.out.println("");}
+
+        //challenger 1: Je lance la comparaison et j'affiche le resultat.
+        String afterCompareChallenger = this.CompareTwoString(randCompDuel, nbrUserDuelDefender);
+        System.out.println(afterCompareChallenger);
+        System.out.println(nbrUserDuelDefender + " (rappel de ta combinaison)");
+
+        // J'affiche la demande de nombre utilisateur et recupere la valeur  -> nbrUserDuel
+        System.out.println("");
+        display.displayAskNumber(nbrDigit);
+        nbrUserDuelChallenger = display.getUserChoiceStringExport();
+        logger.info("nombre entré par l'utilisateur = " + nbrUserDuelChallenger);
+
+        // verification si gagnant challenger
+        this.testIfUserWinChallengerMode(loopForDuelMode, randCompDuel,nbrUserDuelChallenger, inverseLoop );
+
+        //************** Defender2************************
+        System.out.println("**** 2eme essai mode defender (l'ordinateur doit trouver ta combinaison) *****");
+
+        //defender 2: lancement des nouveaux DichotomousDigits computeur avec les infos de la hashmapRefined
+        String compDefenderRefined = this.hasmapToDicotomousString(hashmapRefined, compDuelFirstString,valueUserInString,nbrUserDuelDefender);
+        logger.info(" nouveaux digit avec la methode dichotomique = " + compDefenderRefined);
+
+        // j'affiche le nouvel essai computeur
+        System.out.println("");
+        System.out.println(compDefenderRefined);
+
+        // je check si gagnant
+        loopForDuelMode++;
+        this.testIfComputerWinDefenderMode(loopForDuelMode);
+        System.out.println("L'ordinateur n'a pas trouver ta combinaison au 2eme essai");
+        System.out.println("");
+
+        //do {
+            logger.info("************* Debut de la boucle" + loopForDuelMode + "********* ");
+
+            // j'affiche la demande de valeur
+            display.displayForValueToUser();
+            System.out.println(nbrUserDuelDefender + " (rappel de ta combinaison)");
+
+            // je check si erreur ou tricherie
+            valueUserInString = this.inputValuesUserAndCheckIfCheat(nbrUserDuelDefender, compDefenderRefined);
+
+            //*********** Challenger2******************
+            System.out.println("**** 2eme essai mode Challenger (Tu dois trouver la combinaison de l'ordinateur) *****");
+            System.out.println("");
+            System.out.println(" Voici les valeurs pour trouver la combinaison de l'ordinateur:");
+
+            // je verifie et j'affiche si le Mode developper a été demandé
+            if (developerMode.contains("true")) {System.out.println("(" + randCompDuel + ") = chiffre ordinateur (mode developpeur)");}
+            else {System.out.println("");}
+
+            //challenger 2 et suivant: Je lance la comparaison et j'affiche le resultat.
+            afterCompareDuel = this.CompareTwoString(randCompDuel, nbrUserDuelChallenger);
+            System.out.println(afterCompareChallenger);
+            System.out.println(nbrUserDuelDefender + " (rappel de ta combinaison)");
+
+            // J'affiche la demande de nombre utilisateur et recupere la valeur  -> nbrUserDuel
+            System.out.println("");
+            display.displayAskNumber(nbrDigit);
+            nbrUserDuelChallenger = display.getUserChoiceStringExport();
+            logger.info("nombre entré par l'utilisateur = " + nbrUserDuelChallenger);
+
+            // verification si gagnant challenger
+            this.testIfUserWinChallengerMode(loopForDuelMode, randCompDuel,nbrUserDuelChallenger, inverseLoop );
+            inverseLoop -= 1;
+
+            //todo defender 3 et suivant: je fais des nouveaux chiffres computer avec les  nouvelles valeurs
+            //todo defender 3 et suivant:  j'affiche le nouvel essai computeur
+            //todo verification si gagnant
+            //todo while
+        //}
 
 
         //replay

@@ -465,6 +465,24 @@ public class SearchNumber extends Games {
         return isWin;
     }
 
+    public void testIfUserWinChallengerMode (int ploop, String pcomp, String puser, int pinverseLoop) {
+
+
+        if (pcomp.contains(puser)) {
+            System.out.println(" Exellent tu as gagné !!! au " + ploop + "ème essai." );
+            isWin = true;
+            logger.info("l'utilisateur a gagné contre l'ordinateur aprés " + ploop + " essais");
+            System.out.println("");
+
+            // je lance le replay
+            this.replay();
+        } else {
+            System.out.println(" il te reste " + (pinverseLoop - 1) + " essai pour trouver la combinaison de l'ordinateur");
+        }
+    }
+
+
+
     /**
      * For redirection of replay or leave
      */

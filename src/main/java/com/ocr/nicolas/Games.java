@@ -80,7 +80,7 @@ public class Games {
         Boolean luck = true;
         Boolean responseIsGood = false;
 
-        System.out.println("Qui commence ?");
+        System.out.println("Qui commence a deviner la combinaison mystère ?");
 
         do {
             System.out.println("Choisi pile ou face :");
