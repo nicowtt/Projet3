@@ -46,16 +46,12 @@ public class SearchNumberDefender extends SearchNumber {
         // j'affiche la demande de valeur
         display.displayForValueToUser();
 
-        // je check si erreur ou tricherie
-        valueUserInString = this.inputValuesUserAndCheckIfCheat(nbrUserDefender, compDefenderString1);
+        // je check si erreur ou tricherie et si ordi gagne
+        valueUserInString = this.inputValuesUserAndCheckIfCheat(nbrUserDefender, compDefenderString1, loopForDefenderMode);
 
         // je renseigne la hashmap
         Map<String, Integer> hashmapRefined = this.infoDigitForRefinedToHahMap(completeHashMapBase, compDefenderString1, valueUserInString);
         logger.info("nouvelle hasmap refined = " + hashmapRefined);
-
-        // check si gagnant au premier coup
-        this.testIfComputerWinDefenderMode(loopForDefenderMode);
-        logger.info("ordi gagnant ? = " + isWin);
 
         // lancement des nouveaux DichotomousDigits computeur avec les infos de la hashmapRefined
         String compDefenderRefined = this.hasmapToDicotomousString(hashmapRefined, compDefenderString1,valueUserInString,nbrUserDefender);
@@ -64,19 +60,17 @@ public class SearchNumberDefender extends SearchNumber {
         // j'affiche le nouvel essai computeur
         System.out.println(compDefenderRefined);
 
-        // je check si gagnant
-        loopForDefenderMode++;
-        this.testIfComputerWinDefenderMode(loopForDefenderMode);
-
         do {
+
             // debut de la boucle (jusqu'a -> computer gagne ou fin des essais, il perd)
             logger.info("************* Debut de la boucle" + loopForDefenderMode + "********* ");
+            loopForDefenderMode++;
 
             // j'affiche la demande de valeur
             display.displayForValueToUser();
 
-            // je check si erreur ou tricherie
-            valueUserInString = this.inputValuesUserAndCheckIfCheat(nbrUserDefender, compDefenderRefined);
+            // je check si erreur ou tricherie et si ordi gagne
+            valueUserInString = this.inputValuesUserAndCheckIfCheat(nbrUserDefender, compDefenderRefined,loopForDefenderMode );
 
             // je fais des nouveaux chiffres computer avec les  nouvelles valeurs
             compDefenderRefined = this.hasmapToDicotomousString(hashmapRefined,compDefenderRefined,valueUserInString,nbrUserDefender);
@@ -84,13 +78,11 @@ public class SearchNumberDefender extends SearchNumber {
 
             // j'affiche le nouvel essai computeur
             System.out.println(compDefenderRefined);
-            loopForDefenderMode++;
-
-            // je check si gagnant
-            this.testIfComputerWinDefenderMode(loopForDefenderMode);
 
         } while (loopForDefenderMode != nbrOfTry);
-        this.testIfComputerWinDefenderMode(loopForDefenderMode);
+
+        //lancement du menu pour replay
+        this.replay();
     }
 }
 

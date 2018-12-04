@@ -418,7 +418,7 @@ public class SearchNumber extends Games {
     /**
      * for correct input value + no cheat
      */
-    public String inputValuesUserAndCheckIfCheat (String puser,String pcomp) {
+    public String inputValuesUserAndCheckIfCheat (String puser,String pcomp, int ploop) {
         // variable
         boolean cheakCheatInput;
         boolean cheakCheat;
@@ -440,36 +440,34 @@ public class SearchNumber extends Games {
 
         }while (cheakCheat);
 
+        // comparaison pour voir si computeur gagne
+        if (pcomp.contains(puser)) {
+            System.out.println(" l'ordinateur a trouvé ta combinaison en " +  ploop + " coup(s)");
+            System.out.println("");
+            logger.info("L'ordinateur a gagné en " + ploop + "coup(s)");
+            // je lance le replay
+            this.replay();
+        }
+
+        /*
+        if (ploop == nbrOfTry) {
+            System.out.println(" l'ordinateur n'a plus d'essai, tu as gagné !!");
+            System.out.println("");
+            logger.info("l'utilisateur a gagné");
+            // je lance le replay
+            this.replay();
+
+        }*/
+
         return valueUserInString;
     }
 
-
-
-    public boolean testIfComputerWinDefenderMode(int pTry) {
-
-        //objets
-        SearchNumberDefender defender = new SearchNumberDefender(nbrDigit,nbrOfTry,developerMode);
-
-        if (isWin && pTry <= nbrOfTry) {
-            System.out.println(" l'ordinateur a trouvé ta combinaison en " + pTry + " essai(s)");
-            System.out.println("");
-            logger.info("l'ordi a gagné au " + (defender.getLoopForDefenderMode() + 1) + "ème essais");
-            // je lance la methode replay
-            this.replay();
-        }
-        if (pTry >= nbrOfTry) {
-            System.out.println("l'ordinateur n'a pas trouvé ta combinaison de chiffre(s), tu as gagné !!!");
-            System.out.println("");
-            // je lance la methode replay
-            this.replay();}
-        return isWin;
-    }
 
     public void testIfUserWinChallengerMode (int ploop, String pcomp, String puser, int pinverseLoop) {
 
 
         if (pcomp.contains(puser)) {
-            System.out.println(" Exellent tu as gagné !!! au " + ploop + "ème essai." );
+            System.out.println(" Exellent tu as gagné !!! en " + ploop + " coup(s)." );
             isWin = true;
             logger.info("l'utilisateur a gagné contre l'ordinateur aprés " + ploop + " essais");
             System.out.println("");
@@ -477,10 +475,9 @@ public class SearchNumber extends Games {
             // je lance le replay
             this.replay();
         } else {
-            System.out.println(" il te reste " + (pinverseLoop - 1) + " essai pour trouver la combinaison de l'ordinateur");
+            System.out.println("Faux ! il te reste " + (pinverseLoop) + " essai pour trouver la combinaison de l'ordinateur");
         }
     }
-
 
 
     /**
