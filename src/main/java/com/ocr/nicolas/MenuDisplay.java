@@ -125,7 +125,7 @@ public class MenuDisplay {
         int counterTotalLetter = 0;
         int tooManyNbr = 0;
 
-        System.out.println("Choisi une combinaison de " + nbr + " chiffre :");
+        System.out.println("Choisi une combinaison de " + nbr + " chiffre(s) :");
 
         do {
             try {

@@ -87,6 +87,13 @@ public class SearchNumberDuel extends SearchNumber{
         //challenger 1: Je lance la comparaison et j'affiche le resultat.
         String afterCompareChallenger = this.CompareTwoString(randCompDuel, nbrUserDuelDefender);
         System.out.println(afterCompareChallenger);
+
+        // si l'utilisateur trouve la combinaison ordinateur du premier coup (ça peut arriver avec un digit par ex)
+        if (nbrUserDuelDefender.contains(randCompDuel)) {
+            System.out.println("Félicitation tu as trouvé la combinaison de l'ordinateur du premier coup !!");
+            System.out.println("");
+            this.replay();
+        }
         System.out.println(nbrUserDuelDefender + " (rappel de ta combinaison)");
 
         // J'affiche la demande de nombre utilisateur et recupere la valeur  -> nbrUserDuel
