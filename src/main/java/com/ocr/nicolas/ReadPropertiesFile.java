@@ -15,12 +15,14 @@ public class ReadPropertiesFile {
     private int nbrDigit;
     private String developerMode;
     private int nbrOfTry;
+    private int nbrMaxOnDigit;
 
     public int getNbrOfTry() { return nbrOfTry; }
     public String getDeveloperMode() { return developerMode; }
     public int getNbrDigit() {
         return nbrDigit;
     }
+    public int getNbrMaxOnDigit() {return nbrMaxOnDigit;}
 
 
     static final Logger logger = LogManager.getLogger();
@@ -58,6 +60,9 @@ public class ReadPropertiesFile {
 
             nbrOfTry = Integer.parseInt(prop.getProperty("NbrOfTry"));
             logger.info("variable nbrOfTry = "+ nbrOfTry);
+
+            nbrMaxOnDigit = Integer.parseInt(prop.getProperty("NbrMaxOnDigit"));
+            logger.info("variable nbrMaxOnDigit = "+ nbrMaxOnDigit);
 
 
 

@@ -7,13 +7,14 @@ public class MastermindChallenger extends Mastermind {
 
     static final Logger logger = LogManager.getLogger();
 
-    public MastermindChallenger(int nbrDigit, int nbrOfTry, String developerMode) {
-        super(nbrDigit, nbrOfTry, developerMode);
+    public MastermindChallenger(int nbrDigit, int nbrOfTry, String developerMode, int nbrMaxOnDigit) {
+        super(nbrDigit, nbrOfTry, developerMode, nbrMaxOnDigit);
     }
+
 
     protected void playChallengerModeMastermind () {
 
-        System.out.println("Mastermind is begin");
+
         this.replay();
 
     }

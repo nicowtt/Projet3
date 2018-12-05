@@ -2,8 +2,11 @@ package com.ocr.nicolas;
 
 public class Mastermind extends Games{
 
-    public Mastermind(int nbrDigit, int nbrOfTry, String developerMode) {
+    protected int nbrMaxOnDigit;
+
+    public Mastermind(int nbrDigit, int nbrOfTry, String developerMode, int nbrMaxOnDigit) {
         super(nbrDigit, nbrOfTry, developerMode);
+        this.nbrMaxOnDigit = nbrMaxOnDigit;
     }
 
 
@@ -20,7 +23,7 @@ public class Mastermind extends Games{
         int gameTypeChoice = display.displayGameTypeChoice();
 
         // objets
-        MastermindChallenger mastermindChallenger = new MastermindChallenger(nbrDigit,nbrOfTry,developerMode);
+        MastermindChallenger mastermindChallenger = new MastermindChallenger(nbrDigit,nbrOfTry,developerMode, nbrMaxOnDigit);
 
         do
             switch (gameTypeChoice) {

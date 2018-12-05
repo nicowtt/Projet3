@@ -24,8 +24,10 @@ public class WritePropertiesFile {
 
         //Line to write in .properties
         prop.setProperty("DeveloperMode", "true");
-        prop.setProperty("NbrDigit", "1");
-        prop.setProperty("NbrOfTry", "6");
+        prop.setProperty("NbrDigit", "2");
+        prop.setProperty("NbrOfTry", "3");
+        prop.setProperty("NbrMaxOnDigit", "4");
+
 
 
         try {

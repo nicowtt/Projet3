@@ -17,8 +17,8 @@ public class Games {
     protected int nbrOfTry;
     protected String developerMode;
 
-    //pour le mastermind
-    protected int nbrDigitUsable;
+    //Pour le mastermind
+    protected int nbrMaxOnDigit;
 
     public Games(int nbrDigit, int nbrOfTry, String developerMode) {
         this.nbrDigit = nbrDigit;
@@ -36,6 +36,7 @@ public class Games {
         nbrDigit = read.getNbrDigit();
         developerMode = read.getDeveloperMode(); // developer mode?
         nbrOfTry = read.getNbrOfTry();
+        nbrMaxOnDigit = read.getNbrMaxOnDigit();
         boolean isWin = false;
 
         logger.info("info dans la class mere Games (nbrDigit= "+ nbrDigit +" nbrOfTry = " + nbrOfTry +" developerMode =" + developerMode);
@@ -58,7 +59,7 @@ public class Games {
                 }
             case 2:
                 while (gamesMenuChoice == 2) {
-                    Mastermind mastermind = new Mastermind(nbrDigit,nbrOfTry,developerMode);
+                    Mastermind mastermind = new Mastermind(nbrDigit,nbrOfTry,developerMode, nbrMaxOnDigit);
                     mastermind.playMastermind();
                     break;
                 }
