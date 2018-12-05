@@ -1,0 +1,13 @@
+2018-12-05 18:13:11.668 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - developerMode: true
+2018-12-05 18:13:11.671 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - variable NbrDigit = 2
+2018-12-05 18:13:11.671 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - variable nbrOfTry = 3
+2018-12-05 18:13:11.671 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - variable nbrMaxOnDigit = 4
+2018-12-05 18:13:11.671 [main] INFO  com.ocr.nicolas.Games - info dans la class mere Games (nbrDigit= 2 nbrOfTry = 3 developerMode =true
+2018-12-05 18:13:13.837 [main] INFO  com.ocr.nicolas.Log4j - Choix du jeux (1- Recherche+/- ; 2- Mastermind; 3 -arret) -> 2
+2018-12-05 18:13:14.238 [main] INFO  com.ocr.nicolas.Log4j - Mode de jeux (1- Challenger ; 2- défenseur ; 3- Duel) -> 1
+2018-12-05 18:13:14.238 [main] INFO  com.ocr.nicolas.Games - Ordinateur combinaison = 24
+2018-12-05 18:13:14.238 [main] INFO  com.ocr.nicolas.Games - liste chiffres ok = [4, 3, 2, 1, 0]
+2018-12-05 18:13:20.315 [main] INFO  com.ocr.nicolas.Games - mauvaise entrée utilisateur
+2018-12-05 18:13:23.114 [main] INFO  com.ocr.nicolas.Games - mauvaise entrée utilisateur
+2018-12-05 18:13:25.019 [main] INFO  com.ocr.nicolas.Games -  entrée finale utilisateur = 04
+2018-12-05 18:13:25.022 [main] INFO  com.ocr.nicolas.Log4j - 

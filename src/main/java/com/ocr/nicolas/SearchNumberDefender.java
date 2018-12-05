@@ -12,6 +12,7 @@ public class SearchNumberDefender extends SearchNumber {
     private String compDefenderString1 = ""; // First computeur nbr
     private String getCompDefenderString = ""; // computeur nbr (in loop)
 
+
     public SearchNumberDefender(int nbrDigit, int nbrOfTry, String developerMode) {
         super(nbrDigit, nbrOfTry, developerMode);
     }

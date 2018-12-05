@@ -69,6 +69,34 @@ public class Games {
     }
 
     /**
+     * for make random computer number(s) combination
+     *
+     * @return random digit number (type of character string)
+     */
+    protected String computerNbrCombination(int min, int max) {
+
+        String finalRandomDigitNumberString = "";
+        int counterNbrDigit = this.nbrDigit;
+
+        while (counterNbrDigit >= 1) {
+
+            //int de 0 a 9 (base 10) avec min et max
+            int base10RandomDigitNumber = min + (int) (Math.random() * ((max - min) + 1));
+            //logger.info("base 10 random =" + base10RandomDigitNumber);
+
+            // je converti le chiffre en string
+            String base10RandomDigitNumberString = String.valueOf(base10RandomDigitNumber);
+
+            // Je l'ajoute au string computer final
+            finalRandomDigitNumberString = finalRandomDigitNumberString + base10RandomDigitNumberString;
+
+            // j'incremente le compteur
+            counterNbrDigit--;
+        }
+        return finalRandomDigitNumberString;
+    }
+
+    /**
      * for play headsOrTails (Pile ou face en fr)
      *
      * @return boolean luck (luck or no luck)
