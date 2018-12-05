@@ -118,4 +118,22 @@ public class Games {
 
         return luck;
     }
+
+    /**
+     * For redirection of replay or leave
+     */
+    protected void replay() {
+
+        // objets
+        MenuDisplay display = new MenuDisplay();
+        SearchNumber searchNumber = new SearchNumber(nbrDigit, nbrOfTry, developerMode);
+
+
+        // affichage console for replay et redirection
+        display.displayAskIfReplay();
+        int replayIntern = display.displayReplayChoice();
+        if (replayIntern == 1) {searchNumber.playSearchNumber();}
+        if (replayIntern == 2) {this.playGames();}
+        if (replayIntern == 3) {System.exit(0);}
+    }
 }

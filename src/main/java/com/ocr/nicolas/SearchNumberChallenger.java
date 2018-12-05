@@ -15,7 +15,7 @@ public class SearchNumberChallenger extends SearchNumber {
      * For play Challenger mode of Search Number
      * @return
      */
-    public void playChallengerMode () {
+    public void playChallengerModeSearchNumber() {
 
         // declaration objets et mise a zero variable
         MenuDisplay display = new MenuDisplay();
@@ -51,14 +51,15 @@ public class SearchNumberChallenger extends SearchNumber {
             else {System.out.println("");}
 
             // je teste si gagnant ou perdant
-            this.testIfUserWinChallengerMode(loopForChallengerMode, randCompChallenger,nbrUserChallenger,inverseLoop);
             inverseLoop -= 1;
+            this.testIfUserWinChallengerMode(loopForChallengerMode, randCompChallenger,nbrUserChallenger,inverseLoop);
+
 
         } while (inverseLoop != 0);
         System.out.println(" tu as perdu... :-(");
         System.out.println("");
         logger.info("l'utilisateur a perdu");
-        System.out.println("-----> la combinaison mystère etait: " + randCompChallenger);
+        System.out.println("-----> la combinaison mystère était: " + randCompChallenger);
         System.out.println("");
 
         //lancement du menu pour replay
@@ -67,7 +68,7 @@ public class SearchNumberChallenger extends SearchNumber {
 }
 
 
-// ( * pour info * methode "playChallengerMode" total = 57 - 24 lignes (espace , teste et logger) ->  33 lignes
+// ( * pour info * methode "playChallengerModeSearchNumber" total = 49 - 25 lignes (espace , teste et logger) ->  24 lignes
 
 
 

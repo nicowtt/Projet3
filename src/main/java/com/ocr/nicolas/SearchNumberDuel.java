@@ -19,20 +19,18 @@ public class SearchNumberDuel extends SearchNumber{
     private String compDuelFirstString; // 1er String comp -> "5555"
 
 
-
-
-
     public SearchNumberDuel(int nbrDigit, int nbrOfTry, String developerMode) {
         super(nbrDigit, nbrOfTry, developerMode);
     }
 
-    public void playDuelMode() {
+    public void playDuelModeSearchNumber() {
 
         //objet
         MenuDisplay display = new MenuDisplay();
 
         //variable
         int inverseLoop = nbrOfTry;
+        int inverseLoopDefender =nbrOfTry;
 
         //annonce du nombre global d'essai possible
         System.out.println("il y aura " + nbrOfTry + " essai(s) possible pour trouver les combinaisons.");
@@ -43,14 +41,24 @@ public class SearchNumberDuel extends SearchNumber{
         logger.info("--------> aleatoire String computeur = " + randCompDuel);
 
         //************** Defender1************************
-        System.out.println("*****************************************************************************");
-        System.out.println("**** " + loopForDuelMode + "er essai mode defender (l'ordinateur doit trouver ta combinaison) *****");
+        System.out.println("**** " + loopForDuelMode + "er essai  *****");
         logger.info("-------------------- Defender Mode 1 ----------------");
 
-        //demande une combinaison utilisateur (mode Defender)
+        //demande une combinaison utilisateur (mode melangé)
         display.displayAskNumber(nbrDigit);
         nbrUserDuelDefender = display.getUserChoiceStringExport(); //-> variable string utilisateur = nbrUserDefender
         logger.info("nombre entré par l'utilisateur = " + nbrUserDuelDefender);
+
+        //challenger 1: Je lance la comparaison
+        String firstCompareChallenger = this.CompareTwoString(randCompDuel, nbrUserDuelDefender);
+        logger.info(" premiere comparaison challenger mode duel " + firstCompareChallenger);
+
+        // si l'utilisateur trouve la combinaison ordinateur du premier coup (ça peut arriver avec un digit par ex)
+        if (nbrUserDuelDefender.contains(randCompDuel)) {
+            System.out.println("Félicitation tu as trouvé la combinaison de l'ordinateur du premier coup !!");
+            System.out.println("");
+            this.replay();
+        }
 
         //defender 1: creation d'une hashMap base avec les limite Max, Min et digitok incrementé par digit.
         Map<String, Integer> completeHashMapBase = Utils.createHashMapBase(nbrDigit);
@@ -63,21 +71,23 @@ public class SearchNumberDuel extends SearchNumber{
 
         // j'affiche la demande de valeur
         display.displayForValueToUser();
+        inverseLoopDefender--;
 
         // je check si erreur ou tricherie et si ordi gagne
-        valueUserInString = this.inputValuesUserAndCheckIfCheat(nbrUserDuelDefender, compDuelFirstString, loopForDuelMode);
+        valueUserInString = this.inputValuesUserAndCheckIfCheat(nbrUserDuelDefender, compDuelFirstString, loopForDuelMode, inverseLoopDefender);
 
         // je renseigne la hashmap
         Map<String, Integer> hashmapRefined = this.infoDigitForRefinedToHahMap(completeHashMapBase, compDuelFirstString, valueUserInString);
         logger.info("nouvelle hasmap refined = " + hashmapRefined);
 
-        System.out.println("--> L'ordinateur n'a pas trouver ta combinaison au 1er essai.");
+        //System.out.println("--> L'ordinateur n'a pas trouver ta combinaison au 1er essai.");
         System.out.println("");
 
         //*********** Challenger1******************
-        inverseLoop -= 1;
-        System.out.println("*************************************************************************************");
-        System.out.println("**** " + loopForDuelMode + "er essai mode Challenger (Tu dois trouver la combinaison de l'ordinateur) *****");
+        inverseLoop--;
+        loopForDuelMode++;
+        System.out.println("*********************");
+        System.out.println("**** " + loopForDuelMode + "eme essai *****");
         logger.info("-------------------- Challenger Mode 1 ----------------");
         System.out.println(" Voici les valeurs pour trouver la combinaison de l'ordinateur:");
 
@@ -86,15 +96,8 @@ public class SearchNumberDuel extends SearchNumber{
 
         //challenger 1: Je lance la comparaison et j'affiche le resultat.
         String afterCompareChallenger = this.CompareTwoString(randCompDuel, nbrUserDuelDefender);
-        System.out.println(afterCompareChallenger);
-
-        // si l'utilisateur trouve la combinaison ordinateur du premier coup (ça peut arriver avec un digit par ex)
-        if (nbrUserDuelDefender.contains(randCompDuel)) {
-            System.out.println("Félicitation tu as trouvé la combinaison de l'ordinateur du premier coup !!");
-            System.out.println("");
-            this.replay();
-        }
         System.out.println(nbrUserDuelDefender + " (rappel de ta combinaison)");
+        System.out.println(afterCompareChallenger);
 
         // J'affiche la demande de nombre utilisateur et recupere la valeur  -> nbrUserDuel
         System.out.println("");
@@ -107,9 +110,7 @@ public class SearchNumberDuel extends SearchNumber{
         System.out.println("");
 
         //************** Defender2************************
-
-        System.out.println("******************************************************************************");
-        System.out.println("**** " + (loopForDuelMode + 1) + "eme essai mode defender (l'ordinateur doit trouver ta combinaison) *****");
+        System.out.println("** au tour de l'ordinateur **");
         logger.info("-------------------- Defender Mode 2 ----------------");
 
         //defender 2: lancement des nouveaux DichotomousDigits computeur avec les infos de la hashmapRefined
@@ -117,26 +118,23 @@ public class SearchNumberDuel extends SearchNumber{
         logger.info(" nouveaux digit avec la methode dichotomique = " + compDefenderRefined);
 
         // j'affiche le nouvel essai computeur
+        System.out.println(nbrUserDuelDefender + " (rappel de ta combinaison)");
         System.out.println(compDefenderRefined);
 
         do {
             logger.info("************* Debut de la boucle" + loopForDuelMode + "********* ");
             loopForDuelMode++;
-
             // j'affiche la demande de valeur
             display.displayForValueToUser();
-            System.out.println(nbrUserDuelDefender + " (rappel de ta combinaison)");
+            inverseLoopDefender--;
 
             // je check si erreur ou tricherie et si ordi gagne
-            valueUserInString = this.inputValuesUserAndCheckIfCheat(nbrUserDuelDefender, compDefenderRefined, loopForDuelMode);
-
-            System.out.println("--> L'ordinateur n'a pas trouver ta combinaison au " + loopForDuelMode + "eme essai");
-            System.out.println("");
+            valueUserInString = this.inputValuesUserAndCheckIfCheat(nbrUserDuelDefender, compDefenderRefined, loopForDuelMode, inverseLoopDefender);
 
             //*********** Challenger2******************
             inverseLoop -= 1;
-            System.out.println("**************************************************************************************");
-            System.out.println("**** " + loopForDuelMode + "eme essai mode Challenger (Tu dois trouver la combinaison de l'ordinateur) *****");
+            System.out.println("*********************************");
+            System.out.println("**** " + loopForDuelMode + "eme essai  *****");
             logger.info("-------------------- Challenger Mode boucle " + loopForDuelMode + "----------------");
             System.out.println(" Voici les valeurs pour trouver la combinaison de l'ordinateur:");
 
@@ -145,8 +143,8 @@ public class SearchNumberDuel extends SearchNumber{
 
             //challenger 2 et suivant: Je lance la comparaison et j'affiche le resultat.
             afterCompareDuel = this.CompareTwoString(randCompDuel, nbrUserDuelChallenger);
-            System.out.println(afterCompareDuel);
             System.out.println(nbrUserDuelChallenger + " (rappel de ta combinaison)");
+            System.out.println(afterCompareDuel);
 
             // J'affiche la demande de nombre utilisateur et recupere la valeur  -> nbrUserDuel
             System.out.println("");
@@ -157,25 +155,27 @@ public class SearchNumberDuel extends SearchNumber{
             // verification si gagnant challenger
             this.testIfUserWinChallengerMode(loopForDuelMode, randCompDuel,nbrUserDuelChallenger, inverseLoop );
 
-            if (nbrOfTry > 2) {
+            if (nbrOfTry > 2 ) {
                 //************** Defender3************************
-                System.out.println("************************************************************************************");
-                System.out.println("**** " + (loopForDuelMode + 1) + "eme essai mode defender (l'ordinateur doit trouver ta combinaison) *****");
                 logger.info("-------------------- Defender Mode boucle " + loopForDuelMode + "----------------");
+                System.out.println("");
+                System.out.println(" ** au tour de l'ordinateur ** ");
 
                 //defender 3 et suivant: je fais des nouveaux chiffres computer avec les  nouvelles valeurs
                 compDefenderRefined = this.hasmapToDicotomousString(hashmapRefined,compDefenderRefined,valueUserInString,nbrUserDuelDefender);
                 logger.info("nouveau numero computeur avec methode dicotomous = " + compDefenderRefined);
 
                 //defender 3 j'affiche le nouvel essai computeur
+                System.out.println(nbrUserDuelDefender + " (rappel de ta combinaison)");
                 System.out.println(compDefenderRefined);
             }
 
-        }while (loopForDuelMode != nbrOfTry);
-        System.out.println("et l'ordinateur n'as plus d'essai non plus, donc personne ne gagne !");
+        }while (loopForDuelMode != nbrOfTry + 1);
+        System.out.println(" l'ordinateur n'as plus d'essai non plus, donc personne ne gagne !");
         System.out.println("");
 
         //replay
         this.replay();
     }
 }
+

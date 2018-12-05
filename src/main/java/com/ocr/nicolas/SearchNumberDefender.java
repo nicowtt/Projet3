@@ -21,10 +21,13 @@ public class SearchNumberDefender extends SearchNumber {
     /**
      * For playing DefenderMode of SearchNumber
      */
-    public void playDefenderMode() {
+    public void playDefenderModeSearchNumber() {
 
         //objets
         MenuDisplay display = new MenuDisplay();
+
+        //variable
+        int inverseLoop = nbrOfTry;
 
         // Je donne le nombre d'essai possible
         System.out.println("l'ordinateur a " + nbrOfTry + " essai pour trouver ta combinaison");
@@ -45,9 +48,10 @@ public class SearchNumberDefender extends SearchNumber {
 
         // j'affiche la demande de valeur
         display.displayForValueToUser();
+        inverseLoop--;
 
         // je check si erreur ou tricherie et si ordi gagne
-        valueUserInString = this.inputValuesUserAndCheckIfCheat(nbrUserDefender, compDefenderString1, loopForDefenderMode);
+        valueUserInString = this.inputValuesUserAndCheckIfCheat(nbrUserDefender, compDefenderString1, loopForDefenderMode, inverseLoop);
 
         // je renseigne la hashmap
         Map<String, Integer> hashmapRefined = this.infoDigitForRefinedToHahMap(completeHashMapBase, compDefenderString1, valueUserInString);
@@ -68,9 +72,10 @@ public class SearchNumberDefender extends SearchNumber {
 
             // j'affiche la demande de valeur
             display.displayForValueToUser();
+            inverseLoop--;
 
             // je check si erreur ou tricherie et si ordi gagne
-            valueUserInString = this.inputValuesUserAndCheckIfCheat(nbrUserDefender, compDefenderRefined,loopForDefenderMode );
+            valueUserInString = this.inputValuesUserAndCheckIfCheat(nbrUserDefender, compDefenderRefined,loopForDefenderMode, inverseLoop );
 
             // je fais des nouveaux chiffres computer avec les  nouvelles valeurs
             compDefenderRefined = this.hasmapToDicotomousString(hashmapRefined,compDefenderRefined,valueUserInString,nbrUserDefender);
@@ -80,12 +85,14 @@ public class SearchNumberDefender extends SearchNumber {
             System.out.println(compDefenderRefined);
 
         } while (loopForDefenderMode != nbrOfTry);
+        //System.out.println("l'ordinateur n'as plus d'essai,tu gagne !");
+        //System.out.println("");
 
         //lancement du menu pour replay
         this.replay();
     }
 }
 
-// ( * pour info * methode "playDefenderMode" total = 70 - 44 ligne (espace , teste et logger) -> 26 lignes
+// ( * pour info * methode "playDefenderModeSearchNumber" total = 63 - 41 ligne (espace , teste et logger) -> 22 lignes
 
 

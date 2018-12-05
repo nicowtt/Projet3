@@ -22,7 +22,7 @@ public class SearchNumber extends Games {
      *
      * @return playing
      */
-    public void playSearchNumber() {
+    protected void playSearchNumber() {
 
         // Affichage du menu du type de jeux.
         MenuDisplay display = new MenuDisplay();
@@ -40,21 +40,21 @@ public class SearchNumber extends Games {
             switch (gameTypeChoice) {
                 case 1:
                     while (gameTypeChoice == 1) {
-                        searchNumberChallenger.playChallengerMode();
+                        searchNumberChallenger.playChallengerModeSearchNumber();
                         display.displayAskTypeOfGame();
                         gameTypeChoice = display.displayGameTypeChoice();
                         break;
                     }
                 case 2:
                     while (gameTypeChoice == 2) {
-                        searchNumberDefender.playDefenderMode();
+                        searchNumberDefender.playDefenderModeSearchNumber();
                         display.displayAskTypeOfGame();
                         gameTypeChoice = display.displayGameTypeChoice();
                         break;
                     }
                 case 3:
                     while (gameTypeChoice == 3) {
-                        searchNumberDuel.playDuelMode();
+                        searchNumberDuel.playDuelModeSearchNumber();
                         display.displayAskTypeOfGame();
                         gameTypeChoice = display.displayGameTypeChoice();
                         break;
@@ -418,7 +418,7 @@ public class SearchNumber extends Games {
     /**
      * for correct input value + no cheat
      */
-    public String inputValuesUserAndCheckIfCheat (String puser,String pcomp, int ploop) {
+    public String inputValuesUserAndCheckIfCheat (String puser,String pcomp, int ploop, int pinverseLoop) {
         // variable
         boolean cheakCheatInput;
         boolean cheakCheat;
@@ -448,16 +448,17 @@ public class SearchNumber extends Games {
             // je lance le replay
             this.replay();
         }
-
-        /*
-        if (ploop == nbrOfTry) {
-            System.out.println(" l'ordinateur n'a plus d'essai, tu as gagné !!");
+        // arrêt si plus de nombre d'essai
+        if (nbrOfTry == 1) {
+            System.out.println(" l'ordinateur n'a plus d'essai, tu gagne !");
             System.out.println("");
-            logger.info("l'utilisateur a gagné");
-            // je lance le replay
             this.replay();
-
-        }*/
+        }
+        if (nbrOfTry > 1 && pinverseLoop == 0 ) {
+            System.out.println(" l'ordinateur n'a plus d'essai, tu gagne !");
+            System.out.println("");
+            this.replay();
+        }
 
         return valueUserInString;
     }
@@ -475,26 +476,15 @@ public class SearchNumber extends Games {
             // je lance le replay
             this.replay();
         } else {
-            System.out.println("Faux ! il te reste " + (pinverseLoop) + " essai pour trouver la combinaison de l'ordinateur");
+            if (nbrOfTry == 1 || pinverseLoop == 0) {
+                System.out.println("");
+            }
+            if (nbrOfTry > 1 && pinverseLoop > 0) {
+                System.out.println(" -> ce n'est pas la bonne combinaison !");
+            }
         }
     }
 
-
-    /**
-     * For redirection of replay or leave
-     */
-    public void replay() {
-
-        // objets
-        MenuDisplay display = new MenuDisplay();
-
-        // affichage console for replay et redirection
-        display.displayAskIfReplay();
-        int replayIntern = display.displayReplayChoice();
-        if (replayIntern == 1) {this.playSearchNumber();}
-        if (replayIntern == 2) {this.playGames();}
-        if (replayIntern == 3) {System.exit(0);}
-    }
 
 }
 

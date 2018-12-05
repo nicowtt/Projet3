@@ -6,27 +6,43 @@ public class Mastermind extends Games{
         super(nbrDigit, nbrOfTry, developerMode);
     }
 
-    public void playMastermind() {
-
-        // in progress
-
-        this.replay();
-    }
 
     /**
-     * For redirection of replay or leave
+     * For playing Mastermind Game
      */
-    public void replay() {
+    protected void playMastermind() {
+
+        // Affichage du menu du type de jeux.
+        MenuDisplay display = new MenuDisplay();
+        display.displayAskTypeOfGame();
+
+        // Recuperation variable du type de jeux
+        int gameTypeChoice = display.displayGameTypeChoice();
 
         // objets
-        MenuDisplay display = new MenuDisplay();
+        MastermindChallenger mastermindChallenger = new MastermindChallenger(nbrDigit,nbrOfTry,developerMode);
 
-        // affichage console for replay et redirection
-        display.displayAskIfReplay();
-        int replayIntern = display.displayReplayChoice();
-        if (replayIntern == 1) {this.playMastermind();}
-        if (replayIntern == 2) {this.playGames();}
-        if (replayIntern == 3) {System.exit(0);}
+        do
+            switch (gameTypeChoice) {
+                case 1:
+                    while (gameTypeChoice == 1) {
+                        mastermindChallenger.playChallengerModeMastermind();
+                        display.displayAskTypeOfGame();
+                        gameTypeChoice = display.displayGameTypeChoice();
+                        break;
+                    }
+                case 2:
+                    while (gameTypeChoice == 2) {
+                        break;
+                    }
+                case 3:
+                    while (gameTypeChoice == 3) {
+                        break;
+                    }
+                default:
+                    break;
+            } while (gameTypeChoice == 1 || gameTypeChoice == 2 || gameTypeChoice == 3);
     }
+
 
 }
