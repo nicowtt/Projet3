@@ -2,12 +2,15 @@ package com.ocr.nicolas;
 
 
 import java.util.Map;
+import java.util.Scanner;
 
 public class MastermindChallenger extends Mastermind {
 
     int nbrLoopMastChal = nbrOfTry; // loop while number of try not equal to zero
     String randCompChalMast; // random computer combination (String)
     String userChalMastStr; // user combination (String)
+
+    Scanner sc = new Scanner(System.in);
 
 
 
@@ -42,16 +45,19 @@ public class MastermindChallenger extends Mastermind {
             // j'affiche le mode developpeur au besoin
             if (developerMode.contains("true")) { System.out.println("( combinaison ordi = " +  randCompChalMast + ")");}
 
-            //comparé avec l'ordinateur (en cours)
-            // je compare deux string et je renseigne la hashMap
+            //je compare avec l'ordinateur
             Map<String, Integer> hashMapWithCompareInfo = this.compareTwoStringMastToHashMap(userChalMastStr, randCompChalMast);
-            //todo une methode pour lire la hashMap et renvoyé les information lisible pour l'utilisateur
-            //todo  1 present, 1 bien placé (ou 2 present, ou 2 bien placé) et savoir si l'utilisateur gagne
-        
+            // je traduit cette comparaison
+            Map<String, Integer> hashMapReelInfo = this.displayInformationOfCompare(hashMapWithCompareInfo,userChalMastStr);
+            // j'affiche le resulta
+            this.displayInfoForUser(hashMapReelInfo);
+
+
             //todo while (tous les chiffres bien placés < nombre d'essai)
+            //todo bug quand on rejoue au mastermin challenger
 
         //}while (nbrLoopMastChal != 0);
-        this.replay();
+        this.replayMaster();
 
     }
 

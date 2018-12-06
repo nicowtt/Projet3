@@ -190,7 +190,7 @@ public class MenuDisplay {
         do {
             switch (replayChoice) {
                 case 1:
-                    System.out.println("Tu as choisi de rejouer au jeux Recherche +/- ");
+                    System.out.println("Tu as choisi de rejouer au même jeux ");
                     System.out.println("");
                     responseIsGood = true;
                     break;

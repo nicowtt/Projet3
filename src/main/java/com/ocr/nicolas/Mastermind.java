@@ -4,6 +4,7 @@ import java.util.*;
 
 public class Mastermind extends Games {
 
+
     protected int nbrMaxOnDigit;
 
     public Mastermind(int nbrDigit, int nbrOfTry, String developerMode, int nbrMaxOnDigit) {
@@ -171,7 +172,7 @@ public class Mastermind extends Games {
                         if (hashMapWithCompareInfo.containsValue(k + 1)) {
                             digitrepeat++;
                         } else {
-                            hashMapWithCompareInfo.put("(" + digitrepeat + ")" + "Digit " + digitNumber + " présent a la place ", (k + 1));
+                            hashMapWithCompareInfo.put("(" + digitrepeat + ")" + " Digit " + digitNumber + " présent a la place ", (k + 1));
                             digitrepeat++;
                         }
                     }
@@ -182,4 +183,99 @@ public class Mastermind extends Games {
         return hashMapWithCompareInfo;
     }
 
+    /**
+     * For read and display information Of compare
+     *
+     * @param pHashMap hashMap with information
+     * @return String compare
+     */
+    protected Map<String, Integer> displayInformationOfCompare (Map<String, Integer> pHashMap, String pFirst) {
+
+        //compteur pour incrementé le key de la hash map
+        int count = 1;
+
+        // je cree une hashMap avec les valeurs pour afficher du texte
+        Map<String, Integer> goodForDisplay = new HashMap<>();
+
+        // je cree une arrayList pour mettre les chiffre user -> userList
+        List<Integer> userList = new ArrayList<>();
+        for (int i = 0; i < pFirst.length(); i++) {
+            char letter = pFirst.charAt(i);
+            String letterStr = String.valueOf(letter);
+            Integer letterInt = Integer.valueOf(letterStr);
+            userList.add(letterInt);
+        }
+
+        // si la hashMap a quelque chose je fais tous ça:
+        // je met en forme la hasHMap
+
+        boolean emptyHashMap = pHashMap.isEmpty();
+
+        if (!emptyHashMap) {
+            Iterator iterator = pHashMap.entrySet().iterator();
+            while (iterator.hasNext()) {
+                Map.Entry entry = (Map.Entry) iterator.next();
+                String key = (String) entry.getKey();
+                Integer value = (Integer) entry.getValue(); // ici pour la value de la hasMap
+
+                // j'enleve le (1) devant la key de la hashMap
+                String keyFinal = key.substring(4);
+
+                // je recupere la valeur key pure quel digit vers le chiffre qui est dans ce digit
+                String keyForFindNbr = key.substring(10,11);
+                Integer keyForFindNbrInt = Integer.valueOf(keyForFindNbr); // ici pour la Key (chiffre dans le digit)-> //todo potentiel probleme a identifié
+
+                // je trouve le chiffre qui est dans ce digit
+                if (keyForFindNbrInt == value) {
+                    int nbr = userList.get(keyForFindNbrInt - 1);
+                    logger.info(nbr);
+                    //j'ajoute la premiere valeur a la hashMap
+                    goodForDisplay.put("(" + count + ") bien placé", nbr);
+                    count++;
+                } else {
+                    int nbr = userList.get(keyForFindNbrInt - 1);
+                    logger.info(nbr);
+                    // j'ajoute la premiere valeur a la hashMap
+                    goodForDisplay.put("(" + count + ") présent", nbr);
+                    count++;
+                }
+
+                logger.info(keyFinal + " = " + value);
+                logger.info(goodForDisplay);
+        }
+        }
+        if (emptyHashMap) {
+            System.out.println(" pas de chance ! , aucun présent");
+        }
+        return goodForDisplay;
+    }
+
+    protected void displayInfoForUser (Map<String, Integer> pHashMap) {
+
+        //compteur
+        int present = 0;
+        int goodPlace = 0;
+
+        Iterator iterator = pHashMap.entrySet().iterator();
+        while (iterator.hasNext()) {
+            Map.Entry entry = (Map.Entry) iterator.next();
+            String key = (String) entry.getKey();
+            Integer value = (Integer) entry.getValue(); //Pas utile pour l'instant
+
+            //System.out.println(key);
+            if (key.contains("présent")) {
+                present++;
+            }
+            if (key.contains("bien placé")) {
+                goodPlace++;
+            }
+
+    }
+        if (present > 0) {
+            System.out.println( present + " présent");
+        }
+        if (goodPlace > 0) {
+            System.out.println( goodPlace + " bien placé");
+        }
+    }
 }

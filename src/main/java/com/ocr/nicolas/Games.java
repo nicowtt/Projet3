@@ -17,6 +17,7 @@ public class Games {
     protected int nbrOfTry;
     protected String developerMode;
 
+
     //Pour le mastermind
     protected int nbrMaxOnDigit;
 
@@ -25,6 +26,7 @@ public class Games {
         this.nbrOfTry = nbrOfTry;
         this.developerMode = developerMode;
     }
+
 
     public Games() {
     }
@@ -162,6 +164,24 @@ public class Games {
         display.displayAskIfReplay();
         int replayIntern = display.displayReplayChoice();
         if (replayIntern == 1) {searchNumber.playSearchNumber();}
+        if (replayIntern == 2) {this.playGames();}
+        if (replayIntern == 3) {System.exit(0);}
+    }
+
+    /**
+     * For redirection of replay or leave
+     */
+    protected void replayMaster() {
+
+        // objets
+        MenuDisplay display = new MenuDisplay();
+        Mastermind mastermind = new Mastermind(nbrDigit,nbrOfTry,developerMode,nbrMaxOnDigit);
+
+
+        // affichage console for replay et redirection
+        display.displayAskIfReplay();
+        int replayIntern = display.displayReplayChoice();
+        if (replayIntern == 1) {mastermind.playMastermind();}
         if (replayIntern == 2) {this.playGames();}
         if (replayIntern == 3) {System.exit(0);}
     }
