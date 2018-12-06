@@ -1,10 +1,8 @@
 package com.ocr.nicolas;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
-public class Mastermind extends Games{
+public class Mastermind extends Games {
 
     protected int nbrMaxOnDigit;
 
@@ -29,7 +27,7 @@ public class Mastermind extends Games{
         int gameTypeChoice = display.displayGameTypeChoice();
 
         // objets
-        MastermindChallenger mastermindChallenger = new MastermindChallenger(nbrDigit,nbrOfTry,developerMode, nbrMaxOnDigit);
+        MastermindChallenger mastermindChallenger = new MastermindChallenger(nbrDigit, nbrOfTry, developerMode, nbrMaxOnDigit);
 
         do
             switch (gameTypeChoice) {
@@ -56,9 +54,10 @@ public class Mastermind extends Games{
 
     /**
      * For force user input combination ok
+     *
      * @return user input combination ok (string)
      */
-    protected String inputUserStringMast () {
+    protected String inputUserStringMast() {
 
         boolean responseIsGood = true;
         int digitOk;
@@ -106,7 +105,7 @@ public class Mastermind extends Games{
                     logger.info("mauvaise entrée utilisateur");
                     responseIsGood = false;
                 }
-            } catch (NumberFormatException e ) {
+            } catch (NumberFormatException e) {
                 System.out.println("lettre non accepté, tu doit choisir une combinaison de " + nbrDigit + " chiffre (chiffre entre 0 et " + nbrMaxOnDigit + ")");
                 responseIsGood = false;
             }
@@ -115,6 +114,72 @@ public class Mastermind extends Games{
         logger.info(" entrée finale utilisateur = " + inputUserFinal);
         return inputUserFinal;
 
+    }
+
+    /**
+     * For compare 2 String and put information's (present and good place) on hashMap
+     *
+     * @param pFirst first String to compare
+     * @param pSecond second String to compare
+     * @return hashMap with information
+     */
+    protected Map<String, Integer> compareTwoStringMastToHashMap(String pFirst, String pSecond) {
+
+        // je crée une HashMap pour les futur résultats
+        Map<String, Integer> hashMapWithCompareInfo = new HashMap<>();
+
+        // je crée une ArrayList avec le premier paramètre
+        List<Integer> pFirstList = new ArrayList<>();
+
+        // je crée une seconde ArrayList avec le deuxiemes paramètre
+        List<Integer> pSecondList = new ArrayList<>();
+
+        // je rempli les deux array List ave les valeurs
+        for (int i = 0; i < pFirst.length(); i++) {
+            // pour pFirst
+            char letter = pFirst.charAt(i);
+            String letterStr = String.valueOf(letter);
+            Integer letterInt = Integer.valueOf(letterStr);
+            pFirstList.add(letterInt);
+
+            // pour pSecond
+            char letter2 = pSecond.charAt(i);
+            String letter2Str = String.valueOf(letter2);
+            Integer letter2Int = Integer.valueOf(letter2Str);
+            pSecondList.add(letter2Int);
+        }
+        logger.info("liste a comparer = " + pFirstList + " et " + pSecondList);
+
+        // je regarde si chiffre du premier est present dans l'autre liste et si il est a la bonne place
+
+        int digitNumber = 0; //1er, 2eme, 3em etc... numero de digit
+        int digitFirst; // digit pour comparer avec la deuxieme liste
+        int digitSecond; // digit de comparaison
+        int digitrepeat = 1; // in case of one digit is present > 1 fois
+
+        for (int j = 0; j < pFirstList.size(); j++) {
+            // j'increment le nombre de digit
+            digitNumber++;
+            // je prend la premiere valeur, premiere liste
+            digitFirst = pFirstList.get(j);
+            // je compare par rapport a l'autre liste
+            for (int k = 0; k < pSecondList.size(); k++) {
+                digitSecond = pSecondList.get(k);
+                for (int l = 0; l < pSecondList.size(); l++) {
+                    if (digitFirst == digitSecond) {
+                        // je supprime les doublons
+                        if (hashMapWithCompareInfo.containsValue(k + 1)) {
+                            digitrepeat++;
+                        } else {
+                            hashMapWithCompareInfo.put("(" + digitrepeat + ")" + "Digit " + digitNumber + " présent a la place ", (k + 1));
+                            digitrepeat++;
+                        }
+                    }
+                }
+            }
+        }
+        logger.info("hashMap avec les info d'emplacement " + hashMapWithCompareInfo);
+        return hashMapWithCompareInfo;
     }
 
 }

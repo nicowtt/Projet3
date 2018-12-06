@@ -1,6 +1,7 @@
 package com.ocr.nicolas;
 
 
+import java.util.Map;
 
 public class MastermindChallenger extends Mastermind {
 
@@ -38,8 +39,15 @@ public class MastermindChallenger extends Mastermind {
             // Récupéré la 1er combinaison utilisateur
             userChalMastStr = this.inputUserStringMast();
 
-            //todo comparé avec l'ordinateur
-            //todo dire si : 1 present, 1 bien placé (ou 2 present, ou 2 bien placé) et savoir si l'utilisateur gagne
+            // j'affiche le mode developpeur au besoin
+            if (developerMode.contains("true")) { System.out.println("( combinaison ordi = " +  randCompChalMast + ")");}
+
+            //comparé avec l'ordinateur (en cours)
+            // je compare deux string et je renseigne la hashMap
+            Map<String, Integer> hashMapWithCompareInfo = this.compareTwoStringMastToHashMap(userChalMastStr, randCompChalMast);
+            //todo une methode pour lire la hashMap et renvoyé les information lisible pour l'utilisateur
+            //todo  1 present, 1 bien placé (ou 2 present, ou 2 bien placé) et savoir si l'utilisateur gagne
+        
             //todo while (tous les chiffres bien placés < nombre d'essai)
 
         //}while (nbrLoopMastChal != 0);

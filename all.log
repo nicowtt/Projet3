@@ -1,13 +1,13 @@
-2018-12-05 18:13:11.668 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - developerMode: true
-2018-12-05 18:13:11.671 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - variable NbrDigit = 2
-2018-12-05 18:13:11.671 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - variable nbrOfTry = 3
-2018-12-05 18:13:11.671 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - variable nbrMaxOnDigit = 4
-2018-12-05 18:13:11.671 [main] INFO  com.ocr.nicolas.Games - info dans la class mere Games (nbrDigit= 2 nbrOfTry = 3 developerMode =true
-2018-12-05 18:13:13.837 [main] INFO  com.ocr.nicolas.Log4j - Choix du jeux (1- Recherche+/- ; 2- Mastermind; 3 -arret) -> 2
-2018-12-05 18:13:14.238 [main] INFO  com.ocr.nicolas.Log4j - Mode de jeux (1- Challenger ; 2- défenseur ; 3- Duel) -> 1
-2018-12-05 18:13:14.238 [main] INFO  com.ocr.nicolas.Games - Ordinateur combinaison = 24
-2018-12-05 18:13:14.238 [main] INFO  com.ocr.nicolas.Games - liste chiffres ok = [4, 3, 2, 1, 0]
-2018-12-05 18:13:20.315 [main] INFO  com.ocr.nicolas.Games - mauvaise entrée utilisateur
-2018-12-05 18:13:23.114 [main] INFO  com.ocr.nicolas.Games - mauvaise entrée utilisateur
-2018-12-05 18:13:25.019 [main] INFO  com.ocr.nicolas.Games -  entrée finale utilisateur = 04
-2018-12-05 18:13:25.022 [main] INFO  com.ocr.nicolas.Log4j - 
+2018-12-06 12:38:08.424 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - developerMode: true
+2018-12-06 12:38:08.427 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - variable NbrDigit = 4
+2018-12-06 12:38:08.427 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - variable nbrOfTry = 3
+2018-12-06 12:38:08.427 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - variable nbrMaxOnDigit = 4
+2018-12-06 12:38:08.427 [main] INFO  com.ocr.nicolas.Games - info dans la class mere Games (nbrDigit= 4 nbrOfTry = 3 developerMode =true
+2018-12-06 12:38:10.136 [main] INFO  com.ocr.nicolas.Log4j - Choix du jeux (1- Recherche+/- ; 2- Mastermind; 3 -arret) -> 2
+2018-12-06 12:38:10.598 [main] INFO  com.ocr.nicolas.Log4j - Mode de jeux (1- Challenger ; 2- défenseur ; 3- Duel) -> 1
+2018-12-06 12:38:10.601 [main] INFO  com.ocr.nicolas.Games - Ordinateur combinaison = 1322
+2018-12-06 12:38:10.601 [main] INFO  com.ocr.nicolas.Games - liste chiffres ok = [4, 3, 2, 1, 0]
+2018-12-06 12:38:12.902 [main] INFO  com.ocr.nicolas.Games -  entrée finale utilisateur = 0123
+2018-12-06 12:38:12.902 [main] INFO  com.ocr.nicolas.Games - liste a comparer = [0, 1, 2, 3] et [1, 3, 2, 2]
+2018-12-06 12:38:12.902 [main] INFO  com.ocr.nicolas.Games - hashMap avec les info d'emplacement {(1)Digit 2 présent a la place =1, (5)Digit 3 présent a la place =3, (13)Digit 4 présent a la place =2, (9)Digit 3 présent a la place =4}
+2018-12-06 12:38:12.905 [main] INFO  com.ocr.nicolas.Log4j - 
