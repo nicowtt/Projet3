@@ -73,10 +73,11 @@ public class SearchNumberDefender extends SearchNumber {
 
             // j'affiche la demande de valeur
             display.displayForValueToUser();
-            inverseLoop--;
+
 
             // je check si erreur ou tricherie et si ordi gagne
             valueUserInString = this.inputValuesUserAndCheckIfCheat(nbrUserDefender, compDefenderRefined,loopForDefenderMode, inverseLoop );
+            inverseLoop--;
 
             // je fais des nouveaux chiffres computer avec les  nouvelles valeurs
             compDefenderRefined = this.hasmapToDicotomousString(hashmapRefined,compDefenderRefined,valueUserInString,nbrUserDefender);
@@ -86,8 +87,8 @@ public class SearchNumberDefender extends SearchNumber {
             System.out.println(compDefenderRefined);
 
         } while (loopForDefenderMode != nbrOfTry);
-        //System.out.println("l'ordinateur n'as plus d'essai,tu gagne !");
-        //System.out.println("");
+        System.out.println("l'ordinateur n'as plus d'essai,tu gagne !");
+        System.out.println("");
 
         //lancement du menu pour replay
         this.replay();

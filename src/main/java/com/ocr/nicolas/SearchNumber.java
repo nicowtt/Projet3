@@ -427,7 +427,7 @@ public class SearchNumber extends Games {
             this.replay();
         }
         if (nbrOfTry > 1 && pinverseLoop == 0 ) {
-            System.out.println(" l'ordinateur n'a plus d'essai, tu gagne !");
+            System.out.println(" l'ordinateur n'a plus d'essai non plus, personne ne gagne :-( !");
             System.out.println("");
             this.replay();
         }
