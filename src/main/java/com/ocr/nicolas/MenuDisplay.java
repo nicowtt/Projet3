@@ -67,8 +67,8 @@ public class MenuDisplay {
 
         System.out.println("");
         System.out.println("****** Choisi le mode de jeux: *******");
-        System.out.println("1-Challenger -> Trouve la combinaison mystère de l'ordinateur");
-        System.out.println("2-Défenseur -> L'ordinateur doit trouver ta combinaison");
+        System.out.println("1-Challenger"); //-> Trouve la combinaison mystère de l'ordinateur");
+        System.out.println("2-Défenseur"); //-> L'ordinateur doit trouver ta combinaison");
         System.out.println("3-Duel");
     }
 
@@ -125,7 +125,7 @@ public class MenuDisplay {
         int counterTotalLetter = 0;
         int tooManyNbr = 0;
 
-        System.out.println("Choisi une combinaison de " + nbr + " chiffre(s) :");
+        System.out.println("Choisi une combinaison de " + nbr + " chiffre(s):");
 
         do {
             try {

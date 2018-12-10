@@ -26,7 +26,7 @@ public class SearchNumberChallenger extends SearchNumber {
         logger.info("--------> aleatoire String computeur = " + randCompChallenger);
 
         // Je donne le nombre d'essai possible
-        System.out.println("tu as " + nbrOfTry + " essai.");
+        System.out.println("tu as " + nbrOfTry + " essai(s) pour trouver la combinaison de l'ordinateur.");
 
         // Je lance le jeux
         int loopForChallengerMode = 0;

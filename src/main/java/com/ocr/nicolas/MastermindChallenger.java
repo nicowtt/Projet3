@@ -1,62 +1,50 @@
 package com.ocr.nicolas;
 
-
-import java.util.Map;
 import java.util.Scanner;
 
 public class MastermindChallenger extends Mastermind {
 
-    int nbrLoopMastChal = nbrOfTry; // loop while number of try not equal to zero
+    int nbrLoopMastChal = 0; // nbr of loop
     String randCompChalMast; // random computer combination (String)
     String userChalMastStr; // user combination (String)
 
     Scanner sc = new Scanner(System.in);
 
-
-
     public MastermindChallenger(int nbrDigit, int nbrOfTry, String developerMode, int nbrMaxOnDigit) {
         super(nbrDigit, nbrOfTry, developerMode, nbrMaxOnDigit);
     }
-
 
     protected void playChallengerModeMastermind () {
 
         //objet
         MenuDisplay display = new MenuDisplay();
-        int userChalMast;
 
         //creation combinaison ordinateur
         randCompChalMast = this.computerNbrCombination(0, nbrMaxOnDigit);
         logger.info("Ordinateur combinaison = " + randCompChalMast);
 
-        //Demande à l'utilisateur: 1/ le nombre d'essai possible et 2/ le chiffre max dans un digit (0 a 4 pour commencer)
-        System.out.println(" tu as " + nbrOfTry + " essai pour trouver la combinaison.");
+        // affichage de la demande
+        System.out.println("Choisi une combinaison de " + nbrDigit + " chiffre(s) ( chaque chiffre doit être compris entre 0 et " + nbrMaxOnDigit + ")");
 
+        do {
+            logger.info("");
+            logger.info("****** boucle " + nbrLoopMastChal + " ********");
+            // affichage du nombre d'essai restant
+            System.out.println("tu as " + (nbrOfTry - nbrLoopMastChal) + " essai(s) pour trouver la combinaison de l'ordinateur.");
+            nbrLoopMastChal++;
 
-        //do {
-            nbrLoopMastChal--;
-
-            // affichage de la demande
-            System.out.println(" Choisi une combinaison de " + nbrDigit + " chiffre (entre 0 et " + nbrMaxOnDigit + ")");
-
-            // Récupéré la 1er combinaison utilisateur
+            // Récupération de la 1er combinaison utilisateur
             userChalMastStr = this.inputUserStringMast();
 
             // j'affiche le mode developpeur au besoin
-            if (developerMode.contains("true")) { System.out.println("( combinaison ordi = " +  randCompChalMast + ")");}
+            if (developerMode.contains("true")) { System.out.println(randCompChalMast + " -> (combinaison ordinateur: mode developpeur) ");}
 
-            //je compare avec l'ordinateur
-            Map<String, Integer> hashMapWithCompareInfo = this.compareTwoStringMastToHashMap(userChalMastStr, randCompChalMast);
-            // je traduit cette comparaison
-            Map<String, Integer> hashMapReelInfo = this.displayInformationOfCompare(hashMapWithCompareInfo,userChalMastStr);
-            // j'affiche le resulta
-            this.displayInfoForUser(hashMapReelInfo);
+            //je compare avec l'ordinateur pour voir les present en fonction des bien placé
+            this.compareTwoStringMast(userChalMastStr, randCompChalMast);
 
-
-            //todo while (tous les chiffres bien placés < nombre d'essai)
-            //todo bug quand on rejoue au mastermin challenger
-
-        //}while (nbrLoopMastChal != 0);
+        }while (nbrLoopMastChal < nbrOfTry);
+        System.out.println("Tu n'as plus d'essai possible, tu as perdu :-(");
+        System.out.println("");
         this.replayMaster();
 
     }
