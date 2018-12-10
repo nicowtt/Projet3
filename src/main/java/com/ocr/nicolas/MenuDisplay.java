@@ -86,13 +86,13 @@ public class MenuDisplay {
         do {
             switch (gameTypeChoice) {
                 case 1:
-                    System.out.println("Tu as choisi le mode Challenger");
+                    System.out.println("Tu as choisi le mode Challenger (tu doit trouver la conbinaison)");
                     System.out.println("************************************");
                     System.out.println("");
                     responseIsGood = true;
                     break;
                 case 2:
-                    System.out.println("Tu as choisi le mode Défenseur");
+                    System.out.println("Tu as choisi le mode Défenseur (l'ordinateur doit trouver ta combinaison)");
                     System.out.println("");
                     responseIsGood = true;
                     break;
@@ -253,10 +253,6 @@ public class MenuDisplay {
 
 
     }
-
-
-
-
 }
 
 

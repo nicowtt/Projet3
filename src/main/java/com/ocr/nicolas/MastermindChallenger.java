@@ -40,6 +40,9 @@ public class MastermindChallenger extends Mastermind {
             //je compare avec l'ordinateur pour voir les presents en fonction des bien placés
             this.compareTwoStringMast(userChalMastStr, randCompChalMast);
 
+            //je regarde si l'utilisateur est gagnant
+            this.seeUserWinner(getGoodplaceExport(), getPresentExport());
+
         }while (nbrLoopMastChal < nbrOfTry);
         System.out.println("Tu n'as plus d'essai possible, tu as perdu :-(");
         System.out.println("");

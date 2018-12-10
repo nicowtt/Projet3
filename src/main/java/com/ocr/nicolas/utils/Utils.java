@@ -49,16 +49,6 @@ public class Utils {
     }
 
     /**
-     * For make random boolean
-     *
-     * @return random boolean
-     */
-    public static boolean getRandomBoolean() {
-        Random random = new Random();
-        return random.nextBoolean();
-    }
-
-    /**
      * For create a hashMap with increment key (nbrdigit)
      *
      * @param pNbrDigit

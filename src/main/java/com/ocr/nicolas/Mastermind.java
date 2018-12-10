@@ -7,10 +7,16 @@ public class Mastermind extends Games {
 
     protected int nbrMaxOnDigit;
 
+    private int goodplaceExport;
+    private int presentExport;
+
     public Mastermind(int nbrDigit, int nbrOfTry, String developerMode, int nbrMaxOnDigit) {
         super(nbrDigit, nbrOfTry, developerMode);
         this.nbrMaxOnDigit = nbrMaxOnDigit;
     }
+
+    public int getGoodplaceExport() {return goodplaceExport;}
+    public int getPresentExport() {return presentExport;}
 
     Scanner sc = new Scanner(System.in);
 
@@ -29,6 +35,7 @@ public class Mastermind extends Games {
 
         // objets
         MastermindChallenger mastermindChallenger = new MastermindChallenger(nbrDigit, nbrOfTry, developerMode, nbrMaxOnDigit);
+        MastermindDefender mastermindDefender = new MastermindDefender(nbrDigit, nbrOfTry, developerMode, nbrMaxOnDigit);
 
         do
             switch (gameTypeChoice) {
@@ -41,6 +48,9 @@ public class Mastermind extends Games {
                     }
                 case 2:
                     while (gameTypeChoice == 2) {
+                        mastermindDefender.playDefenderModeMastermind();
+                        display.displayAskTypeOfGame();
+                        gameTypeChoice = display.displayGameTypeChoice();
                         break;
                     }
                 case 3:
@@ -124,8 +134,9 @@ public class Mastermind extends Games {
         List<Boolean> listpSecondBoolean = new ArrayList<>();
 
         // je crée deux compteur
-        int goodplace = 0;
-        int present = 0;
+        int goodplace = 0; // les bien placés
+        int present = 0; // les présents
+
 
         //je compare pour trouvé les bien placés
         for (int i = 0; i < pFirst.length(); i++) {
@@ -139,6 +150,7 @@ public class Mastermind extends Games {
                 listpSecondBoolean.add(true);
             }
         }
+        logger.info("******************************************************");
         logger.info("list pFirst boolean bien placé = " + listpFirstBoolean);
         logger.info("list pSecond boolean bien placé = " + listpSecondBoolean);
 
@@ -155,20 +167,96 @@ public class Mastermind extends Games {
         }
         logger.info("list pFirst boolean present = " + listpFirstBoolean);
         logger.info("list pSecond boolean present = " + listpSecondBoolean);
+        logger.info("******************************************************");
 
-        // j'affiche le resultat selon les résultats
-        if (goodplace == nbrDigit) {
+
+        goodplaceExport = goodplace;
+        presentExport = present;
+    }
+
+    /**
+     * For see if user is a winner
+     *
+     * @param pGoodPlaced Integer with goodPlaces in.
+     */
+    protected void seeUserWinner(int pGoodPlaced, int pPresent) {
+
+        // j'affiche le resultat selon les précédentes valeurs
+        if (pGoodPlaced == nbrDigit) {
             System.out.println("Félicitation tu as trouvé la combinaison !");
             System.out.println("");
             this.replayMaster();
         }
-        if (goodplace == 0 && present == 0) {
+        if (pGoodPlaced == 0 && pPresent == 0) {
             System.out.println(" Aucun bien placé ou present.");
         } else {
-            System.out.println(goodplace + " bien placé(s), " + present + " present(s) ");
+            System.out.println(pGoodPlaced + " bien placé(s), " + pPresent + " present(s) ");
         }
     }
 
+    /**
+     * For have a goodPlaced input with no cheat
+     * @param pFirst string for mastermind compare
+     * @param pSecond String for mastermind compare
+     * @return
+     */
+    protected int goodPlacedNoCheat(String pFirst, String pSecond) {
+
+        boolean responseIsGood;
+        int userInput = 0;
+
+        do {
+            try {
+                userInput = sc.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("chiffres uniquement.");
+                responseIsGood = false;}
+
+                // je check la bonne reponse
+                logger.info("verification bien placé(s)");
+                this.compareTwoStringMast(pFirst, pSecond);
+
+                if (userInput != getGoodplaceExport()) {
+                    System.out.println("Chiffre bien placé non valable, erreur humaine ou tentative de tricherie? ;-)");
+                    responseIsGood = false;
+                } else {responseIsGood = true;}
+
+                // je regarde si l'utilisateur a gagné
+                if (userInput == nbrDigit) {
+                    System.out.println("l'ordinateur a trouvé ta combinaison, tu as perdu :-(");
+                    System.out.println("");
+                    logger.info("l'ordinateur a trouvé la combinaison");
+                    this.replayMaster();
+                }
+
+        } while (!responseIsGood);
+        return userInput;
     }
+
+    protected int presentNoCheat(String pFirst, String pSecond) {
+
+        boolean responseIsGood;
+        int userInput = 0;
+
+        do {
+            try {
+                userInput = sc.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("Chiffre uniquement");
+                responseIsGood = false; }
+
+                // je check la bonne réponse
+            logger.info("verification présent(s)");
+            this.compareTwoStringMast(pFirst, pSecond);
+            if (userInput != getPresentExport()) {
+                System.out.println("Chiffre présent non valable, erreur humaine ou tentative de tricherie? ;-)");
+                responseIsGood = false;
+            } else {responseIsGood = true;}
+
+            } while (!responseIsGood);
+        return  userInput;
+        }
+    }
+
 
 
