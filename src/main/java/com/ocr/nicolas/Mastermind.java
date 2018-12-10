@@ -159,6 +159,8 @@ public class Mastermind extends Games {
         // j'affiche le resultat selon les résultats
         if (goodplace == nbrDigit) {
             System.out.println("Félicitation tu as trouvé la combinaison !");
+            System.out.println("");
+            this.replayMaster();
         }
         if (goodplace == 0 && present == 0) {
             System.out.println(" Aucun bien placé ou present.");

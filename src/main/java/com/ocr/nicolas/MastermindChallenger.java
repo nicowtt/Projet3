@@ -1,13 +1,10 @@
 package com.ocr.nicolas;
 
-import java.util.Scanner;
-
 public class MastermindChallenger extends Mastermind {
 
     int nbrLoopMastChal = 0; // nbr of loop
     String randCompChalMast; // random computer combination (String)
     String userChalMastStr; // user combination (String)
-
 
 
     public MastermindChallenger(int nbrDigit, int nbrOfTry, String developerMode, int nbrMaxOnDigit) {
@@ -40,17 +37,12 @@ public class MastermindChallenger extends Mastermind {
             // j'affiche le mode developpeur au besoin
             if (developerMode.contains("true")) { System.out.println(randCompChalMast + " -> (combinaison ordinateur: mode developpeur) ");}
 
-            //je compare avec l'ordinateur pour voir les present en fonction des bien placé
+            //je compare avec l'ordinateur pour voir les presents en fonction des bien placés
             this.compareTwoStringMast(userChalMastStr, randCompChalMast);
 
         }while (nbrLoopMastChal < nbrOfTry);
         System.out.println("Tu n'as plus d'essai possible, tu as perdu :-(");
         System.out.println("");
         this.replayMaster();
-
     }
-
-
-
-
 }
