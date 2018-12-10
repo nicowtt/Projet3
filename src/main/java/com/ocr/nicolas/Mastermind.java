@@ -115,7 +115,6 @@ public class Mastermind extends Games {
         } while (!responseIsGood);
         logger.info("Entrée utilisateur = " + inputUserFinal);
         return inputUserFinal;
-
     }
 
     protected void compareTwoStringMast(String pFirst, String pSecond) {

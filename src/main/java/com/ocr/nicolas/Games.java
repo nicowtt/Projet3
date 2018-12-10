@@ -17,7 +17,6 @@ public class Games {
     protected int nbrOfTry;
     protected String developerMode;
 
-
     //Pour le mastermind
     protected int nbrMaxOnDigit;
 
@@ -99,58 +98,6 @@ public class Games {
     }
 
     /**
-     * for play headsOrTails (Pile ou face en fr)
-     *
-     * @return boolean luck (luck or no luck)
-     */
-    public boolean headsOrTails() {
-
-        //variable(s)
-        String user;
-        Boolean comp;
-        Boolean luck = true;
-        Boolean responseIsGood = false;
-
-        System.out.println("Qui commence a deviner la combinaison mystère ?");
-
-        do {
-            System.out.println("Choisi pile ou face :");
-            user = sc.nextLine();
-            comp = Utils.getRandomBoolean();
-            if (user.contains("pile")) {
-                if (comp) {
-                    luck = true;
-                } else {
-                    luck = false;
-                }
-                responseIsGood = true;
-            }
-            if (user.contains("face")) {
-                if (!comp) {
-                    luck = true;
-                } else {
-                    luck = false;
-                }
-                responseIsGood = true;
-            }
-        } while (!responseIsGood);
-
-        if (luck) {
-            System.out.println("Tirage aléatoire = pile");
-        } else {
-            System.out.println("Tirage aléatoire = face");
-        }
-        if (luck = comp) {
-            System.out.println("Tu as de la chance ! A toi de commencer. ");
-        }else {
-            System.out.println("Domage !, c'est donc l'ordinateur qui commence.");}
-
-        logger.info("tirage de la chance (false: ordi qui commence, true: utilisateur commence) = " + luck );
-
-        return luck;
-    }
-
-    /**
      * For redirection of replay or leave
      */
     protected void replay() {
@@ -176,7 +123,6 @@ public class Games {
         // objets
         MenuDisplay display = new MenuDisplay();
         Mastermind mastermind = new Mastermind(nbrDigit,nbrOfTry,developerMode,nbrMaxOnDigit);
-
 
         // affichage console for replay et redirection
         display.displayAskIfReplay();

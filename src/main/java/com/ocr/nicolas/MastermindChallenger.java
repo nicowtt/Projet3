@@ -8,7 +8,7 @@ public class MastermindChallenger extends Mastermind {
     String randCompChalMast; // random computer combination (String)
     String userChalMastStr; // user combination (String)
 
-    Scanner sc = new Scanner(System.in);
+
 
     public MastermindChallenger(int nbrDigit, int nbrOfTry, String developerMode, int nbrMaxOnDigit) {
         super(nbrDigit, nbrOfTry, developerMode, nbrMaxOnDigit);
@@ -17,7 +17,8 @@ public class MastermindChallenger extends Mastermind {
     protected void playChallengerModeMastermind () {
 
         //objet
-        MenuDisplay display = new MenuDisplay();
+        ReadPropertiesFile read = new ReadPropertiesFile(); // presence sinon bug lors du replay
+        nbrMaxOnDigit = read.getNbrMaxOnDigit();
 
         //creation combinaison ordinateur
         randCompChalMast = this.computerNbrCombination(0, nbrMaxOnDigit);
