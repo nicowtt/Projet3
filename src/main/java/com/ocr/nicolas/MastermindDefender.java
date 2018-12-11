@@ -27,22 +27,27 @@ public class MastermindDefender extends Mastermind {
         compDefendMastKnuthStr = "0011";
         System.out.println(compDefendMastKnuthStr);
 
-        do {
+        //do {
             //je récupére les bien placé(s) ( en fesant attention a la triche) et je regarde si ordinateur gagne.
-            System.out.println("Peux-tu donner le(s) chiffres bien placé(s):");
+            System.out.println("Peux-tu donner le nombre de chiffre(s) bien placé(s):");
             this.goodPlacedNoCheat(userDefendMastStr, compDefendMastKnuthStr);
 
             //je récupére les presents (attention a la triche)
-            System.out.println("Peux-tu donner le(s) chiffres présent(s):");
+            System.out.println("Peux-tu donner le nombre de chiffre(s) présent(s):");
             this.presentNoCheat(userDefendMastStr, compDefendMastKnuthStr);
 
-            //todo ce servir de ces resultat pour faire une autre proposition optimale (faire l'IA)
+            //todo ce servir de ces resultats pour faire une autre proposition optimale (faire l'IA)
+            //creation d'une methode pour mettre une valeur au combinaison possible (une echelle de valeur afin de ce diriger vers les bonnes combinaison)
+            //todo creation d'une methode pour fabriquer toutes les combinaisons (avec ces valeurs??)
+            this.makeAllCombinationMastermind();
+
+            //todo creation d'une methode pour piocher la prochaine solution dans la tranche de valeur qui va bien
 
             nbrLoopMastDefend++;
 
-        } while (nbrLoopMastDefend < nbrOfTry);
-        System.out.println("L'ordinateur n'as plus d'essai possible, tu as gagné !");
-        System.out.println("");
+        //} while (nbrLoopMastDefend < nbrOfTry);
+        //System.out.println("L'ordinateur n'as plus d'essai possible, tu as gagné !");
+        //System.out.println("");
         this.replayMaster();
     }
 }

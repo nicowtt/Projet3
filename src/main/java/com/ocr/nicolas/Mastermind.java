@@ -15,8 +15,13 @@ public class Mastermind extends Games {
         this.nbrMaxOnDigit = nbrMaxOnDigit;
     }
 
-    public int getGoodplaceExport() {return goodplaceExport;}
-    public int getPresentExport() {return presentExport;}
+    public int getGoodplaceExport() {
+        return goodplaceExport;
+    }
+
+    public int getPresentExport() {
+        return presentExport;
+    }
 
     Scanner sc = new Scanner(System.in);
 
@@ -62,6 +67,22 @@ public class Mastermind extends Games {
             } while (gameTypeChoice == 1 || gameTypeChoice == 2 || gameTypeChoice == 3);
     }
 
+    /**
+     * For create ArrayList with number ok in
+     * @return ArrayList (Integer)
+     */
+    protected List<Integer> createListNbrOk() {
+
+        //creation d'une list avec les chiffres possible
+        List<Integer> listNbrOk = new ArrayList<>();
+
+        //je met les chiffres ok a l'interieur
+        for (int i = 0; i < (nbrMaxOnDigit + 1); i++) {listNbrOk.add(i);}
+        logger.info("liste chiffres ok = " + listNbrOk);
+
+        return listNbrOk;
+    }
+
 
     /**
      * For force user input combination ok
@@ -75,17 +96,8 @@ public class Mastermind extends Games {
         int digitOk;
         String inputUserFinal;
 
-        //creation d'une list avec les chiffres possible
-        List<Integer> listNbrOk = new ArrayList<>();
-
-        //je met les chiffres ok a l'interieur
-        int count = nbrMaxOnDigit;
-
-        for (int i = 0; i < (nbrMaxOnDigit + 1); i++) {
-            listNbrOk.add(count);
-            count--;
-        }
-        logger.info("liste chiffres ok = " + listNbrOk);
+        // je lance la methode pour avoir une liste des chiffres utilisable
+        List<Integer> listNbrOk = this.createListNbrOk();
 
         do {
             // entrée finale ok
@@ -169,7 +181,6 @@ public class Mastermind extends Games {
         logger.info("list pSecond boolean present = " + listpSecondBoolean);
         logger.info("******************************************************");
 
-
         goodplaceExport = goodplace;
         presentExport = present;
     }
@@ -196,9 +207,10 @@ public class Mastermind extends Games {
 
     /**
      * For have a goodPlaced input with no cheat
-     * @param pFirst string for mastermind compare
+     *
+     * @param pFirst  string for mastermind compare
      * @param pSecond String for mastermind compare
-     * @return
+     * @return user input (good placed) whith no cheat
      */
     protected int goodPlacedNoCheat(String pFirst, String pSecond) {
 
@@ -210,29 +222,40 @@ public class Mastermind extends Games {
                 userInput = sc.nextInt();
             } catch (InputMismatchException e) {
                 System.out.println("chiffres uniquement.");
-                responseIsGood = false;}
+                responseIsGood = false;
+            }
 
-                // je check la bonne reponse
-                logger.info("verification bien placé(s)");
-                this.compareTwoStringMast(pFirst, pSecond);
+            // je check la bonne reponse
+            logger.info("verification bien placé(s)");
+            this.compareTwoStringMast(pFirst, pSecond);
 
-                if (userInput != getGoodplaceExport()) {
-                    System.out.println("Chiffre bien placé non valable, erreur humaine ou tentative de tricherie? ;-)");
-                    responseIsGood = false;
-                } else {responseIsGood = true;}
+            if (userInput != getGoodplaceExport()) {
+                System.out.println("Chiffre bien placé non valable, erreur humaine ou tentative de tricherie? ;-)");
+                responseIsGood = false;
+            } else {
+                responseIsGood = true;
+            }
 
-                // je regarde si l'utilisateur a gagné
-                if (userInput == nbrDigit) {
-                    System.out.println("l'ordinateur a trouvé ta combinaison, tu as perdu :-(");
-                    System.out.println("");
-                    logger.info("l'ordinateur a trouvé la combinaison");
-                    this.replayMaster();
-                }
+            // je regarde si l'utilisateur a gagné
+            if (userInput == nbrDigit) {
+                System.out.println("l'ordinateur a trouvé ta combinaison, tu as perdu :-(");
+                System.out.println("");
+                logger.info("l'ordinateur a trouvé la combinaison");
+                this.replayMaster();
+            }
 
         } while (!responseIsGood);
         return userInput;
     }
 
+
+    /**
+     * For have a present input with no cheat
+     *
+     * @param pFirst  string for mastermind compare
+     * @param pSecond string for mastermind compare
+     * @return user (present) input whith no cheat
+     */
     protected int presentNoCheat(String pFirst, String pSecond) {
 
         boolean responseIsGood;
@@ -243,20 +266,101 @@ public class Mastermind extends Games {
                 userInput = sc.nextInt();
             } catch (InputMismatchException e) {
                 System.out.println("Chiffre uniquement");
-                responseIsGood = false; }
+                responseIsGood = false;
+            }
 
-                // je check la bonne réponse
+            // je check la bonne réponse
             logger.info("verification présent(s)");
             this.compareTwoStringMast(pFirst, pSecond);
             if (userInput != getPresentExport()) {
                 System.out.println("Chiffre présent non valable, erreur humaine ou tentative de tricherie? ;-)");
                 responseIsGood = false;
-            } else {responseIsGood = true;}
+            } else {
+                responseIsGood = true;
+            }
 
-            } while (!responseIsGood);
-        return  userInput;
-        }
+        } while (!responseIsGood);
+        return userInput;
     }
+
+    /**
+     * for evaluate code on String of 2 digit ( highter is close of solution )
+     * decade = number of goodplaced,  only one Digit = number of present;
+     * (ex: for 4 digit and 4 figure possible -> 0,1,2,3,4,10,11,12,13,20,21,22,30,40
+     */
+    protected String codeValue() {
+
+        String codeValueString = "";
+
+        // pour une reponse de comparaison (0 goodplace et 0 present)
+        if (goodplaceExport == 0 && presentExport == 0) { codeValueString = "0";}
+
+        // pour une reponse de comparaison uniquement avec des presents
+        if (goodplaceExport == 0 && presentExport != 0) { codeValueString = String.valueOf(presentExport);}
+
+        // pour une reponse de comparaison avec des bien placé(s) et pas de present
+        if (goodplaceExport != 0 && presentExport == 0) { codeValueString = String.valueOf(goodplaceExport) + "0";}
+
+        // pour une reponse de comparaison avec des bien placé(s) et des present(s)
+        if (goodplaceExport != 0 && presentExport != 0) { codeValueString = String.valueOf(goodplaceExport) + String.valueOf(presentExport);}
+
+        logger.info("valeur code = " + codeValueString );
+
+        return codeValueString;
+
+    }
+
+    /**
+     * for make all combination possible with codeValueParameter
+     */
+    protected void makeAllCombinationMastermind() {
+
+        String combination = "";
+
+        // je lance la methode pour trouver la valeur du code
+        String codeValueStr = this.codeValue();
+
+        //je recupere la list des nombre ok
+        List<Integer> listNbrOk = this.createListNbrOk();
+
+        // je fabrique une array list avec toutes les combinaisons
+        List<String> combinationTotal = new ArrayList<>();
+
+        // je fabrique les base 00,11,22,33
+        int count = 0;
+
+        for (int i = 0; i < nbrMaxOnDigit ; i++) { // -> pour le nombre max sur un digit
+            combination = "";
+            for (int j = 0; j < nbrDigit; j++) { // -> pour le nombre de digit
+                combination = combination + listNbrOk.get(count);}
+            count++;
+            combinationTotal.add(combination);
+        }
+
+        // je fabrique les autres
+        for (int i = 0; i < nbrMaxOnDigit ; i++) {
+            combination = "";
+            for (int j = 0; j < nbrDigit ; j++) {
+
+
+
+            }
+
+        }
+
+
+
+        logger.info("liste combinaison totale = " + combinationTotal);
+
+
+
+
+        }
+
+    }
+
+
+
 
 
 

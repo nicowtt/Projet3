@@ -1,56 +1,31 @@
-2018-12-10 16:53:33.190 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - developerMode: true
-2018-12-10 16:53:33.194 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - variable NbrDigit = 4
-2018-12-10 16:53:33.194 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - variable nbrOfTry = 3
-2018-12-10 16:53:33.194 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - variable nbrMaxOnDigit = 4
-2018-12-10 16:53:33.194 [main] INFO  com.ocr.nicolas.Games - info dans la class mere Games (nbrDigit= 4 nbrOfTry = 3 developerMode =true
-2018-12-10 16:53:34.534 [main] INFO  com.ocr.nicolas.Log4j - Choix du jeux (1- Recherche+/- ; 2- Mastermind; 3 -arret) -> 2
-2018-12-10 16:53:34.918 [main] INFO  com.ocr.nicolas.Log4j - Mode de jeux (1- Challenger ; 2- défenseur ; 3- Duel) -> 2
-2018-12-10 16:53:34.920 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - developerMode: true
-2018-12-10 16:53:34.920 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - variable NbrDigit = 4
-2018-12-10 16:53:34.920 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - variable nbrOfTry = 3
-2018-12-10 16:53:34.920 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - variable nbrMaxOnDigit = 4
-2018-12-10 16:53:34.921 [main] INFO  com.ocr.nicolas.Games - liste chiffres ok = [4, 3, 2, 1, 0]
-2018-12-10 16:53:36.694 [main] INFO  com.ocr.nicolas.Games - Entrée utilisateur = 0123
-2018-12-10 16:53:38.341 [main] INFO  com.ocr.nicolas.Games - verification bien placé(s)
-2018-12-10 16:53:38.342 [main] INFO  com.ocr.nicolas.Games - ******************************************************
-2018-12-10 16:53:38.342 [main] INFO  com.ocr.nicolas.Games - list pFirst boolean bien placé = [true, false, false, false]
-2018-12-10 16:53:38.342 [main] INFO  com.ocr.nicolas.Games - list pSecond boolean bien placé = [true, false, false, false]
-2018-12-10 16:53:38.342 [main] INFO  com.ocr.nicolas.Games - list pFirst boolean present = [true, true, false, false]
-2018-12-10 16:53:38.342 [main] INFO  com.ocr.nicolas.Games - list pSecond boolean present = [true, false, true, false]
-2018-12-10 16:53:38.342 [main] INFO  com.ocr.nicolas.Games - ******************************************************
-2018-12-10 16:53:39.142 [main] INFO  com.ocr.nicolas.Games - verification présent(s)
-2018-12-10 16:53:39.142 [main] INFO  com.ocr.nicolas.Games - ******************************************************
-2018-12-10 16:53:39.142 [main] INFO  com.ocr.nicolas.Games - list pFirst boolean bien placé = [true, false, false, false]
-2018-12-10 16:53:39.142 [main] INFO  com.ocr.nicolas.Games - list pSecond boolean bien placé = [true, false, false, false]
-2018-12-10 16:53:39.142 [main] INFO  com.ocr.nicolas.Games - list pFirst boolean present = [true, true, false, false]
-2018-12-10 16:53:39.142 [main] INFO  com.ocr.nicolas.Games - list pSecond boolean present = [true, false, true, false]
-2018-12-10 16:53:39.142 [main] INFO  com.ocr.nicolas.Games - ******************************************************
-2018-12-10 16:53:40.805 [main] INFO  com.ocr.nicolas.Games - verification bien placé(s)
-2018-12-10 16:53:40.806 [main] INFO  com.ocr.nicolas.Games - ******************************************************
-2018-12-10 16:53:40.806 [main] INFO  com.ocr.nicolas.Games - list pFirst boolean bien placé = [true, false, false, false]
-2018-12-10 16:53:40.806 [main] INFO  com.ocr.nicolas.Games - list pSecond boolean bien placé = [true, false, false, false]
-2018-12-10 16:53:40.806 [main] INFO  com.ocr.nicolas.Games - list pFirst boolean present = [true, true, false, false]
-2018-12-10 16:53:40.806 [main] INFO  com.ocr.nicolas.Games - list pSecond boolean present = [true, false, true, false]
-2018-12-10 16:53:40.806 [main] INFO  com.ocr.nicolas.Games - ******************************************************
-2018-12-10 16:53:41.559 [main] INFO  com.ocr.nicolas.Games - verification présent(s)
-2018-12-10 16:53:41.559 [main] INFO  com.ocr.nicolas.Games - ******************************************************
-2018-12-10 16:53:41.559 [main] INFO  com.ocr.nicolas.Games - list pFirst boolean bien placé = [true, false, false, false]
-2018-12-10 16:53:41.559 [main] INFO  com.ocr.nicolas.Games - list pSecond boolean bien placé = [true, false, false, false]
-2018-12-10 16:53:41.559 [main] INFO  com.ocr.nicolas.Games - list pFirst boolean present = [true, true, false, false]
-2018-12-10 16:53:41.560 [main] INFO  com.ocr.nicolas.Games - list pSecond boolean present = [true, false, true, false]
-2018-12-10 16:53:41.560 [main] INFO  com.ocr.nicolas.Games - ******************************************************
-2018-12-10 16:53:42.341 [main] INFO  com.ocr.nicolas.Games - verification bien placé(s)
-2018-12-10 16:53:42.341 [main] INFO  com.ocr.nicolas.Games - ******************************************************
-2018-12-10 16:53:42.341 [main] INFO  com.ocr.nicolas.Games - list pFirst boolean bien placé = [true, false, false, false]
-2018-12-10 16:53:42.341 [main] INFO  com.ocr.nicolas.Games - list pSecond boolean bien placé = [true, false, false, false]
-2018-12-10 16:53:42.342 [main] INFO  com.ocr.nicolas.Games - list pFirst boolean present = [true, true, false, false]
-2018-12-10 16:53:42.342 [main] INFO  com.ocr.nicolas.Games - list pSecond boolean present = [true, false, true, false]
-2018-12-10 16:53:42.342 [main] INFO  com.ocr.nicolas.Games - ******************************************************
-2018-12-10 16:53:42.806 [main] INFO  com.ocr.nicolas.Games - verification présent(s)
-2018-12-10 16:53:42.806 [main] INFO  com.ocr.nicolas.Games - ******************************************************
-2018-12-10 16:53:42.807 [main] INFO  com.ocr.nicolas.Games - list pFirst boolean bien placé = [true, false, false, false]
-2018-12-10 16:53:42.807 [main] INFO  com.ocr.nicolas.Games - list pSecond boolean bien placé = [true, false, false, false]
-2018-12-10 16:53:42.807 [main] INFO  com.ocr.nicolas.Games - list pFirst boolean present = [true, true, false, false]
-2018-12-10 16:53:42.807 [main] INFO  com.ocr.nicolas.Games - list pSecond boolean present = [true, false, true, false]
-2018-12-10 16:53:42.807 [main] INFO  com.ocr.nicolas.Games - ******************************************************
-2018-12-10 16:53:42.807 [main] INFO  com.ocr.nicolas.Log4j - 
+2018-12-11 11:56:11.527 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - developerMode: true
+2018-12-11 11:56:11.531 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - variable NbrDigit = 4
+2018-12-11 11:56:11.531 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - variable nbrOfTry = 3
+2018-12-11 11:56:11.531 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - variable nbrMaxOnDigit = 3
+2018-12-11 11:56:11.531 [main] INFO  com.ocr.nicolas.Games - info dans la class mere Games (nbrDigit= 4 nbrOfTry = 3 developerMode =true
+2018-12-11 11:56:13.699 [main] INFO  com.ocr.nicolas.Log4j - Choix du jeux (1- Recherche+/- ; 2- Mastermind; 3 -arret) -> 2
+2018-12-11 11:56:14.450 [main] INFO  com.ocr.nicolas.Log4j - Mode de jeux (1- Challenger ; 2- défenseur ; 3- Duel) -> 2
+2018-12-11 11:56:14.452 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - developerMode: true
+2018-12-11 11:56:14.452 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - variable NbrDigit = 4
+2018-12-11 11:56:14.452 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - variable nbrOfTry = 3
+2018-12-11 11:56:14.452 [main] INFO  com.ocr.nicolas.ReadPropertiesFile - variable nbrMaxOnDigit = 3
+2018-12-11 11:56:14.452 [main] INFO  com.ocr.nicolas.Games - liste chiffres ok = [0, 1, 2, 3]
+2018-12-11 11:56:15.842 [main] INFO  com.ocr.nicolas.Games - Entrée utilisateur = 0123
+2018-12-11 11:56:17.027 [main] INFO  com.ocr.nicolas.Games - verification bien placé(s)
+2018-12-11 11:56:17.027 [main] INFO  com.ocr.nicolas.Games - ******************************************************
+2018-12-11 11:56:17.027 [main] INFO  com.ocr.nicolas.Games - list pFirst boolean bien placé = [true, false, false, false]
+2018-12-11 11:56:17.027 [main] INFO  com.ocr.nicolas.Games - list pSecond boolean bien placé = [true, false, false, false]
+2018-12-11 11:56:17.027 [main] INFO  com.ocr.nicolas.Games - list pFirst boolean present = [true, true, false, false]
+2018-12-11 11:56:17.027 [main] INFO  com.ocr.nicolas.Games - list pSecond boolean present = [true, false, true, false]
+2018-12-11 11:56:17.027 [main] INFO  com.ocr.nicolas.Games - ******************************************************
+2018-12-11 11:56:17.506 [main] INFO  com.ocr.nicolas.Games - verification présent(s)
+2018-12-11 11:56:17.506 [main] INFO  com.ocr.nicolas.Games - ******************************************************
+2018-12-11 11:56:17.507 [main] INFO  com.ocr.nicolas.Games - list pFirst boolean bien placé = [true, false, false, false]
+2018-12-11 11:56:17.507 [main] INFO  com.ocr.nicolas.Games - list pSecond boolean bien placé = [true, false, false, false]
+2018-12-11 11:56:17.507 [main] INFO  com.ocr.nicolas.Games - list pFirst boolean present = [true, true, false, false]
+2018-12-11 11:56:17.508 [main] INFO  com.ocr.nicolas.Games - list pSecond boolean present = [true, false, true, false]
+2018-12-11 11:56:17.508 [main] INFO  com.ocr.nicolas.Games - ******************************************************
+2018-12-11 11:56:17.508 [main] INFO  com.ocr.nicolas.Games - valeur code = 11
+2018-12-11 11:56:17.508 [main] INFO  com.ocr.nicolas.Games - liste chiffres ok = [0, 1, 2, 3]
+2018-12-11 11:56:17.508 [main] INFO  com.ocr.nicolas.Games - liste combinaison totale = [0000, 1111, 2222, 3333]
+2018-12-11 11:56:17.508 [main] INFO  com.ocr.nicolas.Log4j - 
