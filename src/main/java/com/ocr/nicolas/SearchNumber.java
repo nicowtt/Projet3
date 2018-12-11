@@ -13,10 +13,6 @@ public class SearchNumber extends Games {
     Scanner sc = new Scanner(System.in);
     static final Logger logger = LogManager.getLogger();
 
-    public SearchNumber(int nbrDigit, int nbrOfTry, String developerMode) {
-        super(nbrDigit, nbrOfTry, developerMode);
-    }
-
     /**
      * For playing SearchNumber game
      *
@@ -32,9 +28,9 @@ public class SearchNumber extends Games {
         int gameTypeChoice = display.displayGameTypeChoice();
 
         // objets
-        SearchNumberChallenger searchNumberChallenger = new SearchNumberChallenger(nbrDigit,nbrOfTry,developerMode);
-        SearchNumberDefender searchNumberDefender = new SearchNumberDefender(nbrDigit,nbrOfTry,developerMode);
-        SearchNumberDuel searchNumberDuel = new SearchNumberDuel(nbrDigit,nbrOfTry,developerMode);
+        SearchNumberChallenger searchNumberChallenger = new SearchNumberChallenger();
+        SearchNumberDefender searchNumberDefender = new SearchNumberDefender();
+        SearchNumberDuel searchNumberDuel = new SearchNumberDuel();
 
         do
             switch (gameTypeChoice) {

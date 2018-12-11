@@ -5,23 +5,14 @@ import java.util.*;
 public class Mastermind extends Games {
 
 
-    protected int nbrMaxOnDigit;
+//    protected int nbrMaxOnDigit;
 
     private int goodplaceExport;
     private int presentExport;
 
-    public Mastermind(int nbrDigit, int nbrOfTry, String developerMode, int nbrMaxOnDigit) {
-        super(nbrDigit, nbrOfTry, developerMode);
-        this.nbrMaxOnDigit = nbrMaxOnDigit;
-    }
+    public int getGoodplaceExport() { return goodplaceExport;}
 
-    public int getGoodplaceExport() {
-        return goodplaceExport;
-    }
-
-    public int getPresentExport() {
-        return presentExport;
-    }
+    public int getPresentExport() { return presentExport;}
 
     Scanner sc = new Scanner(System.in);
 
@@ -39,8 +30,8 @@ public class Mastermind extends Games {
         int gameTypeChoice = display.displayGameTypeChoice();
 
         // objets
-        MastermindChallenger mastermindChallenger = new MastermindChallenger(nbrDigit, nbrOfTry, developerMode, nbrMaxOnDigit);
-        MastermindDefender mastermindDefender = new MastermindDefender(nbrDigit, nbrOfTry, developerMode, nbrMaxOnDigit);
+        MastermindChallenger mastermindChallenger = new MastermindChallenger();
+        MastermindDefender mastermindDefender = new MastermindDefender();
 
         do
             switch (gameTypeChoice) {

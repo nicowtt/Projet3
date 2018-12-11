@@ -8,14 +8,7 @@ public class MastermindDefender extends Mastermind {
     //int goodplaced = 0; // nbr of goodplaced
     //int present = 0; // nbr of present
 
-    public MastermindDefender(int nbrDigit, int nbrOfTry, String developerMode, int nbrMaxOnDigit) {
-        super(nbrDigit, nbrOfTry, developerMode, nbrMaxOnDigit);
-    }
-
     protected void playDefenderModeMastermind () {
-        //objet
-        ReadPropertiesFile read = new ReadPropertiesFile(); // presence sinon bug lors du replay
-        nbrMaxOnDigit = read.getNbrMaxOnDigit();
 
         // affichage de la demande
         System.out.println("Choisi une combinaison de " + nbrDigit + " chiffre(s) ( chaque chiffre doit être compris entre 0 et " + nbrMaxOnDigit + ")");

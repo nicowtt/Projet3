@@ -177,7 +177,6 @@ public class MenuDisplay {
         System.out.println(" 3 -> quitter");
     }
 
-
     /**
      * for display replay choice
      * @return replay choice (int)

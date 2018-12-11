@@ -20,18 +20,8 @@ public class Games {
     //Pour le mastermind
     protected int nbrMaxOnDigit;
 
-    public Games(int nbrDigit, int nbrOfTry, String developerMode) {
-        this.nbrDigit = nbrDigit;
-        this.nbrOfTry = nbrOfTry;
-        this.developerMode = developerMode;
-    }
-
 
     public Games() {
-    }
-
-
-    public void playGames() {
         // lecture config.propertie et variable a zero
         ReadPropertiesFile read = new ReadPropertiesFile();
         nbrDigit = read.getNbrDigit();
@@ -41,7 +31,13 @@ public class Games {
         boolean isWin = false;
 
         logger.info("info dans la class mere Games (nbrDigit= "+ nbrDigit +" nbrOfTry = " + nbrOfTry +" developerMode =" + developerMode);
+    }
 
+
+    /**
+     * //todo javadoc
+     */
+    public void playGames() {
 
         // Affichage du menu du choix des jeux.
         MenuDisplay display = new MenuDisplay();
@@ -54,13 +50,13 @@ public class Games {
         switch (gamesMenuChoice) {
             case 1:
                 while (gamesMenuChoice == 1) {
-                    SearchNumber searchNumber = new SearchNumber(nbrDigit,nbrOfTry,developerMode);
+                    SearchNumber searchNumber = new SearchNumber();
                     searchNumber.playSearchNumber();
                     break;
                 }
             case 2:
                 while (gamesMenuChoice == 2) {
-                    Mastermind mastermind = new Mastermind(nbrDigit,nbrOfTry,developerMode, nbrMaxOnDigit);
+                    Mastermind mastermind = new Mastermind();
                     mastermind.playMastermind();
                     break;
                 }
@@ -104,7 +100,7 @@ public class Games {
 
         // objets
         MenuDisplay display = new MenuDisplay();
-        SearchNumber searchNumber = new SearchNumber(nbrDigit, nbrOfTry, developerMode);
+        SearchNumber searchNumber = new SearchNumber();
 
 
         // affichage console for replay et redirection
@@ -122,7 +118,7 @@ public class Games {
 
         // objets
         MenuDisplay display = new MenuDisplay();
-        Mastermind mastermind = new Mastermind(nbrDigit,nbrOfTry,developerMode,nbrMaxOnDigit);
+        Mastermind mastermind = new Mastermind();
 
         // affichage console for replay et redirection
         display.displayAskIfReplay();

@@ -19,10 +19,6 @@ public class SearchNumberDuel extends SearchNumber{
     private String compDuelFirstString; // 1er String comp -> "5555"
 
 
-    public SearchNumberDuel(int nbrDigit, int nbrOfTry, String developerMode) {
-        super(nbrDigit, nbrOfTry, developerMode);
-    }
-
     public void playDuelModeSearchNumber() {
 
         //objet

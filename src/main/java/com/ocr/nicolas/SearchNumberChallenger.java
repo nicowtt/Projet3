@@ -7,9 +7,6 @@ public class SearchNumberChallenger extends SearchNumber {
 
     static final Logger logger = LogManager.getLogger();
 
-    public SearchNumberChallenger(int nbrDigit, int nbrOfTry, String developerMode) {
-        super(nbrDigit, nbrOfTry, developerMode);
-    }
 
     /**
      * For play Challenger mode of Search Number
