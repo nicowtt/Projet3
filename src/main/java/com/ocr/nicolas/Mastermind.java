@@ -5,7 +5,7 @@ import java.util.*;
 public class Mastermind extends Games {
 
 
-//    protected int nbrMaxOnDigit;
+    protected boolean iswin;
 
     private int goodplaceExport;
     private int presentExport;
@@ -20,7 +20,9 @@ public class Mastermind extends Games {
     /**
      * For playing Mastermind Game
      */
-    protected void playMastermind() {
+    protected int playMastermind() {
+
+        int replay = 3;
 
         // Affichage du menu du type de jeux.
         MenuDisplay display = new MenuDisplay();
@@ -33,20 +35,26 @@ public class Mastermind extends Games {
         MastermindChallenger mastermindChallenger = new MastermindChallenger();
         MastermindDefender mastermindDefender = new MastermindDefender();
 
-        do
+        do {
+            //do
             switch (gameTypeChoice) {
                 case 1:
                     while (gameTypeChoice == 1) {
-                        mastermindChallenger.playChallengerModeMastermind();
-                        display.displayAskTypeOfGame();
-                        gameTypeChoice = display.displayGameTypeChoice();
+                        replay = mastermindChallenger.playChallengerModeMastermind();
+                        if (replay == 1) {
+                            display.displayAskTypeOfGame();
+                            gameTypeChoice = display.displayGameTypeChoice();
+                        }
                         break;
                     }
                 case 2:
                     while (gameTypeChoice == 2) {
-                        mastermindDefender.playDefenderModeMastermind();
-                        display.displayAskTypeOfGame();
-                        gameTypeChoice = display.displayGameTypeChoice();
+                        replay = mastermindDefender.playDefenderModeMastermind();
+                        if (replay == 1) {
+                            display.displayAskTypeOfGame();
+                            gameTypeChoice = display.displayGameTypeChoice();
+                        }
+
                         break;
                     }
                 case 3:
@@ -55,8 +63,13 @@ public class Mastermind extends Games {
                     }
                 default:
                     break;
-            } while (gameTypeChoice == 1 || gameTypeChoice == 2 || gameTypeChoice == 3);
+                //} while (gameTypeChoice == 1 || gameTypeChoice == 2 || gameTypeChoice == 3);
+            }
+        } while (replay == 1) ;
+        return replay;
     }
+
+
 
     /**
      * For create ArrayList with number ok in
@@ -187,12 +200,14 @@ public class Mastermind extends Games {
         if (pGoodPlaced == nbrDigit) {
             System.out.println("Félicitation tu as trouvé la combinaison !");
             System.out.println("");
-            this.replayMaster();
+            iswin = true;
         }
         if (pGoodPlaced == 0 && pPresent == 0) {
             System.out.println(" Aucun bien placé ou present.");
         } else {
-            System.out.println(pGoodPlaced + " bien placé(s), " + pPresent + " present(s) ");
+            if (!iswin) {
+                System.out.println(pGoodPlaced + " bien placé(s), " + pPresent + " present(s) ");
+            }
         }
     }
 

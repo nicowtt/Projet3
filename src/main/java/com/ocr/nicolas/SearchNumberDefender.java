@@ -18,13 +18,16 @@ public class SearchNumberDefender extends SearchNumber {
     /**
      * For playing DefenderMode of SearchNumber
      */
-    public void playDefenderModeSearchNumber() {
+    public int playDefenderModeSearchNumber() {
 
         //objets
         MenuDisplay display = new MenuDisplay();
 
         //variable
         int inverseLoop = nbrOfTry;
+        loopForDefenderMode = 1;
+        int replay = 3;
+        isWin = false;
 
         // Je donne le nombre d'essai possible
         System.out.println("l'ordinateur a " + nbrOfTry + " essai pour trouver ta combinaison");
@@ -49,45 +52,50 @@ public class SearchNumberDefender extends SearchNumber {
 
         // je check si erreur ou tricherie et si ordi gagne
         valueUserInString = this.inputValuesUserAndCheckIfCheat(nbrUserDefender, compDefenderString1, loopForDefenderMode, inverseLoop);
+        if (!isWin) {
 
-        // je renseigne la hashmap
-        Map<String, Integer> hashmapRefined = this.infoDigitForRefinedToHahMap(completeHashMapBase, compDefenderString1, valueUserInString);
-        logger.info("nouvelle hasmap refined = " + hashmapRefined);
+            // je renseigne la hashmap
+            Map<String, Integer> hashmapRefined = this.infoDigitForRefinedToHahMap(completeHashMapBase, compDefenderString1, valueUserInString);
+            logger.info("nouvelle hasmap refined = " + hashmapRefined);
 
-        // lancement des nouveaux DichotomousDigits computeur avec les infos de la hashmapRefined
-        String compDefenderRefined = this.hasmapToDicotomousString(hashmapRefined, compDefenderString1,valueUserInString,nbrUserDefender);
-        logger.info(" nouveaux digit avec la methode dichotomique = " + compDefenderRefined);
-
-        // j'affiche le nouvel essai computeur
-        System.out.println(compDefenderRefined);
-
-        do {
-
-            // debut de la boucle (jusqu'a -> computer gagne ou fin des essais, il perd)
-            logger.info("************* Debut de la boucle" + loopForDefenderMode + "********* ");
-            loopForDefenderMode++;
-
-            // j'affiche la demande de valeur
-            display.displayForValueToUser();
-
-
-            // je check si erreur ou tricherie et si ordi gagne
-            valueUserInString = this.inputValuesUserAndCheckIfCheat(nbrUserDefender, compDefenderRefined,loopForDefenderMode, inverseLoop );
-            inverseLoop--;
-
-            // je fais des nouveaux chiffres computer avec les  nouvelles valeurs
-            compDefenderRefined = this.hasmapToDicotomousString(hashmapRefined,compDefenderRefined,valueUserInString,nbrUserDefender);
-            logger.info("nouveau numero computeur avec methode dicotomous = " + compDefenderRefined);
+            // lancement des nouveaux DichotomousDigits computeur avec les infos de la hashmapRefined
+            String compDefenderRefined = this.hasmapToDicotomousString(hashmapRefined, compDefenderString1, valueUserInString, nbrUserDefender);
+            logger.info(" nouveaux digit avec la methode dichotomique = " + compDefenderRefined);
 
             // j'affiche le nouvel essai computeur
             System.out.println(compDefenderRefined);
 
-        } while (loopForDefenderMode != nbrOfTry);
-        System.out.println("l'ordinateur n'as plus d'essai,tu gagne !");
-        System.out.println("");
+            do {
+                // debut de la boucle (jusqu'a -> computer gagne ou fin des essais, il perd)
+                logger.info("************* Debut de la boucle" + loopForDefenderMode + "********* ");
+                loopForDefenderMode++;
 
+                // j'affiche la demande de valeur
+                display.displayForValueToUser();
+
+
+                // je check si erreur ou tricherie et si ordi gagne
+                valueUserInString = this.inputValuesUserAndCheckIfCheat(nbrUserDefender, compDefenderRefined, loopForDefenderMode, inverseLoop);
+                if (!isWin) {
+                    inverseLoop--;
+
+                    // je fais des nouveaux chiffres computer avec les  nouvelles valeurs
+                    compDefenderRefined = this.hasmapToDicotomousString(hashmapRefined, compDefenderRefined, valueUserInString, nbrUserDefender);
+                    logger.info("nouveau numero computeur avec methode dicotomous = " + compDefenderRefined);
+
+                    // j'affiche le nouvel essai computeur
+                    System.out.println(compDefenderRefined);
+                } else { loopForDefenderMode = nbrOfTry;}
+
+            } while (loopForDefenderMode != nbrOfTry) ;
+            if (!isWin) {
+                System.out.println("l'ordinateur n'as plus d'essai,tu gagne !");
+                System.out.println("");
+            }
+        }
         //lancement du menu pour replay
-        this.replay();
+        replay = this.replay();
+        return replay;
     }
 }
 

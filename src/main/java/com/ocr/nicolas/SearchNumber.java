@@ -8,6 +8,7 @@ import java.util.*;
 
 public class SearchNumber extends Games {
 
+
     protected boolean isWin; // Grâce aux methode ci-dessous je peux voir si il y a gagnant, donc je rajoute ce parametre
 
     Scanner sc = new Scanner(System.in);
@@ -18,7 +19,9 @@ public class SearchNumber extends Games {
      *
      * @return playing
      */
-    protected void playSearchNumber() {
+    protected int playSearchNumber() {
+
+        int replay = 3;
 
         // Affichage du menu du type de jeux.
         MenuDisplay display = new MenuDisplay();
@@ -32,32 +35,43 @@ public class SearchNumber extends Games {
         SearchNumberDefender searchNumberDefender = new SearchNumberDefender();
         SearchNumberDuel searchNumberDuel = new SearchNumberDuel();
 
-        do
+
+        do {
+            //do
             switch (gameTypeChoice) {
                 case 1:
                     while (gameTypeChoice == 1) {
-                        searchNumberChallenger.playChallengerModeSearchNumber();
-                        display.displayAskTypeOfGame();
-                        gameTypeChoice = display.displayGameTypeChoice();
+                        replay = searchNumberChallenger.playChallengerModeSearchNumber();
+                        if (replay == 1) {
+                            display.displayAskTypeOfGame();
+                            gameTypeChoice = display.displayGameTypeChoice();
+                        }
                         break;
                     }
                 case 2:
                     while (gameTypeChoice == 2) {
-                        searchNumberDefender.playDefenderModeSearchNumber();
-                        display.displayAskTypeOfGame();
-                        gameTypeChoice = display.displayGameTypeChoice();
+                        replay = searchNumberDefender.playDefenderModeSearchNumber();
+                        if (replay == 1) {
+                            display.displayAskTypeOfGame();
+                            gameTypeChoice = display.displayGameTypeChoice();
+                        }
                         break;
                     }
                 case 3:
                     while (gameTypeChoice == 3) {
-                        searchNumberDuel.playDuelModeSearchNumber();
-                        display.displayAskTypeOfGame();
-                        gameTypeChoice = display.displayGameTypeChoice();
+                        replay = searchNumberDuel.playDuelModeSearchNumber();
+                        if (replay == 1) {
+                            display.displayAskTypeOfGame();
+                            gameTypeChoice = display.displayGameTypeChoice();
+                        }
                         break;
                     }
                 default:
                     break;
-            } while (gameTypeChoice == 1 || gameTypeChoice == 2 || gameTypeChoice == 3);
+                //} while (gameTypeChoice == 1 || gameTypeChoice == 2 || gameTypeChoice == 3);
+            }
+        } while (replay == 1);
+        return replay;
     }
 
 
@@ -391,6 +405,7 @@ public class SearchNumber extends Games {
         boolean cheakCheatInput;
         boolean cheakCheat;
         String valueUserInString;
+        isWin = false;
 
         // boucle entré utilisateur valeur correcte
         do {
@@ -413,26 +428,30 @@ public class SearchNumber extends Games {
             System.out.println(" l'ordinateur a trouvé ta combinaison en " +  ploop + " coup(s)");
             System.out.println("");
             logger.info("L'ordinateur a gagné en " + ploop + "coup(s)");
-            // je lance le replay
-            this.replay();
+            // j'annonce le gagnant
+            isWin = true;
         }
         // arrêt si plus de nombre d'essai
         if (nbrOfTry == 1) {
             System.out.println(" l'ordinateur n'a plus d'essai, tu gagne !");
             System.out.println("");
-            this.replay();
+            isWin = true;
         }
         if (nbrOfTry > 1 && pinverseLoop == 0 ) {
             System.out.println(" l'ordinateur n'a plus d'essai non plus, personne ne gagne :-( !");
             System.out.println("");
-            this.replay();
+            isWin = true;
         }
 
         return valueUserInString;
     }
 
 
-    public void testIfUserWinChallengerMode (int ploop, String pcomp, String puser, int pinverseLoop) {
+    public int testIfUserWinChallengerMode (int ploop, String pcomp, String puser, int pinverseLoop) {
+
+        //variables
+        int replay = 3;
+        isWin = false;
 
 
         if (pcomp.contains(puser)) {
@@ -441,8 +460,9 @@ public class SearchNumber extends Games {
             logger.info("l'utilisateur a gagné contre l'ordinateur aprés " + ploop + " essais");
             System.out.println("");
 
-            // je lance le replay
-            this.replay();
+            // je renvoi la valeur pour remonter (et pour rejouer?)
+            isWin = true;
+
         } else {
             if (nbrOfTry == 1 || pinverseLoop == 0) {
                 System.out.println("");
@@ -451,7 +471,9 @@ public class SearchNumber extends Games {
                 System.out.println(" -> ce n'est pas la bonne combinaison !");
             }
         }
+        return replay;
     }
+
 
 
 }

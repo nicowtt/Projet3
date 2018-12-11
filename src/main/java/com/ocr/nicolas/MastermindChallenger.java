@@ -2,12 +2,16 @@ package com.ocr.nicolas;
 
 public class MastermindChallenger extends Mastermind {
 
-    int nbrLoopMastChal = 0; // nbr of loop
     String randCompChalMast; // random computer combination (String)
     String userChalMastStr; // user combination (String)
 
 
-    protected void playChallengerModeMastermind () {
+    protected int playChallengerModeMastermind () {
+
+        //variables
+        int nbrLoopMastChal = 0;
+        int replay = 3;
+        iswin = false;
 
         //creation combinaison ordinateur
         randCompChalMast = this.computerNbrCombination(0, nbrMaxOnDigit);
@@ -34,10 +38,14 @@ public class MastermindChallenger extends Mastermind {
 
             //je regarde si l'utilisateur est gagnant
             this.seeUserWinner(getGoodplaceExport(), getPresentExport());
+            if (iswin) { nbrLoopMastChal = nbrOfTry;}
 
         }while (nbrLoopMastChal < nbrOfTry);
-        System.out.println("Tu n'as plus d'essai possible, tu as perdu :-(");
-        System.out.println("");
-        this.replayMaster();
+        if (!iswin) {
+            System.out.println("Tu n'as plus d'essai possible, tu as perdu :-(");
+            System.out.println("");
+        }
+        replay = this.replayMaster();
+        return replay;
     }
 }

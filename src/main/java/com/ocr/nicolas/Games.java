@@ -35,11 +35,11 @@ public class Games {
 
 
     /**
-     * //todo javadoc
+     * for playing Games
      */
     public void playGames() {
 
-        // Affichage du menu du choix des jeux.
+        /*// Affichage du menu du choix des jeux.
         MenuDisplay display = new MenuDisplay();
         display.displayAskGamesMenu();
 
@@ -63,7 +63,48 @@ public class Games {
             default:
                 break;
         }
+        */
     }
+
+    public void playGames2() {
+
+        int replay = 3;
+
+        // objets
+        MenuDisplay display = new MenuDisplay();
+        SearchNumber searchNumber = new SearchNumber();
+        Mastermind mastermind = new Mastermind();
+
+        // boucle si replay
+        do {
+            // Affichage du menu du choix des jeux.
+            display.displayAskGamesMenu();
+
+            // Recuperation variable du choix des jeux
+            int gamesMenuChoice = display.displayGamesMenuChoice();
+            if (gamesMenuChoice == 3) {
+                System.exit(0);
+            }
+
+            switch (gamesMenuChoice) {
+                case 1:
+                    while (gamesMenuChoice == 1) {
+                        replay = searchNumber.playSearchNumber();
+                        break;
+                    }
+                case 2:
+                    while (gamesMenuChoice == 2) {
+                        replay = mastermind.playMastermind();
+                        break;
+                    }
+                default:
+                    break;
+            }
+        } while (replay >= 2);
+
+    }
+
+
 
     /**
      * for make random computer number(s) combination
@@ -96,7 +137,10 @@ public class Games {
     /**
      * For redirection of replay or leave
      */
-    protected void replay() {
+    protected int replay() {
+
+        //variable
+        int replay = 3;
 
         // objets
         MenuDisplay display = new MenuDisplay();
@@ -106,15 +150,20 @@ public class Games {
         // affichage console for replay et redirection
         display.displayAskIfReplay();
         int replayIntern = display.displayReplayChoice();
-        if (replayIntern == 1) {searchNumber.playSearchNumber();}
-        if (replayIntern == 2) {this.playGames();}
+        if (replayIntern == 1) {replay = 1;}
+        if (replayIntern == 2) {replay = 2;}
         if (replayIntern == 3) {System.exit(0);}
+
+        return replay;
     }
 
     /**
      * For redirection of replay or leave
      */
-    protected void replayMaster() {
+    protected int replayMaster() {
+
+        //variable
+        int replay = 3;
 
         // objets
         MenuDisplay display = new MenuDisplay();
@@ -123,8 +172,10 @@ public class Games {
         // affichage console for replay et redirection
         display.displayAskIfReplay();
         int replayIntern = display.displayReplayChoice();
-        if (replayIntern == 1) {mastermind.playMastermind();}
-        if (replayIntern == 2) {this.playGames();}
+        if (replayIntern == 1) {replay = 1;}
+        if (replayIntern == 2) {replay = 2;}
         if (replayIntern == 3) {System.exit(0);}
+
+        return replay;
     }
 }

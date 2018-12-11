@@ -2,13 +2,17 @@ package com.ocr.nicolas;
 
 public class MastermindDefender extends Mastermind {
 
-    int nbrLoopMastDefend = 0; // nbr of loop
+
     String compDefendMastKnuthStr; // computer combination (String)
     String userDefendMastStr; // user combination (String)
     //int goodplaced = 0; // nbr of goodplaced
     //int present = 0; // nbr of present
 
-    protected void playDefenderModeMastermind () {
+    protected int playDefenderModeMastermind () {
+
+        //variable
+        int nbrLoopMastDefend = 0;
+        int replay = 3;
 
         // affichage de la demande
         System.out.println("Choisi une combinaison de " + nbrDigit + " chiffre(s) ( chaque chiffre doit être compris entre 0 et " + nbrMaxOnDigit + ")");
@@ -41,6 +45,7 @@ public class MastermindDefender extends Mastermind {
         //} while (nbrLoopMastDefend < nbrOfTry);
         //System.out.println("L'ordinateur n'as plus d'essai possible, tu as gagné !");
         //System.out.println("");
-        this.replayMaster();
+        replay = this.replayMaster();
+        return replay;
     }
 }

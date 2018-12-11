@@ -12,11 +12,16 @@ public class SearchNumberChallenger extends SearchNumber {
      * For play Challenger mode of Search Number
      * @return
      */
-    public void playChallengerModeSearchNumber() {
+    public int playChallengerModeSearchNumber() {
 
-        // declaration objets et mise a zero variable
+        // declaration objets
         MenuDisplay display = new MenuDisplay();
-        boolean isWin = false;
+
+        //variables
+        isWin = false;
+        int replay = 3;
+        int loopForChallengerMode = 0;
+        int inverseLoop = nbrOfTry;
 
         // Recuperation variable random ordinateur  -> randCompChallenger
         String randCompChallenger = this.computerNbrCombination(0, 9);
@@ -24,10 +29,6 @@ public class SearchNumberChallenger extends SearchNumber {
 
         // Je donne le nombre d'essai possible
         System.out.println("tu as " + nbrOfTry + " essai(s) pour trouver la combinaison de l'ordinateur.");
-
-        // Je lance le jeux
-        int loopForChallengerMode = 0;
-        int inverseLoop = nbrOfTry;
 
         do {
             loopForChallengerMode += 1;
@@ -50,17 +51,20 @@ public class SearchNumberChallenger extends SearchNumber {
             // je teste si gagnant ou perdant
             inverseLoop -= 1;
             this.testIfUserWinChallengerMode(loopForChallengerMode, randCompChallenger,nbrUserChallenger,inverseLoop);
-
+            if (isWin) { inverseLoop = 0;}
 
         } while (inverseLoop != 0);
-        System.out.println(" tu as perdu... :-(");
-        System.out.println("");
-        logger.info("l'utilisateur a perdu");
-        System.out.println("-----> la combinaison mystère était: " + randCompChallenger);
-        System.out.println("");
+        if (!isWin) {
+            System.out.println(" tu as perdu... :-(");
+            System.out.println("");
+            logger.info("l'utilisateur a perdu");
+            System.out.println("-----> la combinaison mystère était: " + randCompChallenger);
+            System.out.println("");
+        }
 
         //lancement du menu pour replay
-        this.replay();
+        replay = this.replay();
+        return replay;
     }
 }
 
