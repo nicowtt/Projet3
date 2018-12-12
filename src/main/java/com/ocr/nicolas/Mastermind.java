@@ -10,9 +10,13 @@ public class Mastermind extends Games {
     private int goodplaceExport;
     private int presentExport;
 
-    public int getGoodplaceExport() { return goodplaceExport;}
+    public int getGoodplaceExport() {
+        return goodplaceExport;
+    }
 
-    public int getPresentExport() { return presentExport;}
+    public int getPresentExport() {
+        return presentExport;
+    }
 
     Scanner sc = new Scanner(System.in);
 
@@ -65,14 +69,14 @@ public class Mastermind extends Games {
                     break;
                 //} while (gameTypeChoice == 1 || gameTypeChoice == 2 || gameTypeChoice == 3);
             }
-        } while (replay == 1) ;
+        } while (replay == 1);
         return replay;
     }
 
 
-
     /**
      * For create ArrayList with number ok in
+     *
      * @return ArrayList (Integer)
      */
     protected List<Integer> createListNbrOk() {
@@ -81,7 +85,9 @@ public class Mastermind extends Games {
         List<Integer> listNbrOk = new ArrayList<>();
 
         //je met les chiffres ok a l'interieur
-        for (int i = 0; i < (nbrMaxOnDigit + 1); i++) {listNbrOk.add(i);}
+        for (int i = 0; i < (nbrMaxOnDigit + 1); i++) {
+            listNbrOk.add(i);
+        }
         logger.info("liste chiffres ok = " + listNbrOk);
 
         return listNbrOk;
@@ -299,18 +305,26 @@ public class Mastermind extends Games {
         String codeValueString = "";
 
         // pour une reponse de comparaison (0 goodplace et 0 present)
-        if (goodplaceExport == 0 && presentExport == 0) { codeValueString = "0";}
+        if (goodplaceExport == 0 && presentExport == 0) {
+            codeValueString = "0";
+        }
 
         // pour une reponse de comparaison uniquement avec des presents
-        if (goodplaceExport == 0 && presentExport != 0) { codeValueString = String.valueOf(presentExport);}
+        if (goodplaceExport == 0 && presentExport != 0) {
+            codeValueString = String.valueOf(presentExport);
+        }
 
         // pour une reponse de comparaison avec des bien placé(s) et pas de present
-        if (goodplaceExport != 0 && presentExport == 0) { codeValueString = String.valueOf(goodplaceExport) + "0";}
+        if (goodplaceExport != 0 && presentExport == 0) {
+            codeValueString = String.valueOf(goodplaceExport) + "0";
+        }
 
         // pour une reponse de comparaison avec des bien placé(s) et des present(s)
-        if (goodplaceExport != 0 && presentExport != 0) { codeValueString = String.valueOf(goodplaceExport) + String.valueOf(presentExport);}
+        if (goodplaceExport != 0 && presentExport != 0) {
+            codeValueString = String.valueOf(goodplaceExport) + String.valueOf(presentExport);
+        }
 
-        logger.info("valeur code = " + codeValueString );
+        logger.info("valeur code = " + codeValueString);
 
         return codeValueString;
 
@@ -332,38 +346,113 @@ public class Mastermind extends Games {
         // je fabrique une array list avec toutes les combinaisons
         List<String> combinationTotal = new ArrayList<>();
 
-        // je fabrique les base 00,11,22,33
-        int count = 0;
 
-        for (int i = 0; i < nbrMaxOnDigit ; i++) { // -> pour le nombre max sur un digit
-            combination = "";
-            for (int j = 0; j < nbrDigit; j++) { // -> pour le nombre de digit
-                combination = combination + listNbrOk.get(count);}
-            count++;
-            combinationTotal.add(combination);
-        }
+        // todo je fabrique les combinaisons
 
-        // je fabrique les autres
-        for (int i = 0; i < nbrMaxOnDigit ; i++) {
-            combination = "";
-            for (int j = 0; j < nbrDigit ; j++) {
+        // todo je compte le nombre de combinaison ( nbrOfDigit * nbrMaxOnDigit)
+        // todo je converti chaque nombre en base -> nbrOfDigit en ajoutant des zero au valeur sans le nombre de digit min
+        // todo je l'ajoute au tableau !!!
 
 
-
-            }
-
-        }
-
-
-
-        logger.info("liste combinaison totale = " + combinationTotal);
-
-
-
-
-        }
+        //logger.info("liste combinaison totale = " + combinationTotal);
 
     }
+
+
+    /**
+     * For convert integer on any base
+     * @param pEntier Integer
+     * @param pBase integer for convert base
+     * @return integer on base "number"
+     */
+    public String intToBase( int pEntier, int pBase) {
+
+        int nbr = pEntier;
+        int rest;
+        String resultTemp = "";
+        String resultFinal = "";
+
+        do {
+            rest = nbr % pBase;
+            resultTemp = resultTemp + rest;
+            nbr = nbr / pBase;
+        } while (nbr > 0);
+
+        //j'inverse le string resultFinal
+        int decompte = resultTemp.length() - 1;
+        for (int i = decompte; i >= 0; i--) {
+            char digit = resultTemp.charAt(i);
+            resultFinal = resultFinal + digit;
+        }
+
+        return resultFinal;
+    }
+
+    /**
+     * For find combination max
+     * @return combination max
+     */
+    public Integer findCombinationMax() {
+
+        String nbrMaxStr = "";
+        String nbrMaxOnDigitStr = String.valueOf(nbrMaxOnDigit);
+
+        for (int i = 0; i < nbrDigit; i++) {
+            nbrMaxStr = nbrMaxStr + nbrMaxOnDigitStr;
+        }
+        Integer nbrMax = Integer.parseInt(nbrMaxStr);
+
+        logger.info("combinaison max = " + nbrMax);
+
+        return nbrMax;
+    }
+
+    /**
+     * for complete combination for have good nbr Of Digit
+     * @param pIn integer in
+     * @return String with good nbr of digit
+     */
+    public String completeStringFollowingNbrDigit(String pIn) {
+
+        //variables
+        String nbrStr = pIn;
+        String nbrMaxStr = "1";
+        String nbrFinalStr = "";
+
+        // je trouve le chiffre minimum avec le nombre de digit
+        for (int i = 0; i < (nbrDigit - 1); i++) {
+            nbrMaxStr = nbrMaxStr + "0";
+        }
+        Integer nbrMax = Integer.parseInt(nbrMaxStr);
+
+        // je complete les String avec pas assez de digit
+
+        // je compte le nombre de digit
+        int countNbrDigit = 0;
+
+        for (int i = 0; i < nbrStr.length() ; i++) {
+            countNbrDigit++;
+        }
+        // il faut don rajouter combien de zero
+        int nbrzero = nbrDigit - countNbrDigit;
+
+        // je crée les zero manquant
+        for (int i = 0; i < nbrzero ; i++) {
+            nbrFinalStr = nbrFinalStr + "0";
+        }
+
+        // je rajoute mon pIn
+        nbrFinalStr = nbrFinalStr + nbrStr;
+
+        return nbrFinalStr;
+        }
+    }
+
+
+
+
+
+
 
 
 

@@ -21,7 +21,7 @@ public class MastermindDefender extends Mastermind {
         userDefendMastStr = this.inputUserStringMast();
 
         //j'affiche la premiere combinaison computeur (celle conseillé par knuth a savoir par serie de 2 chiffres identique ex pour mon programme 0011)
-        compDefendMastKnuthStr = "0011";
+        compDefendMastKnuthStr = "0011"; //todo attention au nombre de digit
         System.out.println(compDefendMastKnuthStr);
 
         //do {

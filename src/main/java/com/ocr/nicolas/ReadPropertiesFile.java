@@ -51,18 +51,18 @@ public class ReadPropertiesFile {
 
             // get the property value and print it out
             developerMode = prop.getProperty("DeveloperMode");
-            logger.info("developerMode: " + developerMode);
+            //logger.info("developerMode: " + developerMode);
 
             // String -> Integer
 
             nbrDigit = Integer.parseInt(prop.getProperty("NbrDigit"));
-            logger.info("variable NbrDigit = " + nbrDigit);
+            //logger.info("variable NbrDigit = " + nbrDigit);
 
             nbrOfTry = Integer.parseInt(prop.getProperty("NbrOfTry"));
-            logger.info("variable nbrOfTry = "+ nbrOfTry);
+            //logger.info("variable nbrOfTry = "+ nbrOfTry);
 
             nbrMaxOnDigit = Integer.parseInt(prop.getProperty("NbrMaxOnDigit"));
-            logger.info("variable nbrMaxOnDigit = "+ nbrMaxOnDigit);
+            //logger.info("variable nbrMaxOnDigit = "+ nbrMaxOnDigit);
 
 
 

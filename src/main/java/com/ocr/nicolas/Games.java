@@ -29,8 +29,6 @@ public class Games {
         nbrOfTry = read.getNbrOfTry();
         nbrMaxOnDigit = read.getNbrMaxOnDigit();
         boolean isWin = false;
-
-        logger.info("info dans la class mere Games (nbrDigit= "+ nbrDigit +" nbrOfTry = " + nbrOfTry +" developerMode =" + developerMode);
     }
 
 
@@ -74,6 +72,9 @@ public class Games {
         MenuDisplay display = new MenuDisplay();
         SearchNumber searchNumber = new SearchNumber();
         Mastermind mastermind = new Mastermind();
+
+        // info
+        logger.info("info dans la class mere Games (nbrDigit= "+ nbrDigit +" nbrOfTry = " + nbrOfTry +" developerMode =" + developerMode + "nbrMaxOnDigit = " + nbrMaxOnDigit);
 
         // boucle si replay
         do {
