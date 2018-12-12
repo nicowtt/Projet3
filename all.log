@@ -1,23 +1,25 @@
-2018-12-12 12:53:24.997 [main] INFO  com.ocr.nicolas.Games - info dans la class mere Games (nbrDigit= 4 nbrOfTry = 3 developerMode =truenbrMaxOnDigit = 3
-2018-12-12 12:53:31.213 [main] INFO  com.ocr.nicolas.Log4j - Choix du jeux (1- Recherche+/- ; 2- Mastermind; 3 -arret) -> 2
-2018-12-12 12:53:31.644 [main] INFO  com.ocr.nicolas.Log4j - Mode de jeux (1- Challenger ; 2- défenseur ; 3- Duel) -> 2
-2018-12-12 12:53:31.647 [main] INFO  com.ocr.nicolas.Games - liste chiffres ok = [0, 1, 2, 3]
-2018-12-12 12:53:34.604 [main] INFO  com.ocr.nicolas.Games - Entrée utilisateur = 0123
-2018-12-12 12:53:36.028 [main] INFO  com.ocr.nicolas.Games - verification bien placé(s)
-2018-12-12 12:53:36.028 [main] INFO  com.ocr.nicolas.Games - ******************************************************
-2018-12-12 12:53:36.029 [main] INFO  com.ocr.nicolas.Games - list pFirst boolean bien placé = [true, false, false, false]
-2018-12-12 12:53:36.029 [main] INFO  com.ocr.nicolas.Games - list pSecond boolean bien placé = [true, false, false, false]
-2018-12-12 12:53:36.029 [main] INFO  com.ocr.nicolas.Games - list pFirst boolean present = [true, true, false, false]
-2018-12-12 12:53:36.029 [main] INFO  com.ocr.nicolas.Games - list pSecond boolean present = [true, false, true, false]
-2018-12-12 12:53:36.029 [main] INFO  com.ocr.nicolas.Games - ******************************************************
-2018-12-12 12:53:36.541 [main] INFO  com.ocr.nicolas.Games - verification présent(s)
-2018-12-12 12:53:36.541 [main] INFO  com.ocr.nicolas.Games - ******************************************************
-2018-12-12 12:53:36.541 [main] INFO  com.ocr.nicolas.Games - list pFirst boolean bien placé = [true, false, false, false]
-2018-12-12 12:53:36.541 [main] INFO  com.ocr.nicolas.Games - list pSecond boolean bien placé = [true, false, false, false]
-2018-12-12 12:53:36.542 [main] INFO  com.ocr.nicolas.Games - list pFirst boolean present = [true, true, false, false]
-2018-12-12 12:53:36.542 [main] INFO  com.ocr.nicolas.Games - list pSecond boolean present = [true, false, true, false]
-2018-12-12 12:53:36.542 [main] INFO  com.ocr.nicolas.Games - ******************************************************
-2018-12-12 12:53:36.542 [main] INFO  com.ocr.nicolas.Games - valeur code = 11
-2018-12-12 12:53:36.542 [main] INFO  com.ocr.nicolas.Games - liste chiffres ok = [0, 1, 2, 3]
-2018-12-12 12:53:36.542 [main] INFO  com.ocr.nicolas.Games - chiffre complété = 0002
-2018-12-12 12:53:36.543 [main] INFO  com.ocr.nicolas.Log4j - 
+2018-12-12 19:09:24.249 [main] INFO  com.ocr.nicolas.Games - info dans la class mere Games (nbrDigit= 4 nbrOfTry = 3 developerMode =truenbrMaxOnDigit = 3
+2018-12-12 19:09:25.512 [main] INFO  com.ocr.nicolas.Log4j - Choix du jeux (1- Recherche+/- ; 2- Mastermind; 3 -arret) -> 2
+2018-12-12 19:09:25.783 [main] INFO  com.ocr.nicolas.Log4j - Mode de jeux (1- Challenger ; 2- défenseur ; 3- Duel) -> 2
+2018-12-12 19:09:25.786 [main] INFO  com.ocr.nicolas.Games - liste chiffres ok = [0, 1, 2, 3]
+2018-12-12 19:09:27.127 [main] INFO  com.ocr.nicolas.Games - Entrée utilisateur = 0123
+2018-12-12 19:09:28.342 [main] INFO  com.ocr.nicolas.Games - verification bien placé(s)
+2018-12-12 19:09:28.343 [main] INFO  com.ocr.nicolas.Games - ******************************************************
+2018-12-12 19:09:28.343 [main] INFO  com.ocr.nicolas.Games - list pFirst boolean bien placé = [true, false, false, false]
+2018-12-12 19:09:28.343 [main] INFO  com.ocr.nicolas.Games - list pSecond boolean bien placé = [true, false, false, false]
+2018-12-12 19:09:28.343 [main] INFO  com.ocr.nicolas.Games - list pFirst boolean present = [true, true, false, false]
+2018-12-12 19:09:28.343 [main] INFO  com.ocr.nicolas.Games - list pSecond boolean present = [true, false, true, false]
+2018-12-12 19:09:28.343 [main] INFO  com.ocr.nicolas.Games - ******************************************************
+2018-12-12 19:09:28.583 [main] INFO  com.ocr.nicolas.Games - verification présent(s)
+2018-12-12 19:09:28.583 [main] INFO  com.ocr.nicolas.Games - ******************************************************
+2018-12-12 19:09:28.584 [main] INFO  com.ocr.nicolas.Games - list pFirst boolean bien placé = [true, false, false, false]
+2018-12-12 19:09:28.584 [main] INFO  com.ocr.nicolas.Games - list pSecond boolean bien placé = [true, false, false, false]
+2018-12-12 19:09:28.584 [main] INFO  com.ocr.nicolas.Games - list pFirst boolean present = [true, true, false, false]
+2018-12-12 19:09:28.584 [main] INFO  com.ocr.nicolas.Games - list pSecond boolean present = [true, false, true, false]
+2018-12-12 19:09:28.584 [main] INFO  com.ocr.nicolas.Games - ******************************************************
+2018-12-12 19:09:28.584 [main] INFO  com.ocr.nicolas.Games - valeur combinaison ordinateur = 11
+2018-12-12 19:09:28.584 [main] INFO  com.ocr.nicolas.Games - nombre de combinaison totale = 256
+2018-12-12 19:09:28.586 [main] INFO  com.ocr.nicolas.Games - tableau des combinaison = [3333, 3332, 3331, 3330, 3323, 3322, 3321, 3320, 3313, 3312, 3311, 3310, 3303, 3302, 3301, 3300, 3233, 3232, 3231, 3230, 3223, 3222, 3221, 3220, 3213, 3212, 3211, 3210, 3203, 3202, 3201, 3200, 3133, 3132, 3131, 3130, 3123, 3122, 3121, 3120, 3113, 3112, 3111, 3110, 3103, 3102, 3101, 3100, 3033, 3032, 3031, 3030, 3023, 3022, 3021, 3020, 3013, 3012, 3011, 3010, 3003, 3002, 3001, 3000, 2333, 2332, 2331, 2330, 2323, 2322, 2321, 2320, 2313, 2312, 2311, 2310, 2303, 2302, 2301, 2300, 2233, 2232, 2231, 2230, 2223, 2222, 2221, 2220, 2213, 2212, 2211, 2210, 2203, 2202, 2201, 2200, 2133, 2132, 2131, 2130, 2123, 2122, 2121, 2120, 2113, 2112, 2111, 2110, 2103, 2102, 2101, 2100, 2033, 2032, 2031, 2030, 2023, 2022, 2021, 2020, 2013, 2012, 2011, 2010, 2003, 2002, 2001, 2000, 1333, 1332, 1331, 1330, 1323, 1322, 1321, 1320, 1313, 1312, 1311, 1310, 1303, 1302, 1301, 1300, 1233, 1232, 1231, 1230, 1223, 1222, 1221, 1220, 1213, 1212, 1211, 1210, 1203, 1202, 1201, 1200, 1133, 1132, 1131, 1130, 1123, 1122, 1121, 1120, 1113, 1112, 1111, 1110, 1103, 1102, 1101, 1100, 1033, 1032, 1031, 1030, 1023, 1022, 1021, 1020, 1013, 1012, 1011, 1010, 1003, 1002, 1001, 1000, 0333, 0332, 0331, 0330, 0323, 0322, 0321, 0320, 0313, 0312, 0311, 0310, 0303, 0302, 0301, 0300, 0233, 0232, 0231, 0230, 0223, 0222, 0221, 0220, 0213, 0212, 0211, 0210, 0203, 0202, 0201, 0200, 0133, 0132, 0131, 0130, 0123, 0122, 0121, 0120, 0113, 0112, 0111, 0110, 0103, 0102, 0101, 0100, 0033, 0032, 0031, 0030, 0023, 0022, 0021, 0020, 0013, 0012, 0011, 0010, 0003, 0002, 0001, 0000]
+2018-12-12 19:09:28.587 [main] INFO  com.ocr.nicolas.Games - liste value = [0, 1, 2, 3, 4, 10, 11, 12, 13, 20, 21, 22, 30, 40]
+2018-12-12 19:09:28.587 [main] INFO  com.ocr.nicolas.Games - liste de liste = [Ljava.util.List;@612fc6eb
+2018-12-12 19:09:28.587 [main] INFO  com.ocr.nicolas.Log4j - 

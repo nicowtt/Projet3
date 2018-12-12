@@ -13,6 +13,7 @@ public class MastermindDefender extends Mastermind {
         //variable
         int nbrLoopMastDefend = 0;
         int replay = 3;
+        String compValue = "";
 
         // affichage de la demande
         System.out.println("Choisi une combinaison de " + nbrDigit + " chiffre(s) ( chaque chiffre doit être compris entre 0 et " + nbrMaxOnDigit + ")");
@@ -34,11 +35,14 @@ public class MastermindDefender extends Mastermind {
             this.presentNoCheat(userDefendMastStr, compDefendMastKnuthStr);
 
             //todo ce servir de ces resultats pour faire une autre proposition optimale (faire l'IA)
-            //creation d'une methode pour mettre une valeur au combinaison possible (une echelle de valeur afin de ce diriger vers les bonnes combinaison)
-            //todo creation d'une methode pour fabriquer toutes les combinaisons (avec ces valeurs??)
-            this.makeAllCombinationMastermind();
+            // check valeur de la premiere proposition ordinateur
+            compValue = this.codeValue(compDefendMastKnuthStr);
+            logger.info("valeur combinaison ordinateur = " + compValue);
 
-            //todo creation d'une methode pour piocher la prochaine solution dans la tranche de valeur qui va bien
+            //todo creation d'une methode pour trouver une proposition optimale (in progress)
+            this.optimalCompProposal(compValue);
+
+            //todo affichage de la combinaison (la premiere de la array list qui est bonne)
 
             nbrLoopMastDefend++;
 

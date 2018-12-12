@@ -300,9 +300,9 @@ public class Mastermind extends Games {
      * decade = number of goodplaced,  only one Digit = number of present;
      * (ex: for 4 digit and 4 figure possible -> 0,1,2,3,4,10,11,12,13,20,21,22,30,40
      */
-    protected String codeValue() {
+    protected String codeValue(String pString) {
 
-        String codeValueString = "";
+        String codeValueString = pString;
 
         // pour une reponse de comparaison (0 goodplace et 0 present)
         if (goodplaceExport == 0 && presentExport == 0) {
@@ -324,7 +324,7 @@ public class Mastermind extends Games {
             codeValueString = String.valueOf(goodplaceExport) + String.valueOf(presentExport);
         }
 
-        logger.info("valeur code = " + codeValueString);
+        //logger.info("valeur code = " + codeValueString);
 
         return codeValueString;
 
@@ -333,39 +333,57 @@ public class Mastermind extends Games {
     /**
      * for make all combination possible with codeValueParameter
      */
-    protected void makeAllCombinationMastermind() {
+    protected List<String> makeAllCombinationMastermind() {
 
         String combination = "";
 
-        // je lance la methode pour trouver la valeur du code
-        String codeValueStr = this.codeValue();
-
-        //je recupere la list des nombre ok
-        List<Integer> listNbrOk = this.createListNbrOk();
-
         // je fabrique une array list avec toutes les combinaisons
-        List<String> combinationTotal = new ArrayList<>();
+        List<String> listCombinationTotal = new ArrayList<>();
+
+//        // je compte le nombre de combinaison
+//        int nbrCombinationTotal = findCombinationMax();
+//        logger.info("la combinaison la plus haute = " + nbrCombinationTotal);
 
 
-        // todo je fabrique les combinaisons
+        // nombre de conbinaison totale
+        int combTotal = (int) Math.pow((nbrMaxOnDigit + 1), nbrDigit);
+        logger.info("nombre de combinaison totale = " + combTotal);
+        // j'enleve 1 pour evité un nombre de digit au dessus de la normale
+        combTotal -= 1;
 
-        // todo je compte le nombre de combinaison ( nbrOfDigit * nbrMaxOnDigit)
-        // todo je converti chaque nombre en base -> nbrOfDigit en ajoutant des zero au valeur sans le nombre de digit min
-        // todo je l'ajoute au tableau !!!
+        //je converti chaque nombre de combinaison totale en base (4 si nbrmax on digit = 4)
+        do {
+            combination = intToBase(combTotal, (nbrMaxOnDigit + 1));
+            listCombinationTotal.add(combination);
+            combTotal--;
 
+        } while (combTotal > 0);
 
-        //logger.info("liste combinaison totale = " + combinationTotal);
+        // je rajoute le dernier manuellement (le zero)
+        listCombinationTotal.add("0");
 
+        // je rajoute les zeros a celle qui n'ont pas assez de digit
+        String nbrDigitNok;
+        String nbrWithGoodNbrOfDigit;
+        for (int i = 0; i < listCombinationTotal.size(); i++) {
+            nbrDigitNok = listCombinationTotal.get(i);
+            nbrWithGoodNbrOfDigit = completeStringFollowingNbrDigit(nbrDigitNok);
+            listCombinationTotal.set(i, nbrWithGoodNbrOfDigit);
+        }
+
+        logger.info("tableau des combinaison = " + listCombinationTotal);
+        return listCombinationTotal;
     }
 
 
     /**
      * For convert integer on any base
+     *
      * @param pEntier Integer
-     * @param pBase integer for convert base
+     * @param pBase   integer for convert base
      * @return integer on base "number"
      */
-    public String intToBase( int pEntier, int pBase) {
+    public String intToBase(int pEntier, int pBase) {
 
         int nbr = pEntier;
         int rest;
@@ -388,27 +406,28 @@ public class Mastermind extends Games {
         return resultFinal;
     }
 
-    /**
-     * For find combination max
-     * @return combination max
-     */
-    public Integer findCombinationMax() {
-
-        String nbrMaxStr = "";
-        String nbrMaxOnDigitStr = String.valueOf(nbrMaxOnDigit);
-
-        for (int i = 0; i < nbrDigit; i++) {
-            nbrMaxStr = nbrMaxStr + nbrMaxOnDigitStr;
-        }
-        Integer nbrMax = Integer.parseInt(nbrMaxStr);
-
-        logger.info("combinaison max = " + nbrMax);
-
-        return nbrMax;
-    }
+//    *
+//     * For find combination max
+//     * @return combination max
+//
+//    public Integer findCombinationMax() {
+//
+//        String nbrMaxStr = "";
+//        String nbrMaxOnDigitStr = String.valueOf(nbrMaxOnDigit);
+//
+//        for (int i = 0; i < nbrDigit; i++) {
+//            nbrMaxStr = nbrMaxStr + nbrMaxOnDigitStr;
+//        }
+//        Integer nbrMax = Integer.parseInt(nbrMaxStr);
+//
+//        logger.info("combinaison max = " + nbrMax);
+//
+//        return (nbrMax);
+//    }
 
     /**
      * for complete combination for have good nbr Of Digit
+     *
      * @param pIn integer in
      * @return String with good nbr of digit
      */
@@ -430,14 +449,14 @@ public class Mastermind extends Games {
         // je compte le nombre de digit
         int countNbrDigit = 0;
 
-        for (int i = 0; i < nbrStr.length() ; i++) {
+        for (int i = 0; i < nbrStr.length(); i++) {
             countNbrDigit++;
         }
         // il faut don rajouter combien de zero
         int nbrzero = nbrDigit - countNbrDigit;
 
         // je crée les zero manquant
-        for (int i = 0; i < nbrzero ; i++) {
+        for (int i = 0; i < nbrzero; i++) {
             nbrFinalStr = nbrFinalStr + "0";
         }
 
@@ -445,8 +464,99 @@ public class Mastermind extends Games {
         nbrFinalStr = nbrFinalStr + nbrStr;
 
         return nbrFinalStr;
-        }
     }
+
+    /**
+     * For create a list with all possible value
+     * exemple -> for nbrMaxOnDigit = 4 -> 0,1,2,3,4,10,11,12,13,20,21,22,30,40
+     */
+    public List<String> createListOfValue () {
+
+        int nbr = 0;
+        int nbrDecade = nbrMaxOnDigit;
+        int maxDecade = 0;
+        String digit = "";
+        int countDecade = 1;
+
+
+        //creation d'une arrayList avec toutes les valeurs possible
+        List<String> listPossibleValues = new ArrayList<>();
+
+        for (int i = 0; i < (nbrMaxOnDigit + 2); i++) { // pour le nombre max sur un digit
+            listPossibleValues.add(String.valueOf(nbr));
+            nbr++;
+        }
+
+        maxDecade = (listPossibleValues.size() - 1);
+        int count1 = 0;
+
+        do {
+            for (int i = maxDecade ; i > 0; i--) { // pour les dizaines
+                digit =  String.valueOf(countDecade);
+                digit = digit + listPossibleValues.get(count1);
+                listPossibleValues.add(digit);
+                count1++;
+            }
+            countDecade++;
+            maxDecade--;
+            digit = "";
+            count1 = 0;
+
+        } while (maxDecade != 0);
+
+        //je dois enlever l'avant dernier (si 3 bien placé, le dernier est forcement non present !!)
+        int total = listPossibleValues.size();
+        listPossibleValues.remove((total - 2));
+
+        logger.info("liste value = " + listPossibleValues);
+
+        return listPossibleValues;
+        }
+
+
+
+    /**
+     *  For find optimal computer proposal
+     * @param pList All combination
+     * @param pValue value of last proposition
+     * @return optimal combination
+     */
+    public void optimalCompProposal(String pValue) {
+
+        //variables
+        String proposal = "";
+        String compare = "";
+        String optimalCompProposal = "";
+
+        //objet
+        List<String> combinationTotale = new ArrayList<>();
+
+        // je lance la methode pour avoir toutes les combinaisons
+        combinationTotale = this.makeAllCombinationMastermind();
+
+        // le lance la methode pour remplir la liste de valeur
+        List<String> listValueTotal = this.createListOfValue();
+
+        // todo je compare chaque combinaisons et je choisi celle qui a une valeur au dessus de la mienne
+
+//        for (int i = 0; i < combinationTotale.size(); i++) { // pour chaque combinaison possible
+//            proposal = combinationTotale.get(i);
+//            // je la compare avec la proposition utilisateur pour avoir une echelle de valeur
+//            compare = this.codeValue(proposal);
+//            // je classe les comparaisons dans des listes
+//            if (mapWithNbrOfCombinationPerValue.containsKey(compare)) {
+//                mapWithNbrOfCombinationPerValue.
+//            }
+
+        }
+
+
+
+
+
+
+    }
+
 
 
 
