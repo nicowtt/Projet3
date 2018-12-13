@@ -5,7 +5,10 @@ import java.util.*;
 public class Mastermind extends Games {
 
 
+
     protected boolean iswin;
+
+    protected List<String> listCombinationRemainingexport;
 
     private int goodplaceExport;
     private int presentExport;
@@ -16,6 +19,10 @@ public class Mastermind extends Games {
 
     public int getPresentExport() {
         return presentExport;
+    }
+
+    public List<String> getListCombinationRemainingexport() {
+        return listCombinationRemainingexport;
     }
 
     Scanner sc = new Scanner(System.in);
@@ -149,7 +156,7 @@ public class Mastermind extends Games {
         return inputUserFinal;
     }
 
-    protected void compareTwoStringMast(String pFirst, String pSecond) {
+    protected String compareTwoStringMast(String pFirst, String pSecond) {
 
         //Je crée deux ArrayList avec des booleans
         List<Boolean> listpFirstBoolean = new ArrayList<>();
@@ -172,9 +179,9 @@ public class Mastermind extends Games {
                 listpSecondBoolean.add(true);
             }
         }
-        logger.info("******************************************************");
-        logger.info("list pFirst boolean bien placé = " + listpFirstBoolean);
-        logger.info("list pSecond boolean bien placé = " + listpSecondBoolean);
+//        logger.info("******************************************************");
+//        logger.info("list pFirst boolean bien placé = " + listpFirstBoolean);
+//        logger.info("list pSecond boolean bien placé = " + listpSecondBoolean);
 
         // je compare une seconde fois en prenant en compte les bien placés
         for (int i = 0; i < pFirst.length(); i++) {
@@ -187,12 +194,38 @@ public class Mastermind extends Games {
                 }
             }
         }
-        logger.info("list pFirst boolean present = " + listpFirstBoolean);
-        logger.info("list pSecond boolean present = " + listpSecondBoolean);
-        logger.info("******************************************************");
+//        logger.info("list pFirst boolean present = " + listpFirstBoolean);
+//        logger.info("list pSecond boolean present = " + listpSecondBoolean);
+//        logger.info("******************************************************");
 
+
+        String codeValueString = "";
+
+        // pour une reponse de comparaison (0 goodplace et 0 present)
+        if (goodplace == 0 && present == 0) {
+            codeValueString = "0";
+        }
+
+        // pour une reponse de comparaison uniquement avec des presents
+        if (goodplace == 0 && present != 0) {
+            codeValueString = String.valueOf(present);
+        }
+
+        // pour une reponse de comparaison avec des bien placé(s) et pas de present
+        if (goodplace != 0 && present == 0) {
+            codeValueString = String.valueOf(goodplace) + "0";
+        }
+
+        // pour une reponse de comparaison avec des bien placé(s) et des present(s)
+        if (goodplace != 0 && present != 0) {
+            codeValueString = String.valueOf(goodplace) + String.valueOf(present);
+        }
         goodplaceExport = goodplace;
         presentExport = present;
+
+        //logger.info("valeur code = " + codeValueString);
+
+        return codeValueString;
     }
 
     /**
@@ -340,11 +373,6 @@ public class Mastermind extends Games {
         // je fabrique une array list avec toutes les combinaisons
         List<String> listCombinationTotal = new ArrayList<>();
 
-//        // je compte le nombre de combinaison
-//        int nbrCombinationTotal = findCombinationMax();
-//        logger.info("la combinaison la plus haute = " + nbrCombinationTotal);
-
-
         // nombre de conbinaison totale
         int combTotal = (int) Math.pow((nbrMaxOnDigit + 1), nbrDigit);
         logger.info("nombre de combinaison totale = " + combTotal);
@@ -372,9 +400,9 @@ public class Mastermind extends Games {
         }
 
         logger.info("tableau des combinaison = " + listCombinationTotal);
+
         return listCombinationTotal;
     }
-
 
     /**
      * For convert integer on any base
@@ -405,25 +433,6 @@ public class Mastermind extends Games {
 
         return resultFinal;
     }
-
-//    *
-//     * For find combination max
-//     * @return combination max
-//
-//    public Integer findCombinationMax() {
-//
-//        String nbrMaxStr = "";
-//        String nbrMaxOnDigitStr = String.valueOf(nbrMaxOnDigit);
-//
-//        for (int i = 0; i < nbrDigit; i++) {
-//            nbrMaxStr = nbrMaxStr + nbrMaxOnDigitStr;
-//        }
-//        Integer nbrMax = Integer.parseInt(nbrMaxStr);
-//
-//        logger.info("combinaison max = " + nbrMax);
-//
-//        return (nbrMax);
-//    }
 
     /**
      * for complete combination for have good nbr Of Digit
@@ -470,7 +479,7 @@ public class Mastermind extends Games {
      * For create a list with all possible value
      * exemple -> for nbrMaxOnDigit = 4 -> 0,1,2,3,4,10,11,12,13,20,21,22,30,40
      */
-    public List<String> createListOfValue () {
+    public List<String> createListOfValue() {
 
         int nbr = 0;
         int nbrDecade = nbrMaxOnDigit;
@@ -489,13 +498,15 @@ public class Mastermind extends Games {
 
         maxDecade = (listPossibleValues.size() - 1);
         int count1 = 0;
+        int count2 = 0;
 
         do {
-            for (int i = maxDecade ; i > 0; i--) { // pour les dizaines
-                digit =  String.valueOf(countDecade);
+            for (int i = maxDecade; i > 0; i--) { // pour les dizaines
+                digit = String.valueOf(countDecade);
                 digit = digit + listPossibleValues.get(count1);
                 listPossibleValues.add(digit);
                 count1++;
+                count2++;
             }
             countDecade++;
             maxDecade--;
@@ -509,53 +520,189 @@ public class Mastermind extends Games {
         listPossibleValues.remove((total - 2));
 
         logger.info("liste value = " + listPossibleValues);
+        logger.info("Compteur de valeur possible = " + count2);
 
         return listPossibleValues;
-        }
+    }
 
+    /**
+     * For create a list of candidates
+     *
+     * @param pListeCombinaisonTotale combination total
+     * @return clone list
+     */
+    public List<String> duplicateCombinationForCandidates(List<String> pListeCombinaisonTotale) {
+        // je crée une nouvelle liste candidates
+        List<String> listCandidates = new ArrayList<>();
+
+        //variables
+        String combination = "";
+
+        // je la duplique sur la liste de toute les combinaison
+        for (int i = 0; i < pListeCombinaisonTotale.size(); i++) {
+            combination = pListeCombinaisonTotale.get(i);
+            listCandidates.add(combination);
+        }
+        return listCandidates;
+    }
 
 
     /**
-     *  For find optimal computer proposal
-     * @param pList All combination
-     * @param pValue value of last proposition
-     * @return optimal combination
+     * For make a list with only combination possible after user response
+     *
+     * @param pListCandidates toutes les combinaison restante
+     * @param pUser           user combination
+     * @param pValue          value of comparaison
      */
-    public void optimalCompProposal(String pValue) {
+    public List<String> sortCombinationPossible(List<String> pListCandidates, String pUser, String pValue) {
 
-        //variables
-        String proposal = "";
-        String compare = "";
-        String optimalCompProposal = "";
+        // je crée une list avec les combinaison possible
+        List<String> listCombOk = new ArrayList<>();
 
-        //objet
-        List<String> combinationTotale = new ArrayList<>();
+        //variable
+        Integer value = Integer.parseInt(pValue);
+        int count = 0;
 
-        // je lance la methode pour avoir toutes les combinaisons
-        combinationTotale = this.makeAllCombinationMastermind();
 
-        // le lance la methode pour remplir la liste de valeur
-        List<String> listValueTotal = this.createListOfValue();
-
-        // todo je compare chaque combinaisons et je choisi celle qui a une valeur au dessus de la mienne
-
-//        for (int i = 0; i < combinationTotale.size(); i++) { // pour chaque combinaison possible
-//            proposal = combinationTotale.get(i);
-//            // je la compare avec la proposition utilisateur pour avoir une echelle de valeur
-//            compare = this.codeValue(proposal);
-//            // je classe les comparaisons dans des listes
-//            if (mapWithNbrOfCombinationPerValue.containsKey(compare)) {
-//                mapWithNbrOfCombinationPerValue.
-//            }
-
+        // je garde uniquement les combinaisons qui sont possible
+        for (int i = 0; i < pListCandidates.size(); i++) {// toutes les combinaison candidates
+            Integer compare = Integer.parseInt(this.compareTwoStringMast(pUser, pListCandidates.get(i))); // je compare les candidate avec la combinaison utilisateur
+            if (compare >= value) {
+                listCombOk.add(pListCandidates.get(i));
+                count++;
+            }
         }
+        logger.info("combinaison restante possible = " + count);
+        logger.info("Liste avec combinaison restante possible = " + listCombOk);
 
-
-
-
-
-
+        return listCombOk;
     }
+
+    /**
+     * For choose an optimal combination
+     *
+     * @param pListCombination total combination
+     */
+    public String optimalCombination(List<String> pListCombination) {
+        // pour chaque combinaison de la liste  je compare avec la combinaison de la liste dupliqué et je recupere le poid, je prend la combinaison avec le poid le plus legé (knuth)
+
+        // je crée une liste de valeur
+        List<String> listvalue = this.createListOfValue();
+
+        // je crée une list dupliqué
+        List<String> listDuplicate = this.duplicateCombinationForCandidates(pListCombination);
+
+        // variable
+        String firstCombination = pListCombination.get(0);
+        Integer count = 0; //poid max
+        String compare = "";
+        String value = "";
+
+        // variable pour decompte
+        int decreasecount = (pListCombination.size() - 1);
+        int forvaluelist = 0;
+
+        // combinaison a tester
+        int countForComb = 1;
+        //String comb1 = pListCombination.get(pListCombination.size() - countForComb);
+
+        // list pour stocker les compteurs
+        List<Integer> listCount = new ArrayList<>();
+
+        // je crée une hashmap pour stocker la combinaison et ça valeur
+        Map<String, Integer> listCombWhithweight = new HashMap<>();
+
+        for (int k = 0; k < pListCombination.size(); k++) {
+            String comb1 = pListCombination.get(pListCombination.size() - countForComb);
+            for (int j = 0; j < listvalue.size(); j++) { // pour le nombre de valeur
+                for (int i = 0; i < pListCombination.size(); i++) { // pour toute les combinaison
+                    int compareInt = Integer.parseInt(this.compareTwoStringMast(comb1, listDuplicate.get(i))); // tu compare avec la liste dupliqué
+                    int valueInt = Integer.valueOf(listvalue.get(forvaluelist));
+                    comb1 = pListCombination.get(pListCombination.size() - countForComb);
+                    String comb2 = listDuplicate.get(i);
+                    decreasecount++;
+                    if (valueInt == compareInt) {
+                        count++;
+                    }
+                    decreasecount--;
+                }
+                listCount.add(count);
+                count = 0;
+                forvaluelist++;
+            }
+            //logger.info("liste des compteur = " + listCount);
+
+            // je trouve la valeur poid (valeur la plus haute de la liste du compteur)
+            //variables
+            int nbrTemp = 0;
+            int nbrToKeep = 0;
+
+            for (int i = 0; i < listCount.size(); i++) {
+                nbrTemp = listCount.get(i);
+                if (nbrTemp >= nbrToKeep) {
+                    nbrToKeep = nbrTemp;
+                }
+            }
+            //logger.info(" je garde le nombre = " + nbrToKeep);
+
+            // je met la combinaison dans la hashmap
+            listCombWhithweight.put(comb1, nbrToKeep);
+            //logger.info("combinaison et poids = " + listCombWhithweight);
+
+            // j'incremente
+            countForComb++;
+            forvaluelist = 0;
+            listCount.clear();
+        }
+        // je prend la premiere combinaison avec le plus faible poids (knuth)
+        // je crée une liste avec les Values de la hash map
+        List<Integer> listValueInHashMap = new ArrayList<>();
+        // je crée une liste avec les key de la hashMap
+        List<String> listCombinationRemaining = new ArrayList<>();
+
+        Iterator iterator = listCombWhithweight.entrySet().iterator();
+
+        while (iterator.hasNext()) {
+            Map.Entry entry = (Map.Entry) iterator.next();
+            String keyHashMap = (String) entry.getKey();
+            Integer valueHashMap = (Integer) entry.getValue();
+            listValueInHashMap.add(valueHashMap);
+            listCombinationRemaining.add(keyHashMap);
+            //System.out.println(keyHashMap + " = " + valueHashMap);
+        }
+        logger.info(" liste avec les valeurs des combinaison restante = " + listCombinationRemaining);
+        logger.info(" liste avec les poids de chaque combinaison = " + listValueInHashMap);
+
+        // j'exporte la liste avec les combinaison restante
+        listCombinationRemainingexport = listCombinationRemaining;
+
+        // je regarde la valeur mini dans cette liste
+        int valueMinInList = 10000;
+        int temp;
+        int temp2;
+
+        String combinationFinale = "";
+
+        for (int i = 0; i < listValueInHashMap.size(); i++) {
+            temp = listValueInHashMap.get(i);
+            if (temp < valueMinInList) {
+                valueMinInList = temp;
+            }
+        }
+        // je capte la premiere conbinaison avec le poid mini dans la hashMap
+        for (int i = 0; i < listValueInHashMap.size(); i++) {
+            temp2 = listValueInHashMap.get(i);
+            if (temp2 == valueMinInList) {
+                combinationFinale = listCombinationRemaining.get(i);
+                break;
+            }
+        }
+        logger.info("combinaison finale = " + combinationFinale);
+        return  combinationFinale;
+    }
+}
+
+
 
 
 
