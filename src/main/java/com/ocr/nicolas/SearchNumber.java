@@ -319,9 +319,9 @@ public class SearchNumber extends Games {
             digitStr = String.valueOf(digit);
             digitFinal = digitFinal + digitStr;
         }
-        if (digitFinal.equals(pStrToComparForWin)) {
-            isWin = true;
-        }
+//        if (digitFinal.equals(pStrToComparForWin)) {
+//            isWin = true;
+//        }
         return digitFinal;
     }
 
@@ -420,7 +420,6 @@ public class SearchNumber extends Games {
             if (cheakCheatInput) {cheakCheat = true;}
                 else {cheakCheat = false;}
 
-
         }while (cheakCheat);
 
         // comparaison pour voir si computeur gagne
@@ -431,17 +430,20 @@ public class SearchNumber extends Games {
             // j'annonce le gagnant
             isWin = true;
         }
-        // arrêt si plus de nombre d'essai
-        if (nbrOfTry == 1) {
-            System.out.println(" l'ordinateur n'a plus d'essai, tu gagne !");
-            System.out.println("");
-            isWin = true;
-        }
-        if (nbrOfTry > 1 && pinverseLoop == 0 ) {
+
+        if (nbrOfTry >= 1 && pinverseLoop == 0 && !isWin) {
             System.out.println(" l'ordinateur n'a plus d'essai non plus, personne ne gagne :-( !");
             System.out.println("");
             isWin = true;
         }
+        // arrêt si plus de nombre d'essai
+        if (nbrOfTry == 1 && !isWin) {
+            System.out.println(" l'ordinateur n'a plus d'essai, tu gagne !");
+            System.out.println("");
+            isWin = true;
+
+        }
+
 
         return valueUserInString;
     }

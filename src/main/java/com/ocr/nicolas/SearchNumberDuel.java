@@ -121,64 +121,81 @@ public class SearchNumberDuel extends SearchNumber{
                     System.out.println(compDefenderRefined);
 
                     do {
-                        logger.info("************* Debut de la boucle" + loopForDuelMode + "********* ");
-                        loopForDuelMode++;
-                        // j'affiche la demande de valeur
-                        display.displayForValueToUser();
-                        inverseLoopDefender--;
-
-                        // je check si erreur ou tricherie et si ordi gagne
-                        valueUserInString = this.inputValuesUserAndCheckIfCheat(nbrUserDuelDefender, compDefenderRefined, loopForDuelMode, inverseLoopDefender);
                         if (!isWin) {
-                            //*********** Challenger2******************
-                            inverseLoop -= 1;
-                            System.out.println("*********************************");
-                            System.out.println("**** " + loopForDuelMode + "eme essai  *****");
-                            logger.info("-------------------- Challenger Mode boucle " + loopForDuelMode + "----------------");
-                            System.out.println(" Voici les valeurs pour trouver la combinaison de l'ordinateur:");
+                            logger.info("************* Debut de la boucle" + loopForDuelMode + "********* ");
+                            // j'affiche la demande de valeur
+                            display.displayForValueToUser();
+                            inverseLoopDefender--;
 
-                            // je verifie et j'affiche si le Mode developper a été demandé
-                            if (developerMode.contains("true")) {
-                                System.out.println("(" + randCompDuel + ") = chiffre ordinateur (mode developpeur)");
+                            // je check si erreur ou tricherie et si ordi gagne
+                            valueUserInString = this.inputValuesUserAndCheckIfCheat(nbrUserDuelDefender, compDefenderRefined, loopForDuelMode, inverseLoopDefender);
+                            loopForDuelMode++;
+                            // si il n'y a plus d'essai possible
+                            if (isWin) {
+                                loopForDuelMode = nbrOfTry;
                             }
 
-                            //challenger 2 et suivant: Je lance la comparaison et j'affiche le resultat.
-                            afterCompareDuel = this.CompareTwoString(randCompDuel, nbrUserDuelChallenger);
-                            System.out.println(nbrUserDuelChallenger + " (rappel de ta combinaison)");
-                            System.out.println(afterCompareDuel);
-
-                            // J'affiche la demande de nombre utilisateur et recupere la valeur  -> nbrUserDuel
-                            System.out.println("");
-                            display.displayAskNumber(nbrDigit);
-                            nbrUserDuelChallenger = display.getUserChoiceStringExport();
-                            logger.info("nombre entré par l'utilisateur = " + nbrUserDuelChallenger);
-
-                            // verification si gagnant challenger
-                            this.testIfUserWinChallengerMode(loopForDuelMode, randCompDuel, nbrUserDuelChallenger, inverseLoop);
                             if (!isWin) {
-                                if (nbrOfTry > 2) {
-                                    //************** Defender3************************
-                                    logger.info("-------------------- Defender Mode boucle " + loopForDuelMode + "----------------");
-                                    System.out.println("");
-                                    System.out.println(" ** au tour de l'ordinateur ** ");
+                                //*********** Challenger2******************
+                                inverseLoop -= 1;
+                                System.out.println("*********************************");
+                                System.out.println("**** " + loopForDuelMode + "eme essai  *****");
+                                logger.info("-------------------- Challenger Mode boucle " + loopForDuelMode + "----------------");
+                                System.out.println(" Voici les valeurs pour trouver la combinaison de l'ordinateur:");
 
-                                    //defender 3 et suivant: je fais des nouveaux chiffres computer avec les  nouvelles valeurs
-                                    compDefenderRefined = this.hasmapToDicotomousString(hashmapRefined, compDefenderRefined, valueUserInString, nbrUserDuelDefender);
-                                    logger.info("nouveau numero computeur avec methode dicotomous = " + compDefenderRefined);
+                                // je verifie et j'affiche si le Mode developper a été demandé
+                                if (developerMode.contains("true")) {
+                                    System.out.println("(" + randCompDuel + ") = chiffre ordinateur (mode developpeur)");
+                                }
 
-                                    //defender 3 j'affiche le nouvel essai computeur
-                                    System.out.println(nbrUserDuelDefender + " (rappel de ta combinaison)");
-                                    System.out.println(compDefenderRefined);
+                                //challenger 2 et suivant: Je lance la comparaison et j'affiche le resultat.
+                                afterCompareDuel = this.CompareTwoString(randCompDuel, nbrUserDuelChallenger);
+                                System.out.println(nbrUserDuelChallenger + " (rappel de ta combinaison)");
+                                System.out.println(afterCompareDuel);
+
+                                // J'affiche la demande de nombre utilisateur et recupere la valeur  -> nbrUserDuel
+                                System.out.println("");
+                                display.displayAskNumber(nbrDigit);
+                                nbrUserDuelChallenger = display.getUserChoiceStringExport();
+                                logger.info("nombre entré par l'utilisateur = " + nbrUserDuelChallenger);
+
+                                // verification si gagnant challenger
+                                this.testIfUserWinChallengerMode(loopForDuelMode, randCompDuel, nbrUserDuelChallenger, inverseLoop);
+                                if (!isWin) {
+                                    if (nbrOfTry > 2) {
+                                        //************** Defender3************************
+                                        logger.info("-------------------- Defender Mode boucle " + loopForDuelMode + "----------------");
+                                        System.out.println("");
+                                        System.out.println(" ** au tour de l'ordinateur ** ");
+
+                                        //defender 3 et suivant: je fais des nouveaux chiffres computer avec les  nouvelles valeurs
+                                        compDefenderRefined = this.hasmapToDicotomousString(hashmapRefined, compDefenderRefined, valueUserInString, nbrUserDuelDefender);
+                                        logger.info("nouveau numero computeur avec methode dicotomous = " + compDefenderRefined);
+
+                                        //defender 3 j'affiche le nouvel essai computeur
+                                        System.out.println(nbrUserDuelDefender + " (rappel de ta combinaison)");
+                                        System.out.println(compDefenderRefined);
+                                    }
                                 }
                             }
                         }
-                    } while (loopForDuelMode != nbrOfTry + 1);
+                    }while (loopForDuelMode != nbrOfTry) ;
                     if (!isWin) {
-                        System.out.println(" l'ordinateur n'as plus d'essai non plus, donc personne ne gagne !");
-                        System.out.println("");
+
+                        // j'affiche la demande de valeur
+                        display.displayForValueToUser();
+
+                        // je check si erreur ou tricherie et si ordi gagne
+                        valueUserInString = this.inputValuesUserAndCheckIfCheat(nbrUserDuelDefender, compDefenderRefined, loopForDuelMode, inverseLoopDefender);
+
+                        if (!isWin) {
+                            System.out.println(" l'ordinateur n'as plus d'essai non plus, donc personne ne gagne !");
+                            System.out.println("");
+                        }
                     }
                 }
             }
+
         }
         //replay
         replay = this.replay();

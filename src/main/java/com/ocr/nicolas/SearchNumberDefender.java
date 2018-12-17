@@ -12,9 +12,6 @@ public class SearchNumberDefender extends SearchNumber {
     private String compDefenderString1 = ""; // First computeur nbr
     private String getCompDefenderString = ""; // computeur nbr (in loop)
 
-
-    public int getLoopForDefenderMode() {return loopForDefenderMode;}
-
     /**
      * For playing DefenderMode of SearchNumber
      */
@@ -28,6 +25,7 @@ public class SearchNumberDefender extends SearchNumber {
         loopForDefenderMode = 1;
         int replay = 3;
         isWin = false;
+        int nbrOneTry = 2;
 
         // Je donne le nombre d'essai possible
         System.out.println("l'ordinateur a " + nbrOfTry + " essai pour trouver ta combinaison");
@@ -51,7 +49,7 @@ public class SearchNumberDefender extends SearchNumber {
         inverseLoop--;
 
         // je check si erreur ou tricherie et si ordi gagne
-        valueUserInString = this.inputValuesUserAndCheckIfCheat(nbrUserDefender, compDefenderString1, loopForDefenderMode, inverseLoop);
+        valueUserInString = this.inputValuesUserAndCheckIfCheat(nbrUserDefender, compDefenderString1, loopForDefenderMode, nbrOneTry);
         if (!isWin) {
 
             // je renseigne la hashmap
@@ -73,10 +71,9 @@ public class SearchNumberDefender extends SearchNumber {
                 // j'affiche la demande de valeur
                 display.displayForValueToUser();
 
-
                 // je check si erreur ou tricherie et si ordi gagne
                 valueUserInString = this.inputValuesUserAndCheckIfCheat(nbrUserDefender, compDefenderRefined, loopForDefenderMode, inverseLoop);
-                if (!isWin) {
+                if (!isWin && nbrOfTry >= 3 && loopForDefenderMode != nbrOfTry) {
                     inverseLoop--;
 
                     // je fais des nouveaux chiffres computer avec les  nouvelles valeurs
@@ -99,6 +96,6 @@ public class SearchNumberDefender extends SearchNumber {
     }
 }
 
-// ( * pour info * methode "playDefenderModeSearchNumber" total = 63 - 41 ligne (espace , teste et logger) -> 22 lignes
+// ( * pour info * methode "playDefenderModeSearchNumber" total = 76 - 39 ligne (espace , texte et logger) -> 37 lignes
 
 

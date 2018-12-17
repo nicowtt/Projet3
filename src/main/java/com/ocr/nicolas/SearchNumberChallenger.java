@@ -7,7 +7,6 @@ public class SearchNumberChallenger extends SearchNumber {
 
     static final Logger logger = LogManager.getLogger();
 
-
     /**
      * For play Challenger mode of Search Number
      * @return
@@ -27,7 +26,7 @@ public class SearchNumberChallenger extends SearchNumber {
         String randCompChallenger = this.computerNbrCombination(0, 9);
         logger.info("--------> aleatoire String computeur = " + randCompChallenger);
 
-        // Je donne le nombre d'essai possible
+        // Je donne le nombre d'essais possible
         System.out.println("tu as " + nbrOfTry + " essai(s) pour trouver la combinaison de l'ordinateur.");
 
         do {
@@ -69,7 +68,7 @@ public class SearchNumberChallenger extends SearchNumber {
 }
 
 
-// ( * pour info * methode "playChallengerModeSearchNumber" total = 49 - 25 lignes (espace , teste et logger) ->  24 lignes
+// ( * pour info * methode "playChallengerModeSearchNumber" total = 52 - 24 lignes (espace , texte et logger) ->  28 lignes
 
 
 

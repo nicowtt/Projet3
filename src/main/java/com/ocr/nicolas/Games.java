@@ -31,40 +31,7 @@ public class Games {
         boolean isWin = false;
     }
 
-
-    /**
-     * for playing Games
-     */
     public void playGames() {
-
-        /*// Affichage du menu du choix des jeux.
-        MenuDisplay display = new MenuDisplay();
-        display.displayAskGamesMenu();
-
-        // Recuperation variable du choix des jeux
-        int gamesMenuChoice = display.displayGamesMenuChoice();
-        if (gamesMenuChoice == 3) {System.exit(0);}
-
-        switch (gamesMenuChoice) {
-            case 1:
-                while (gamesMenuChoice == 1) {
-                    SearchNumber searchNumber = new SearchNumber();
-                    searchNumber.playSearchNumber();
-                    break;
-                }
-            case 2:
-                while (gamesMenuChoice == 2) {
-                    Mastermind mastermind = new Mastermind();
-                    mastermind.playMastermind();
-                    break;
-                }
-            default:
-                break;
-        }
-        */
-    }
-
-    public void playGames2() {
 
         int replay = 3;
 
