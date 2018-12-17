@@ -1,10 +1,24 @@
-2018-12-17 12:33:44.260 [main] INFO  com.ocr.nicolas.Games - info dans la class mere Games (nbrDigit= 2 nbrOfTry = 3 developerMode =truenbrMaxOnDigit = 9
-2018-12-17 12:33:46.860 [main] INFO  com.ocr.nicolas.Log4j - Choix du jeux (1- Recherche+/- ; 2- Mastermind; 3 -arret) -> 1
-2018-12-17 12:33:47.547 [main] INFO  com.ocr.nicolas.Log4j - Mode de jeux (1- Challenger ; 2- défenseur ; 3- Duel) -> 2
-2018-12-17 12:33:48.619 [main] INFO  com.ocr.nicolas.SearchNumber - nombre entré par l'utilisateur = 55
-2018-12-17 12:33:48.620 [main] INFO  com.ocr.nicolas.SearchNumber -  hashMap Base dans la class Main = {digitOk0=10, refinedMin0=0, refinedMax1=10, refinedMin1=0, digitOk1=10, refinedMax0=10}
-2018-12-17 12:33:48.620 [main] INFO  com.ocr.nicolas.SearchNumber - premier jet aleatoire computeur = 55
-2018-12-17 12:33:52.236 [main] INFO  com.ocr.nicolas.SearchNumber - Valeur entré par l'utilisateur = ==
-2018-12-17 12:33:52.236 [main] INFO  com.ocr.nicolas.SearchNumber - utilisateur erreur ou triche ---> false
-2018-12-17 12:33:52.236 [main] INFO  com.ocr.nicolas.SearchNumber - L'ordinateur a gagné en 1coup(s)
-2018-12-17 12:33:52.237 [main] INFO  com.ocr.nicolas.Log4j - 
+2018-12-17 18:30:57.798 [main] INFO  com.ocr.nicolas.Games - info dans la class mere Games (nbrDigit= 2 nbrOfTry = 6 developerMode =truenbrMaxOnDigit = 1
+2018-12-17 18:30:59.150 [main] INFO  com.ocr.nicolas.Log4j - Choix du jeux (1- Recherche+/- ; 2- Mastermind; 3 -arret) -> 2
+2018-12-17 18:30:59.755 [main] INFO  com.ocr.nicolas.Log4j - Mode de jeux (1- Challenger ; 2- défenseur ; 3- Duel) -> 2
+2018-12-17 18:31:01.649 [main] INFO  com.ocr.nicolas.Games - liste chiffres ok = [0, 1]
+2018-12-17 18:31:23.744 [main] INFO  com.ocr.nicolas.Games - mauvaise entrée utilisateur
+2018-12-17 18:32:01.792 [main] INFO  com.ocr.nicolas.Games - mauvaise entrée utilisateur
+2018-12-17 18:32:37.137 [main] INFO  com.ocr.nicolas.Games - mauvaise entrée utilisateur
+2018-12-17 18:32:44.158 [main] INFO  com.ocr.nicolas.Games - mauvaise entrée utilisateur
+2018-12-17 18:32:50.563 [main] INFO  com.ocr.nicolas.Games - Entrée utilisateur = 01
+2018-12-17 18:32:50.728 [main] INFO  com.ocr.nicolas.Games - combinaison aléatoire ordinateur = 10
+2018-12-17 18:32:50.993 [main] INFO  com.ocr.nicolas.Games - 
+2018-12-17 18:32:51.025 [main] INFO  com.ocr.nicolas.Games - ****** boucle 1 **************************
+2018-12-17 18:32:51.122 [main] INFO  com.ocr.nicolas.Games - valeur comparaison = 2
+2018-12-17 18:32:54.667 [main] INFO  com.ocr.nicolas.Games - verification bien placé(s)
+2018-12-17 18:32:55.547 [main] INFO  com.ocr.nicolas.Games - verification présent(s)
+2018-12-17 18:32:55.548 [main] INFO  com.ocr.nicolas.Games - nombre de combinaison totale = 4
+2018-12-17 18:32:55.549 [main] INFO  com.ocr.nicolas.Games - tableau des combinaisons = [11, 10, 01, 00]
+2018-12-17 18:32:55.549 [main] INFO  com.ocr.nicolas.Games - combinaison(s) restante possible = 1( qui ont la meme valeur de comparaison)
+2018-12-17 18:32:55.550 [main] INFO  com.ocr.nicolas.Games - liste des valeurs = [0, 1, 2, 10, 20]
+2018-12-17 18:32:55.551 [main] INFO  com.ocr.nicolas.Games -  liste avec les valeurs des combinaisons restantes = [01]
+2018-12-17 18:32:55.551 [main] INFO  com.ocr.nicolas.Games -  liste avec les poids de chaque combinaison = [1]
+2018-12-17 18:32:55.552 [main] INFO  com.ocr.nicolas.Games - Proposition grâce a l'algo de knuth = 01
+2018-12-17 18:32:57.928 [main] INFO  com.ocr.nicolas.Games - l'ordinateur a gagné en 2 coup(s)
+2018-12-17 18:32:58.226 [main] INFO  com.ocr.nicolas.Log4j - 

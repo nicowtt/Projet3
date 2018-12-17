@@ -1,6 +1,5 @@
 package com.ocr.nicolas;
 
-import com.ocr.nicolas.utils.Utils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -16,6 +15,7 @@ public class Games {
     protected int nbrDigit;
     protected int nbrOfTry;
     protected String developerMode;
+
 
     //Pour le mastermind
     protected int nbrMaxOnDigit;
@@ -105,7 +105,7 @@ public class Games {
     /**
      * For redirection of replay or leave
      */
-    protected int replay() {
+    protected int replay() { //todo enum
 
         //variable
         int replay = 3;
@@ -113,7 +113,6 @@ public class Games {
         // objets
         MenuDisplay display = new MenuDisplay();
         SearchNumber searchNumber = new SearchNumber();
-
 
         // affichage console for replay et redirection
         display.displayAskIfReplay();
@@ -127,6 +126,7 @@ public class Games {
 
     /**
      * For redirection of replay or leave
+     *
      */
     protected int replayMaster() {
 
