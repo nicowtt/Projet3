@@ -44,6 +44,7 @@ public class Mastermind extends Games {
         // objets
         MastermindChallenger mastermindChallenger = new MastermindChallenger();
         MastermindDefender mastermindDefender = new MastermindDefender();
+        MastermindDuel mastermindDuel = new MastermindDuel();
 
         do {
             //do
@@ -64,16 +65,19 @@ public class Mastermind extends Games {
                             display.displayAskTypeOfGame();
                             gameTypeChoice = display.displayGameTypeChoice();
                         }
-
                         break;
                     }
                 case 3:
                     while (gameTypeChoice == 3) {
+                        replay = mastermindDuel.playDuelModeMastermind();
+                        if (replay == 1) {
+                            display.displayAskTypeOfGame();
+                            gameTypeChoice = display.displayGameTypeChoice();
+                        }
                         break;
                     }
                 default:
                     break;
-                //} while (gameTypeChoice == 1 || gameTypeChoice == 2 || gameTypeChoice == 3);
             }
         } while (replay == 1);
         return replay;
@@ -540,7 +544,7 @@ public class Mastermind extends Games {
         int total = listPossibleValues.size();
         listPossibleValues.remove((total - 2));
 
-        logger.info("liste des valeurs = " + listPossibleValues);
+        logger.info("liste des valeurs possible dans cette partie = " + listPossibleValues);
         //logger.info("Compteur de valeur possible = " + count2);
 
         return listPossibleValues;
@@ -605,7 +609,6 @@ public class Mastermind extends Games {
      */
     public String optimalCombination(List<String> pListCombination) {
         // pour chaque combinaison de la liste  je compare avec la combinaison de la liste dupliqué et je recupere le poid, je prend la combinaison avec le poid le plus legé (knuth)
-
         // je crée une liste de valeur
         List<String> listvalue = this.createListOfValue();
 
@@ -613,10 +616,14 @@ public class Mastermind extends Games {
         List<String> listDuplicate = this.duplicateCombinationForCandidates(pListCombination);
 
         // variable
-        String firstCombination = pListCombination.get(0);
         Integer count = 0; //poid max
-        String compare = "";
-        String value = "";
+        int nbrTemp = 0;
+        int nbrToKeep = 0;
+        int valueMinInList = 10000;
+        int temp;
+        int temp2;
+
+        String combinationFinale = "";
 
         // variable pour decompte
         int decreasecount = (pListCombination.size() - 1);
@@ -624,7 +631,6 @@ public class Mastermind extends Games {
 
         // combinaison a tester
         int countForComb = 1;
-        //String comb1 = pListCombination.get(pListCombination.size() - countForComb);
 
         // list pour stocker les compteurs
         List<Integer> listCount = new ArrayList<>();
@@ -632,11 +638,12 @@ public class Mastermind extends Games {
         // je crée une hashmap pour stocker la combinaison et ça valeur
         Map<String, Integer> listCombWhithweight = new HashMap<>();
 
+        // je compare chaque combinaison avec chaque combinaison de la même liste dupliqué (en comparant, je compte le nombre de fois qu'une valeur identique sort)
         for (int k = 0; k < pListCombination.size(); k++) {
             String comb1 = pListCombination.get(pListCombination.size() - countForComb);
             for (int j = 0; j < listvalue.size(); j++) { // pour le nombre de valeur
-                for (int i = 0; i < pListCombination.size(); i++) { // pour toute les combinaison
-                    int compareInt = Integer.parseInt(this.compareTwoStringMast(comb1, listDuplicate.get(i))); // tu compare avec la liste dupliqué
+                for (int i = 0; i < pListCombination.size(); i++) { // pour toutes les combinaisons
+                    int compareInt = Integer.parseInt(this.compareTwoStringMast(comb1, listDuplicate.get(i))); // je compare avec la liste dupliqué
                     int valueInt = Integer.valueOf(listvalue.get(forvaluelist));
                     comb1 = pListCombination.get(pListCombination.size() - countForComb);
                     String comb2 = listDuplicate.get(i);
@@ -650,13 +657,9 @@ public class Mastermind extends Games {
                 count = 0;
                 forvaluelist++;
             }
-            //logger.info("liste des compteur = " + listCount);
+            //logger.info("liste des compteurs = " + listCount);
 
-            // je trouve la valeur poid (valeur la plus haute de la liste du compteur)
-            //variables
-            int nbrTemp = 0;
-            int nbrToKeep = 0;
-
+            // pour chaque combinaison je garde le compteur le plus haut (c'est le "poids")
             for (int i = 0; i < listCount.size(); i++) {
                 nbrTemp = listCount.get(i);
                 if (nbrTemp >= nbrToKeep) {
@@ -665,7 +668,7 @@ public class Mastermind extends Games {
             }
             //logger.info(" je garde le nombre = " + nbrToKeep);
 
-            // je met la combinaison dans la hashmap
+            // je met la combinaison et le poids dans la hashmap
             listCombWhithweight.put(comb1, nbrToKeep);
             //logger.info("combinaison et poids = " + listCombWhithweight);
 
@@ -674,12 +677,13 @@ public class Mastermind extends Games {
             forvaluelist = 0;
             listCount.clear();
         }
-        // je prend la premiere combinaison avec le plus faible poids (knuth)
+
+        // il faut prendre la premiere combinaison avec le plus faible poids (knuth)
         // je crée une liste avec les Values de la hash map
         List<Integer> listValueInHashMap = new ArrayList<>();
         // je crée une liste avec les key de la hashMap
         List<String> listCombinationRemaining = new ArrayList<>();
-
+        // iterator pour lire au fur et a mesure la hash map vers les nouvelles listes crée.
         Iterator iterator = listCombWhithweight.entrySet().iterator();
 
         while (iterator.hasNext()) {
@@ -688,28 +692,21 @@ public class Mastermind extends Games {
             Integer valueHashMap = (Integer) entry.getValue();
             listValueInHashMap.add(valueHashMap);
             listCombinationRemaining.add(keyHashMap);
-            //System.out.println(keyHashMap + " = " + valueHashMap);
         }
         logger.info(" liste avec les valeurs des combinaisons restantes = " + listCombinationRemaining);
-        logger.info(" liste avec les poids de chaque combinaison = " + listValueInHashMap);
+        logger.info(" liste avec le poids de chaque combinaison = " + listValueInHashMap);
 
         // j'exporte la liste avec les combinaison restante
         listCombinationRemainingexport = listCombinationRemaining;
 
         // je regarde la valeur mini dans cette liste
-        int valueMinInList = 10000;
-        int temp;
-        int temp2;
-
-        String combinationFinale = "";
-
         for (int i = 0; i < listValueInHashMap.size(); i++) {
             temp = listValueInHashMap.get(i);
             if (temp < valueMinInList) {
                 valueMinInList = temp;
             }
         }
-        // je capte la premiere conbinaison avec le poid mini dans la hashMap
+        // je capte la premiere combinaison avec le poids mini dans la hashMap.
         for (int i = 0; i < listValueInHashMap.size(); i++) {
             temp2 = listValueInHashMap.get(i);
             if (temp2 == valueMinInList) {
@@ -717,7 +714,7 @@ public class Mastermind extends Games {
                 break;
             }
         }
-        logger.info("Proposition grâce a l'algo de knuth = " + combinationFinale);
+        logger.info("Proposition grâce a l'algo de knuth (premiere combinaison avec le poids mini) = " + combinationFinale);
         return combinationFinale;
     }
 
@@ -765,7 +762,7 @@ public class Mastermind extends Games {
 
         // je compare les deux combinaisons (user avec ordinateur) pour obtenir la valeur ( unité = present, dizaine = bien placé)
         firstCompareValue = this.compareTwoStringMast(pUser, pComp);
-        logger.info("valeur comparaison = " + firstCompareValue);
+        logger.info("valeur comparaison (dizaine = nbr de bien placé, unité = nbr de present) = " + firstCompareValue);
 
         // interaction avec l'utilisateur
         interactWithUserMastermind(pUser, pComp);
