@@ -76,8 +76,6 @@ public class SearchNumberDuel extends SearchNumber{
                 // je renseigne la hashmap
                 Map<String, Integer> hashmapRefined = this.infoDigitForRefinedToHahMap(completeHashMapBase, compDuelFirstString, valueUserInString);
                 logger.info("nouvelle hasmap refined = " + hashmapRefined);
-
-                //System.out.println("--> L'ordinateur n'a pas trouver ta combinaison au 1er essai.");
                 System.out.println("");
 
                 //*********** Challenger1******************
