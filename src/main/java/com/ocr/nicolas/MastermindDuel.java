@@ -1,7 +1,5 @@
 package com.ocr.nicolas;
 
-import java.util.List;
-
 public class MastermindDuel extends Mastermind {
 
     String randCompChalMast; // challenger mode computer random (String)
@@ -17,8 +15,6 @@ public class MastermindDuel extends Mastermind {
         int loopForDuelMode = 1;
         int replay = 3;
         iswin = false;
-        String firstCompareValue;
-        List<String> afterFirstUserResponse;
 
         //annonce du nombre global d'essai possible
         System.out.println("il y aura " + nbrOfTry + " essai(s) possible pour trouver les combinaisons.");
@@ -36,9 +32,7 @@ public class MastermindDuel extends Mastermind {
         System.out.println("Choisi une combinaison de " + nbrDigit + " chiffre(s) ( chaque chiffre doit être compris entre 0 et " + nbrMaxOnDigit + ")");
 
         // j'affiche le mode developpeur au besoin (challenger)
-        if (developerMode.contains("true")) {
-            System.out.println(randCompChalMast + " -> (combinaison ordinateur: mode developpeur) ");
-        }
+        if (developerMode.contains("true")) { System.out.println(randCompChalMast + " -> (combinaison ordinateur: mode developpeur) ");}
 
         // recuperation de la combinaison utilisateur
         userChalMastStr = this.inputUserStringMast(); // (challenger)
@@ -60,21 +54,7 @@ public class MastermindDuel extends Mastermind {
             System.out.println("** au tour de l'ordinateur **");
 
             // premiere methodes pour avoir une combinaison optimale en utilisant l'algo de Knuth (et je  l'affiche) (defender)
-            // je compare les deux combinaisons (user avec ordinateur) pour obtenir la valeur ( unité = present, dizaine = bien placé)
-            firstCompareValue = this.compareTwoStringMast(userDefendMastStr, compDefendMastKnuthStr);
-            logger.info("valeur comparaison (dizaine = nbr de bien placé, unité = nbr de present) = " + firstCompareValue);
-
-            //je crée toutes les combinaisons possible
-            List<String> listCombinationTotale = this.makeAllCombinationMastermind();
-
-            //je fais une liste affiné avec la nouvelle liste des combinaisons + value
-            afterFirstUserResponse = this.sortCombinationPossible(listCombinationTotale, compDefendMastKnuthStr, firstCompareValue);
-
-            // je crée la combinaison optimale (knuth)
-            compDefendMastKnuthStr = this.optimalCombination(afterFirstUserResponse);
-
-            //je l'affiche
-            System.out.println(compDefendMastKnuthStr);
+            compDefendMastKnuthStr = firstMethodCreateKnuthCombinationDuelMode(userDefendMastStr, compDefendMastKnuthStr);
 
             // je check si l'ordinateur gagne au 1er coups et si il lui reste des essais (defender)
             loopForDuelMode = this.checkIfComputerWin(userDefendMastStr, compDefendMastKnuthStr, loopForDuelMode);
@@ -105,6 +85,7 @@ public class MastermindDuel extends Mastermind {
                         System.out.println(randCompChalMast + " -> (combinaison ordinateur: mode developpeur) ");
                     }
                     System.out.println(userChalMastStr + "(-> rappel de ta combinaison)");
+
                     //je compare avec l'ordinateur pour voir les presents en fonction des bien placés (rappel)
                     this.compareTwoStringMast(userChalMastStr, randCompChalMast);//(rappel)
 
@@ -143,3 +124,5 @@ public class MastermindDuel extends Mastermind {
         return replay;
     }
 }
+
+// ( * pour info * methode "playDuelModeMastermind" total = 112 - 54 lignes (espace , texte et logger) ->  58 lignes

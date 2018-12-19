@@ -87,9 +87,7 @@ public class SearchNumberDuel extends SearchNumber{
                 System.out.println(" Voici les valeurs pour trouver la combinaison de l'ordinateur:");
 
                 // je verifie et j'affiche si le Mode developper a été demandé
-                if (developerMode.contains("true")) {
-                    System.out.println("(" + randCompDuel + ") = chiffre ordinateur (mode developpeur)");
-                }
+                if (developerMode.contains("true")) {System.out.println("(" + randCompDuel + ") = chiffre ordinateur (mode developpeur)");}
 
                 //challenger 1: Je lance la comparaison et j'affiche le resultat.
                 String afterCompareChallenger = this.CompareTwoString(randCompDuel, nbrUserDuelDefender);
@@ -129,10 +127,7 @@ public class SearchNumberDuel extends SearchNumber{
                             valueUserInString = this.inputValuesUserAndCheckIfCheat(nbrUserDuelDefender, compDefenderRefined, loopForDuelMode, inverseLoopDefender);
                             loopForDuelMode++;
                             // si il n'y a plus d'essai possible
-                            if (isWin) {
-                                loopForDuelMode = nbrOfTry;
-                            }
-
+                            if (isWin) {loopForDuelMode = nbrOfTry;}
                             if (!isWin) {
                                 //*********** Challenger2******************
                                 inverseLoop -= 1;
@@ -142,9 +137,7 @@ public class SearchNumberDuel extends SearchNumber{
                                 System.out.println(" Voici les valeurs pour trouver la combinaison de l'ordinateur:");
 
                                 // je verifie et j'affiche si le Mode developper a été demandé
-                                if (developerMode.contains("true")) {
-                                    System.out.println("(" + randCompDuel + ") = chiffre ordinateur (mode developpeur)");
-                                }
+                                if (developerMode.contains("true")) {System.out.println("(" + randCompDuel + ") = chiffre ordinateur (mode developpeur)");}
 
                                 //challenger 2 et suivant: Je lance la comparaison et j'affiche le resultat.
                                 afterCompareDuel = this.CompareTwoString(randCompDuel, nbrUserDuelChallenger);
@@ -179,13 +172,11 @@ public class SearchNumberDuel extends SearchNumber{
                         }
                     }while (loopForDuelMode != nbrOfTry) ;
                     if (!isWin) {
-
                         // j'affiche la demande de valeur
                         display.displayForValueToUser();
 
                         // je check si erreur ou tricherie et si ordi gagne
                         valueUserInString = this.inputValuesUserAndCheckIfCheat(nbrUserDuelDefender, compDefenderRefined, loopForDuelMode, inverseLoopDefender);
-
                         if (!isWin) {
                             System.out.println(" l'ordinateur n'as plus d'essai non plus, donc personne ne gagne !");
                             System.out.println("");
@@ -193,11 +184,13 @@ public class SearchNumberDuel extends SearchNumber{
                     }
                 }
             }
-
         }
         //replay
         replay = this.replay();
         return replay;
     }
 }
+
+
+// ( * pour info * methode "playDuelModeSearchNumber" total = 169 - 75 lignes (espace , texte et logger) ->  94 lignes
 

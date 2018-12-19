@@ -426,7 +426,7 @@ public class SearchNumber extends Games {
         if (pcomp.contains(puser)) {
             System.out.println(" l'ordinateur a trouvé ta combinaison en " +  ploop + " coup(s)");
             System.out.println("");
-            logger.info("L'ordinateur a gagné en " + ploop + "coup(s)");
+            logger.info("L'ordinateur a gagné en " + ploop + " coup(s)");
             // j'annonce le gagnant
             isWin = true;
         }

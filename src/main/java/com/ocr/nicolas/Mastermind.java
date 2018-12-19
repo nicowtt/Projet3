@@ -748,7 +748,7 @@ public class Mastermind extends Games {
     }
 
     /**
-     * for create first combination with Knuth algo.
+     * for create first combination with Knuth algo on defender mode.
      * @param pUser user combination
      * @param pComp comp random combination
      * @return optimal combination (knuth algo)
@@ -809,6 +809,39 @@ public class Mastermind extends Games {
 
         // je crée la combinaison optimale (knuth)
         compDefendMastKnuthStr = this.optimalCombination(afterUserResponse);
+
+        return compDefendMastKnuthStr;
+    }
+
+    /**
+     * for create first combination with Knuth algo on duel mode.
+     * @param pUser user combination.
+     * @param pComp Computeur combination
+     * @return optimal combination (knuth algo)
+     */
+    protected String firstMethodCreateKnuthCombinationDuelMode (String pUser, String pComp) {
+
+        //Variables
+        String compDefendMastKnuthStr = "";
+        String firstCompareValue = "";
+        List<String> afterFirstUserResponse;
+
+
+        // je compare les deux combinaisons (user avec ordinateur) pour obtenir la valeur ( unité = present, dizaine = bien placé)
+        firstCompareValue = this.compareTwoStringMast(pUser, pComp);
+        logger.info("valeur comparaison (dizaine = nbr de bien placé, unité = nbr de present) = " + firstCompareValue);
+
+        //je crée toutes les combinaisons possible
+        List<String> listCombinationTotale = this.makeAllCombinationMastermind();
+
+        //je fais une liste affiné avec la nouvelle liste des combinaisons + value
+        afterFirstUserResponse = this.sortCombinationPossible(listCombinationTotale, pComp, firstCompareValue);
+
+        // je crée la combinaison optimale (knuth)
+        compDefendMastKnuthStr = this.optimalCombination(afterFirstUserResponse);
+
+        //je l'affiche
+        System.out.println(compDefendMastKnuthStr);
 
         return compDefendMastKnuthStr;
     }

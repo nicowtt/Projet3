@@ -41,7 +41,7 @@ public class SearchNumberDefender extends SearchNumber {
 
         // premier jet computeur  uniquement des "5" -> compDefenderString1 et affichage sur la console
         String compDefenderString1 = this.fiveOnlyDigit();
-        logger.info("premier jet aleatoire computeur = " + compDefenderString1);
+        logger.info("premier jet computeur (uniquement des 5) = " + compDefenderString1);
         System.out.println(compDefenderString1);
 
         // j'affiche la demande de valeur
