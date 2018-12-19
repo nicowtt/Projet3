@@ -4,28 +4,13 @@ import java.util.*;
 
 public class Mastermind extends Games {
 
-
     protected boolean iswin;
-
     protected List<String> listCombinationRemainingexport;
-
-    private int goodplaceExport;
-    private int presentExport;
-
-    public int getGoodplaceExport() {
-        return goodplaceExport;
-    }
-
-    public int getPresentExport() {
-        return presentExport;
-    }
-
-    public List<String> getListCombinationRemainingexport() {
-        return listCombinationRemainingexport;
-    }
+    protected int goodplaceExport;
+    protected int presentExport;
+    protected boolean noMoreTry;
 
     Scanner sc = new Scanner(System.in);
-
 
     /**
      * For playing Mastermind Game
@@ -112,62 +97,61 @@ public class Mastermind extends Games {
 
     protected String inputUserStringMast() {
 
-        boolean responseIsGood = true;
-        int digitOk;
-        String inputUserFinal;
-        int countTooManyDigit;
+        boolean responseIsGood;
+        int nbrNok;
         int countDigitOK;
+        int countDigitNok;
+        int countNbrNok = 0;
+        String nbrOkStr;
+        String inputUser;
 
-
-        // je lance la methode pour avoir une liste des chiffres utilisable
+        // je lance la methode pour avoir la liste des chiffres utilisable
         List<Integer> listNbrOk = this.createListNbrOk();
 
+        // je compte combien ne sont pas ok si je test chaque digit avec chaque digit de ma listeNbrOk. (en fonction du nbrDigit du jeu)
+        for (int k = 0; k < listNbrOk.size(); k++) {
+            countNbrNok++;
+        }
+        nbrNok = (countNbrNok * nbrDigit) - nbrDigit;
+
         do {
-            // entrée finale ok
-            inputUserFinal = "";
-            responseIsGood = true;
+            // variable mis ou remis a zero
+            countDigitOK = 0;
+            countDigitNok = 0;
 
             // je fais venir l'entrée utilisateur
-            String inputUser = sc.next();
+            inputUser = sc.next();
 
-            // je compare chaque digit avec le tableau de chiffre ok sinon boucle
-            countTooManyDigit = 0;
-            countDigitOK = 0;
-
-            try {
-                for (int i = 0; i < inputUser.length(); i++) {
-                    char letter = inputUser.charAt(i);
-                    String letterStr = String.valueOf(letter);
-                    Integer letterInt = Integer.valueOf(letterStr);
-                    countTooManyDigit++;
-                    // comparaison si il est dans la liste
-                    for (int j = 0; j < listNbrOk.size(); j++) {
-                        digitOk = listNbrOk.get(j);
-                        if (digitOk == letterInt) {
-                            inputUserFinal = inputUserFinal + letterStr;
-                            countDigitOK++;
-                        }
+            // je compare chaque digit avec le tableau de chiffre ok et j'incremente mes compteurs
+            for (int i = 0; i < inputUser.length(); i++) {
+                char letter = inputUser.charAt(i);
+                String letterStr = String.valueOf(letter);
+                // je compare avec la liste des nbrOk
+                for (int j = 0; j < listNbrOk.size(); j++) {
+                    nbrOkStr = String.valueOf(listNbrOk.get(j));
+                    if (letterStr.contains(nbrOkStr)) {
+                        countDigitOK++;
+                    } else {
+                        countDigitNok++;
                     }
                 }
-                if (countTooManyDigit != nbrDigit || countDigitOK != nbrDigit) {
-                    System.out.println("choisi une combinaison de " + nbrDigit + " chiffre(s) (chaque chiffre entre 0 et " + nbrMaxOnDigit + ")");
-                    logger.info("mauvaise entrée utilisateur");
-                    responseIsGood = false;
-                }
-            } catch (NumberFormatException e) {
-                System.out.println("lettre non accepté, tu doit choisir une combinaison de " + nbrDigit + " chiffre(s) (chaque chiffre entre 0 et " + nbrMaxOnDigit + ")");
-                responseIsGood = false;
             }
-
+            if (countDigitOK == nbrDigit && countDigitNok == nbrNok) {
+                responseIsGood = true;
+            } else {
+                System.out.println("Erreur, choisi une combinaison de " + nbrDigit + " chiffre(s) (chaque chiffre entre 0 et " + nbrMaxOnDigit + ")");
+                responseIsGood = false;
+                logger.info("Mauvaise entrée utilisateur");
+            }
         } while (!responseIsGood);
-        logger.info("Entrée utilisateur = " + inputUserFinal);
-        return inputUserFinal;
+        logger.info("Entrée utilisateur = " + inputUser);
+        return inputUser;
     }
 
     /**
      * For compare two mastermind combination
      *
-     * @param pFirst first combination
+     * @param pFirst  first combination
      * @param pSecond Second combination
      * @return code value string ( unit = present; decade = goodplace; ex: 11 = 1 good placed et 1 present)
      */
@@ -247,6 +231,7 @@ public class Mastermind extends Games {
 
     /**
      * For interact with User
+     *
      * @param pUser User combination
      * @param pComp Comp combination
      */
@@ -275,7 +260,7 @@ public class Mastermind extends Games {
             iswin = true;
         }
         if (pGoodPlaced == 0 && pPresent == 0) {
-            System.out.println(" Aucun bien placé ou present.");
+            System.out.println("Aucun bien placé ou present.");
         } else {
             if (!iswin) {
                 System.out.println(pGoodPlaced + " bien placé(s), " + pPresent + " present(s) ");
@@ -292,32 +277,30 @@ public class Mastermind extends Games {
      */
     protected int goodPlacedNoCheat(String pFirst, String pSecond) {
 
+        // variables
         boolean responseIsGood;
         int userInput = 0;
+        String userInputStr = "";
+        String goodplaceExportStr = "";
+
+
+        // je check la bonne reponse
+        logger.info("verification bien placé(s)");
+        this.compareTwoStringMast(pFirst, pSecond);
+        goodplaceExportStr = String.valueOf(goodplaceExport);
 
         do {
-            try {
-                userInput = sc.nextInt();
-            } catch (InputMismatchException e) {
-                System.out.println("chiffres uniquement.");
-                responseIsGood = false;
-            }
-
-            // je check la bonne reponse
-            logger.info("verification bien placé(s)");
-            this.compareTwoStringMast(pFirst, pSecond);
-
-            if (userInput != getGoodplaceExport()) {
-                System.out.println("Chiffre bien placé non valable, erreur humaine ou tentative de tricherie? ;-) --> " + getGoodplaceExport());
-                responseIsGood = false;
-            } else {
+            userInputStr = sc.next();
+            if (userInputStr.equals(goodplaceExportStr)) {
                 responseIsGood = true;
+                userInput = Integer.valueOf(userInputStr);
+            } else {
+                System.out.println("Chiffre bien placé non valable, erreur humaine ou tentative de tricherie? ;-) --> " + goodplaceExport);
+                responseIsGood = false;
             }
-
         } while (!responseIsGood);
         return userInput;
     }
-
 
     /**
      * For have a present input with no cheat
@@ -328,27 +311,26 @@ public class Mastermind extends Games {
      */
     protected int presentNoCheat(String pFirst, String pSecond) {
 
+        //variables
         boolean responseIsGood;
         int userInput = 0;
+        String userInputStr = "";
+        String presentExportStr = "";
+
+        // je check la bonne réponse
+        logger.info("verification présent(s)");
+        this.compareTwoStringMast(pFirst, pSecond);
+        presentExportStr = String.valueOf(presentExport);
 
         do {
-            try {
-                userInput = sc.nextInt();
-            } catch (InputMismatchException e) {
-                System.out.println("Chiffre uniquement");
-                responseIsGood = false;
-            }
-
-            // je check la bonne réponse
-            logger.info("verification présent(s)");
-            this.compareTwoStringMast(pFirst, pSecond);
-            if (userInput != getPresentExport()) {
-                System.out.println("Chiffre présent non valable, erreur humaine ou tentative de tricherie? ;-) --> " + getPresentExport());
-                responseIsGood = false;
-            } else {
+            userInputStr = sc.next();
+            if (userInputStr.equals(presentExportStr)) {
                 responseIsGood = true;
+                userInput = Integer.valueOf(userInputStr);
+            } else {
+                System.out.println("Chiffre présent non valable, erreur humaine ou tentative de tricherie? ;-) --> " + presentExport);
+                responseIsGood = false;
             }
-
         } while (!responseIsGood);
         return userInput;
     }
@@ -436,7 +418,7 @@ public class Mastermind extends Games {
      * @param pBase   integer for convert base
      * @return integer on base "number"
      */
-    public String intToBase(int pEntier, int pBase) {
+    protected String intToBase(int pEntier, int pBase) {
 
         int nbr = pEntier;
         int rest;
@@ -465,7 +447,7 @@ public class Mastermind extends Games {
      * @param pIn integer in
      * @return String with good nbr of digit
      */
-    public String completeStringFollowingNbrDigit(String pIn) {
+    protected String completeStringFollowingNbrDigit(String pIn) {
 
         //variables
         String nbrStr = pIn;
@@ -504,7 +486,7 @@ public class Mastermind extends Games {
      * For create a list with all possible value
      * exemple -> for nbrMaxOnDigit = 4 -> 0,1,2,3,4,10,11,12,13,20,21,22,30,40
      */
-    public List<String> createListOfValue() {
+    protected List<String> createListOfValue() {
 
         int nbr = 0;
         int nbrDecade = nbrMaxOnDigit;
@@ -556,7 +538,7 @@ public class Mastermind extends Games {
      * @param pListeCombinaisonTotale combination total
      * @return clone list
      */
-    public List<String> duplicateCombinationForCandidates(List<String> pListeCombinaisonTotale) {
+    protected List<String> duplicateCombinationForCandidates(List<String> pListeCombinaisonTotale) {
         // je crée une nouvelle liste candidates
         List<String> listCandidates = new ArrayList<>();
 
@@ -579,7 +561,7 @@ public class Mastermind extends Games {
      * @param pComp           computer combination
      * @param pValue          value of comparaison
      */
-    public List<String> sortCombinationPossible(List<String> pListCandidates, String pComp, String pValue) {
+    protected List<String> sortCombinationPossible(List<String> pListCandidates, String pComp, String pValue) {
 
         // je crée une list avec les combinaison possible
         List<String> listCombOk = new ArrayList<>();
@@ -607,7 +589,7 @@ public class Mastermind extends Games {
      *
      * @param pListCombination total combination
      */
-    public String optimalCombination(List<String> pListCombination) {
+    protected String optimalCombination(List<String> pListCombination) {
         // pour chaque combinaison de la liste  je compare avec la combinaison de la liste dupliqué et je recupere le poid, je prend la combinaison avec le poid le plus legé (knuth)
         // je crée une liste de valeur
         List<String> listvalue = this.createListOfValue();
@@ -720,16 +702,19 @@ public class Mastermind extends Games {
 
     /**
      * For check is computer win and stop if computer doesn't have enough try.
+     *
      * @param pUser
      * @param pComp
      * @param pLoop
      * @return
      */
-    public int checkIfComputerWin(String pUser, String pComp, int pLoop) {
+    protected int checkIfComputerWin(String pUser, String pComp, int pLoop) {
 
         int nbrLoopMastDefend = pLoop;
+        noMoreTry = false;
 
         if (pUser.equals(pComp)) {
+            System.out.println("");
             System.out.println("l'ordinateur a gagné en " + pLoop + " coup(s) !!");
             logger.info("l'ordinateur a gagné en " + pLoop + " coup(s)");
             nbrLoopMastDefend = nbrOfTry;
@@ -737,10 +722,10 @@ public class Mastermind extends Games {
         }
 
         if (!iswin) {
-            if (nbrLoopMastDefend >= nbrOfTry ) {
-                System.out.println(" l'ordinateur n'a plus d'essai possible, tu as gagné !");
+            if (nbrLoopMastDefend >= nbrOfTry) {
                 nbrLoopMastDefend = nbrOfTry;
                 iswin = true;
+                noMoreTry = true;
             }
         }
 
@@ -749,11 +734,12 @@ public class Mastermind extends Games {
 
     /**
      * for create first combination with Knuth algo on defender mode.
+     *
      * @param pUser user combination
      * @param pComp comp random combination
      * @return optimal combination (knuth algo)
      */
-    protected String firstMethodCreateKnuthCombination (String pUser, String pComp) {
+    protected String firstMethodCreateKnuthCombination(String pUser, String pComp) {
 
         //variables
         String firstCompareValue = "";
@@ -781,11 +767,12 @@ public class Mastermind extends Games {
 
     /**
      * for create second and next combination with Knuth algo.
+     *
      * @param pUser User combination
      * @param pComp Computeur combination
      * @return optimal combination with Knuth algo.
      */
-    protected String secondAndNextMethodCreateKnuthCombination (String pUser, String pComp) {
+    protected String secondAndNextMethodCreateKnuthCombination(String pUser, String pComp) {
 
         //Variables
         String valueInLoop = "";
@@ -801,7 +788,7 @@ public class Mastermind extends Games {
         logger.info("valeur de comparaison dans la boucle = " + valueInLoop);
 
         // je recupere la liste des combinaison possible
-        combinationRemaining = getListCombinationRemainingexport();
+        combinationRemaining = listCombinationRemainingexport;
 
         //je refais une liste avec la nouvelle liste des combinaisons + value
         afterUserResponse = this.sortCombinationPossible(combinationRemaining, pComp, valueInLoop);
@@ -815,11 +802,12 @@ public class Mastermind extends Games {
 
     /**
      * for create first combination with Knuth algo on duel mode.
+     *
      * @param pUser user combination.
      * @param pComp Computeur combination
      * @return optimal combination (knuth algo)
      */
-    protected String firstMethodCreateKnuthCombinationDuelMode (String pUser, String pComp) {
+    protected String firstMethodCreateKnuthCombinationDuelMode(String pUser, String pComp) {
 
         //Variables
         String compDefendMastKnuthStr = "";

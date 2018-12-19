@@ -11,6 +11,7 @@ public class MastermindDefender extends Mastermind {
         int nbrLoopMastDefend = 1;
         int replay = 3;
         iswin = false;
+        noMoreTry = false;
 
         // affichage de la demande
         System.out.println("Choisi une combinaison de " + nbrDigit + " chiffre(s) (chaque chiffre doit être compris entre 0 et " + nbrMaxOnDigit + ")");
@@ -39,7 +40,7 @@ public class MastermindDefender extends Mastermind {
             // je l'affiche
             System.out.println("********** " + nbrLoopMastDefend + "ème essais de l'ordinateur *********");
             System.out.println(userDefendMastStr + "(-> rappel de ta combinaison)");
-            System.out.println(compDefendMastKnuthStr);
+            System.out.println(compDefendMastKnuthStr + " -> est la nouvelle proposition de l'ordinateur");
 
             // je check si l'ordinateur gagne au 2eme coups et si il lui reste des essais
             nbrLoopMastDefend = this.checkIfComputerWin(userDefendMastStr, compDefendMastKnuthStr, nbrLoopMastDefend);
@@ -65,12 +66,13 @@ public class MastermindDefender extends Mastermind {
                 }
             } while (nbrLoopMastDefend != nbrOfTry);
         }
+        if (noMoreTry) {System.out.println("l'ordinateur n'a plus d'essai possible, tu gagne !!");}
         System.out.println("");
         replay = this.replayMaster();
         return replay;
     }
 }
 
-// ( * pour info * methode "playDefenderModeMastermind" total = 62 - 31 lignes (espace , texte et logger) ->  31 lignes
+// ( * pour info * methode "playDefenderModeMastermind" total = 64 - 30 lignes (espace , texte et logger) ->  34 lignes
 
 

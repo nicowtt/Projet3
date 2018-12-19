@@ -15,6 +15,7 @@ public class MastermindDuel extends Mastermind {
         int loopForDuelMode = 1;
         int replay = 3;
         iswin = false;
+        noMoreTry = false;
 
         //annonce du nombre global d'essai possible
         System.out.println("il y aura " + nbrOfTry + " essai(s) possible pour trouver les combinaisons.");
@@ -42,7 +43,7 @@ public class MastermindDuel extends Mastermind {
         this.compareTwoStringMast(userChalMastStr, randCompChalMast);
 
         // je check si l'utilisateur gagne au premier coup aussi (challenger)
-        this.seeUserWinner(getGoodplaceExport(), getPresentExport());
+        this.seeUserWinner(goodplaceExport, presentExport);
 
         if (!iswin) {
             logger.info("combinaison aléatoire ordinateur = " + compDefendMastKnuthStr);
@@ -58,16 +59,12 @@ public class MastermindDuel extends Mastermind {
 
             // je check si l'ordinateur gagne au 1er coups et si il lui reste des essais (defender)
             loopForDuelMode = this.checkIfComputerWin(userDefendMastStr, compDefendMastKnuthStr, loopForDuelMode);
-            if (iswin) {
-                System.out.println("");
-                System.out.println("La combinaison mystère de l'ordinateur était : " + randCompChalMast);
-            }
 
             // je commence la boucle
             do {
-                // j'increment de compteur de boucle (defender)
-                loopForDuelMode++;
                 if (!iswin) {
+                    // j'increment de compteur de boucle (defender)
+                    loopForDuelMode++;
                     logger.info("");
                     logger.info("***boucle " + loopForDuelMode + " *****");
 
@@ -90,7 +87,7 @@ public class MastermindDuel extends Mastermind {
                     this.compareTwoStringMast(userChalMastStr, randCompChalMast);//(rappel)
 
                     // je check si l'utilisateur gagne au premier coup aussi (rappel)
-                    this.seeUserWinner(getGoodplaceExport(), getPresentExport());//(rappel)
+                    this.seeUserWinner(goodplaceExport, presentExport);//(rappel)
 
                     // Récupération de la 2eme combinaison utilisateur (challenger)
                     userChalMastStr = this.inputUserStringMast();
@@ -99,7 +96,7 @@ public class MastermindDuel extends Mastermind {
                     this.compareTwoStringMast(userChalMastStr, randCompChalMast);
 
                     //je regarde si l'utilisateur est gagnant (challenger)
-                    this.seeUserWinner(getGoodplaceExport(), getPresentExport());
+                    this.seeUserWinner(goodplaceExport, presentExport);
                     if (!iswin) {
                         //************** Defender3************************
                         System.out.println("** au tour de l'ordinateur **");
@@ -111,13 +108,16 @@ public class MastermindDuel extends Mastermind {
 
                         // je check si l'ordinateur gagne et si il lui reste des essais (defender)
                         loopForDuelMode = this.checkIfComputerWin(userDefendMastStr, compDefendMastKnuthStr, loopForDuelMode);
-                        if (iswin) {
-                            System.out.println("");
-                            System.out.println("La combinaison mystère de l'ordinateur était : " + randCompChalMast);
-                        }
                     }
                 }
             } while (loopForDuelMode != nbrOfTry);
+        }
+        if (noMoreTry) {
+            System.out.println("");
+            System.out.println("Il ne reste plus d'essai possible, personne ne gagne :-(");
+        }
+        if (iswin) {
+            System.out.println("La combinaison mystère de l'ordinateur était : " + randCompChalMast);
         }
         System.out.println("");
         replay = this.replayMaster();
@@ -125,4 +125,4 @@ public class MastermindDuel extends Mastermind {
     }
 }
 
-// ( * pour info * methode "playDuelModeMastermind" total = 112 - 54 lignes (espace , texte et logger) ->  58 lignes
+// ( * pour info * methode "playDuelModeMastermind" total = 112 - 56 lignes (espace , texte et logger) ->  56 lignes

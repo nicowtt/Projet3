@@ -1,6 +1,5 @@
 package com.ocr.nicolas.utils;
 
-import com.ocr.nicolas.SearchNumber;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -89,31 +88,24 @@ public class Utils {
     }
 
     /**
-     * for dichotomous number
+     * for dichotomous method search number
      *
-     * @param pNbrMin min value
-     * @param pNbrMax max value
-     * @return
+     * @param pNbrMin number min.
+     * @param pNbrMax number max.
+     * @return dichotomous number.
      */
     public static int dichotomousResearch(int pNbrMin, int pNbrMax) {
 
-        // declaration des variables locale à la methode
-        int vMin;  // Min value
-        int vMax;  // Max value
-        int vMiddle;  // Middle value
-
-        //initialisation de variables
-
-        vMin = pNbrMin;  //intervale entre pNbrMin...
-        vMax = pNbrMax;  //...et pNbrMax
+        // variables
+        int nbrMiddle;
 
         // recherche
-        vMiddle = (vMin + vMax) / 2;  //on détermine le nombre entier au milieu
+        nbrMiddle = (pNbrMin + pNbrMax) / 2;  //on détermine le nombre entier au milieu
 
-        logger.info("Valeur mediane trouvé dans la methode = " + vMiddle);
-        logger.info("valeur min" + vMin);
-        logger.info("valeur max" + vMax);
+        logger.info("Valeur mediane trouvé dans la methode = " + nbrMiddle);
+        logger.info("valeur min" + pNbrMin);
+        logger.info("valeur max" + pNbrMax);
 
-        return vMiddle;
+        return nbrMiddle;
     }
 }

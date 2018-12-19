@@ -18,13 +18,13 @@ public class MastermindChallenger extends Mastermind {
         logger.info("Ordinateur combinaison = " + randCompChalMast);
 
         // affichage de la demande
-        System.out.println("Choisi une combinaison de " + nbrDigit + " chiffre(s) ( chaque chiffre doit être compris entre 0 et " + nbrMaxOnDigit + ")");
+        System.out.println("Choisi une combinaison de " + nbrDigit + " chiffre(s) (chaque chiffre doit être compris entre 0 et " + nbrMaxOnDigit + ")");
 
         do {
             logger.info("");
             logger.info("****** boucle " + nbrLoopMastChal + " ********");
             // affichage du nombre d'essai restant
-            System.out.println("tu as " + (nbrOfTry - nbrLoopMastChal) + " essai(s) pour trouver la combinaison de l'ordinateur.");
+            System.out.println((nbrOfTry - nbrLoopMastChal) + " essai(s) restant.");
             nbrLoopMastChal++;
 
             // Récupération de la 1er combinaison utilisateur
@@ -37,7 +37,7 @@ public class MastermindChallenger extends Mastermind {
             this.compareTwoStringMast(userChalMastStr, randCompChalMast);
 
             //je regarde si l'utilisateur est gagnant
-            this.seeUserWinner(getGoodplaceExport(), getPresentExport());
+            this.seeUserWinner(goodplaceExport, presentExport);
             if (iswin) { nbrLoopMastChal = nbrOfTry;}
 
         }while (nbrLoopMastChal < nbrOfTry);
