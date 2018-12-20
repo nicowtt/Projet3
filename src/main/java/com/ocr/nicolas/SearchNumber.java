@@ -37,7 +37,6 @@ public class SearchNumber extends Games {
 
 
         do {
-            //do
             switch (gameTypeChoice) {
                 case 1:
                     while (gameTypeChoice == 1) {
@@ -68,12 +67,10 @@ public class SearchNumber extends Games {
                     }
                 default:
                     break;
-                //} while (gameTypeChoice == 1 || gameTypeChoice == 2 || gameTypeChoice == 3);
             }
         } while (replay == 1);
         return replay;
     }
-
 
 
     /**
@@ -282,7 +279,7 @@ public class SearchNumber extends Games {
                 for (int j = 0; j < nbrDigit; j++) {
                     resultString = resultString + result.get(j);
                     responseIsGood = true;
-                    }
+                }
         } while (!responseIsGood);
         return resultString;
     }
@@ -306,9 +303,8 @@ public class SearchNumber extends Games {
         String digitFinal = "";
 
 
-
         // je lance la methode pour renseigner la hashMap avec les nouvelles valeurs
-        Map<String, Integer> hashMapUpdated = this.infoDigitForRefinedToHahMap(pHashMap,pfirst,pValuesString);
+        Map<String, Integer> hashMapUpdated = this.infoDigitForRefinedToHahMap(pHashMap, pfirst, pValuesString);
         logger.info(" 2 eme renseignement hashmap = " + hashMapUpdated);
 
         // pour chaque digit je crée un nouveau digit avec la methode dicotomous
@@ -319,9 +315,6 @@ public class SearchNumber extends Games {
             digitStr = String.valueOf(digit);
             digitFinal = digitFinal + digitStr;
         }
-//        if (digitFinal.equals(pStrToComparForWin)) {
-//            isWin = true;
-//        }
         return digitFinal;
     }
 
@@ -379,20 +372,29 @@ public class SearchNumber extends Games {
             if (pvalueList.get(j).contains("=")) {
                 if (pbaseList.get(j) != pcheckList.get(j)) {
                     System.out.println(" Ooups le digit " + (j + 1) + " n'a pas été evalué correctement, triche ? ou erreur ;o)? veuillez recommencer");
-                    countCheat++;}}
+                    countCheat++;
+                }
+            }
 
             if (pvalueList.get(j).contains("+")) {
                 if (pbaseList.get(j) <= pcheckList.get(j)) {
                     System.out.println(" Ooups le digit " + (j + 1) + " n'a pas été evalué correctement, triche ? ou erreur humaine ;o)? veuillez recommencer");
-                    countCheat++;}}
+                    countCheat++;
+                }
+            }
 
             if (pvalueList.get(j).contains("-")) {
                 if (pbaseList.get(j) >= pcheckList.get(j)) {
                     System.out.println(" Ooups le digit " + (j + 1) + " n'a pas été evalué correctement, triche ? ou erreur humaine ;o)? veuillez recommencer");
-                    countCheat++;}}
+                    countCheat++;
+                }
+            }
         }
-        if (countCheat > 0 ) {cheat = true;}
-        else { cheat = false;}
+        if (countCheat > 0) {
+            cheat = true;
+        } else {
+            cheat = false;
+        }
         return cheat;
     }
 
@@ -400,7 +402,7 @@ public class SearchNumber extends Games {
     /**
      * for correct input value + no cheat
      */
-    public String inputValuesUserAndCheckIfCheat (String puser,String pcomp, int ploop, int pinverseLoop) {
+    public String inputValuesUserAndCheckIfCheat(String puser, String pcomp, int ploop, int pinverseLoop) {
         // variable
         boolean cheakCheatInput;
         boolean cheakCheat;
@@ -413,18 +415,21 @@ public class SearchNumber extends Games {
             logger.info("Valeur entré par l'utilisateur = " + valueUserInString);
 
             // check des valeurs (erreur ou tricherie)
-            cheakCheatInput = this.checkCheat(puser,pcomp, valueUserInString);
+            cheakCheatInput = this.checkCheat(puser, pcomp, valueUserInString);
             logger.info("utilisateur erreur ou triche ---> " + cheakCheatInput);
 
             // boucle si un digit mal evalué
-            if (cheakCheatInput) {cheakCheat = true;}
-                else {cheakCheat = false;}
+            if (cheakCheatInput) {
+                cheakCheat = true;
+            } else {
+                cheakCheat = false;
+            }
 
-        }while (cheakCheat);
+        } while (cheakCheat);
 
         // comparaison pour voir si computeur gagne
         if (pcomp.contains(puser)) {
-            System.out.println(" l'ordinateur a trouvé ta combinaison en " +  ploop + " coup(s)");
+            System.out.println(" l'ordinateur a trouvé ta combinaison en " + ploop + " coup(s)");
             System.out.println("");
             logger.info("L'ordinateur a gagné en " + ploop + " coup(s)");
             // j'annonce le gagnant
@@ -443,21 +448,18 @@ public class SearchNumber extends Games {
             isWin = true;
 
         }
-
-
         return valueUserInString;
     }
 
 
-    public int testIfUserWinChallengerMode (int ploop, String pcomp, String puser, int pinverseLoop) {
+    public int testIfUserWinChallengerMode(int ploop, String pcomp, String puser, int pinverseLoop) {
 
         //variables
         int replay = 3;
         isWin = false;
 
-
         if (pcomp.contains(puser)) {
-            System.out.println(" Exellent tu as gagné !!! en " + ploop + " coup(s)." );
+            System.out.println(" Exellent tu as gagné !!! en " + ploop + " coup(s).");
             isWin = true;
             logger.info("l'utilisateur a gagné contre l'ordinateur aprés " + ploop + " essais");
             System.out.println("");
@@ -475,9 +477,6 @@ public class SearchNumber extends Games {
         }
         return replay;
     }
-
-
-
 }
 
 

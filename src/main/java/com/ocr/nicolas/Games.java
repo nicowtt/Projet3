@@ -105,14 +105,13 @@ public class Games {
     /**
      * For redirection of replay or leave
      */
-    protected int replay() { //todo enum
+    protected int replay() {
 
         //variable
         int replay = 3;
 
         // objets
         MenuDisplay display = new MenuDisplay();
-        SearchNumber searchNumber = new SearchNumber();
 
         // affichage console for replay et redirection
         display.displayAskIfReplay();
@@ -126,24 +125,21 @@ public class Games {
 
     /**
      * For redirection of replay or leave
-     *
+     * @return enum
      */
-    protected int replayMaster() {
-
-        //variable
-        int replay = 3;
+    public static Replay replayEnum() { //todo for check with mentor
 
         // objets
         MenuDisplay display = new MenuDisplay();
-        Mastermind mastermind = new Mastermind();
+        Replay replayEnum = Replay.EXIT;
 
         // affichage console for replay et redirection
         display.displayAskIfReplay();
         int replayIntern = display.displayReplayChoice();
-        if (replayIntern == 1) {replay = 1;}
-        if (replayIntern == 2) {replay = 2;}
+        if (replayIntern == 1) {replayEnum = Replay.REPLAY;}
+        if (replayIntern == 2) {replayEnum = Replay.GAMESCHOICE;}
         if (replayIntern == 3) {System.exit(0);}
 
-        return replay;
+        return replayEnum;
     }
 }

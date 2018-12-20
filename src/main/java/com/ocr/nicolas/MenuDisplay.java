@@ -182,6 +182,8 @@ public class MenuDisplay {
      * @return replay choice (int)
      */
     public int displayReplayChoice () {
+
+        //variables
         boolean responseIsGood;
         int nbrChoiceMax = 3;
         int replayChoice = forceProposedChoice(nbrChoiceMax);

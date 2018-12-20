@@ -15,6 +15,7 @@ public class SearchNumberChallenger extends SearchNumber {
 
         // declaration objets
         MenuDisplay display = new MenuDisplay();
+        Replay replayEnum;
 
         //variables
         isWin = false;
@@ -62,7 +63,9 @@ public class SearchNumberChallenger extends SearchNumber {
         }
 
         //lancement du menu pour replay
-        replay = this.replay();
+        replayEnum = Games.replayEnum();
+        if (replayEnum == Replay.REPLAY) { replay = 1;}
+        if (replayEnum == Replay.GAMESCHOICE) { replay = 2;}
         return replay;
     }
 }

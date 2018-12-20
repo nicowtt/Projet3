@@ -68,7 +68,7 @@ public class MastermindDefender extends Mastermind {
         }
         if (noMoreTry) {System.out.println("l'ordinateur n'a plus d'essai possible, tu gagne !!");}
         System.out.println("");
-        replay = this.replayMaster();
+        replay = this.replay();
         return replay;
     }
 }

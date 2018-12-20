@@ -120,7 +120,7 @@ public class MastermindDuel extends Mastermind {
             System.out.println("La combinaison mystère de l'ordinateur était : " + randCompChalMast);
         }
         System.out.println("");
-        replay = this.replayMaster();
+        replay = this.replay();
         return replay;
     }
 }

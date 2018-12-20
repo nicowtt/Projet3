@@ -45,7 +45,7 @@ public class MastermindChallenger extends Mastermind {
             System.out.println("Tu n'as plus d'essai possible, tu as perdu :-(");
             System.out.println("");
         }
-        replay = this.replayMaster();
+        replay = this.replay();
         return replay;
     }
 }

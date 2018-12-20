@@ -1,65 +1,36 @@
-2018-12-19 18:24:29.245 [main] INFO  com.ocr.nicolas.Games - info dans la class mere Games (nbrDigit= 4 nbrOfTry = 3 developerMode =truenbrMaxOnDigit = 5
-2018-12-19 18:24:30.696 [main] INFO  com.ocr.nicolas.Log4j - Choix du jeux (1- Recherche+/- ; 2- Mastermind; 3 -arret) -> 1
-2018-12-19 18:24:32.822 [main] INFO  com.ocr.nicolas.Log4j - Mode de jeux (1- Challenger ; 2- défenseur ; 3- Duel) -> 2
-2018-12-19 18:24:42.196 [main] INFO  com.ocr.nicolas.SearchNumber - nombre entré par l'utilisateur = 1234
-2018-12-19 18:24:42.199 [main] INFO  com.ocr.nicolas.SearchNumber -  hashMap Base dans la class Main = {digitOk0=10, refinedMin3=0, refinedMin0=0, refinedMax2=10, refinedMax1=10, refinedMin2=0, refinedMin1=0, refinedMax3=10, digitOk1=10, digitOk2=10, refinedMax0=10, digitOk3=10}
-2018-12-19 18:24:42.199 [main] INFO  com.ocr.nicolas.SearchNumber - premier jet computeur (uniquement des 5) = 5555
-2018-12-19 18:24:50.613 [main] INFO  com.ocr.nicolas.SearchNumber - Valeur entré par l'utilisateur = ----
-2018-12-19 18:24:50.613 [main] INFO  com.ocr.nicolas.SearchNumber - utilisateur erreur ou triche ---> false
-2018-12-19 18:24:50.613 [main] INFO  com.ocr.nicolas.SearchNumber - list computeur = [5, 5, 5, 5]
-2018-12-19 18:24:50.613 [main] INFO  com.ocr.nicolas.SearchNumber - list user = [-, -, -, -]
-2018-12-19 18:24:50.616 [main] INFO  com.ocr.nicolas.SearchNumber - nouvelle hasmap refined = {digitOk0=10, refinedMin3=0, refinedMin0=0, refinedMax2=5, refinedMax1=5, refinedMin2=0, refinedMin1=0, refinedMax3=5, digitOk1=10, digitOk2=10, refinedMax0=5, digitOk3=10}
-2018-12-19 18:24:50.616 [main] INFO  com.ocr.nicolas.SearchNumber - list computeur = [5, 5, 5, 5]
-2018-12-19 18:24:50.616 [main] INFO  com.ocr.nicolas.SearchNumber - list user = [-, -, -, -]
-2018-12-19 18:24:50.616 [main] INFO  com.ocr.nicolas.SearchNumber -  2 eme renseignement hashmap = {digitOk0=10, refinedMin3=0, refinedMin0=0, refinedMax2=5, refinedMax1=5, refinedMin2=0, refinedMin1=0, refinedMax3=5, digitOk1=10, digitOk2=10, refinedMax0=5, digitOk3=10}
-2018-12-19 18:24:50.616 [main] INFO  com.ocr.nicolas.utils.Utils - Valeur mediane trouvé dans la methode = 2
-2018-12-19 18:24:50.616 [main] INFO  com.ocr.nicolas.utils.Utils - valeur min0
-2018-12-19 18:24:50.616 [main] INFO  com.ocr.nicolas.utils.Utils - valeur max5
-2018-12-19 18:24:50.616 [main] INFO  com.ocr.nicolas.utils.Utils - Valeur mediane trouvé dans la methode = 2
-2018-12-19 18:24:50.616 [main] INFO  com.ocr.nicolas.utils.Utils - valeur min0
-2018-12-19 18:24:50.616 [main] INFO  com.ocr.nicolas.utils.Utils - valeur max5
-2018-12-19 18:24:50.616 [main] INFO  com.ocr.nicolas.utils.Utils - Valeur mediane trouvé dans la methode = 2
-2018-12-19 18:24:50.616 [main] INFO  com.ocr.nicolas.utils.Utils - valeur min0
-2018-12-19 18:24:50.616 [main] INFO  com.ocr.nicolas.utils.Utils - valeur max5
-2018-12-19 18:24:50.616 [main] INFO  com.ocr.nicolas.utils.Utils - Valeur mediane trouvé dans la methode = 2
-2018-12-19 18:24:50.616 [main] INFO  com.ocr.nicolas.utils.Utils - valeur min0
-2018-12-19 18:24:50.616 [main] INFO  com.ocr.nicolas.utils.Utils - valeur max5
-2018-12-19 18:24:50.616 [main] INFO  com.ocr.nicolas.SearchNumber -  nouveaux digit avec la methode dichotomique = 2222
-2018-12-19 18:24:50.616 [main] INFO  com.ocr.nicolas.SearchNumber - ************* Debut de la boucle1********* 
-2018-12-19 18:25:02.086 [main] INFO  com.ocr.nicolas.SearchNumber - Valeur entré par l'utilisateur = -=++
-2018-12-19 18:25:02.086 [main] INFO  com.ocr.nicolas.SearchNumber - utilisateur erreur ou triche ---> false
-2018-12-19 18:25:02.086 [main] INFO  com.ocr.nicolas.SearchNumber - list computeur = [2, 2, 2, 2]
-2018-12-19 18:25:02.086 [main] INFO  com.ocr.nicolas.SearchNumber - list user = [-, =, +, +]
-2018-12-19 18:25:02.086 [main] INFO  com.ocr.nicolas.SearchNumber -  2 eme renseignement hashmap = {digitOk0=10, refinedMin3=2, refinedMin0=0, refinedMax2=5, refinedMax1=5, refinedMin2=2, refinedMin1=0, refinedMax3=5, digitOk1=2, digitOk2=10, refinedMax0=2, digitOk3=10}
-2018-12-19 18:25:02.086 [main] INFO  com.ocr.nicolas.utils.Utils - Valeur mediane trouvé dans la methode = 1
-2018-12-19 18:25:02.086 [main] INFO  com.ocr.nicolas.utils.Utils - valeur min0
-2018-12-19 18:25:02.086 [main] INFO  com.ocr.nicolas.utils.Utils - valeur max2
-2018-12-19 18:25:02.086 [main] INFO  com.ocr.nicolas.utils.Utils - Valeur mediane trouvé dans la methode = 2
-2018-12-19 18:25:02.086 [main] INFO  com.ocr.nicolas.utils.Utils - valeur min0
-2018-12-19 18:25:02.086 [main] INFO  com.ocr.nicolas.utils.Utils - valeur max5
-2018-12-19 18:25:02.086 [main] INFO  com.ocr.nicolas.utils.Utils - Valeur mediane trouvé dans la methode = 3
-2018-12-19 18:25:02.086 [main] INFO  com.ocr.nicolas.utils.Utils - valeur min2
-2018-12-19 18:25:02.086 [main] INFO  com.ocr.nicolas.utils.Utils - valeur max5
-2018-12-19 18:25:02.086 [main] INFO  com.ocr.nicolas.utils.Utils - Valeur mediane trouvé dans la methode = 3
-2018-12-19 18:25:02.086 [main] INFO  com.ocr.nicolas.utils.Utils - valeur min2
-2018-12-19 18:25:02.086 [main] INFO  com.ocr.nicolas.utils.Utils - valeur max5
-2018-12-19 18:25:02.086 [main] INFO  com.ocr.nicolas.SearchNumber - nouveau numero computeur avec methode dicotomous = 1233
-2018-12-19 18:25:02.086 [main] INFO  com.ocr.nicolas.SearchNumber - ************* Debut de la boucle2********* 
-2018-12-19 18:25:08.740 [main] INFO  com.ocr.nicolas.SearchNumber - Valeur entré par l'utilisateur = ===+
-2018-12-19 18:25:08.740 [main] INFO  com.ocr.nicolas.SearchNumber - utilisateur erreur ou triche ---> false
-2018-12-19 18:25:08.743 [main] INFO  com.ocr.nicolas.Log4j - 
-2018-12-19 18:25:35.717 [main] INFO  com.ocr.nicolas.Log4j - Choix du replay-> 1 (1- Recherche+/- ; 2- choix d'un autre jeux; 3- quitter)
-2018-12-19 18:25:42.200 [main] INFO  com.ocr.nicolas.Log4j - Mode de jeux (1- Challenger ; 2- défenseur ; 3- Duel) -> 1
-2018-12-19 18:25:42.203 [main] INFO  com.ocr.nicolas.SearchNumberChallenger - --------> aleatoire String computeur = 6925
-2018-12-19 18:25:42.203 [main] INFO  com.ocr.nicolas.SearchNumberChallenger - 
-2018-12-19 18:25:42.203 [main] INFO  com.ocr.nicolas.SearchNumberChallenger - ********************   Boucle 1    *********************
-2018-12-19 18:25:45.637 [main] INFO  com.ocr.nicolas.SearchNumberChallenger - nombre entré par l'utilisateur = 5487
-2018-12-19 18:25:45.637 [main] INFO  com.ocr.nicolas.SearchNumberChallenger - 
-2018-12-19 18:25:45.637 [main] INFO  com.ocr.nicolas.SearchNumberChallenger - ********************   Boucle 2    *********************
-2018-12-19 18:25:57.830 [main] INFO  com.ocr.nicolas.Log4j - - INFO - trop de caractère entrée par l'utilisateur
-2018-12-19 18:26:03.429 [main] INFO  com.ocr.nicolas.SearchNumberChallenger - nombre entré par l'utilisateur = 5487
-2018-12-19 18:26:03.429 [main] INFO  com.ocr.nicolas.SearchNumberChallenger - 
-2018-12-19 18:26:03.429 [main] INFO  com.ocr.nicolas.SearchNumberChallenger - ********************   Boucle 3    *********************
-2018-12-19 18:26:06.982 [main] INFO  com.ocr.nicolas.SearchNumberChallenger - nombre entré par l'utilisateur = 4541
-2018-12-19 18:26:06.982 [main] INFO  com.ocr.nicolas.SearchNumberChallenger - l'utilisateur a perdu
-2018-12-19 18:26:06.982 [main] INFO  com.ocr.nicolas.Log4j - 
+2018-12-20 18:52:25.192 [main] INFO  com.ocr.nicolas.Games - info dans la class mere Games (nbrDigit= 2 nbrOfTry = 2 developerMode =truenbrMaxOnDigit = 5
+2018-12-20 18:52:26.653 [main] INFO  com.ocr.nicolas.Log4j - Choix du jeux (1- Recherche+/- ; 2- Mastermind; 3 -arret) -> 1
+2018-12-20 18:52:27.566 [main] INFO  com.ocr.nicolas.Log4j - Mode de jeux (1- Challenger ; 2- défenseur ; 3- Duel) -> 1
+2018-12-20 18:52:27.570 [main] INFO  com.ocr.nicolas.SearchNumberChallenger - --------> aleatoire String computeur = 43
+2018-12-20 18:52:27.570 [main] INFO  com.ocr.nicolas.SearchNumberChallenger - 
+2018-12-20 18:52:27.570 [main] INFO  com.ocr.nicolas.SearchNumberChallenger - ********************   Boucle 1    *********************
+2018-12-20 18:52:28.801 [main] INFO  com.ocr.nicolas.SearchNumberChallenger - nombre entré par l'utilisateur = 01
+2018-12-20 18:52:28.801 [main] INFO  com.ocr.nicolas.SearchNumberChallenger - 
+2018-12-20 18:52:28.801 [main] INFO  com.ocr.nicolas.SearchNumberChallenger - ********************   Boucle 2    *********************
+2018-12-20 18:52:35.005 [main] INFO  com.ocr.nicolas.SearchNumberChallenger - nombre entré par l'utilisateur = 02
+2018-12-20 18:52:35.005 [main] INFO  com.ocr.nicolas.SearchNumberChallenger - l'utilisateur a perdu
+2018-12-20 18:52:35.008 [main] INFO  com.ocr.nicolas.Log4j - 
+2018-12-20 18:52:37.788 [main] INFO  com.ocr.nicolas.Log4j - Choix du replay-> 1 (1- Recherche+/- ; 2- choix d'un autre jeux; 3- quitter)
+2018-12-20 18:52:39.055 [main] INFO  com.ocr.nicolas.Log4j - Mode de jeux (1- Challenger ; 2- défenseur ; 3- Duel) -> 1
+2018-12-20 18:52:39.055 [main] INFO  com.ocr.nicolas.SearchNumberChallenger - --------> aleatoire String computeur = 56
+2018-12-20 18:52:39.055 [main] INFO  com.ocr.nicolas.SearchNumberChallenger - 
+2018-12-20 18:52:39.055 [main] INFO  com.ocr.nicolas.SearchNumberChallenger - ********************   Boucle 1    *********************
+2018-12-20 18:52:40.142 [main] INFO  com.ocr.nicolas.SearchNumberChallenger - nombre entré par l'utilisateur = 01
+2018-12-20 18:52:40.142 [main] INFO  com.ocr.nicolas.SearchNumberChallenger - 
+2018-12-20 18:52:40.142 [main] INFO  com.ocr.nicolas.SearchNumberChallenger - ********************   Boucle 2    *********************
+2018-12-20 18:52:41.276 [main] INFO  com.ocr.nicolas.SearchNumberChallenger - nombre entré par l'utilisateur = 02
+2018-12-20 18:52:41.279 [main] INFO  com.ocr.nicolas.SearchNumberChallenger - l'utilisateur a perdu
+2018-12-20 18:52:41.279 [main] INFO  com.ocr.nicolas.Log4j - 
+2018-12-20 18:52:43.054 [main] INFO  com.ocr.nicolas.Log4j - Choix du replay-> 2 (1- Recherche+/- ; 2- choix d'un autre jeux; 3- quitter)
+2018-12-20 18:52:47.375 [main] INFO  com.ocr.nicolas.Log4j - Choix du jeux (1- Recherche+/- ; 2- Mastermind; 3 -arret) -> 2
+2018-12-20 18:52:48.204 [main] INFO  com.ocr.nicolas.Log4j - Mode de jeux (1- Challenger ; 2- défenseur ; 3- Duel) -> 1
+2018-12-20 18:52:48.210 [main] INFO  com.ocr.nicolas.Games - Ordinateur combinaison = 05
+2018-12-20 18:52:48.210 [main] INFO  com.ocr.nicolas.Games - 
+2018-12-20 18:52:48.210 [main] INFO  com.ocr.nicolas.Games - ****** boucle 0 ********
+2018-12-20 18:52:48.210 [main] INFO  com.ocr.nicolas.Games - liste chiffres ok = [0, 1, 2, 3, 4, 5]
+2018-12-20 18:52:50.380 [main] INFO  com.ocr.nicolas.Games - Entrée utilisateur = 01
+2018-12-20 18:52:50.383 [main] INFO  com.ocr.nicolas.Games - 
+2018-12-20 18:52:50.383 [main] INFO  com.ocr.nicolas.Games - ****** boucle 1 ********
+2018-12-20 18:52:50.383 [main] INFO  com.ocr.nicolas.Games - liste chiffres ok = [0, 1, 2, 3, 4, 5]
+2018-12-20 18:52:54.023 [main] INFO  com.ocr.nicolas.Games - Entrée utilisateur = 02
+2018-12-20 18:52:54.023 [main] INFO  com.ocr.nicolas.Log4j - 
