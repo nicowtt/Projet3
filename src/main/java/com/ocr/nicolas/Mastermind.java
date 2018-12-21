@@ -2,7 +2,22 @@ package com.ocr.nicolas;
 
 import java.util.*;
 
-public class Mastermind extends Games {
+public class Mastermind extends CommonUseToGames implements MastermindGame {
+
+    @Override
+    public int playChallengerModeMastermind() {
+        return 0;
+    }
+
+    @Override
+    public int playDefenderModeMastermind() {
+        return 0;
+    }
+
+    @Override
+    public int playDuelModeMastermind() {
+        return 0;
+    }
 
     protected boolean iswin;
     protected List<String> listCombinationRemainingexport;
@@ -13,9 +28,9 @@ public class Mastermind extends Games {
     Scanner sc = new Scanner(System.in);
 
     /**
-     * For playing Mastermind Game
+     * For playing Mastermind game
      */
-    protected int playMastermind() {
+    public int playMastermind() {
 
         int replay = 3;
 

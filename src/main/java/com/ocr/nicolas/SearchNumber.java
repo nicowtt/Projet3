@@ -6,8 +6,22 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.*;
 
-public class SearchNumber extends Games {
+public class SearchNumber extends CommonUseToGames implements SearchNumberGame {
 
+    @Override
+    public int playChallengerModeSearchNumber() {
+        return 0;
+    }
+
+    @Override
+    public int playDefenderModeSearchNumber() {
+        return 0;
+    }
+
+    @Override
+    public int playDuelModeSearchNumber() {
+        return 0;
+    }
 
     protected boolean isWin; // Grâce aux methode ci-dessous je peux voir si il y a gagnant, donc je rajoute ce parametre
 
@@ -19,7 +33,7 @@ public class SearchNumber extends Games {
      *
      * @return playing
      */
-    protected int playSearchNumber() {
+    public int playSearchNumber() {
 
         int replay = 3;
 
@@ -72,14 +86,13 @@ public class SearchNumber extends Games {
         return replay;
     }
 
-
     /**
      * For Compare 2 String (with number(s) inside) result -> (+--=) for exemple
      *
      * @param computer Computeur string (with number(s) inside)
      * @param user     User string (with number(s) inside)
      */
-    public String CompareTwoString(String computer, String user) {
+    protected String CompareTwoString(String computer, String user) {
 
 
         // Je converti la chaine de caractere computeur en arraylist de integer -> computerArrayListInt
@@ -104,7 +117,7 @@ public class SearchNumber extends Games {
      * @param computerArrayListInt Computer Array List (number inside)
      * @return String with + , - or =
      */
-    public String compareTwoArrayList(List<Integer> userArrayListInt, List<Integer> computerArrayListInt) {
+    protected String compareTwoArrayList(List<Integer> userArrayListInt, List<Integer> computerArrayListInt) {
 
         //variable gagnante a zero
         isWin = false;
@@ -154,7 +167,7 @@ public class SearchNumber extends Games {
      * @param pValue
      * @return hashmap updated with new limit information
      */
-    public Map<String, Integer> infoDigitForRefinedToHahMap(Map<String, Integer> pHashMap, String pFirst, String pValue) {
+    protected Map<String, Integer> infoDigitForRefinedToHahMap(Map<String, Integer> pHashMap, String pFirst, String pValue) {
 
         //variable locales
         int digitInt;
@@ -222,7 +235,7 @@ public class SearchNumber extends Games {
      *
      * @return String "+-="
      */
-    public String inputValueUserToString() {
+    protected String inputValueUserToString() {
         int count = 0;
         String resultString = "";
 
@@ -292,7 +305,7 @@ public class SearchNumber extends Games {
      * @param pValuesString
      * @return
      */
-    public String hasmapToDicotomousString(Map<String, Integer> pHashMap, String pfirst, String pValuesString, String pStrToComparForWin) {
+    protected String hasmapToDicotomousString(Map<String, Integer> pHashMap, String pfirst, String pValuesString, String pStrToComparForWin) {
 
         //variables
         isWin = false;
@@ -323,7 +336,7 @@ public class SearchNumber extends Games {
      *
      * @return String with only "55..."
      */
-    public String fiveOnlyDigit() {
+    protected String fiveOnlyDigit() {
         String str = "";
         for (int i = 0; i < nbrDigit; i++) {
             str = str + 5;
@@ -338,7 +351,7 @@ public class SearchNumber extends Games {
      * @param pcheck nbr comp
      * @param pvalue value "+-=" user in
      */
-    public boolean checkCheat(String pbase, String pcheck, String pvalue) {
+    protected boolean checkCheat(String pbase, String pcheck, String pvalue) {
 
         // variables
         boolean cheat = false;
@@ -402,7 +415,8 @@ public class SearchNumber extends Games {
     /**
      * for correct input value + no cheat
      */
-    public String inputValuesUserAndCheckIfCheat(String puser, String pcomp, int ploop, int pinverseLoop) {
+    protected String inputValuesUserAndCheckIfCheat(String puser, String pcomp, int ploop, int pinverseLoop) {
+
         // variable
         boolean cheakCheatInput;
         boolean cheakCheat;
@@ -452,7 +466,7 @@ public class SearchNumber extends Games {
     }
 
 
-    public int testIfUserWinChallengerMode(int ploop, String pcomp, String puser, int pinverseLoop) {
+    protected int testIfUserWinChallengerMode(int ploop, String pcomp, String puser, int pinverseLoop) {
 
         //variables
         int replay = 3;
@@ -477,6 +491,7 @@ public class SearchNumber extends Games {
         }
         return replay;
     }
+
 }
 
 

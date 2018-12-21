@@ -4,7 +4,7 @@ import com.ocr.nicolas.utils.Utils;
 
 import java.util.Map;
 
-public class SearchNumberDefender extends SearchNumber {
+public class SearchNumberDefender extends SearchNumber implements SearchNumberGame{
 
     private int loopForDefenderMode = 1; //nbr of loop
     private String nbrUserDefender = ""; //String user input

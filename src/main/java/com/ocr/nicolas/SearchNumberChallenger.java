@@ -3,9 +3,10 @@ package com.ocr.nicolas;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class SearchNumberChallenger extends SearchNumber {
+public class SearchNumberChallenger extends SearchNumber implements SearchNumberGame{
 
     static final Logger logger = LogManager.getLogger();
+
 
     /**
      * For play Challenger mode of Search Number
@@ -63,7 +64,7 @@ public class SearchNumberChallenger extends SearchNumber {
         }
 
         //lancement du menu pour replay
-        replayEnum = Games.replayEnum();
+        replayEnum = this.replayEnum();
         if (replayEnum == Replay.REPLAY) { replay = 1;}
         if (replayEnum == Replay.GAMESCHOICE) { replay = 2;}
         return replay;

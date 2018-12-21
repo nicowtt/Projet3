@@ -6,7 +6,7 @@ public class MastermindChallenger extends Mastermind {
     String userChalMastStr; // user combination (String)
 
 
-    protected int playChallengerModeMastermind () {
+    public int playChallengerModeMastermind () {
 
         //variables
         int nbrLoopMastChal = 0;

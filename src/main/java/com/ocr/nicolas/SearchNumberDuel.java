@@ -4,7 +4,7 @@ import com.ocr.nicolas.utils.Utils;
 
 import java.util.Map;
 
-public class SearchNumberDuel extends SearchNumber{
+public class SearchNumberDuel extends SearchNumber implements SearchNumberGame{
 
     // challenger
     private String randCompDuel; //String Random Computer -> challenger

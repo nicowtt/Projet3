@@ -4,7 +4,7 @@ package com.ocr.nicolas;
 public class Main {
 
     public static void main(String[] args) {
-        Games games = new Games();
+        CommonUseToGames games = new CommonUseToGames();
         games.playGames();
         }
     }

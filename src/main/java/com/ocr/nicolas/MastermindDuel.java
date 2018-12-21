@@ -9,7 +9,7 @@ public class MastermindDuel extends Mastermind {
     String userDefendMastStr; // defender mode user combination (String)
 
 
-    protected int playDuelModeMastermind() {
+    public int playDuelModeMastermind() {
 
         //variables
         int loopForDuelMode = 1;

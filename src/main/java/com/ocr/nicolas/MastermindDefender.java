@@ -5,7 +5,7 @@ public class MastermindDefender extends Mastermind {
     String compDefendMastKnuthStr; // computer combination (String)
     String userDefendMastStr; // user combination (String)
 
-    protected int playDefenderModeMastermind() {
+    public int playDefenderModeMastermind() {
 
         //variable
         int nbrLoopMastDefend = 1;
