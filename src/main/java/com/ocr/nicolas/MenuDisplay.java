@@ -11,7 +11,9 @@ public class MenuDisplay {
 
     private String userChoiceStringExport;
 
-    public String getUserChoiceStringExport() { return userChoiceStringExport; }
+    public String getUserChoiceStringExport() {
+        return userChoiceStringExport;
+    }
 
     /**
      * Display ask games menu.
@@ -106,7 +108,7 @@ public class MenuDisplay {
                     break;
             }
         } while (!responseIsGood);
-        logger.info("Mode de jeux (1- Challenger ; 2- défenseur ; 3- Duel) -> " + gameTypeChoice );
+        logger.info("Mode de jeux (1- Challenger ; 2- défenseur ; 3- Duel) -> " + gameTypeChoice);
         return gameTypeChoice;
     }
 
@@ -132,9 +134,11 @@ public class MenuDisplay {
                 String userChoiceString = sc.next();
 
                 // Verification si y a trop de caractères en entrée
-                if ( userChoiceString.length() > nbrDigit) {tooManyNbr++;}
+                if (userChoiceString.length() > nbrDigit) {
+                    tooManyNbr++;
+                }
 
-                if (tooManyNbr != 1 ) {
+                if (tooManyNbr != 1) {
                     userChoiceStringExport = userChoiceString;
 
                     String userChoiceForCountString = userChoiceString;
@@ -148,28 +152,30 @@ public class MenuDisplay {
                         // j'incrémente mon compteur de nombre de chiffre
                         counterTotalLetter++;
                         // je compare par rapport au nombre de digit
-                        if (counterTotalLetter == nbrDigit) {responseIsGood = true;}
+                        if (counterTotalLetter == nbrDigit) {
+                            responseIsGood = true;
+                        }
                     }
-                }else {
+                } else {
                     System.out.println("oupss ! trop de caractères, choisi une suite de " + nbrDigit + " chiffres: ");
                     logger.info("- INFO - trop de caractère entrée par l'utilisateur");
                 }
             } catch (StringIndexOutOfBoundsException e) {
                 System.out.println("Tu dois rentrer " + nbr + " chiffres:");
                 logger.info("- INFO - pas assez de caractère entrée par l'utilisateur");
-            } catch (NumberFormatException e ) {
+            } catch (NumberFormatException e) {
                 System.out.println("Lettre(s) non acceptée(s), choisi une suite de " + nbrDigit + " chiffres: ");
                 logger.info("- INFO - Lettre(s) entrée par l'utilisateur");
             }
             tooManyNbr = 0;
 
-            }while (responseIsGood != true) ;
+        } while (responseIsGood != true);
     }
 
     /**
      * display end of game menu
      */
-    public void displayAskIfReplay () {
+    public void displayAskIfReplay() {
         logger.info("");
         System.out.println("****** Veux-tu rejouer ? *******");
         System.out.println(" 1 -> oui je veux rejouer au meme jeux");
@@ -179,9 +185,10 @@ public class MenuDisplay {
 
     /**
      * for display replay choice
+     *
      * @return replay choice (int)
      */
-    public int displayReplayChoice () {
+    public int displayReplayChoice() {
 
         //variables
         boolean responseIsGood;
@@ -217,31 +224,48 @@ public class MenuDisplay {
 
     /**
      * for force user to input on choice and int only
+     *
      * @param nbrMax choice max
      * @return choice
      */
     private int forceProposedChoice(int nbrMax) {
+
+        // varibles
         boolean responseIsGood;
-        int forcedChoice = 0;
+        int forcedChoiceInt = 0;
+        String forcedChoiceStr = "";
+        int count = 0;
+
 
         do {
+            count = 0;
             try {
                 System.out.println("-> Choisi parmi les choix proposés:");
-                forcedChoice = sc.nextInt();
-                if (forcedChoice <= 0 || forcedChoice > nbrMax) {
-                    forcedChoice = 0;
+                forcedChoiceStr = sc.next();
+                for (int i = 0; i < forcedChoiceStr.length(); i++) { // si trop de caractères
+                    char letter = forcedChoiceStr.charAt(i);
+                    String letterStr = String.valueOf(letter);
+                    Integer letterInt = Integer.valueOf(letterStr);
+                    forcedChoiceInt = letterInt;
+                    count++;
+                }
+                if (count > 1) {
+                    System.out.println("Trop de caractères");
                     responseIsGood = false;
-                }else {
+                } else if (forcedChoiceInt <= 0 || forcedChoiceInt > nbrMax) { // si pas dans les possibles
+                    forcedChoiceInt = 0;
+                    responseIsGood = false;
+                } else {
                     responseIsGood = true;
                 }
-            } catch (InputMismatchException e) {
+
+            } catch (NumberFormatException e) { // si il y a une lettre
                 System.out.println("erreur chiffre uniquement");
-                sc.next();
                 responseIsGood = false;
             }
-        }while (!responseIsGood);
+        } while (!responseIsGood);
 
-        return forcedChoice;
+        return forcedChoiceInt;
 
     }
 

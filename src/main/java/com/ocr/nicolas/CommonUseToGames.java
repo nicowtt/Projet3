@@ -18,8 +18,8 @@ public class CommonUseToGames extends Games{
 
         // objets
         MenuDisplay display = new MenuDisplay();
-        SearchNumber searchNumber = new SearchNumber();
-        Mastermind mastermind = new Mastermind();
+        SearchNumberGame searchNumber = new SearchNumber();
+        MastermindGame mastermind = new Mastermind();
 
         // info
         logger.info("info dans la class mere Games (nbrDigit= "+ nbrDigit +" nbrOfTry = " + nbrOfTry +" developerMode =" + developerMode + "nbrMaxOnDigit = " + nbrMaxOnDigit);
@@ -108,7 +108,7 @@ public class CommonUseToGames extends Games{
      * For redirection of replay or leave
      * @return enum
      */
-    protected static Replay replayEnum() { //todo for check with mentor
+    protected static Replay replayEnum() {
 
         // objets
         MenuDisplay display = new MenuDisplay();

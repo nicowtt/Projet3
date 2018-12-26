@@ -1,12 +1,12 @@
-2018-12-21 16:57:07.393 [main] INFO  com.ocr.nicolas.Games - info dans la class mere Games (nbrDigit= 2 nbrOfTry = 2 developerMode =truenbrMaxOnDigit = 5
-2018-12-21 16:57:09.436 [main] INFO  com.ocr.nicolas.Log4j - Choix du jeux (1- Recherche+/- ; 2- Mastermind; 3 -arret) -> 1
-2018-12-21 16:57:11.532 [main] INFO  com.ocr.nicolas.Log4j - Mode de jeux (1- Challenger ; 2- défenseur ; 3- Duel) -> 1
-2018-12-21 16:57:11.535 [main] INFO  com.ocr.nicolas.SearchNumberChallenger - --------> aleatoire String computeur = 58
-2018-12-21 16:57:11.535 [main] INFO  com.ocr.nicolas.SearchNumberChallenger - 
-2018-12-21 16:57:11.535 [main] INFO  com.ocr.nicolas.SearchNumberChallenger - ********************   Boucle 1    *********************
-2018-12-21 16:57:53.900 [main] INFO  com.ocr.nicolas.SearchNumberChallenger - nombre entré par l'utilisateur = 12
-2018-12-21 16:57:53.900 [main] INFO  com.ocr.nicolas.SearchNumberChallenger - 
-2018-12-21 16:57:53.900 [main] INFO  com.ocr.nicolas.SearchNumberChallenger - ********************   Boucle 2    *********************
-2018-12-21 16:57:55.612 [main] INFO  com.ocr.nicolas.SearchNumberChallenger - nombre entré par l'utilisateur = 58
-2018-12-21 16:57:55.612 [main] INFO  com.ocr.nicolas.SearchNumber - l'utilisateur a gagné contre l'ordinateur aprés 2 essais
-2018-12-21 16:57:55.612 [main] INFO  com.ocr.nicolas.Log4j - 
+2018-12-26 13:10:55.134 [main] INFO  com.ocr.nicolas.Games - info dans la class mere Games (nbrDigit= 2 nbrOfTry = 6 developerMode =truenbrMaxOnDigit = 5
+2018-12-26 13:11:00.650 [main] INFO  com.ocr.nicolas.Log4j - Choix du jeux (1- Recherche+/- ; 2- Mastermind; 3 -arret) -> 1
+2018-12-26 13:11:01.838 [main] INFO  com.ocr.nicolas.Log4j - Mode de jeux (1- Challenger ; 2- défenseur ; 3- Duel) -> 1
+2018-12-26 13:11:01.838 [main] INFO  com.ocr.nicolas.SearchNumberChallenger - --------> aleatoire String computeur = 78
+2018-12-26 13:11:01.838 [main] INFO  com.ocr.nicolas.SearchNumberChallenger - 
+2018-12-26 13:11:01.838 [main] INFO  com.ocr.nicolas.SearchNumberChallenger - ********************   Boucle 1    *********************
+2018-12-26 13:11:04.104 [main] INFO  com.ocr.nicolas.SearchNumberChallenger - nombre entré par l'utilisateur = 15
+2018-12-26 13:11:04.104 [main] INFO  com.ocr.nicolas.SearchNumberChallenger - 
+2018-12-26 13:11:04.104 [main] INFO  com.ocr.nicolas.SearchNumberChallenger - ********************   Boucle 2    *********************
+2018-12-26 13:11:05.604 [main] INFO  com.ocr.nicolas.SearchNumberChallenger - nombre entré par l'utilisateur = 78
+2018-12-26 13:11:05.604 [main] INFO  com.ocr.nicolas.SearchNumber - l'utilisateur a gagné contre l'ordinateur aprés 2 essais
+2018-12-26 13:11:05.604 [main] INFO  com.ocr.nicolas.Log4j - 

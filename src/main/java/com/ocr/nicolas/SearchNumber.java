@@ -45,9 +45,9 @@ public class SearchNumber extends CommonUseToGames implements SearchNumberGame {
         int gameTypeChoice = display.displayGameTypeChoice();
 
         // objets
-        SearchNumberChallenger searchNumberChallenger = new SearchNumberChallenger();
-        SearchNumberDefender searchNumberDefender = new SearchNumberDefender();
-        SearchNumberDuel searchNumberDuel = new SearchNumberDuel();
+        SearchNumberGame searchNumberChallenger = new SearchNumberChallenger();
+        SearchNumberGame searchNumberDefender = new SearchNumberDefender();
+        SearchNumberGame searchNumberDuel = new SearchNumberDuel();
 
 
         do {

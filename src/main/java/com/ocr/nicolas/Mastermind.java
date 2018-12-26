@@ -42,9 +42,9 @@ public class Mastermind extends CommonUseToGames implements MastermindGame {
         int gameTypeChoice = display.displayGameTypeChoice();
 
         // objets
-        MastermindChallenger mastermindChallenger = new MastermindChallenger();
-        MastermindDefender mastermindDefender = new MastermindDefender();
-        MastermindDuel mastermindDuel = new MastermindDuel();
+        MastermindGame mastermindChallenger = new MastermindChallenger();
+        MastermindGame mastermindDefender = new MastermindDefender();
+        MastermindGame mastermindDuel = new MastermindDuel();
 
         do {
             //do
