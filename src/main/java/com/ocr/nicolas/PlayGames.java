@@ -1,18 +1,37 @@
 package com.ocr.nicolas;
 
-public class CommonUseToGames extends Games{
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-    protected CommonUseToGames() {
-        // lecture config.propertie et variable a zero
-        ReadPropertiesFile read = new ReadPropertiesFile();
-        nbrDigit = read.getNbrDigit();
-        developerMode = read.getDeveloperMode(); // developer mode?
-        nbrOfTry = read.getNbrOfTry();
-        nbrMaxOnDigit = read.getNbrMaxOnDigit();
-        boolean isWin = false;
+public class PlayGames {
+
+    static final Logger logger = LogManager.getLogger();
+
+    //commun a tous les jeux
+    private static int nbrDigit;
+    private static int nbrOfTry;
+    private static String developerMode;
+
+    //Pour le mastermind
+    private static int nbrMaxOnDigit;
+
+    public static int getNbrDigit() {
+        return nbrDigit;
     }
 
-    public void playGames() {
+    public static int getNbrOfTry() {
+        return nbrOfTry;
+    }
+
+    public static String getDeveloperMode() {
+        return developerMode;
+    }
+
+    public static int getNbrMaxOnDigit() {
+        return nbrMaxOnDigit;
+    }
+
+    public static void playGames() {
 
         int replay = 3;
 
@@ -20,9 +39,14 @@ public class CommonUseToGames extends Games{
         MenuDisplay display = new MenuDisplay();
         SearchNumberGame searchNumber = new SearchNumber();
         MastermindGame mastermind = new Mastermind();
+        ReadPropertiesFile read = new ReadPropertiesFile();
 
-        // info
-        logger.info("info dans la class mere Games (nbrDigit= "+ nbrDigit +" nbrOfTry = " + nbrOfTry +" developerMode =" + developerMode + "nbrMaxOnDigit = " + nbrMaxOnDigit);
+        // lecture fichier readProperties
+        nbrDigit = read.getNbrDigit();
+        nbrOfTry = read.getNbrOfTry();
+        developerMode = read.getDeveloperMode();
+        nbrMaxOnDigit = read.getNbrMaxOnDigit();
+        logger.info("lecture fichier read properties ");
 
         // boucle si replay
         do {
@@ -53,17 +77,15 @@ public class CommonUseToGames extends Games{
 
     }
 
-
-
     /**
      * for make random computer number(s) combination
      *
      * @return random digit number (type of character string)
      */
-    protected String computerNbrCombination(int min, int max) {
+    protected static String computerNbrCombination(int min, int max) {
 
         String finalRandomDigitNumberString = "";
-        int counterNbrDigit = this.nbrDigit;
+        int counterNbrDigit = nbrDigit;
 
         while (counterNbrDigit >= 1) {
 
@@ -86,7 +108,7 @@ public class CommonUseToGames extends Games{
     /**
      * For redirection of replay or leave
      */
-    protected int replay() {
+    protected static int replay() {
 
         //variable
         int replay = 3;
@@ -123,4 +145,5 @@ public class CommonUseToGames extends Games{
 
         return replayEnum;
     }
+
 }

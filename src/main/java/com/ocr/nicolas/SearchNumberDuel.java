@@ -34,7 +34,7 @@ public class SearchNumberDuel extends SearchNumber implements SearchNumberGame{
         System.out.println("");
 
         // random computeur
-        randCompDuel = this.computerNbrCombination(0, 9);
+        randCompDuel = PlayGames.computerNbrCombination(0, 9);
         logger.info("--------> aleatoire String computeur = " + randCompDuel);
 
         //************** Defender1************************
@@ -186,7 +186,7 @@ public class SearchNumberDuel extends SearchNumber implements SearchNumberGame{
             }
         }
         //replay
-        replay = this.replay();
+        replay = PlayGames.replay();
         return replay;
     }
 }

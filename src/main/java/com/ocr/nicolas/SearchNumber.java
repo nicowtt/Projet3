@@ -6,7 +6,7 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.*;
 
-public class SearchNumber extends CommonUseToGames implements SearchNumberGame {
+public class SearchNumber extends Games implements SearchNumberGame {
 
     @Override
     public int playChallengerModeSearchNumber() {

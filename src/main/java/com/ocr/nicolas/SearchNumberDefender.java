@@ -91,7 +91,7 @@ public class SearchNumberDefender extends SearchNumber implements SearchNumberGa
             }
         }
         //lancement du menu pour replay
-        replay = this.replay();
+        replay = PlayGames.replay();
         return replay;
     }
 }

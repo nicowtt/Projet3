@@ -25,7 +25,7 @@ public class SearchNumberChallenger extends SearchNumber implements SearchNumber
         int inverseLoop = nbrOfTry;
 
         // Recuperation variable random ordinateur  -> randCompChallenger
-        String randCompChallenger = this.computerNbrCombination(0, 9);
+        String randCompChallenger = PlayGames.computerNbrCombination(0, 9);
         logger.info("--------> aleatoire String computeur = " + randCompChallenger);
 
         // Je donne le nombre d'essais possible
@@ -64,7 +64,7 @@ public class SearchNumberChallenger extends SearchNumber implements SearchNumber
         }
 
         //lancement du menu pour replay
-        replayEnum = this.replayEnum();
+        replayEnum = PlayGames.replayEnum();
         if (replayEnum == Replay.REPLAY) { replay = 1;}
         if (replayEnum == Replay.GAMESCHOICE) { replay = 2;}
         return replay;

@@ -14,7 +14,7 @@ public class MastermindChallenger extends Mastermind {
         iswin = false;
 
         //creation combinaison ordinateur
-        randCompChalMast = this.computerNbrCombination(0, nbrMaxOnDigit);
+        randCompChalMast = PlayGames.computerNbrCombination(0, nbrMaxOnDigit);
         logger.info("Ordinateur combinaison = " + randCompChalMast);
 
         // affichage de la demande
@@ -45,7 +45,7 @@ public class MastermindChallenger extends Mastermind {
             System.out.println("Tu n'as plus d'essai possible, tu as perdu :-(");
             System.out.println("");
         }
-        replay = this.replay();
+        replay = PlayGames.replay();
         return replay;
     }
 }

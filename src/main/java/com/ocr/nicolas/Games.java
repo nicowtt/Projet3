@@ -8,11 +8,11 @@ public abstract class Games {
     static final Logger logger = LogManager.getLogger();
 
     //commun a tous les jeux
-    protected int nbrDigit;
-    protected int nbrOfTry;
-    protected String developerMode;
+    protected int nbrDigit = PlayGames.getNbrDigit();
+    protected int nbrOfTry = PlayGames.getNbrOfTry();
+    protected String developerMode = PlayGames.getDeveloperMode();
 
 
     //Pour le mastermind
-    protected int nbrMaxOnDigit;
+    protected int nbrMaxOnDigit = PlayGames.getNbrMaxOnDigit();
 }

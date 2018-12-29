@@ -2,7 +2,7 @@ package com.ocr.nicolas;
 
 import java.util.*;
 
-public class Mastermind extends CommonUseToGames implements MastermindGame {
+public class Mastermind extends Games implements MastermindGame {
 
     @Override
     public int playChallengerModeMastermind() {

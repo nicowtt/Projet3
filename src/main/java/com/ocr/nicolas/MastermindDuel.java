@@ -22,7 +22,7 @@ public class MastermindDuel extends Mastermind {
         System.out.println("");
 
         //creation combinaison ordinateur
-        randCompChalMast = this.computerNbrCombination(0, nbrMaxOnDigit); // (challenger)
+        randCompChalMast = PlayGames.computerNbrCombination(0, nbrMaxOnDigit); // (challenger)
         compDefendMastKnuthStr = randCompChalMast; // (defender)
         logger.info("Ordinateur combinaison = " + randCompChalMast);
 
@@ -120,7 +120,7 @@ public class MastermindDuel extends Mastermind {
             System.out.println("La combinaison mystère de l'ordinateur était : " + randCompChalMast);
         }
         System.out.println("");
-        replay = this.replay();
+        replay = PlayGames.replay();
         return replay;
     }
 }

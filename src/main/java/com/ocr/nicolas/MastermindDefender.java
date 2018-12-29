@@ -20,7 +20,7 @@ public class MastermindDefender extends Mastermind {
         userDefendMastStr = this.inputUserStringMast();
 
         // je fais un nombre aléatoire ordinateur et je l'affiche
-        compDefendMastKnuthStr = this.computerNbrCombination(0, nbrMaxOnDigit);
+        compDefendMastKnuthStr = PlayGames.computerNbrCombination(0, nbrMaxOnDigit);
         System.out.println(compDefendMastKnuthStr);
         logger.info("combinaison aléatoire ordinateur = " + compDefendMastKnuthStr);
 
@@ -68,7 +68,7 @@ public class MastermindDefender extends Mastermind {
         }
         if (noMoreTry) {System.out.println("l'ordinateur n'a plus d'essai possible, tu gagne !!");}
         System.out.println("");
-        replay = this.replay();
+        replay = PlayGames.replay();
         return replay;
     }
 }
