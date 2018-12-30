@@ -188,12 +188,13 @@ public class MenuDisplay {
      *
      * @return replay choice (int)
      */
-    public int displayReplayChoice() {
+    public Replay displayReplayChoice() {
 
         //variables
         boolean responseIsGood;
         int nbrChoiceMax = 3;
         int replayChoice = forceProposedChoice(nbrChoiceMax);
+        Replay replayEnum = Replay.EXIT;
 
         do {
             switch (replayChoice) {
@@ -201,17 +202,20 @@ public class MenuDisplay {
                     System.out.println("Tu as choisi de rejouer au même jeux ");
                     System.out.println("");
                     responseIsGood = true;
+                    replayEnum = Replay.REPLAY;
                     break;
                 case 2:
                     System.out.println("Tu as choisi le retour a l'ecran principal du choix des jeux");
                     System.out.println("");
                     responseIsGood = true;
+                    replayEnum = Replay.GAMESCHOICE;
                     break;
                 case 3:
                     System.out.println("tu as choisi de quitter");
                     System.exit(0);
                     System.out.println("");
                     responseIsGood = true;
+                    replayEnum = Replay.EXIT;
                     break;
                 default:
                     responseIsGood = false;
@@ -219,7 +223,7 @@ public class MenuDisplay {
             }
         } while (!responseIsGood);
         logger.info("Choix du replay-> " + replayChoice + " (1- Recherche+/- ; 2- choix d'un autre jeux; 3- quitter)");
-        return replayChoice;
+        return replayEnum;
     }
 
     /**

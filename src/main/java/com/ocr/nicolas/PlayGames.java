@@ -107,41 +107,42 @@ public class PlayGames {
 
     /**
      * For redirection of replay or leave
+     * @return replay (1 = replay, 2 = gameschoice, 3 = leave)
      */
     protected static int replay() {
 
         //variable
         int replay = 3;
+        Replay replayEnum;
 
         // objets
         MenuDisplay display = new MenuDisplay();
 
         // affichage console for replay et redirection
         display.displayAskIfReplay();
-        int replayIntern = display.displayReplayChoice();
-        if (replayIntern == 1) {replay = 1;}
-        if (replayIntern == 2) {replay = 2;}
-        if (replayIntern == 3) {System.exit(0);}
+        replayEnum = display.displayReplayChoice();
+        if (replayEnum == Replay.REPLAY) {replay = 1;}
+        if (replayEnum == Replay.GAMESCHOICE) {replay = 2;}
+        if (replayEnum == Replay.EXIT) {System.exit(0);}
 
         return replay;
     }
 
     /**
      * For redirection of replay or leave
-     * @return enum
+     * @return replayEnum
      */
     protected static Replay replayEnum() {
 
+        // variable
+        Replay replayEnum;
+
         // objets
         MenuDisplay display = new MenuDisplay();
-        Replay replayEnum = Replay.EXIT;
 
         // affichage console for replay et redirection
         display.displayAskIfReplay();
-        int replayIntern = display.displayReplayChoice();
-        if (replayIntern == 1) {replayEnum = Replay.REPLAY;}
-        if (replayIntern == 2) {replayEnum = Replay.GAMESCHOICE;}
-        if (replayIntern == 3) {System.exit(0);}
+        replayEnum = display.displayReplayChoice();
 
         return replayEnum;
     }

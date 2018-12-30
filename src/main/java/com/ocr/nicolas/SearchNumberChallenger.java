@@ -16,9 +16,9 @@ public class SearchNumberChallenger extends SearchNumber implements SearchNumber
 
         // declaration objets
         MenuDisplay display = new MenuDisplay();
-        Replay replayEnum;
 
         //variables
+        Replay replayEnum;
         isWin = false;
         int replay = 3;
         int loopForChallengerMode = 0;
@@ -47,7 +47,6 @@ public class SearchNumberChallenger extends SearchNumber implements SearchNumber
 
             // je verifie si le Mode developper a été demandé
             if (developerMode.contains("true")) {System.out.println("(" + randCompChallenger + ")");}
-            else {System.out.println("");}
 
             // je teste si gagnant ou perdant
             inverseLoop -= 1;

@@ -1,15 +1,25 @@
-2018-12-29 12:46:29.690 [main] INFO  com.ocr.nicolas.PlayGames - lecture fichier read properties 
-2018-12-29 12:46:31.847 [main] INFO  com.ocr.nicolas.Log4j - Choix du jeux (1- Recherche+/- ; 2- Mastermind; 3 -arret) -> 1
-2018-12-29 12:46:33.191 [main] INFO  com.ocr.nicolas.Log4j - Mode de jeux (1- Challenger ; 2- défenseur ; 3- Duel) -> 1
-2018-12-29 12:46:33.191 [main] INFO  com.ocr.nicolas.SearchNumberChallenger - --------> aleatoire String computeur = 51
-2018-12-29 12:46:33.191 [main] INFO  com.ocr.nicolas.SearchNumberChallenger - 
-2018-12-29 12:46:33.191 [main] INFO  com.ocr.nicolas.SearchNumberChallenger - ********************   Boucle 1    *********************
-2018-12-29 12:46:35.213 [main] INFO  com.ocr.nicolas.SearchNumberChallenger - nombre entré par l'utilisateur = 15
-2018-12-29 12:46:35.213 [main] INFO  com.ocr.nicolas.SearchNumberChallenger - 
-2018-12-29 12:46:35.213 [main] INFO  com.ocr.nicolas.SearchNumberChallenger - ********************   Boucle 2    *********************
-2018-12-29 12:46:39.198 [main] INFO  com.ocr.nicolas.SearchNumberChallenger - nombre entré par l'utilisateur = 24
-2018-12-29 12:46:39.198 [main] INFO  com.ocr.nicolas.SearchNumberChallenger - 
-2018-12-29 12:46:39.198 [main] INFO  com.ocr.nicolas.SearchNumberChallenger - ********************   Boucle 3    *********************
-2018-12-29 12:46:42.777 [main] INFO  com.ocr.nicolas.SearchNumberChallenger - nombre entré par l'utilisateur = 51
-2018-12-29 12:46:42.777 [main] INFO  com.ocr.nicolas.SearchNumber - l'utilisateur a gagné contre l'ordinateur aprés 3 essais
-2018-12-29 12:46:42.777 [main] INFO  com.ocr.nicolas.Log4j - 
+2018-12-30 17:44:39.706 [main] INFO  com.ocr.nicolas.PlayGames - lecture fichier read properties 
+2018-12-30 17:44:41.516 [main] INFO  com.ocr.nicolas.Log4j - Choix du jeux (1- Recherche+/- ; 2- Mastermind; 3 -arret) -> 1
+2018-12-30 17:44:42.542 [main] INFO  com.ocr.nicolas.Log4j - Mode de jeux (1- Challenger ; 2- défenseur ; 3- Duel) -> 1
+2018-12-30 17:44:42.545 [main] INFO  com.ocr.nicolas.SearchNumberChallenger - --------> aleatoire String computeur = 14
+2018-12-30 17:44:42.545 [main] INFO  com.ocr.nicolas.SearchNumberChallenger - 
+2018-12-30 17:44:42.546 [main] INFO  com.ocr.nicolas.SearchNumberChallenger - ********************   Boucle 1    *********************
+2018-12-30 17:44:43.866 [main] INFO  com.ocr.nicolas.SearchNumberChallenger - nombre entré par l'utilisateur = 12
+2018-12-30 17:44:43.867 [main] INFO  com.ocr.nicolas.SearchNumberChallenger - 
+2018-12-30 17:44:43.867 [main] INFO  com.ocr.nicolas.SearchNumberChallenger - ********************   Boucle 2    *********************
+2018-12-30 17:44:45.379 [main] INFO  com.ocr.nicolas.SearchNumberChallenger - nombre entré par l'utilisateur = 14
+2018-12-30 17:44:45.379 [main] INFO  com.ocr.nicolas.SearchNumber - l'utilisateur a gagné contre l'ordinateur aprés 2 essais
+2018-12-30 17:44:45.379 [main] INFO  com.ocr.nicolas.Log4j - 
+2018-12-30 17:44:51.346 [main] INFO  com.ocr.nicolas.Log4j - Choix du replay-> 2 (1- Recherche+/- ; 2- choix d'un autre jeux; 3- quitter)
+2018-12-30 17:44:54.493 [main] INFO  com.ocr.nicolas.Log4j - Choix du jeux (1- Recherche+/- ; 2- Mastermind; 3 -arret) -> 2
+2018-12-30 17:44:55.965 [main] INFO  com.ocr.nicolas.Log4j - Mode de jeux (1- Challenger ; 2- défenseur ; 3- Duel) -> 1
+2018-12-30 17:44:55.967 [main] INFO  com.ocr.nicolas.Games - Ordinateur combinaison = 34
+2018-12-30 17:44:55.968 [main] INFO  com.ocr.nicolas.Games - 
+2018-12-30 17:44:55.968 [main] INFO  com.ocr.nicolas.Games - ****** boucle 0 ********
+2018-12-30 17:44:55.968 [main] INFO  com.ocr.nicolas.Games - liste chiffres ok = [0, 1, 2, 3, 4, 5]
+2018-12-30 17:44:57.073 [main] INFO  com.ocr.nicolas.Games - Entrée utilisateur = 12
+2018-12-30 17:44:57.074 [main] INFO  com.ocr.nicolas.Games - 
+2018-12-30 17:44:57.074 [main] INFO  com.ocr.nicolas.Games - ****** boucle 1 ********
+2018-12-30 17:44:57.074 [main] INFO  com.ocr.nicolas.Games - liste chiffres ok = [0, 1, 2, 3, 4, 5]
+2018-12-30 17:44:58.654 [main] INFO  com.ocr.nicolas.Games - Entrée utilisateur = 34
+2018-12-30 17:44:58.655 [main] INFO  com.ocr.nicolas.Log4j - 
