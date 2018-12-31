@@ -15,38 +15,22 @@ public class PlayGames {
     //Pour le mastermind
     private static int nbrMaxOnDigit;
 
-    public static int getNbrDigit() {
-        return nbrDigit;
-    }
-
-    public static int getNbrOfTry() {
-        return nbrOfTry;
-    }
-
-    public static String getDeveloperMode() {
-        return developerMode;
-    }
-
-    public static int getNbrMaxOnDigit() {
-        return nbrMaxOnDigit;
-    }
-
     public static void playGames() {
 
+        // Variable
         int replay = 3;
+        int gamesMenuChoice;
 
         // objets
         MenuDisplay display = new MenuDisplay();
-        SearchNumberGame searchNumber = new SearchNumber();
-        MastermindGame mastermind = new Mastermind();
-        ReadPropertiesFile read = new ReadPropertiesFile();
+        Config config = new Config();
 
         // lecture fichier readProperties
-        nbrDigit = read.getNbrDigit();
-        nbrOfTry = read.getNbrOfTry();
-        developerMode = read.getDeveloperMode();
-        nbrMaxOnDigit = read.getNbrMaxOnDigit();
-        logger.info("lecture fichier read properties ");
+        nbrDigit = config.getNbrDigit();
+        nbrOfTry = config.getNbrOfTry();
+        developerMode = config.getDeveloperMode();
+        nbrMaxOnDigit = config.getNbrMaxOnDigit();
+        logger.info("lecture fichier config properties ");
 
         // boucle si replay
         do {
@@ -54,27 +38,77 @@ public class PlayGames {
             display.displayAskGamesMenu();
 
             // Recuperation variable du choix des jeux
-            int gamesMenuChoice = display.displayGamesMenuChoice();
+            gamesMenuChoice = display.displayGamesMenuChoice();
             if (gamesMenuChoice == 3) {
                 System.exit(0);
             }
+            else { replay = playGamesMode(config, gamesMenuChoice); }
 
-            switch (gamesMenuChoice) {
+        } while (replay >= 2);
+    }
+
+    /**
+     * For playing game mode
+     *
+     * @return playing
+     */
+    public static int playGamesMode(Config config, int pGame) {
+
+        // Variable
+        int replay = 3;
+
+        // objets
+        PlayChallenger searchNumberChallenger = new SearchNumberChallenger(config);
+        PlayDefender searchNumberDefender = new SearchNumberDefender(config);
+        PlayDuel searchNumberDuel = new SearchNumberDuel(config);
+        PlayChallenger mastermindChallenger = new MastermindChallenger(config);
+        PlayDefender mastermindDefender = new MastermindDefender(config);
+        PlayDuel mastermindDuel = new MastermindDuel(config);
+
+        do {
+            // Affichage du menu du type de jeux.
+            MenuDisplay display = new MenuDisplay();
+            display.displayAskTypeOfGame();
+
+            // Recuperation variable du type de jeux
+            int gameTypeChoice = display.displayGameTypeChoice();
+
+            switch (gameTypeChoice) {
                 case 1:
-                    while (gamesMenuChoice == 1) {
-                        replay = searchNumber.playSearchNumber();
+                    while (gameTypeChoice == 1) {
+                        if (pGame == 1) {
+                            replay = searchNumberChallenger.playChallengerMode();
+                        }
+                        else if (pGame == 2) {
+                            replay = mastermindChallenger.playChallengerMode();
+                        }
                         break;
                     }
                 case 2:
-                    while (gamesMenuChoice == 2) {
-                        replay = mastermind.playMastermind();
+                    while (gameTypeChoice == 2) {
+                        if (pGame == 1) {
+                            replay = searchNumberDefender.playDefenderMode();
+                        }
+                        else if (pGame == 2) {
+                            replay = mastermindDefender.playDefenderMode();
+                        }
+                        break;
+                    }
+                case 3:
+                    while (gameTypeChoice == 3) {
+                        if (pGame == 1 ) {
+                            replay = searchNumberDuel.playDuelMode();
+                        }
+                        else if (pGame == 2 ) {
+                            replay = mastermindDuel.playDuelMode();
+                        }
                         break;
                     }
                 default:
                     break;
             }
-        } while (replay >= 2);
-
+        } while (replay == 1);
+        return replay;
     }
 
     /**

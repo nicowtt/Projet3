@@ -1,6 +1,5 @@
 package com.ocr.nicolas;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import static com.ocr.nicolas.Log4j.logger;

@@ -6,84 +6,15 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.*;
 
-public class SearchNumber extends Games implements SearchNumberGame {
-
-    @Override
-    public int playChallengerModeSearchNumber() {
-        return 0;
-    }
-
-    @Override
-    public int playDefenderModeSearchNumber() {
-        return 0;
-    }
-
-    @Override
-    public int playDuelModeSearchNumber() {
-        return 0;
-    }
+public abstract class SearchNumber extends Games {
 
     protected boolean isWin; // Grâce aux methode ci-dessous je peux voir si il y a gagnant, donc je rajoute ce parametre
 
     Scanner sc = new Scanner(System.in);
     static final Logger logger = LogManager.getLogger();
 
-    /**
-     * For playing SearchNumber game
-     *
-     * @return playing
-     */
-    public int playSearchNumber() {
-
-        int replay = 3;
-
-        // Affichage du menu du type de jeux.
-        MenuDisplay display = new MenuDisplay();
-        display.displayAskTypeOfGame();
-
-        // Recuperation variable du type de jeux
-        int gameTypeChoice = display.displayGameTypeChoice();
-
-        // objets
-        SearchNumberGame searchNumberChallenger = new SearchNumberChallenger();
-        SearchNumberGame searchNumberDefender = new SearchNumberDefender();
-        SearchNumberGame searchNumberDuel = new SearchNumberDuel();
-
-
-        do {
-            switch (gameTypeChoice) {
-                case 1:
-                    while (gameTypeChoice == 1) {
-                        replay = searchNumberChallenger.playChallengerModeSearchNumber();
-                        if (replay == 1) {
-                            display.displayAskTypeOfGame();
-                            gameTypeChoice = display.displayGameTypeChoice();
-                        }
-                        break;
-                    }
-                case 2:
-                    while (gameTypeChoice == 2) {
-                        replay = searchNumberDefender.playDefenderModeSearchNumber();
-                        if (replay == 1) {
-                            display.displayAskTypeOfGame();
-                            gameTypeChoice = display.displayGameTypeChoice();
-                        }
-                        break;
-                    }
-                case 3:
-                    while (gameTypeChoice == 3) {
-                        replay = searchNumberDuel.playDuelModeSearchNumber();
-                        if (replay == 1) {
-                            display.displayAskTypeOfGame();
-                            gameTypeChoice = display.displayGameTypeChoice();
-                        }
-                        break;
-                    }
-                default:
-                    break;
-            }
-        } while (replay == 1);
-        return replay;
+    public SearchNumber(Config config) {
+        super(config);
     }
 
     /**

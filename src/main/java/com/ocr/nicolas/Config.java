@@ -10,7 +10,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 
-public class ReadPropertiesFile {
+public class Config {
 
     private int nbrDigit;
     private String developerMode;
@@ -27,7 +27,7 @@ public class ReadPropertiesFile {
 
     static final Logger logger = LogManager.getLogger();
 
-    public ReadPropertiesFile() {
+    public Config() {
         readConfigProperties();
     }
 

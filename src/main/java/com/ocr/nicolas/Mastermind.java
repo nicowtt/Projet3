@@ -2,22 +2,7 @@ package com.ocr.nicolas;
 
 import java.util.*;
 
-public class Mastermind extends Games implements MastermindGame {
-
-    @Override
-    public int playChallengerModeMastermind() {
-        return 0;
-    }
-
-    @Override
-    public int playDefenderModeMastermind() {
-        return 0;
-    }
-
-    @Override
-    public int playDuelModeMastermind() {
-        return 0;
-    }
+public abstract class Mastermind extends Games {
 
     protected boolean iswin;
     protected List<String> listCombinationRemainingexport;
@@ -27,62 +12,9 @@ public class Mastermind extends Games implements MastermindGame {
 
     Scanner sc = new Scanner(System.in);
 
-    /**
-     * For playing Mastermind game
-     */
-    public int playMastermind() {
-
-        int replay = 3;
-
-        // Affichage du menu du type de jeux.
-        MenuDisplay display = new MenuDisplay();
-        display.displayAskTypeOfGame();
-
-        // Recuperation variable du type de jeux
-        int gameTypeChoice = display.displayGameTypeChoice();
-
-        // objets
-        MastermindGame mastermindChallenger = new MastermindChallenger();
-        MastermindGame mastermindDefender = new MastermindDefender();
-        MastermindGame mastermindDuel = new MastermindDuel();
-
-        do {
-            //do
-            switch (gameTypeChoice) {
-                case 1:
-                    while (gameTypeChoice == 1) {
-                        replay = mastermindChallenger.playChallengerModeMastermind();
-                        if (replay == 1) {
-                            display.displayAskTypeOfGame();
-                            gameTypeChoice = display.displayGameTypeChoice();
-                        }
-                        break;
-                    }
-                case 2:
-                    while (gameTypeChoice == 2) {
-                        replay = mastermindDefender.playDefenderModeMastermind();
-                        if (replay == 1) {
-                            display.displayAskTypeOfGame();
-                            gameTypeChoice = display.displayGameTypeChoice();
-                        }
-                        break;
-                    }
-                case 3:
-                    while (gameTypeChoice == 3) {
-                        replay = mastermindDuel.playDuelModeMastermind();
-                        if (replay == 1) {
-                            display.displayAskTypeOfGame();
-                            gameTypeChoice = display.displayGameTypeChoice();
-                        }
-                        break;
-                    }
-                default:
-                    break;
-            }
-        } while (replay == 1);
-        return replay;
+    public Mastermind(Config config) {
+        super(config);
     }
-
 
     /**
      * For create ArrayList with number ok in

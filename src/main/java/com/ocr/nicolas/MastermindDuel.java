@@ -1,6 +1,6 @@
 package com.ocr.nicolas;
 
-public class MastermindDuel extends Mastermind {
+public class MastermindDuel extends Mastermind implements PlayDuel {
 
     String randCompChalMast; // challenger mode computer random (String)
     String userChalMastStr; // challenger mode user combination (String)
@@ -8,8 +8,12 @@ public class MastermindDuel extends Mastermind {
     String compDefendMastKnuthStr; // defender mode computer combination (String)
     String userDefendMastStr; // defender mode user combination (String)
 
+    public MastermindDuel(Config config) {
+        super(config);
+    }
 
-    public int playDuelModeMastermind() {
+
+    public int playDuelMode() {
 
         //variables
         int loopForDuelMode = 1;

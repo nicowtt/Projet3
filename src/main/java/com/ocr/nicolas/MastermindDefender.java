@@ -1,11 +1,15 @@
 package com.ocr.nicolas;
 
-public class MastermindDefender extends Mastermind {
+public class MastermindDefender extends Mastermind implements PlayDefender {
 
     String compDefendMastKnuthStr; // computer combination (String)
     String userDefendMastStr; // user combination (String)
 
-    public int playDefenderModeMastermind() {
+    public MastermindDefender(Config config) {
+        super(config);
+    }
+
+    public int playDefenderMode() {
 
         //variable
         int nbrLoopMastDefend = 1;

@@ -3,16 +3,19 @@ package com.ocr.nicolas;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class SearchNumberChallenger extends SearchNumber implements SearchNumberGame{
+public class SearchNumberChallenger extends SearchNumber implements PlayChallenger{
 
     static final Logger logger = LogManager.getLogger();
 
+    public SearchNumberChallenger(Config config) {
+        super(config);
+    }
 
     /**
      * For play Challenger mode of Search Number
      * @return
      */
-    public int playChallengerModeSearchNumber() {
+    public int playChallengerMode() {
 
         // declaration objets
         MenuDisplay display = new MenuDisplay();
@@ -71,7 +74,7 @@ public class SearchNumberChallenger extends SearchNumber implements SearchNumber
 }
 
 
-// ( * pour info * methode "playChallengerModeSearchNumber" total = 52 - 24 lignes (espace , texte et logger) ->  28 lignes
+// ( * pour info * methode "playChallengerMode" total = 52 - 24 lignes (espace , texte et logger) ->  28 lignes
 
 
 

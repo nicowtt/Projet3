@@ -4,7 +4,7 @@ import com.ocr.nicolas.utils.Utils;
 
 import java.util.Map;
 
-public class SearchNumberDuel extends SearchNumber implements SearchNumberGame{
+public class SearchNumberDuel extends SearchNumber implements PlayDuel{
 
     // challenger
     private String randCompDuel; //String Random Computer -> challenger
@@ -16,8 +16,12 @@ public class SearchNumberDuel extends SearchNumber implements SearchNumberGame{
     private String valueUserInString = ""; //String values input (+-=+) pour le mode defender
     private String compDuelFirstString; // 1er String comp -> "5555"
 
+    public SearchNumberDuel(Config config) {
+        super(config);
+    }
 
-    public int playDuelModeSearchNumber() {
+
+    public int playDuelMode() {
 
         //objet
         MenuDisplay display = new MenuDisplay();
@@ -192,5 +196,5 @@ public class SearchNumberDuel extends SearchNumber implements SearchNumberGame{
 }
 
 
-// ( * pour info * methode "playDuelModeSearchNumber" total = 169 - 75 lignes (espace , texte et logger) ->  94 lignes
+// ( * pour info * methode "PlayDuelMode" total = 169 - 75 lignes (espace , texte et logger) ->  94 lignes
 

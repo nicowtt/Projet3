@@ -37,6 +37,8 @@ Chaque jeux pourra être joués selon 3 modes :
 
 - Mode duel où l'ordinateur et vous jouez tour à tour, le premier à trouver la combinaison secrète de l'autre a gagné
 
+-------- a faire clone et ouvre dans intellij
+
 ## Réglages
 
 Un fichier de configuration (config.properties) permet de paramétrer l'application, notamment :

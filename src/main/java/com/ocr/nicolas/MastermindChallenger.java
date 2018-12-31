@@ -1,12 +1,16 @@
 package com.ocr.nicolas;
 
-public class MastermindChallenger extends Mastermind {
+public class MastermindChallenger extends Mastermind implements PlayChallenger {
 
     String randCompChalMast; // random computer combination (String)
     String userChalMastStr; // user combination (String)
 
+    public MastermindChallenger(Config config) {
+        super(config);
+    }
 
-    public int playChallengerModeMastermind () {
+
+    public int playChallengerMode() {
 
         //variables
         int nbrLoopMastChal = 0;

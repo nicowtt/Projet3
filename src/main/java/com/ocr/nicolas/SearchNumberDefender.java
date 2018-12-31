@@ -4,7 +4,7 @@ import com.ocr.nicolas.utils.Utils;
 
 import java.util.Map;
 
-public class SearchNumberDefender extends SearchNumber implements SearchNumberGame{
+public class SearchNumberDefender extends SearchNumber implements PlayDefender{
 
     private int loopForDefenderMode = 1; //nbr of loop
     private String nbrUserDefender = ""; //String user input
@@ -12,10 +12,14 @@ public class SearchNumberDefender extends SearchNumber implements SearchNumberGa
     private String compDefenderString1 = ""; // First computeur nbr
     private String getCompDefenderString = ""; // computeur nbr (in loop)
 
+    public SearchNumberDefender(Config config) {
+        super(config);
+    }
+
     /**
      * For playing DefenderMode of SearchNumber
      */
-    public int playDefenderModeSearchNumber() {
+    public int playDefenderMode() {
 
         //objets
         MenuDisplay display = new MenuDisplay();
@@ -96,6 +100,6 @@ public class SearchNumberDefender extends SearchNumber implements SearchNumberGa
     }
 }
 
-// ( * pour info * methode "playDefenderModeSearchNumber" total = 76 - 39 ligne (espace , texte et logger) -> 37 lignes
+// ( * pour info * methode "playDefenderMode" total = 76 - 39 ligne (espace , texte et logger) -> 37 lignes
 
 
