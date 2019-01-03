@@ -1,9 +1,11 @@
-package com.ocr.nicolas;
+package com.ocr.nicolas.SearchNumber;
 
+import com.ocr.nicolas.*;
+import com.ocr.nicolas.SearchNumber.SearchNumber;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class SearchNumberChallenger extends SearchNumber implements PlayChallenger{
+public class SearchNumberChallenger extends SearchNumber implements PlayChallenger {
 
     static final Logger logger = LogManager.getLogger();
 

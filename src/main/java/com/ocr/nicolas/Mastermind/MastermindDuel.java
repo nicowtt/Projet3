@@ -1,4 +1,8 @@
-package com.ocr.nicolas;
+package com.ocr.nicolas.Mastermind;
+
+import com.ocr.nicolas.Config;
+import com.ocr.nicolas.PlayDuel;
+import com.ocr.nicolas.PlayGames;
 
 public class MastermindDuel extends Mastermind implements PlayDuel {
 

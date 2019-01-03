@@ -1,5 +1,11 @@
 package com.ocr.nicolas;
 
+import com.ocr.nicolas.Mastermind.MastermindChallenger;
+import com.ocr.nicolas.Mastermind.MastermindDefender;
+import com.ocr.nicolas.Mastermind.MastermindDuel;
+import com.ocr.nicolas.SearchNumber.SearchNumberChallenger;
+import com.ocr.nicolas.SearchNumber.SearchNumberDefender;
+import com.ocr.nicolas.SearchNumber.SearchNumberDuel;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -54,8 +60,9 @@ public class PlayGames {
      */
     public static int playGamesMode(Config config, int pGame) {
 
-        // Variable
+        // Variables
         int replay = 3;
+        int gameTypeChoice;
 
         // objets
         PlayChallenger searchNumberChallenger = new SearchNumberChallenger(config);
@@ -71,7 +78,7 @@ public class PlayGames {
             display.displayAskTypeOfGame();
 
             // Recuperation variable du type de jeux
-            int gameTypeChoice = display.displayGameTypeChoice();
+            gameTypeChoice = display.displayGameTypeChoice();
 
             switch (gameTypeChoice) {
                 case 1:
@@ -116,8 +123,9 @@ public class PlayGames {
      *
      * @return random digit number (type of character string)
      */
-    protected static String computerNbrCombination(int min, int max) {
+    public static String computerNbrCombination(int min, int max) {
 
+        // variables
         String finalRandomDigitNumberString = "";
         int counterNbrDigit = nbrDigit;
 
@@ -143,9 +151,9 @@ public class PlayGames {
      * For redirection of replay or leave
      * @return replay (1 = replay, 2 = gameschoice, 3 = leave)
      */
-    protected static int replay() {
+    public static int replay() {
 
-        //variable
+        //variables
         int replay = 3;
         Replay replayEnum;
 
@@ -166,7 +174,7 @@ public class PlayGames {
      * For redirection of replay or leave
      * @return replayEnum
      */
-    protected static Replay replayEnum() {
+    public static Replay replayEnum() {
 
         // variable
         Replay replayEnum;

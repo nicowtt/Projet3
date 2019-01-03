@@ -2,39 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f3619a66-8795-4a67-b821-372dcc0a7561" name="Default" comment="SearchNumber mode Challenger updated:&#10;- update computerNbrCombination method on SearchNumber class for error when digit number on config.properties change.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/PlayChallenger.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/PlayDefender.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/PlayDuel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/all.log" beforeDir="false" afterPath="$PROJECT_DIR$/all.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/main/com/ocr/nicolas/Config.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/main/com/ocr/nicolas/Config.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/main/com/ocr/nicolas/Games.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/main/com/ocr/nicolas/Games.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/com/ocr/nicolas/Mastermind.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/main/com/ocr/nicolas/Mastermind.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/com/ocr/nicolas/MastermindChallenger.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/main/com/ocr/nicolas/MastermindChallenger.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/com/ocr/nicolas/MastermindDefender.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/main/com/ocr/nicolas/MastermindDefender.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/com/ocr/nicolas/MastermindDuel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/main/com/ocr/nicolas/MastermindDuel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/com/ocr/nicolas/MastermindGame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/main/com/ocr/nicolas/Mastermind.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/main/com/ocr/nicolas/MastermindChallenger.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/main/com/ocr/nicolas/MastermindDefender.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/main/com/ocr/nicolas/MastermindDuel.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/main/com/ocr/nicolas/PlayGames.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/main/com/ocr/nicolas/PlayGames.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/com/ocr/nicolas/ReadPropertiesFile.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/com/ocr/nicolas/SearchNumber.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/main/com/ocr/nicolas/SearchNumber.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/com/ocr/nicolas/SearchNumberChallenger.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/main/com/ocr/nicolas/SearchNumberChallenger.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/com/ocr/nicolas/SearchNumberDefender.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/main/com/ocr/nicolas/SearchNumberDefender.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/com/ocr/nicolas/SearchNumberDuel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/main/com/ocr/nicolas/SearchNumberDuel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/com/ocr/nicolas/SearchNumberGame.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Games.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Games.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Mastermind.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Mastermind.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/MastermindChallenger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/MastermindChallenger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/MastermindDefender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/MastermindDefender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/MastermindDuel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/MastermindDuel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/MastermindGame.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/MenuDisplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/MenuDisplay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/main/com/ocr/nicolas/SearchNumber.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/main/com/ocr/nicolas/SearchNumberChallenger.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/main/com/ocr/nicolas/SearchNumberDefender.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/main/com/ocr/nicolas/SearchNumberDuel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/main/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/main/config.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Mastermind.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Mastermind/Mastermind.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/MastermindChallenger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Mastermind/MastermindChallenger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/MastermindDefender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Mastermind/MastermindDefender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/MastermindDuel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Mastermind/MastermindDuel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/PlayGames.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/PlayGames.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/ReadPropertiesFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/SearchNumber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/SearchNumber.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/SearchNumberChallenger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/SearchNumberChallenger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/SearchNumberDefender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/SearchNumberDefender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/SearchNumberDuel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/SearchNumberDuel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/SearchNumberGame.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/SearchNumber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/SearchNumber/SearchNumber.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/SearchNumberChallenger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/SearchNumber/SearchNumberChallenger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/SearchNumberDefender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/SearchNumber/SearchNumberDefender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/SearchNumberDuel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/SearchNumber/SearchNumberDuel.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -52,60 +44,92 @@
       <file leaf-file-name="PlayGames.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/PlayGames.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="393">
-              <caret line="68" column="49" lean-forward="true" selection-start-line="68" selection-start-column="49" selection-end-line="68" selection-end-column="49" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="-930">
+              <caret line="20" column="24" lean-forward="true" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="MastermindChallenger.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/MastermindChallenger.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Mastermind/MastermindChallenger.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="12" column="11" lean-forward="true" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
+            <state relative-caret-position="322">
+              <caret line="60" column="1" lean-forward="true" selection-start-line="60" selection-start-column="1" selection-end-line="60" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SearchNumberDuel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/SearchNumber/SearchNumberDuel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="327">
+              <caret line="202" column="5" lean-forward="true" selection-start-line="202" selection-start-column="5" selection-end-line="202" selection-end-column="5" />
               <folding>
-                <element signature="e#281#282#0" expanded="true" />
-                <element signature="e#310#311#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SearchNumberDefender.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/SearchNumberDefender.java">
+      <file leaf-file-name="MastermindDuel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Mastermind/MastermindDuel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="183">
-              <caret line="98" selection-start-line="98" selection-end-line="98" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#545#546#0" expanded="true" />
-                <element signature="e#574#575#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-1442">
+              <caret line="9" selection-start-line="9" selection-end-line="9" />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="Mastermind.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Mastermind.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Mastermind/Mastermind.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
+            <state relative-caret-position="-1501">
+              <caret line="667" column="26" lean-forward="true" selection-start-line="667" selection-start-column="26" selection-end-line="667" selection-end-column="26" />
               <folding>
-                <element signature="e#366#367#0" expanded="true" />
-                <element signature="e#395#396#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Config.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Config.java">
+      <file leaf-file-name="config.properties" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/config.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="39" column="41" lean-forward="true" selection-start-line="39" selection-start-column="41" selection-end-line="39" selection-end-column="41" />
+            <state relative-caret-position="90">
+              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="all.log" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/all.log">
+          <provider selected="true" editor-type-id="LogFileEditorProvider">
+            <state relative-caret-position="-10">
+              <caret line="11" column="54" lean-forward="true" selection-start-line="11" selection-start-column="54" selection-end-line="11" selection-end-column="54" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SearchNumber.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/SearchNumber/SearchNumber.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-5731">
+              <caret line="15" selection-start-line="15" selection-end-line="15" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SearchNumberChallenger.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/SearchNumber/SearchNumberChallenger.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="66" column="35" lean-forward="true" selection-start-line="65" selection-start-column="12" selection-end-line="66" selection-end-column="35" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -113,57 +137,11 @@
       <file leaf-file-name="Games.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Games.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+            <state relative-caret-position="91">
+              <caret line="11" column="27" lean-forward="true" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SearchNumberChallenger.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/SearchNumberChallenger.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#303#304#0" expanded="true" />
-                <element signature="e#332#333#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PlayDefender.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/PlayDefender.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="16" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MenuDisplay.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/MenuDisplay.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="393">
-              <caret line="217" column="26" lean-forward="true" selection-start-line="217" selection-start-column="26" selection-end-line="217" selection-end-column="26" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#299#300#0" expanded="true" />
-                <element signature="e#344#345#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PlayDuel.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/PlayDuel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="16" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -242,11 +220,9 @@
         <option value="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/GamesCommonUse.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/CommonUseToGames.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Main.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/config.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/MastermindGame.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/SearchNumberGame.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/PlayChallenger.java" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/SearchNumberDefender.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/PlayDefender.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/PlayDuel.java" />
@@ -257,9 +233,17 @@
         <option value="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/SearchNumber.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Mastermind.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/MenuDisplay.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/PlayGames.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Games.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/SearchNumberChallenger.java" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/SearchNumber/SearchNumberChallenger.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/SearchNumber/SearchNumber.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/SearchNumber/SearchNumberDuel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Config.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/PlayGames.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Mastermind/MastermindChallenger.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Mastermind/Mastermind.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/config.properties" />
       </list>
     </option>
   </component>
@@ -286,7 +270,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -326,6 +311,24 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="nicolas" type="462c0819:PsiDirectoryNode" />
+              <item name="Mastermind" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Projet3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projet3" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="nicolas" type="462c0819:PsiDirectoryNode" />
+              <item name="SearchNumber" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Projet3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projet3" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="META-INF" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -339,8 +342,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -360,8 +362,9 @@
       <recent name="com.ocr.nicolas.utils.Utils" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="com.ocr.nicolas" />
       <recent name="com.ocr.nicolas.Mastermind" />
+      <recent name="com.ocr.nicolas.SearchNumber" />
+      <recent name="com.ocr.nicolas" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -383,7 +386,7 @@
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.ocr.nicolas.*" />
+          <option name="PATTERN" value="com.ocr.nicolas.SearchNumber.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -394,7 +397,7 @@
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.ocr.nicolas.*" />
+          <option name="PATTERN" value="com.ocr.nicolas.SearchNumber.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -405,7 +408,7 @@
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.ocr.nicolas.*" />
+          <option name="PATTERN" value="com.ocr.nicolas.SearchNumber.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -532,7 +535,8 @@
       <workItem from="1546076675603" duration="4950000" />
       <workItem from="1546163042282" duration="3505000" />
       <workItem from="1546183146556" duration="5859000" />
-      <workItem from="1546246033904" duration="12264000" />
+      <workItem from="1546246033904" duration="12536000" />
+      <workItem from="1546505532782" duration="9721000" />
     </task>
     <task id="LOCAL-00001" summary="Search Number Mode challenger updated:&#10;ask user number added">
       <created>1542130169534</created>
@@ -559,7 +563,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="770929000" />
+    <option name="totallyTimeSpent" value="780922000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -572,7 +576,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="735" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="10" weight="0.25931677" />
@@ -584,11 +587,11 @@
       <window_info anchor="right" id="Maven Projects" order="7" />
       <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="4" weight="0.4883721" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49918962" weight="0.2921536" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49918962" visible="true" weight="0.4524207" />
       <window_info anchor="bottom" id="Terminal" order="5" weight="0.32763976" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="3" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49689442" visible="true" weight="0.2388664" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49689442" visible="true" weight="0.24291497" />
       <window_info anchor="right" id="Database" order="6" />
       <window_info anchor="bottom" id="Find" order="7" weight="0.32554257" />
       <window_info id="Structure" order="1" sideWeight="0.5031056" side_tool="true" weight="0.21474878" />
@@ -605,22 +608,22 @@
     </layout>
     <layout-to-restore>
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="Version Control" order="4" weight="0.4883721" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24939272" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49918962" visible="true" weight="0.2921536" />
+      <window_info anchor="right" id="Database" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="4" weight="0.4883721" />
       <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.44407347" />
+      <window_info anchor="bottom" id="Message" order="6" />
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49689442" weight="0.23481782" />
       <window_info id="Structure" order="1" sideWeight="0.5031056" side_tool="true" weight="0.21474878" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.24959481" />
-      <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
       <window_info anchor="bottom" id="TODO" order="10" weight="0.25931677" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49918962" visible="true" weight="0.2921536" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
-      <window_info anchor="bottom" id="Find" order="7" weight="0.32666665" />
+      <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49837926" weight="0.37896493" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info anchor="bottom" id="Terminal" order="5" weight="0.32763976" />
@@ -628,8 +631,8 @@
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info id="Capture Tool" order="6" />
-      <window_info anchor="bottom" id="Message" order="6" />
-      <window_info anchor="right" id="Database" order="6" />
+      <window_info anchor="bottom" id="Find" order="7" weight="0.32666665" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.44407347" />
       <window_info anchor="right" id="Maven Projects" order="7" />
       <window_info id="Favorites" order="5" sideWeight="0.5008944" side_tool="true" weight="0.12307692" />
     </layout-to-restore>
@@ -687,15 +690,15 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/SearchNumberDefender.java</url>
-          <line>21</line>
+          <url>file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/SearchNumber/SearchNumberDefender.java</url>
+          <line>22</line>
           <properties class="com.ocr.nicolas.SearchNumberDefender" method="playDefenderMode">
             <option name="EMULATED" value="true" />
           </properties>
           <option name="timeStamp" value="291" />
         </line-breakpoint>
         <line-breakpoint type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/MastermindDuel.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Mastermind/MastermindDuel.java</url>
           <line>11</line>
           <properties class="com.ocr.nicolas.MastermindDuel">
             <option name="EMULATED" value="true" />
@@ -703,16 +706,16 @@
           <option name="timeStamp" value="323" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/SearchNumberChallenger.java</url>
-          <line>17</line>
+          <url>file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/SearchNumber/SearchNumberChallenger.java</url>
+          <line>18</line>
           <properties class="com.ocr.nicolas.SearchNumberChallenger" method="playChallengerMode">
             <option name="EMULATED" value="true" />
           </properties>
           <option name="timeStamp" value="356" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/SearchNumberDuel.java</url>
-          <line>23</line>
+          <url>file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/SearchNumber/SearchNumberDuel.java</url>
+          <line>24</line>
           <properties class="com.ocr.nicolas.SearchNumberDuel" method="playDuelMode">
             <option name="EMULATED" value="true" />
           </properties>
@@ -728,23 +731,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/PlayGames.java</url>
-          <line>168</line>
-          <properties class="com.ocr.nicolas.PlayGames" method="replayEnum">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="359" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/PlayGames.java</url>
-          <line>145</line>
-          <properties class="com.ocr.nicolas.PlayGames" method="replay">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="361" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/PlayGames.java</url>
-          <line>17</line>
+          <line>23</line>
           <properties class="com.ocr.nicolas.PlayGames" method="playGames">
             <option name="EMULATED" value="true" />
           </properties>
@@ -752,15 +739,15 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/PlayGames.java</url>
-          <line>54</line>
+          <line>60</line>
           <properties class="com.ocr.nicolas.PlayGames" method="playGamesMode">
             <option name="EMULATED" value="true" />
           </properties>
           <option name="timeStamp" value="366" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/SearchNumberDefender.java</url>
-          <line>78</line>
+          <url>file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/SearchNumber/SearchNumberDefender.java</url>
+          <line>79</line>
           <properties />
           <option name="timeStamp" value="293" />
         </line-breakpoint>
@@ -776,7 +763,7 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/SearchNumber.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/SearchNumber/SearchNumber.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1050">
@@ -801,7 +788,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/SearchNumber.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/SearchNumber/SearchNumber.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1035">
@@ -819,7 +806,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/resources/config.properties">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/SearchNumber.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/SearchNumber/SearchNumber.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1035">
@@ -847,7 +834,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/main.iml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/SearchNumber.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/SearchNumber/SearchNumber.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/src.zip!/java/lang/String.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="104">
@@ -862,7 +849,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/SearchNumberChallenger.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/SearchNumber/SearchNumberChallenger.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="36" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
@@ -895,13 +882,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/ForPlaying.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/MastermindGame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/MastermindGame.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/utils/CreateMastermindGame.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/utils/Utils.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -912,20 +893,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/WritePropertiesFile.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/CommonUseToGames.java" />
-    <entry file="file://$PROJECT_DIR$/all.log">
-      <provider selected="true" editor-type-id="LogFileEditorProvider" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Replay.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/config.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
         </state>
       </provider>
     </entry>
@@ -940,65 +911,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="353">
-            <caret line="39" column="17" selection-start-line="39" selection-start-column="17" selection-end-line="39" selection-end-column="17" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/SearchNumberDuel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="16" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#714#715#0" expanded="true" />
-            <element signature="e#743#744#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/SearchNumberGame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/MastermindDefender.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/SearchNumberGame.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Mastermind/MastermindDefender.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" selection-start-line="6" selection-end-line="6" />
           <folding>
             <element signature="e#276#277#0" expanded="true" />
             <element signature="e#305#306#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/MastermindDuel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-          <folding>
-            <element signature="e#439#440#0" expanded="true" />
-            <element signature="e#468#469#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/SearchNumber.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#796#797#0" expanded="true" />
-            <element signature="e#816#817#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1017,13 +937,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/MastermindGame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="33" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/MastermindGame.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/PlayDuel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -1031,28 +945,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/MastermindChallenger.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/SearchNumber/SearchNumberDefender.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="12" column="11" lean-forward="true" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
-          <folding>
-            <element signature="e#281#282#0" expanded="true" />
-            <element signature="e#310#311#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Config.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="39" column="41" lean-forward="true" selection-start-line="39" selection-start-column="41" selection-end-line="39" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/SearchNumberDefender.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="98" selection-start-line="98" selection-end-line="98" />
+        <state relative-caret-position="1410">
+          <caret line="103" selection-start-line="103" selection-end-line="103" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#545#546#0" expanded="true" />
@@ -1061,33 +957,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="188">
+            <caret line="58" column="21" lean-forward="true" selection-start-line="58" selection-start-column="21" selection-end-line="58" selection-end-column="21" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/MenuDisplay.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="217" column="26" lean-forward="true" selection-start-line="217" selection-start-column="26" selection-end-line="217" selection-end-column="26" />
+        <state relative-caret-position="226">
+          <caret line="284" lean-forward="true" selection-start-line="284" selection-end-line="284" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#299#300#0" expanded="true" />
-            <element signature="e#344#345#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Mastermind.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Config.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
+        <state>
+          <caret line="35" column="41" selection-start-line="35" selection-start-column="41" selection-end-line="35" selection-end-column="41" />
           <folding>
-            <element signature="e#366#367#0" expanded="true" />
-            <element signature="e#395#396#0" expanded="true" />
+            <element signature="e#685#686#0" expanded="true" />
+            <element signature="e#723#724#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Games.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+        <state relative-caret-position="91">
+          <caret line="11" column="27" lean-forward="true" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1096,23 +1000,76 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/PlayGames.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="68" column="49" lean-forward="true" selection-start-line="68" selection-start-column="49" selection-end-line="68" selection-end-column="49" />
+        <state relative-caret-position="-930">
+          <caret line="20" column="24" lean-forward="true" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Mastermind/MastermindChallenger.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="60" column="1" lean-forward="true" selection-start-line="60" selection-start-column="1" selection-end-line="60" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/SearchNumber/SearchNumberDuel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="327">
+          <caret line="202" column="5" lean-forward="true" selection-start-line="202" selection-start-column="5" selection-end-line="202" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/SearchNumberChallenger.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/SearchNumber/SearchNumber.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+        <state relative-caret-position="-5731">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#303#304#0" expanded="true" />
-            <element signature="e#332#333#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/SearchNumber/SearchNumberChallenger.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="66" column="35" lean-forward="true" selection-start-line="65" selection-start-column="12" selection-end-line="66" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Mastermind/MastermindDuel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1442">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/nicolas/Mastermind/Mastermind.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1501">
+          <caret line="667" column="26" lean-forward="true" selection-start-line="667" selection-start-column="26" selection-end-line="667" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/all.log">
+      <provider selected="true" editor-type-id="LogFileEditorProvider">
+        <state relative-caret-position="-10">
+          <caret line="11" column="54" lean-forward="true" selection-start-line="11" selection-start-column="54" selection-end-line="11" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/config.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
     </entry>

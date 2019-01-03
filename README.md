@@ -37,8 +37,6 @@ Chaque jeux pourra être joués selon 3 modes :
 
 - Mode duel où l'ordinateur et vous jouez tour à tour, le premier à trouver la combinaison secrète de l'autre a gagné
 
--------- a faire clone et ouvre dans intellij
-
 ## Réglages
 
 Un fichier de configuration (config.properties) permet de paramétrer l'application, notamment :
@@ -50,7 +48,11 @@ Pour chaque jeu :
  
 Pour le Mastermind :
 
-- le nombre couleur(chiffre) utilisables (de 4 à 10)
+- le nombre de chiffres(couleurs) utilisables (de 4 à 10)
+
+## Pour jouer
+
+Veuillez faire un clone en local de mon projet 3 [ici](https://github.com/nicowtt/Projet3), et le lancer grâce à Intellij.
 
 ## Contribution
 

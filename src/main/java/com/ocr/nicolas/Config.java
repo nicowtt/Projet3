@@ -24,7 +24,6 @@ public class Config {
     }
     public int getNbrMaxOnDigit() {return nbrMaxOnDigit;}
 
-
     static final Logger logger = LogManager.getLogger();
 
     public Config() {
@@ -33,12 +32,8 @@ public class Config {
 
     /**
      * reading config.properties for developer mode
-     *
-     * @nbrCombinationSearchNumber: number of combination (integer in config.properties)
      */
-
     private void readConfigProperties() {
-
 
         final Properties prop = new Properties();
         InputStream input = null;
@@ -63,7 +58,6 @@ public class Config {
 
             nbrMaxOnDigit = Integer.parseInt(prop.getProperty("NbrMaxOnDigit"));
             //logger.info("variable nbrMaxOnDigit = "+ nbrMaxOnDigit);
-
 
 
         } catch (final IOException ex) {

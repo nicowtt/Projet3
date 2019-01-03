@@ -1,10 +1,14 @@
-package com.ocr.nicolas;
+package com.ocr.nicolas.SearchNumber;
 
+import com.ocr.nicolas.Config;
+import com.ocr.nicolas.MenuDisplay;
+import com.ocr.nicolas.PlayDuel;
+import com.ocr.nicolas.PlayGames;
 import com.ocr.nicolas.utils.Utils;
 
 import java.util.Map;
 
-public class SearchNumberDuel extends SearchNumber implements PlayDuel{
+public class SearchNumberDuel extends SearchNumber implements PlayDuel {
 
     // challenger
     private String randCompDuel; //String Random Computer -> challenger
@@ -190,6 +194,10 @@ public class SearchNumberDuel extends SearchNumber implements PlayDuel{
             }
         }
         //replay
+        if (isWin) {
+            System.out.println("La combinaison de l'ordinateur était : " + randCompDuel);
+            System.out.println("");
+        }
         replay = PlayGames.replay();
         return replay;
     }

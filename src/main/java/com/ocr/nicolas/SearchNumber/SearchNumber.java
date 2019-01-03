@@ -1,5 +1,7 @@
-package com.ocr.nicolas;
+package com.ocr.nicolas.SearchNumber;
 
+import com.ocr.nicolas.Config;
+import com.ocr.nicolas.Games;
 import com.ocr.nicolas.utils.Utils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -11,6 +13,7 @@ public abstract class SearchNumber extends Games {
     protected boolean isWin; // Grâce aux methode ci-dessous je peux voir si il y a gagnant, donc je rajoute ce parametre
 
     Scanner sc = new Scanner(System.in);
+
     static final Logger logger = LogManager.getLogger();
 
     public SearchNumber(Config config) {

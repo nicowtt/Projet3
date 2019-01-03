@@ -1,10 +1,15 @@
-package com.ocr.nicolas;
+package com.ocr.nicolas.SearchNumber;
 
+import com.ocr.nicolas.Config;
+import com.ocr.nicolas.MenuDisplay;
+import com.ocr.nicolas.PlayDefender;
+import com.ocr.nicolas.PlayGames;
+import com.ocr.nicolas.SearchNumber.SearchNumber;
 import com.ocr.nicolas.utils.Utils;
 
 import java.util.Map;
 
-public class SearchNumberDefender extends SearchNumber implements PlayDefender{
+public class SearchNumberDefender extends SearchNumber implements PlayDefender {
 
     private int loopForDefenderMode = 1; //nbr of loop
     private String nbrUserDefender = ""; //String user input

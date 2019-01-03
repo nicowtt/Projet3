@@ -1,4 +1,9 @@
-package com.ocr.nicolas;
+package com.ocr.nicolas.Mastermind;
+
+import com.ocr.nicolas.Config;
+import com.ocr.nicolas.Games;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.*;
 
@@ -11,6 +16,8 @@ public abstract class Mastermind extends Games {
     protected boolean noMoreTry;
 
     Scanner sc = new Scanner(System.in);
+
+    static final Logger logger = LogManager.getLogger();
 
     public Mastermind(Config config) {
         super(config);
@@ -650,8 +657,8 @@ public abstract class Mastermind extends Games {
     /**
      * For check is computer win and stop if computer doesn't have enough try.
      *
-     * @param pUser
-     * @param pComp
+     * @param pUser user combination
+     * @param pComp computeur combination
      * @param pLoop
      * @return
      */
