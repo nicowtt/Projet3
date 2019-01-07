@@ -30,23 +30,26 @@ public class MenuDisplay {
     /**
      * Display and confirmation of games choice.
      */
-    public int displayGamesMenuChoice() {
+    public WhatGames displayGamesMenuChoice() {
 
         boolean responseIsGood;
         //Combien de choix maximum pour limité l'entree utilisateur
         int nbrChoiceMax = 3;
         int gameChoice = forceProposedChoice(nbrChoiceMax);
+        WhatGames whatGameEnum = WhatGames.EXIT;
 
         do {
             switch (gameChoice) {
                 case 1:
                     System.out.println("Tu as choisi le jeux Recherche +/- ");
                     System.out.println("");
+                    whatGameEnum = WhatGames.SEARCHNUMBER;
                     responseIsGood = true;
                     break;
                 case 2:
                     System.out.println("Tu as choisi le Mastermind");
                     System.out.println("");
+                    whatGameEnum = WhatGames.MASTERMIND;
                     responseIsGood = true;
                     break;
                 case 3:
@@ -61,7 +64,7 @@ public class MenuDisplay {
         } while (!responseIsGood);
 
         logger.info("Choix du jeux (1- Recherche+/- ; 2- Mastermind; 3 -arret) -> " + gameChoice);
-        return gameChoice;
+        return whatGameEnum;
     }
 
     /**
@@ -242,7 +245,6 @@ public class MenuDisplay {
         String forcedChoiceStr = "";
         int count = 0;
 
-
         do {
             count = 0;
             try {
@@ -281,8 +283,6 @@ public class MenuDisplay {
     public void displayForValueToUser() {
 
         System.out.println("peux-tu donner les valeurs (+,- ou =) pour chaque chiffre par rapport au tien:");
-
-
     }
 }
 

@@ -1,9 +1,6 @@
 package com.ocr.nicolas.SearchNumber;
 
-import com.ocr.nicolas.Config;
-import com.ocr.nicolas.MenuDisplay;
-import com.ocr.nicolas.PlayDefender;
-import com.ocr.nicolas.PlayGames;
+import com.ocr.nicolas.*;
 import com.ocr.nicolas.utils.Utils;
 
 import java.util.Map;
@@ -23,15 +20,15 @@ public class SearchNumberDefender extends SearchNumber implements PlayDefender {
     /**
      * For playing DefenderMode of SearchNumber
      */
-    public int playDefenderMode() {
+    public Replay playDefenderMode() {
 
         //objets
         MenuDisplay display = new MenuDisplay();
 
         //variable
+        Replay replayEnum;
         int inverseLoop = nbrOfTry;
         loopForDefenderMode = 1;
-        int replay = 3;
         isWin = false;
         int nbrOneTry = 2;
 
@@ -99,11 +96,11 @@ public class SearchNumberDefender extends SearchNumber implements PlayDefender {
             }
         }
         //lancement du menu pour replay
-        replay = PlayGames.replay();
-        return replay;
+        replayEnum = PlayGames.replayEnum();
+        return replayEnum;
     }
 }
 
-// ( * pour info * methode "playDefenderMode" total = 76 - 39 ligne (espace , texte et logger) -> 37 lignes
+// ( * pour info * methode "playDefenderMode" total = 77 - 38 ligne (espace , texte et logger) -> 39 lignes
 
 

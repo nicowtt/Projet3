@@ -12,7 +12,7 @@ public class SearchNumberChallenger extends SearchNumber implements PlayChalleng
      * For play Challenger mode of Search Number
      * @return
      */
-    public int playChallengerMode() {
+    public Replay playChallengerMode() {
 
         // declaration objets
         MenuDisplay display = new MenuDisplay();
@@ -20,12 +20,11 @@ public class SearchNumberChallenger extends SearchNumber implements PlayChalleng
         //variables
         Replay replayEnum;
         isWin = false;
-        int replay = 3;
         int loopForChallengerMode = 0;
         int inverseLoop = nbrOfTry;
 
         // Recuperation variable random ordinateur  -> randCompChallenger
-        String randCompChallenger = PlayGames.computerNbrCombination(0, 9);
+        String randCompChallenger = this.computerNbrCombination(0, 9);
         logger.info("--------> aleatoire String computeur = " + randCompChallenger);
 
         // Je donne le nombre d'essais possible
@@ -64,14 +63,12 @@ public class SearchNumberChallenger extends SearchNumber implements PlayChalleng
 
         //lancement du menu pour replay
         replayEnum = PlayGames.replayEnum();
-        if (replayEnum == Replay.REPLAY) { replay = 1;}
-        if (replayEnum == Replay.GAMESCHOICE) { replay = 2;}
-        return replay;
+        return replayEnum;
     }
 }
 
 
-// ( * pour info * methode "playChallengerMode" total = 52 - 24 lignes (espace , texte et logger) ->  28 lignes
+// ( * pour info * methode "playChallengerMode" total = 51 - 23 lignes (espace , texte et logger) ->  28 lignes
 
 
 

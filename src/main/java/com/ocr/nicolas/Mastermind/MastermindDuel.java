@@ -3,6 +3,7 @@ package com.ocr.nicolas.Mastermind;
 import com.ocr.nicolas.Config;
 import com.ocr.nicolas.PlayDuel;
 import com.ocr.nicolas.PlayGames;
+import com.ocr.nicolas.Replay;
 
 public class MastermindDuel extends Mastermind implements PlayDuel {
 
@@ -16,11 +17,11 @@ public class MastermindDuel extends Mastermind implements PlayDuel {
         super(config);
     }
 
-    public int playDuelMode() {
+    public Replay playDuelMode() {
 
         //variables
+        Replay replayEnum;
         int loopForDuelMode = 1;
-        int replay = 3;
         iswin = false;
         noMoreTry = false;
 
@@ -29,7 +30,7 @@ public class MastermindDuel extends Mastermind implements PlayDuel {
         System.out.println("");
 
         //creation combinaison ordinateur
-        randCompChalMast = PlayGames.computerNbrCombination(0, nbrMaxOnDigit); // (challenger)
+        randCompChalMast = this.computerNbrCombination(0, nbrMaxOnDigit); // (challenger)
         compDefendMastKnuthStr = randCompChalMast; // (defender)
         logger.info("Ordinateur combinaison = " + randCompChalMast);
 
@@ -127,9 +128,9 @@ public class MastermindDuel extends Mastermind implements PlayDuel {
             System.out.println("La combinaison mystère de l'ordinateur était : " + randCompChalMast);
         }
         System.out.println("");
-        replay = PlayGames.replay();
-        return replay;
+        replayEnum = PlayGames.replayEnum();
+        return replayEnum;
     }
 }
 
-// ( * pour info * methode "playDuelModeMastermind" total = 112 - 56 lignes (espace , texte et logger) ->  56 lignes
+// ( * pour info * methode "PlayDuelMode" total = 112 - 55 lignes (espace , texte et logger) ->  57 lignes

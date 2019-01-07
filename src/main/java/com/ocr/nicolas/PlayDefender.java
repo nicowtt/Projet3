@@ -1,5 +1,5 @@
 package com.ocr.nicolas;
 
 public interface PlayDefender {
-    public int playDefenderMode();
+    public Replay playDefenderMode();
 }

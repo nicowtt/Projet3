@@ -1,9 +1,6 @@
 package com.ocr.nicolas.SearchNumber;
 
-import com.ocr.nicolas.Config;
-import com.ocr.nicolas.MenuDisplay;
-import com.ocr.nicolas.PlayDuel;
-import com.ocr.nicolas.PlayGames;
+import com.ocr.nicolas.*;
 import com.ocr.nicolas.utils.Utils;
 
 import java.util.Map;
@@ -24,16 +21,16 @@ public class SearchNumberDuel extends SearchNumber implements PlayDuel {
         super(config);
     }
 
-    public int playDuelMode() {
+    public Replay playDuelMode() {
 
         //objet
         MenuDisplay display = new MenuDisplay();
 
         //variable
+        Replay replayEnum;
         int inverseLoop = nbrOfTry;
         int inverseLoopDefender = nbrOfTry;
         int loopForDuelMode = 1;
-        int replay = 3;
         isWin = false;
 
         //annonce du nombre global d'essai possible
@@ -41,7 +38,7 @@ public class SearchNumberDuel extends SearchNumber implements PlayDuel {
         System.out.println("");
 
         // random computeur
-        randCompDuel = PlayGames.computerNbrCombination(0, 9);
+        randCompDuel = this.computerNbrCombination(0, 9);
         logger.info("--------> aleatoire String computeur = " + randCompDuel);
 
         //************** Defender1************************
@@ -197,11 +194,11 @@ public class SearchNumberDuel extends SearchNumber implements PlayDuel {
             System.out.println("La combinaison de l'ordinateur était : " + randCompDuel);
             System.out.println("");
         }
-        replay = PlayGames.replay();
-        return replay;
+        replayEnum = PlayGames.replayEnum();
+        return replayEnum;
     }
 }
 
 
-// ( * pour info * methode "PlayDuelMode" total = 169 - 75 lignes (espace , texte et logger) ->  94 lignes
+// ( * pour info * methode "PlayDuelMode" total = 174 - 76 lignes (espace , texte et logger) ->  98 lignes
 

@@ -3,6 +3,7 @@ package com.ocr.nicolas.Mastermind;
 import com.ocr.nicolas.Config;
 import com.ocr.nicolas.PlayChallenger;
 import com.ocr.nicolas.PlayGames;
+import com.ocr.nicolas.Replay;
 
 public class MastermindChallenger extends Mastermind implements PlayChallenger {
 
@@ -13,15 +14,15 @@ public class MastermindChallenger extends Mastermind implements PlayChallenger {
         super(config);
     }
 
-    public int playChallengerMode() {
+    public Replay playChallengerMode() {
 
         //variables
+        Replay replayEnum;
         int nbrLoopMastChal = 0;
-        int replay = 3;
         iswin = false;
 
         //creation combinaison ordinateur
-        randCompChalMast = PlayGames.computerNbrCombination(0, nbrMaxOnDigit);
+        randCompChalMast = this.computerNbrCombination(0, nbrMaxOnDigit);
         logger.info("Ordinateur combinaison = " + randCompChalMast);
 
         // affichage de la demande
@@ -54,7 +55,9 @@ public class MastermindChallenger extends Mastermind implements PlayChallenger {
             System.out.println("-----> la combinaison de l'ordinateur était: " + randCompChalMast);
             System.out.println("");
         }
-        replay = PlayGames.replay();
-        return replay;
+        replayEnum = PlayGames.replayEnum();
+        return replayEnum;
     }
 }
+
+// ( * pour info * methode "playChallengerMode" total = 42 - 16 lignes (espace , texte et logger) ->  26 lignes

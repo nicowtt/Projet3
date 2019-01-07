@@ -3,6 +3,7 @@ package com.ocr.nicolas.Mastermind;
 import com.ocr.nicolas.Config;
 import com.ocr.nicolas.PlayDefender;
 import com.ocr.nicolas.PlayGames;
+import com.ocr.nicolas.Replay;
 
 public class MastermindDefender extends Mastermind implements PlayDefender {
 
@@ -13,11 +14,11 @@ public class MastermindDefender extends Mastermind implements PlayDefender {
         super(config);
     }
 
-    public int playDefenderMode() {
+    public Replay playDefenderMode() {
 
         //variable
+        Replay replayEnum;
         int nbrLoopMastDefend = 1;
-        int replay = 3;
         iswin = false;
         noMoreTry = false;
 
@@ -28,7 +29,7 @@ public class MastermindDefender extends Mastermind implements PlayDefender {
         userDefendMastStr = this.inputUserStringMast();
 
         // je fais un nombre aléatoire ordinateur et je l'affiche
-        compDefendMastKnuthStr = PlayGames.computerNbrCombination(0, nbrMaxOnDigit);
+        compDefendMastKnuthStr = this.computerNbrCombination(0, nbrMaxOnDigit);
         System.out.println(compDefendMastKnuthStr);
         logger.info("combinaison aléatoire ordinateur = " + compDefendMastKnuthStr);
 
@@ -76,11 +77,11 @@ public class MastermindDefender extends Mastermind implements PlayDefender {
         }
         if (noMoreTry) {System.out.println("l'ordinateur n'a plus d'essai possible, tu gagne !!");}
         System.out.println("");
-        replay = PlayGames.replay();
-        return replay;
+        replayEnum = PlayGames.replayEnum();
+        return replayEnum;
     }
 }
 
-// ( * pour info * methode "playDefenderModeMastermind" total = 64 - 30 lignes (espace , texte et logger) ->  34 lignes
+// ( * pour info * methode "playDefenderMode" total = 65 - 31 ligne (espace , texte et logger) -> 34 lignes
 
 
