@@ -10,11 +10,11 @@ import java.util.*;
 
 public abstract class SearchNumber extends Games {
 
-    protected boolean isWin; // Grâce aux methode ci-dessous je peux voir si il y a gagnant, donc je rajoute ce parametre
+    static final Logger logger = LogManager.getLogger(SearchNumber.class);
 
     Scanner sc = new Scanner(System.in);
 
-    static final Logger logger = LogManager.getLogger();
+    protected boolean isWin; // Grâce aux methode ci-dessous je peux voir si il y a gagnant, donc je rajoute ce parametre
 
     public SearchNumber(Config config) {
         super(config);

@@ -13,7 +13,6 @@ public class MastermindChallenger extends Mastermind implements PlayChallenger {
         super(config);
     }
 
-
     public int playChallengerMode() {
 
         //variables

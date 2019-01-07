@@ -24,7 +24,6 @@ public class SearchNumberDuel extends SearchNumber implements PlayDuel {
         super(config);
     }
 
-
     public int playDuelMode() {
 
         //objet

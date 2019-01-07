@@ -16,7 +16,6 @@ public class MastermindDuel extends Mastermind implements PlayDuel {
         super(config);
     }
 
-
     public int playDuelMode() {
 
         //variables

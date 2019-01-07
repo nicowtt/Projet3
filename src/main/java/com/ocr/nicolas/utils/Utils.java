@@ -7,8 +7,7 @@ import java.util.*;
 
 public class Utils {
 
-    static final Logger logger = LogManager.getLogger();
-
+    static final Logger logger = LogManager.getLogger(Utils.class);
 
     /**
      * For convert String to Array List (integer inside)

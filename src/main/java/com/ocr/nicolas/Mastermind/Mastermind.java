@@ -9,15 +9,15 @@ import java.util.*;
 
 public abstract class Mastermind extends Games {
 
+    static final Logger logger = LogManager.getLogger(Mastermind.class);
+
+    Scanner sc = new Scanner(System.in);
+
     protected boolean iswin;
     protected List<String> listCombinationRemainingexport;
     protected int goodplaceExport;
     protected int presentExport;
     protected boolean noMoreTry;
-
-    Scanner sc = new Scanner(System.in);
-
-    static final Logger logger = LogManager.getLogger();
 
     public Mastermind(Config config) {
         super(config);

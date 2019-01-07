@@ -1,8 +1,8 @@
 package com.ocr.nicolas;
 
 public enum Replay {
-    REPLAY,
-    GAMESCHOICE,
-    EXIT;
+    REPLAY, // rejouer
+    GAMESCHOICE, // choix du jeux
+    EXIT; // sortie
     }
 

@@ -1,10 +1,13 @@
 package com.ocr.nicolas;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.Scanner;
 
-import static com.ocr.nicolas.Log4j.logger;
-
 public class MenuDisplay {
+
+    static final Logger logger = LogManager.getLogger(MenuDisplay.class);
 
     Scanner sc = new Scanner(System.in);
 

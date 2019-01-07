@@ -6,20 +6,10 @@ import com.ocr.nicolas.Mastermind.MastermindDuel;
 import com.ocr.nicolas.SearchNumber.SearchNumberChallenger;
 import com.ocr.nicolas.SearchNumber.SearchNumberDefender;
 import com.ocr.nicolas.SearchNumber.SearchNumberDuel;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 public class PlayGames {
 
-    static final Logger logger = LogManager.getLogger();
-
-    //commun a tous les jeux
     private static int nbrDigit;
-    private static int nbrOfTry;
-    private static String developerMode;
-
-    //Pour le mastermind
-    private static int nbrMaxOnDigit;
 
     public static void playGames() {
 
@@ -31,12 +21,8 @@ public class PlayGames {
         MenuDisplay display = new MenuDisplay();
         Config config = new Config();
 
-        // lecture fichier readProperties
+        // lecture dans fichier readProperties
         nbrDigit = config.getNbrDigit();
-        nbrOfTry = config.getNbrOfTry();
-        developerMode = config.getDeveloperMode();
-        nbrMaxOnDigit = config.getNbrMaxOnDigit();
-        logger.info("lecture fichier config properties ");
 
         // boucle si replay
         do {

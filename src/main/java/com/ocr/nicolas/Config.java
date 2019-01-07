@@ -12,6 +12,8 @@ import org.apache.logging.log4j.Logger;
 
 public class Config {
 
+    static final Logger logger = LogManager.getLogger();
+
     private int nbrDigit;
     private String developerMode;
     private int nbrOfTry;
@@ -23,8 +25,6 @@ public class Config {
         return nbrDigit;
     }
     public int getNbrMaxOnDigit() {return nbrMaxOnDigit;}
-
-    static final Logger logger = LogManager.getLogger();
 
     public Config() {
         readConfigProperties();
@@ -40,7 +40,7 @@ public class Config {
 
         try {
 
-            input = new FileInputStream("C://Users//nicob//Documents//GitHub//Projet3//src//main//resources//config.properties");
+            input = new FileInputStream("src//main//resources//config.properties");
             // load a properties file
             prop.load(input);
 
@@ -61,13 +61,13 @@ public class Config {
 
 
         } catch (final IOException ex) {
-            ex.printStackTrace();
+            logger.error(" erreur de lecture du fichier config.properties",ex);
         } finally {
             if (input != null) {
                 try {
                     input.close();
                 } catch (final IOException e) {
-                    e.printStackTrace();
+                    logger.error(" erreur de lecture du fichier config.properties",e);
                 }
             }
         }
