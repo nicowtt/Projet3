@@ -2,3 +2,7 @@
 ### Java ###
 # Compiled class file
 *.class
+
+out/
+target/
+*.log
