@@ -50,6 +50,8 @@ Pour le Mastermind :
 
 - le nombre de chiffres(couleurs) utilisables (de 4 à 10)
 
+Possibilité de lancer le jeu en ligne de commande (avec ou sans l'argument pour le mode developpeur), depuis le répertoire racine de l'application: java -jar main.jar dev
+
 ## Pour jouer
 
 Veuillez faire un clone en local de mon projet 3 [ici](https://github.com/nicowtt/Projet3), et le lancer grâce à Intellij.

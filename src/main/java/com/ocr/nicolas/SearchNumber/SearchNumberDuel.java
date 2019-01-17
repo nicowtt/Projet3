@@ -91,7 +91,7 @@ public class SearchNumberDuel extends SearchNumber implements PlayDuel {
                 System.out.println(" Voici les valeurs pour trouver la combinaison de l'ordinateur:");
 
                 // je verifie et j'affiche si le Mode developper a été demandé
-                if (developerMode.contains("true")) {System.out.println("(" + randCompDuel + ") = chiffre ordinateur (mode developpeur)");}
+                if (developerMode.contains("true") || Config.isDEV()) {System.out.println("(" + randCompDuel + ") = chiffre ordinateur (mode developpeur)");}
 
                 //challenger 1: Je lance la comparaison et j'affiche le resultat.
                 String afterCompareChallenger = this.CompareTwoString(randCompDuel, nbrUserDuelDefender);

@@ -39,7 +39,7 @@ public class MastermindChallenger extends Mastermind implements PlayChallenger {
             userChalMastStr = this.inputUserStringMast();
 
             // j'affiche le mode developpeur au besoin
-            if (developerMode.contains("true")) { System.out.println(randCompChalMast + " -> (combinaison ordinateur: mode developpeur) ");}
+            if (developerMode.contains("true") || Config.isDEV()) { System.out.println(randCompChalMast + " -> (combinaison ordinateur: mode developpeur) ");}
 
             //je compare avec l'ordinateur pour voir les presents en fonction des bien placés
             this.compareTwoStringMast(userChalMastStr, randCompChalMast);

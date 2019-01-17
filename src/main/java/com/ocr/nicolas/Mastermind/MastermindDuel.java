@@ -41,7 +41,7 @@ public class MastermindDuel extends Mastermind implements PlayDuel {
         System.out.println("Choisi une combinaison de " + nbrDigit + " chiffre(s) ( chaque chiffre doit être compris entre 0 et " + nbrMaxOnDigit + ")");
 
         // j'affiche le mode developpeur au besoin (challenger)
-        if (developerMode.contains("true")) { System.out.println(randCompChalMast + " -> (combinaison ordinateur: mode developpeur) ");}
+        if (developerMode.contains("true") || Config.isDEV()) { System.out.println(randCompChalMast + " -> (combinaison ordinateur: mode developpeur) ");}
 
         // recuperation de la combinaison utilisateur
         userChalMastStr = this.inputUserStringMast(); // (challenger)

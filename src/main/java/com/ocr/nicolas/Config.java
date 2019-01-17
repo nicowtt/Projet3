@@ -18,6 +18,7 @@ public class Config {
     private String developerMode;
     private int nbrOfTry;
     private int nbrMaxOnDigit;
+    private static boolean DEV;
 
     public int getNbrOfTry() { return nbrOfTry; }
     public String getDeveloperMode() { return developerMode; }
@@ -25,6 +26,15 @@ public class Config {
         return nbrDigit;
     }
     public int getNbrMaxOnDigit() {return nbrMaxOnDigit;}
+    public static boolean isDEV() {
+        return DEV;
+    }
+
+
+    public static void setDEV(boolean DEV) {
+        Config.DEV = DEV;
+    }
+
 
     public Config() {
         readConfigProperties();
@@ -37,6 +47,7 @@ public class Config {
 
         final Properties prop = new Properties();
         InputStream input = null;
+        //System.out.println("methode read config");
 
         try {
 

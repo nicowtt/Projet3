@@ -45,7 +45,7 @@ public class SearchNumberChallenger extends SearchNumber implements PlayChalleng
             System.out.println(afterCompareChallenger);
 
             // je verifie si le Mode developper a été demandé
-            if (developerMode.contains("true")) {System.out.println("(" + randCompChallenger + ")");}
+            if (developerMode.contains("true") || Config.isDEV()) {System.out.println("(" + randCompChallenger + ")");}
 
             // je teste si gagnant ou perdant
             inverseLoop -= 1;
